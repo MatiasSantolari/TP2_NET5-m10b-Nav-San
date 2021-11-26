@@ -46,15 +46,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapter.cs" />
-<<<<<<< HEAD
     <Compile Include="Alumno_InscripcionAdapter.cs" />
     <Compile Include="ComisionAdapter.cs" />
     <Compile Include="CursosAdapter.cs" />
-=======
     <Compile Include="MateriaAdapter.cs" />
     <Compile Include="ModuloAdapter.cs" />
     <Compile Include="PlanesAdapter.cs" />
->>>>>>> MATT-FRANC
     <Compile Include="UsuarioAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

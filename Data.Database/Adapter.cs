@@ -15,18 +15,6 @@ namespace Data.Database
             sqlConnection = new SqlConnection(@"Data Source=.\SQLExpress;Initial Catalog=Academia;Integrated Security=True");
         }
 
-<<<<<<< HEAD
-        //Clave por defecto a utlizar para la cadena de conexion
-        const string consKeyDefaultCnnString = "ConnStringExpress";
-
-        public SqlConnection sqlConn { get; set; }
-
-        protected void OpenConnection()
-        {
-            string connstr= ConfigurationManager.ConnectionStrings[consKeyDefaultCnnString].ConnectionString;
-            sqlConn = new SqlConnection(connstr);
-            sqlConn.Open();
-=======
         protected void OpenConnection() //abre conexion
         {
             try
@@ -37,15 +25,10 @@ namespace Data.Database
             {
                 throw new Exception(e.Message);
             }
->>>>>>> MATT-FRANC
         }
 
         protected void CloseConnection() //cierra conexion
         {
-<<<<<<< HEAD
-            sqlConn.Close();
-            sqlConn = null;
-=======
             try
             {
                 sqlConnection.Close();
@@ -54,7 +37,6 @@ namespace Data.Database
             {
                 throw new Exception(e.Message);
             }
->>>>>>> MATT-FRANC
         }
 
         protected SqlDataReader ExecuteReader(String commandText)
