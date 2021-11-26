@@ -1,0 +1,12 @@
+C:\Users\franc\source\repos\PRACTICA-NET-FRAMEWORK\Unidades\TP2\TP2\Business.Entities\bin\Debug\Business.Entities.dll
+C:\Users\franc\source\repos\PRACTICA-NET-FRAMEWORK\Unidades\TP2\TP2\Business.Entities\bin\Debug\Business.Entities.pdb
+C:\Users\franc\source\repos\PRACTICA-NET-FRAMEWORK\Unidades\TP2\TP2\Business.Entities\obj\Debug\Business.Entities.csproj.AssemblyReference.cache
+C:\Users\franc\source\repos\PRACTICA-NET-FRAMEWORK\Unidades\TP2\TP2\Business.Entities\obj\Debug\Business.Entities.csproj.CoreCompileInputs.cache
+C:\Users\franc\source\repos\PRACTICA-NET-FRAMEWORK\Unidades\TP2\TP2\Business.Entities\obj\Debug\Business.Entities.dll
+C:\Users\franc\source\repos\PRACTICA-NET-FRAMEWORK\Unidades\TP2\TP2\Business.Entities\obj\Debug\Business.Entities.pdb
+D:\Mati\Facultad\3ro\.net\PracticasLab\PRACTICA-NET-FRAMEWORK\Unidades\TP2\TP2\Business.Entities\bin\Debug\Business.Entities.dll
+D:\Mati\Facultad\3ro\.net\PracticasLab\PRACTICA-NET-FRAMEWORK\Unidades\TP2\TP2\Business.Entities\bin\Debug\Business.Entities.pdb
+D:\Mati\Facultad\3ro\.net\PracticasLab\PRACTICA-NET-FRAMEWORK\Unidades\TP2\TP2\Business.Entities\obj\Debug\Business.Entities.csproj.AssemblyReference.cache
+D:\Mati\Facultad\3ro\.net\PracticasLab\PRACTICA-NET-FRAMEWORK\Unidades\TP2\TP2\Business.Entities\obj\Debug\Business.Entities.csproj.CoreCompileInputs.cache
+D:\Mati\Facultad\3ro\.net\PracticasLab\PRACTICA-NET-FRAMEWORK\Unidades\TP2\TP2\Business.Entities\obj\Debug\Business.Entities.dll
+D:\Mati\Facultad\3ro\.net\PracticasLab\PRACTICA-NET-FRAMEWORK\Unidades\TP2\TP2\Business.Entities\obj\Debug\Business.Entities.pdb

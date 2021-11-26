@@ -1,0 +1,6 @@
+C:\Users\franc\source\repos\PRACTICA-NET-FRAMEWORK\Unidades\TP2\TP2\Util\bin\Debug\Util.dll
+C:\Users\franc\source\repos\PRACTICA-NET-FRAMEWORK\Unidades\TP2\TP2\Util\bin\Debug\Util.pdb
+C:\Users\franc\source\repos\PRACTICA-NET-FRAMEWORK\Unidades\TP2\TP2\Util\obj\Debug\Util.csproj.AssemblyReference.cache
+C:\Users\franc\source\repos\PRACTICA-NET-FRAMEWORK\Unidades\TP2\TP2\Util\obj\Debug\Util.csproj.CoreCompileInputs.cache
+C:\Users\franc\source\repos\PRACTICA-NET-FRAMEWORK\Unidades\TP2\TP2\Util\obj\Debug\Util.dll
+C:\Users\franc\source\repos\PRACTICA-NET-FRAMEWORK\Unidades\TP2\TP2\Util\obj\Debug\Util.pdb
