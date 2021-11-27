@@ -16,3 +16,21 @@ C:\Users\franc\source\repos\PRACTICA-NET-FRAMEWORK\Unidades\TP2\TP2\UI.Desktop\b
 C:\Users\franc\source\repos\PRACTICA-NET-FRAMEWORK\Unidades\TP2\TP2\UI.Desktop\bin\Debug\Data.Database.pdb
 C:\Users\franc\source\repos\PRACTICA-NET-FRAMEWORK\Unidades\TP2\TP2\UI.Desktop\obj\Debug\UI.Desktop.UsuariosForm.resources
 C:\Users\franc\source\repos\PRACTICA-NET-FRAMEWORK\Unidades\TP2\TP2\UI.Desktop\obj\Debug\UI.Desktop.csproj.CopyComplete
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\bin\Debug\UI.Desktop.exe.config
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\bin\Debug\UI.Desktop.exe
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\bin\Debug\UI.Desktop.pdb
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\bin\Debug\Business.Entities.dll
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\bin\Debug\Business.Logic.dll
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\bin\Debug\Data.Database.dll
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\bin\Debug\Business.Entities.pdb
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\bin\Debug\Business.Logic.pdb
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\bin\Debug\Data.Database.pdb
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.csproj.AssemblyReference.cache
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.UsuariosForm.resources
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\LabGrilla.formListaUsuarios.resources
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.Properties.Resources.resources
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.csproj.GenerateResource.cache
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.csproj.CoreCompileInputs.cache
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.csproj.CopyComplete
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.exe
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.pdb

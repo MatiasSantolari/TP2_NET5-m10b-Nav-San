@@ -9,83 +9,95 @@ using Business.Entities;
 
 namespace Data.Database
 {
-    public class MateriaAdapter:Adapter
+    public class PersonaAdapter:Adapter
     {
 
-
-        public List<Materia> GetAll()
+        public List<Persona> GetAll()
         {
-            List<Materia> materias = new List<Materia>();
+            List<Persona> personas = new List<Persona>();
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdMaterias = new SqlCommand("select * from materias", sqlConnection);
-                SqlDataReader drMaterias = cmdMaterias.ExecuteReader();
-                while (drMaterias.Read())
+                SqlCommand cmdPersonas = new SqlCommand("select * from personas", sqlConnection);
+                SqlDataReader drPersonas = cmdPersonas.ExecuteReader();
+                while (drPersonas.Read())
                 {
-                    Materia mat = new Materia();
-                    mat.ID = (int)drMaterias["id_materia"];
-                    mat.DescMateria = (string)drMaterias["desc_materia"];
-                    mat.HsSemanales = (int)drMaterias["hs_semanales"];
-                    mat.HsTotales = (int)drMaterias["hs_totales"];
-                    mat.IdPlan = (int)drMaterias["id_plan"];
-                    materias.Add(mat);
+                    Persona p = new Persona();
+                    p.ID = (int)drPersonas["id_persona"];
+                    p.Nombre = (string)drPersonas["nombre"];
+                    p.Apellido = (string)drPersonas["apellido"];
+                    p.Direccion = (string)drPersonas["direccion"];
+                    p.Email = (string)drPersonas["email"];
+                    p.Telefono = (string)drPersonas["telefono"];
+                    p.FechaNac = (DateTime)drPersonas["fecha_nac"];
+                    p.Legajo = (int)drPersonas["legajo"];
+                    p.TipoPersona = (int)drPersonas["tipo_persona"];
+                    personas.Add(p);
                 }
-                drMaterias.Close();
+                drPersonas.Close();
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al recuperar lista de materias", Ex);
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de personas", Ex);
                 throw ExcepcionManejada;
             }
             finally
             {
                 this.CloseConnection();
             }
-            return materias;
+            return personas;
         }
 
-        public Materia GetOne(int ID)
+        public Persona GetOne(int ID)
         {
-            Materia mat = new Materia();
+            Persona p = new Persona();
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdMaterias = new SqlCommand("Select * from materias where id_materia = @id", sqlConnection);
-                cmdMaterias.Parameters.Add("@id", SqlDbType.Int).Value = ID;
-                SqlDataReader drMaterias = cmdMaterias.ExecuteReader();
-                if (drMaterias.Read())
+                SqlCommand cmdPersona = new SqlCommand("Select * from personas where id_persona = @id", sqlConnection);
+                cmdPersona.Parameters.Add("@id", SqlDbType.Int).Value = ID;
+                SqlDataReader drPersona = cmdPersona.ExecuteReader();
+                if (drPersona.Read())
                 {
-                    mat.ID = (int)drMaterias["id_materia"];
-                    mat.DescMateria = (string)drMaterias["desc_materia"];
-                    mat.HsSemanales = (int)drMaterias["hs_semanales"];
-                    mat.HsTotales = (int)drMaterias["hs_totales"];
-                    mat.IdPlan = (int)drMaterias["id_plan"];
+                    p.ID = (int)drPersona["id_persona"];
+                    p.Nombre = (string)drPersona["nombre"];
+                    p.Apellido = (string)drPersona["apellido"];
+                    p.Direccion = (string)drPersona["direccion"];
+                    p.Email = (string)drPersona["email"];
+                    p.Telefono = (string)drPersona["telefono"];
+                    p.FechaNac = (DateTime)drPersona["fecha_nac"];
+                    p.Legajo = (int)drPersona["legajo"];
+                    p.TipoPersona = (int)drPersona["tipo_persona"];
                 }
-                drMaterias.Close();
+                drPersona.Close();
             }
             catch (Exception e)
             {
-                Exception ExcepcionManejada = new Exception("Error al recuperar datos de la materia", e);
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos de la persona", e);
                 throw ExcepcionManejada;
             }
             finally
             {
                 this.CloseConnection();
             }
-            return mat;
+            return p;
         }
-        protected void Update(Materia materia)
+        protected void Update(Persona persona)
         {
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdSave = new SqlCommand("UPDATE materias SET desc_materia=@desc_materia, hs_semanales=@hs_semanales, hs_totales=@hs_totales, id_plan=@id_plan where id_materia=@id", sqlConnection);
-                cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = materia.ID;
-                cmdSave.Parameters.Add("@desc_materia", SqlDbType.VarChar, 50).Value = materia.DescMateria;
-                cmdSave.Parameters.Add("@hs_semanales", SqlDbType.Int).Value = materia.HsSemanales;
-                cmdSave.Parameters.Add("@hs_totales", SqlDbType.Int).Value = materia.HsTotales;
-                cmdSave.Parameters.Add("@id_plan", SqlDbType.Int).Value = materia.IdPlan;
+                SqlCommand cmdSave = new SqlCommand("UPDATE personas SET nombre=@nombre, apellido=@apellido, direccion=@direccion, email=@email, telefono=@telefono, fecha_nac=@fecha_nac, legajo=@legajo, tipo_persona=@tipo_persona, id_plan=@id_plan, = where id_persona=@id", sqlConnection);
+                cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = persona.ID;
+                cmdSave.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = persona.Nombre;
+                cmdSave.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = persona.Apellido;
+                cmdSave.Parameters.Add("@direccion", SqlDbType.VarChar, 50).Value = persona.Direccion;
+                cmdSave.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = persona.Email;
+                cmdSave.Parameters.Add("@telefono", SqlDbType.VarChar, 50).Value = persona.Telefono;
+                cmdSave.Parameters.Add("@fecha_nac", SqlDbType.DateTime).Value = persona.FechaNac;
+                cmdSave.Parameters.Add("@LEGAJO", SqlDbType.Int).Value = persona.Legajo;
+                cmdSave.Parameters.Add("@tipoPersona", SqlDbType.Int).Value = persona.TipoPersona;
+                cmdSave.Parameters.Add("@idPlan", SqlDbType.Int).Value = persona.IdPlan;
                 cmdSave.ExecuteNonQuery();
             }
             catch (Exception e)
