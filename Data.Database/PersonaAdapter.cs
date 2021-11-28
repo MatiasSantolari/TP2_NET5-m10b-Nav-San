@@ -95,14 +95,14 @@ namespace Data.Database
                 cmdSave.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = persona.Email;
                 cmdSave.Parameters.Add("@telefono", SqlDbType.VarChar, 50).Value = persona.Telefono;
                 cmdSave.Parameters.Add("@fecha_nac", SqlDbType.DateTime).Value = persona.FechaNac;
-                cmdSave.Parameters.Add("@LEGAJO", SqlDbType.Int).Value = persona.Legajo;
+                cmdSave.Parameters.Add("@legajo", SqlDbType.Int).Value = persona.Legajo;
                 cmdSave.Parameters.Add("@tipoPersona", SqlDbType.Int).Value = persona.TipoPersona;
                 cmdSave.Parameters.Add("@idPlan", SqlDbType.Int).Value = persona.IdPlan;
                 cmdSave.ExecuteNonQuery();
             }
             catch (Exception e)
             {
-                Exception er = new Exception("Error al actualizar los datos de la materia", e);
+                Exception er = new Exception("Error al actualizar los datos de la persona", e);
                 throw er;
             }
             finally
@@ -119,13 +119,13 @@ namespace Data.Database
                 this.OpenConnection();
 
                 //creamos la sentencia sql y asignamos un valor al parámetro
-                SqlCommand cmdDelete = new SqlCommand("delete materias where id_materia=@id", sqlConnection);
+                SqlCommand cmdDelete = new SqlCommand("delete personas where id_persona=@id", sqlConnection);
                 cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = ID;
                 cmdDelete.ExecuteNonQuery();
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al eliminar la materia", Ex);
+                Exception ExcepcionManejada = new Exception("Error al eliminar la persona", Ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -133,23 +133,28 @@ namespace Data.Database
                 this.CloseConnection();
             }
         }
-        protected void Insert(Materia materia)
+        protected void Insert(Persona p)
         {
             try
             {
                 this.OpenConnection();
                 SqlCommand cmdSave = new SqlCommand(
-                "insert into materias(desc_materia,hs_semanales,hs_totales,id_plan) " +
-                "Values(@desc_materia,@hs_semanales,@hs_totales,@id_plan)", sqlConnection);
-                cmdSave.Parameters.Add("@desc_materia", SqlDbType.VarChar, 50).Value = materia.DescMateria;
-                cmdSave.Parameters.Add("@hs_semanales", SqlDbType.Int).Value = materia.HsSemanales;
-                cmdSave.Parameters.Add("@hs_totales", SqlDbType.Int).Value = materia.HsTotales;
-                cmdSave.Parameters.Add("@id_plan", SqlDbType.Int).Value = materia.IdPlan;
+                "insert into personas(nombre, apellido, direccion, email, telefono, fecha_nac, legajo, tipo_persona, id_plan) " +
+                "Values(@nombre, @apellido, @direccion, @email, @telefono, @fecha_nac, @legajo, @tipo_persona, @id_plan)", sqlConnection);
+                cmdSave.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = p.Nombre;
+                cmdSave.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = p.Apellido;
+                cmdSave.Parameters.Add("@direccion", SqlDbType.VarChar, 50).Value = p.Direccion;
+                cmdSave.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = p.Email;
+                cmdSave.Parameters.Add("@telefono", SqlDbType.VarChar, 50).Value = p.Telefono;
+                cmdSave.Parameters.Add("@fecha_nac", SqlDbType.DateTime).Value = p.FechaNac;
+                cmdSave.Parameters.Add("@legajo", SqlDbType.Int).Value = p.Legajo;
+                cmdSave.Parameters.Add("@tipo_persona", SqlDbType.Int).Value = p.TipoPersona;
+                cmdSave.Parameters.Add("@id_plan", SqlDbType.Int).Value = p.IdPlan;
                 cmdSave.ExecuteNonQuery();
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al crear materia", Ex);
+                Exception ExcepcionManejada = new Exception("Error al crear la persona", Ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -158,21 +163,21 @@ namespace Data.Database
             }
         }
 
-        public void Save(Materia materia)
+        public void Save(Persona p)
         {
-            if (materia.State == BusinessEntity.States.Deleted)
+            if (p.State == BusinessEntity.States.Deleted)
             {
-                this.Delete(materia.ID);
+                this.Delete(p.ID);
             }
-            else if (materia.State == BusinessEntity.States.New)
+            else if (p.State == BusinessEntity.States.New)
             {
-                this.Insert(materia);
+                this.Insert(p);
             }
-            else if (materia.State == BusinessEntity.States.Modified)
+            else if (p.State == BusinessEntity.States.Modified)
             {
-                this.Update(materia);
+                this.Update(p);
             }
-            materia.State = BusinessEntity.States.Unmodified;
+            p.State = BusinessEntity.States.Unmodified;
         }
 
     }
