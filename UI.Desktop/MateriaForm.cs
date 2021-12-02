@@ -21,7 +21,7 @@ namespace UI.Desktop
         }
         public void Listar()
         {
-            UsuarioLogic ul = new UsuarioLogic();
+            MateriaLogic ul = new MateriaLogic();
             this.dgvMaterias.DataSource = ul.GetAll();
         }
         private void MateriasForm_Load(object sender, EventArgs e)
@@ -37,6 +37,29 @@ namespace UI.Desktop
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void tsbNuevo_Click(object sender, EventArgs e)
+        {
+            MateriaDesktop mat = new MateriaDesktop(ModoForm.Alta);
+            mat.ShowDialog();
+            this.Listar();
+        }
+
+        private void tsbEditar_Click(object sender, EventArgs e)
+        {
+            int id = ((Business.Entities.Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID;
+            MateriaDesktop mat = new MateriaDesktop(id, ModoForm.Modicacion);
+            mat.ShowDialog();
+            this.Listar();
+        }
+
+        private void tsbEliminar_Click(object sender, EventArgs e)
+        {
+            int id = ((Business.Entities.Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID;
+            MateriaDesktop mat = new MateriaDesktop(id, ModoForm.Baja);
+            mat.ShowDialog();
+            this.Listar();
         }
     }
 }
