@@ -53,6 +53,7 @@
     <Compile Include="EspecialidadAdapter.cs" />
     <Compile Include="MateriaAdapter.cs" />
     <Compile Include="ModuloAdapter.cs" />
+    <Compile Include="PersonaAdapter.cs" />
     <Compile Include="PlanesAdapter.cs" />
     <Compile Include="UsuarioAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
