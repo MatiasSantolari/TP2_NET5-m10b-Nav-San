@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Business.Entities
 {
-    public class Comisiones : BusinessEntity
+    public class Comision : BusinessEntity
     {
         private int _id_plan;
         private string _desc_comision;
-        private int _anio_especialidad;
+        private Anios _anio_especialidad;
 
         public int IDPlan
         {
@@ -34,7 +34,7 @@ namespace Business.Entities
                 _desc_comision = value;
             }
         }
-        public int AnioEspecialidad
+        public Anios AnioEspecialidad
         {
             get
             {
@@ -44,6 +44,15 @@ namespace Business.Entities
             {
                 _anio_especialidad = value;
             }
+        }
+        public enum Anios
+        {
+            Primero = 1,
+            Segundo = 2,
+            Tercero = 3,
+            Cuarto = 4,
+            Quinto = 5,
+            Sexto = 6
         }
     }
 }

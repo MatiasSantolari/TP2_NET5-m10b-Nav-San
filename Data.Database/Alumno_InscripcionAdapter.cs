@@ -4,14 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Business.Entities;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace Data.Database
 {
-    class Alumno_InscripcionAdapter: Adapter
+    public class Alumno_InscripcionAdapter: Adapter
     {
-        #region DatosEnMemoria
-        // Esta región solo se usa en esta etapa donde los datos se mantienen en memoria.
-        // Al modificar este proyecto para que acceda a la base de datos esta será eliminada
         private static List<Alumnos_Inscripciones> _Alumnos_Inscripciones;
 
         private static List<Alumnos_Inscripciones> Alumnos_Inscripciones
@@ -20,75 +19,176 @@ namespace Data.Database
             {
                 if (_Alumnos_Inscripciones == null)
                 {
-                    _Alumnos_Inscripciones = new List<Alumnos_Inscripciones>();
+                    _Alumnos_Inscripciones = new List<Business.Entities.Alumnos_Inscripciones>();
                     Alumnos_Inscripciones al_insc;
                     al_insc = new Alumnos_Inscripciones();
                     al_insc.ID = 1;
-                    al_insc.State = BusinessEntity.States.Unmodified;
                     al_insc.IDAlumno = 1;
                     al_insc.IDCurso = 1;
+                    al_insc.Condicion = "Aprobado";
                     al_insc.Nota = 9;
+                    al_insc.State = BusinessEntity.States.Unmodified;
                     _Alumnos_Inscripciones.Add(al_insc);
 
                     al_insc = new Alumnos_Inscripciones();
                     al_insc.ID = 2;
-                    al_insc.State = BusinessEntity.States.Unmodified;
                     al_insc.IDAlumno = 2;
                     al_insc.IDCurso = 2;
-                    al_insc.Nota = 8;
-                    _Alumnos_Inscripciones.Add(al_insc);
-
-                    al_insc = new Alumnos_Inscripciones();
-                    al_insc.ID = 3;
+                    al_insc.Condicion = "Reprobado";
+                    al_insc.Nota = 2;
                     al_insc.State = BusinessEntity.States.Unmodified;
-                    al_insc.IDAlumno = 3;
-                    al_insc.IDCurso = 1;
-                    al_insc.Nota = 7;
                     _Alumnos_Inscripciones.Add(al_insc);
-
                 }
                 return _Alumnos_Inscripciones;
             }
         }
-        #endregion
 
         public List<Alumnos_Inscripciones> GetAll()
         {
-            return new List<Alumnos_Inscripciones>(Alumnos_Inscripciones);
+            List<Alumnos_Inscripciones> alumnos_inscripciones = new List<Alumnos_Inscripciones>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdAlumnos_Inscripciones = new SqlCommand("select * from alumnos_inscripciones", sqlConnection);
+                SqlDataReader drAlumnos_Inscripciones = cmdAlumnos_Inscripciones.ExecuteReader();
+                while (drAlumnos_Inscripciones.Read())
+                {
+                    Alumnos_Inscripciones al_insc = new Alumnos_Inscripciones();
+                    al_insc.ID = (int)drAlumnos_Inscripciones["id_inscripcion"];
+                    al_insc.IDAlumno = (int)drAlumnos_Inscripciones["id_alumno"];
+                    al_insc.IDCurso = (int)drAlumnos_Inscripciones["id_curso"];
+                    al_insc.Condicion = (string)drAlumnos_Inscripciones["condicion"];
+                    al_insc.Nota = (int)drAlumnos_Inscripciones["nota"];
+                    alumnos_inscripciones.Add(al_insc);
+                }
+                drAlumnos_Inscripciones.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de inscripciones de alumnos", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return alumnos_inscripciones;
         }
 
         public Alumnos_Inscripciones GetOne(int ID)
         {
-            return Alumnos_Inscripciones.Find(delegate (Alumnos_Inscripciones ai) { return ai.ID == ID; });
+            Alumnos_Inscripciones al_insc = new Alumnos_Inscripciones();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdAlumnos_Inscripciones = new SqlCommand("Select * from alumnos_inscripciones where id_inscripcion = @id", sqlConnection);
+                cmdAlumnos_Inscripciones.Parameters.Add("@id", SqlDbType.Int).Value = ID;
+                SqlDataReader drAlumnos_Inscripciones = cmdAlumnos_Inscripciones.ExecuteReader();
+                if (drAlumnos_Inscripciones.Read())
+                {
+                    al_insc.ID = (int)drAlumnos_Inscripciones["id_inscripcion"];
+                    al_insc.IDAlumno = (int)drAlumnos_Inscripciones["id_alumno"];
+                    al_insc.IDCurso = (int)drAlumnos_Inscripciones["id_curso"];
+                    al_insc.Condicion = (string)drAlumnos_Inscripciones["condicion"];
+                    al_insc.Nota = (int)drAlumnos_Inscripciones["nota"];
+                }
+                drAlumnos_Inscripciones.Close();
+            }
+            catch (Exception e)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos de inscripciones de alumnos", e);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return al_insc;
+        }
+        protected void Update(Alumnos_Inscripciones alumnos_inscripciones)
+        {
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdSave = new SqlCommand("UPDATE alumnos_inscripciones SET id_alumno = @id_alumno, id_curso = @id_curso, condicion = @condicion, nota = @nota  where id_inscripcion=@id_inscripcion", sqlConnection);
+                cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = alumnos_inscripciones.ID;
+                cmdSave.Parameters.Add("@id_alumno", SqlDbType.Int).Value = alumnos_inscripciones.IDAlumno;
+                cmdSave.Parameters.Add("@id_curso", SqlDbType.Int).Value = alumnos_inscripciones.IDCurso;
+                cmdSave.Parameters.Add("@condicion", SqlDbType.VarChar, 50).Value = alumnos_inscripciones.Condicion;
+                cmdSave.Parameters.Add("@nota", SqlDbType.Int).Value = alumnos_inscripciones.Nota;
+                cmdSave.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Exception er = new Exception("Error al actualizar los datos de la inscripción del alumno", e);
+                throw er;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
         }
 
         public void Delete(int ID)
         {
-            Alumnos_Inscripciones.Remove(this.GetOne(ID));
+            try
+            {
+                //abrimos la conexión
+                this.OpenConnection();
+
+                //creamos la sentencia sql y asignamos un valor al parámetro
+                SqlCommand cmdDelete = new SqlCommand("delete alumnos_inscripciones where id_inscripcion=@id_inscripcion", sqlConnection);
+                cmdDelete.Parameters.Add("@id_inscripcion", SqlDbType.Int).Value = ID;
+                cmdDelete.ExecuteNonQuery();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al eliminar la inscripción del alumno", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
+        protected void Insert(Alumnos_Inscripciones alumnos_inscripciones)
+        {
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdSave = new SqlCommand(
+                "insert into alumnos_inscripciones(id_alumno, id_curso, condicion, nota) " +
+                "Values(@id_alumno, @id_curso, @condicion, @nota)", sqlConnection);
+                cmdSave.Parameters.Add("@id_alumno", SqlDbType.Int).Value = alumnos_inscripciones.IDAlumno;
+                cmdSave.Parameters.Add("@id_curso", SqlDbType.Int).Value = alumnos_inscripciones.IDCurso;
+                cmdSave.Parameters.Add("@condicion", SqlDbType.VarChar, 50).Value = alumnos_inscripciones.Condicion;
+                cmdSave.Parameters.Add("@nota", SqlDbType.Int).Value = alumnos_inscripciones.Nota;
+                cmdSave.ExecuteNonQuery();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al crear inscripción", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
         }
 
         public void Save(Alumnos_Inscripciones alumnos_inscripciones)
         {
-            if (alumnos_inscripciones.State == BusinessEntity.States.New)
-            {
-                int NextID = 0;
-                foreach (Alumnos_Inscripciones alinsc in Alumnos_Inscripciones)
-                {
-                    if (alinsc.ID > NextID)
-                    {
-                        NextID = alinsc.ID;
-                    }
-                }
-                alumnos_inscripciones.ID = NextID + 1;
-                Alumnos_Inscripciones.Add(alumnos_inscripciones);
-            }
-            else if (alumnos_inscripciones.State == BusinessEntity.States.Deleted)
+            if (alumnos_inscripciones.State == BusinessEntity.States.Deleted)
             {
                 this.Delete(alumnos_inscripciones.ID);
             }
+            else if (alumnos_inscripciones.State == BusinessEntity.States.New)
+            {
+                this.Insert(alumnos_inscripciones);
+            }
             else if (alumnos_inscripciones.State == BusinessEntity.States.Modified)
             {
-                Alumnos_Inscripciones[Alumnos_Inscripciones.FindIndex(delegate (Alumnos_Inscripciones alinsc) { return alinsc.ID == alumnos_inscripciones.ID; })] = alumnos_inscripciones;
+                this.Update(alumnos_inscripciones);
             }
             alumnos_inscripciones.State = BusinessEntity.States.Unmodified;
         }

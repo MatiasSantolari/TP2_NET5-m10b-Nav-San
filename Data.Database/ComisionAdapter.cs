@@ -4,93 +4,239 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Business.Entities;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace Data.Database
 {
-    class ComisionAdapter:Adapter
+    public class ComisionAdapter:Adapter
     {
-        #region DatosEnMemoria
-        // Esta región solo se usa en esta etapa donde los datos se mantienen en memoria.
-        // Al modificar este proyecto para que acceda a la base de datos esta será eliminada
-        private static List<Comisiones> _Comisiones;
+        
 
-        private static List<Comisiones> Comisiones
+        public List<Comision> GetAll()
         {
-            get
+            List<Comision> comisiones = new List<Comision>();
+            try
             {
-                if (_Comisiones == null)
+                this.OpenConnection();
+                SqlCommand cmdComisiones = new SqlCommand("select * from comisiones", sqlConnection);
+                SqlDataReader drComisiones = cmdComisiones.ExecuteReader();
+                while (drComisiones.Read())
                 {
-                    _Comisiones = new List<Comisiones>();
-                    Comisiones com;
-                    com = new Comisiones();
-                    com.ID = 1;
-                    com.State = BusinessEntity.States.Unmodified;
-                    com.AnioEspecialidad = 2021;
-                    com.DescComision = "1K1";
-                    com.IDPlan = 1;
-                    _Comisiones.Add(com);
-
-                    com = new Comisiones();
-                    com.ID = 2;
-                    com.State = BusinessEntity.States.Unmodified;
-                    com.AnioEspecialidad = 2021;
-                    com.DescComision = "1K2";
-                    com.IDPlan = 2;
-                    _Comisiones.Add(com);
-
-                    com = new Comisiones();
-                    com.ID = 3;
-                    com.State = BusinessEntity.States.Unmodified;
-                    com.AnioEspecialidad = 2020;
-                    com.DescComision = "3K1";
-                    com.IDPlan = 3;
-                    _Comisiones.Add(com);
+                    Comision com = new Comision();
+                    com.ID = (int)drComisiones["id_comision"];
+                    com.DescComision = (string)drComisiones["desc_comision"];
+                    com.AnioEspecialidad = (Comision.Anios)drComisiones["anio_especialidad"];
+                    com.IDPlan = (int)drComisiones["id_plan"];
+                    comisiones.Add(com);
 
                 }
-                return _Comisiones;
+                drComisiones.Close();
             }
-        }
-        #endregion
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de Comisiones", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
 
-        public List<Comisiones> GetAll()
-        {
-            return new List<Comisiones>(Comisiones);
+            }
+            return comisiones;
         }
 
-        public Comisiones GetOne(int ID)
+        public Business.Entities.Comision GetOne(int ID)
         {
-            return Comisiones.Find(delegate (Comisiones com) { return com.ID == ID; });
+            Comision com = new Comision();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdUsuarios = new SqlCommand("Select * from comisiones where id_comision = @id", sqlConnection);
+                cmdUsuarios.Parameters.Add("@id", SqlDbType.Int).Value = ID;
+                SqlDataReader drComisiones = cmdUsuarios.ExecuteReader();
+                if (drComisiones.Read())
+                {
+                    com.ID = (int)drComisiones["id_comision"];
+                    com.DescComision = (string)drComisiones["desc_comision"];
+                    com.AnioEspecialidad = (Comision.Anios)drComisiones["anio_especialidad"];
+                    com.IDPlan = (int)drComisiones["id_plan"];
+                }
+                drComisiones.Close();
+            }
+            catch (Exception e)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos de la comision", e);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return com;
+        }
+        protected void Update(Comision comi)
+        {
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdSave = new SqlCommand("UPDATE comisiones SET desc_comision=@desc_comision, anio_especialidad=@anio_especialidad, id_plan=@id_plan where id_comision=@id", sqlConnection);
+                cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = comi.ID;
+                cmdSave.Parameters.Add("@desc_comision", SqlDbType.VarChar, 50).Value = comi.DescComision;
+                cmdSave.Parameters.Add("@anio_especialidad", SqlDbType.Int).Value = comi.AnioEspecialidad;
+                cmdSave.Parameters.Add("@id_plan", SqlDbType.Int).Value = comi.IDPlan;
+                cmdSave.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Exception er = new Exception("Error al recuperar los datos de Comisiones", e);
+                throw er;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
         }
 
         public void Delete(int ID)
         {
-            Comisiones.Remove(this.GetOne(ID));
+            try
+            {
+                //abrimos la conexión
+                this.OpenConnection();
+
+                //creamos la sentencia sql y asignamos un valor al parámetro
+                SqlCommand cmdDelete =
+                new SqlCommand("delete comisiones where id_comision=@id", sqlConnection);
+                cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = ID;
+                cmdDelete.ExecuteNonQuery();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al eliminar comision", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
+        protected void Insert(Comision comi)
+        {
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdSave = new SqlCommand(
+                "insert into comisiones(desc_comision,anio_especialidad,id_plan) " +
+                "Values(@desc_comision,@anio_especialidad,@id_plan)", sqlConnection);
+                cmdSave.Parameters.Add("@desc_comision", SqlDbType.VarChar, 50).Value = comi.DescComision;
+                cmdSave.Parameters.Add("@anio_especialidad", SqlDbType.Int).Value = comi.AnioEspecialidad;
+                cmdSave.Parameters.Add("@id_plan", SqlDbType.Int).Value = comi.IDPlan;
+                cmdSave.ExecuteNonQuery();
+
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al crear la comision", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
         }
 
-        public void Save(Comisiones comisiones)
+        public void Save(Comision comi)
         {
-            if (comisiones.State == BusinessEntity.States.New)
+            if (comi.State == BusinessEntity.States.Deleted)
             {
-                int NextID = 0;
-                foreach (Comisiones com in Comisiones)
+                this.Delete(comi.ID);
+            }
+            else if (comi.State == BusinessEntity.States.New)
+            {
+                this.Insert(comi);
+            }
+            else if (comi.State == BusinessEntity.States.Modified)
+            {
+                this.Update(comi);
+            }
+            comi.State = BusinessEntity.States.Unmodified;
+        }
+
+        public List<Comision> BuscarComisionesxUsuario(int id)
+        {
+            List<Comision> comisiones = new List<Comision>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdComisiones = new SqlCommand(
+                    "select co.id_comision,desc_comision,anio_especialidad,co.id_plan from usuarios u " +
+                    "inner join personas p on p.id_persona = u.id_persona " +
+                    "inner join docentes_cursos dc on dc.id_docente=p.id_persona " +
+                    "inner join cursos c on c.id_curso = dc.id_curso " +
+                    "inner join comisiones co on co.id_comision=c.id_comision " +
+                    "where id_usuario = @id", sqlConnection);
+                cmdComisiones.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                SqlDataReader drComisiones = cmdComisiones.ExecuteReader();
+                while (drComisiones.Read())
                 {
-                    if (com.ID > NextID)
-                    {
-                        NextID = com.ID;
-                    }
+                    Comision com = new Comision();
+                    com.ID = (int)drComisiones["id_comision"];
+                    com.DescComision = (string)drComisiones["desc_comision"];
+                    com.AnioEspecialidad = (Comision.Anios)drComisiones["anio_especialidad"];
+                    com.IDPlan = (int)drComisiones["id_plan"];
+                    comisiones.Add(com);
+
                 }
-                comisiones.ID = NextID + 1;
-                Comisiones.Add(comisiones);
+                drComisiones.Close();
             }
-            else if (comisiones.State == BusinessEntity.States.Deleted)
+            catch (Exception Ex)
             {
-                this.Delete(comisiones.ID);
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de Comisiones", Ex);
+                throw ExcepcionManejada;
             }
-            else if (comisiones.State == BusinessEntity.States.Modified)
+            finally
             {
-                Comisiones[Comisiones.FindIndex(delegate (Comisiones c) { return c.ID == comisiones.ID; })] = comisiones;
+                this.CloseConnection();
             }
-            comisiones.State = BusinessEntity.States.Unmodified;
+            return comisiones;
+        }
+
+        public List<Curso> BuscarCursos(int idComision)
+        {
+            List<Curso> cursos = new List<Curso>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdBuscaCursos = new SqlCommand(
+                    "select * from comisiones co " +
+                    "inner join cursos c on co.id_comision=c.id_comision " +
+                    "where co.id_comision=@id;", sqlConnection);
+                cmdBuscaCursos.Parameters.Add("@id", SqlDbType.Int).Value = idComision;
+                SqlDataReader drCursos = cmdBuscaCursos.ExecuteReader();
+                if (drCursos.Read())
+                {
+                    Curso cur = new Curso();
+                    cur.ID = (int)drCursos["id_curso"];
+                    cur.IDMateria = (int)drCursos["id_materia"];
+                    cur.IDComision = (int)drCursos["id_comision"];
+                    cur.AnioCalendario = (int)drCursos["anio_calendario"];
+                    cur.Cupo = (int)drCursos["cupo"];
+                    cursos.Add(cur);
+                }
+                drCursos.Close();
+            }
+            catch (Exception e)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos de la materia", e);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return cursos;
         }
     }
 }

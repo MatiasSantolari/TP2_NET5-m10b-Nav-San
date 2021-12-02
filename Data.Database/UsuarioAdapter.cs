@@ -68,7 +68,7 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdUsuarios = new SqlCommand("select * from usuarios", sqlConn);
+                SqlCommand cmdUsuarios = new SqlCommand("select * from usuarios", sqlConnection);
                 SqlDataReader drUsuarios = cmdUsuarios.ExecuteReader();
                 while (drUsuarios.Read())
                 {
@@ -102,7 +102,7 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdUsuarios = new SqlCommand("Select * from usuarios where id_usuario = @id", sqlConn);
+                SqlCommand cmdUsuarios = new SqlCommand("Select * from usuarios where id_usuario = @id", sqlConnection);
                 cmdUsuarios.Parameters.Add("@id", SqlDbType.Int).Value = ID;
                 SqlDataReader drUsuarios = cmdUsuarios.ExecuteReader();
                 if (drUsuarios.Read())
@@ -135,7 +135,7 @@ namespace Data.Database
                 this.OpenConnection();
                 SqlCommand cmdSave = new SqlCommand(
                     "UPDATE usuarios SET nombre_usuario=@nombre_usuario, clave=@clave, habilitado=@habilitado, nombre=@nombre, apellido=@apellido, email=@email " +
-                    "where id_usuario=@id", sqlConn);
+                    "where id_usuario=@id", sqlConnection);
                 cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = usuario.ID;
                 cmdSave.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;
                 cmdSave.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = usuario.Clave;
@@ -164,7 +164,7 @@ namespace Data.Database
                 this.OpenConnection();
 
                 //creamos la sentencia sql y asignamos un valor al par�metro
-                SqlCommand cmdDelete = new SqlCommand("delete usuarios where id_usuario=@id", sqlConn);
+                SqlCommand cmdDelete = new SqlCommand("delete usuarios where id_usuario=@id", sqlConnection);
                 cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = ID;
                 cmdDelete.ExecuteNonQuery();
             }
@@ -186,7 +186,7 @@ namespace Data.Database
                 this.OpenConnection();
                 SqlCommand cmdSave = new SqlCommand(
                 "insert into usuarios(nombre_usuario,clave,habilitado,nombre,apellido,email) " +
-                "Values(@nombre_usuario,@clave,@habilitado,@nombre,@apellido,@email) ", sqlConn);
+                "Values(@nombre_usuario,@clave,@habilitado,@nombre,@apellido,@email) ", sqlConnection);
                 cmdSave.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;
                 cmdSave.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = usuario.Clave;
                 cmdSave.Parameters.Add("@habilitado", SqlDbType.Bit).Value = usuario.Habilitado;

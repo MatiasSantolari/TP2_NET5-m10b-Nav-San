@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace Business.Entities
 {
-    class Docentes_Cursos : BusinessEntity
+    public class Docente_Curso : BusinessEntity
     {
-        private string _cargo;
+        private cargos _cargo;
         private int _id_curso;
         private int _id_docente;
+        public enum cargos
+        {
+            Profesor = 1,
+            Auxiliar = 2
+        }
 
         public int IDCurso
         {
@@ -35,7 +40,7 @@ namespace Business.Entities
             }
         }
 
-        public string Cargo
+        public cargos Cargo
         {
             get
             {

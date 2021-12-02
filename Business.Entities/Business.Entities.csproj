@@ -43,10 +43,10 @@
   <ItemGroup>
     <Compile Include="Alumnos_Inscripciones.cs" />
     <Compile Include="BusinessEntity.cs" />
-    <Compile Include="Comisiones.cs" />
-    <Compile Include="Cursos.cs" />
-    <Compile Include="Docentes_Cursos.cs" />
-    <Compile Include="Especialidades.cs" />
+    <Compile Include="Comision.cs" />
+    <Compile Include="Curso.cs" />
+    <Compile Include="Docente_Curso.cs" />
+    <Compile Include="Especialidad.cs" />
     <Compile Include="Materia.cs" />
     <Compile Include="Modulo.cs" />
     <Compile Include="ModuloUsuario.cs" />
