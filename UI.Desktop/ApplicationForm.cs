@@ -69,7 +69,7 @@ namespace UI.Desktop
         {
             Alta,
             Baja,
-            Modicacion,
+            Modificacion,
             Consulta
         }
 }

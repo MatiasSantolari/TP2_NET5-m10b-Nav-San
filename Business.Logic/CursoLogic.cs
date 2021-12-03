@@ -18,7 +18,7 @@ namespace Business.Logic
             CursoData = new CursoAdapter();
         }
 
-        public Business.Entities.Curso GetOne(int id)
+        public Curso GetOne(int id)
         {
             return CursoData.GetOne(id);
         }

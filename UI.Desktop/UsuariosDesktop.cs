@@ -53,7 +53,7 @@ namespace UI.Desktop
                     this.btnAceptar.Text = "Guardar";
                     break;
 
-                case ModoForm.Modicacion:
+                case ModoForm.Modificacion:
                     this.btnAceptar.Text = "Guardar";
                     break;
 
@@ -86,7 +86,7 @@ namespace UI.Desktop
                     UsuarioActual.State = BusinessEntity.States.New;
                     break;
 
-                case ModoForm.Modicacion:
+                case ModoForm.Modificacion:
                     this.btnAceptar.Text = "Guardar";
                     Usuario Uss = new Usuario();
                     UsuarioActual = Uss;
