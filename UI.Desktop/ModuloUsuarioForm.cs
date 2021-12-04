@@ -49,7 +49,7 @@ namespace UI.Desktop
         private void tsbEditar_Click(object sender, EventArgs e)
         {
             int id = ((Business.Entities.ModuloUsuario)this.dgvModulosUsuarios.SelectedRows[0].DataBoundItem).ID;
-            ModuloUsuarioDesktop mu = new ModuloUsuarioDesktop(id, ModoForm.Modicacion);
+            ModuloUsuarioDesktop mu = new ModuloUsuarioDesktop(id, ModoForm.Modificacion);
             mu.ShowDialog();
             this.Listar();
         }

@@ -12,38 +12,33 @@ using Business.Logic;
 
 namespace UI.Desktop
 {
-    public partial class PlanDesktop : ApplicationForm
+    public partial class ModuloDesktop : ApplicationForm
     {
-        public PlanDesktop()
+        public ModuloDesktop()
         {
             InitializeComponent();
-            Business.Logic.EspecialidadLogic el = new EspecialidadLogic();
-            cbxEspecialidad.DataSource = el.GetAll();
-            cbxEspecialidad.DisplayMember = "DescEspecialidad";
-            cbxEspecialidad.ValueMember = "ID";
         }
-
-        public PlanDesktop(ModoForm modo) : this()
+        public ModuloDesktop(ModoForm modo) : this()
         {
             Modo = modo;
         }
 
-        public PlanDesktop(int ID, ModoForm modo) : this()
+        public ModuloDesktop(int ID, ModoForm modo) : this()
         {
-            PlanLogic pla = new PlanLogic();
+            ModuloLogic mod = new ModuloLogic();
 
             Modo = modo;
-            PlanActual = pla.GetOne(ID);
+            ModuloActual = mod.GetOne(ID);
             MapearDeDatos();
         }
 
-        public Business.Entities.Plan PlanActual { get; set; }
+        public Business.Entities.Modulo ModuloActual { get; set; }
 
         public override void MapearDeDatos()
         {
-            this.txtID.Text = this.PlanActual.ID.ToString();
-            this.txtDescPlan.Text = this.PlanActual.DescPlan.ToString();
-            //this.txtIdEspecialidad.Text = this.PlanActual.IDEspecialidad.ToString();
+            this.txtID.Text = this.ModuloActual.ID.ToString();
+            this.txtDescripcion.Text = this.ModuloActual.DescModulo.ToString();
+            this.txtEjecuta.Text = this.ModuloActual.Ejecuta.ToString();
             switch (Modo)
             {
                 case ModoForm.Alta:
@@ -71,33 +66,33 @@ namespace UI.Desktop
             {
                 case ModoForm.Alta:
                     this.btnAceptar.Text = "Guardar";
-                    Plan pl = new Plan();
-                    PlanActual = pl;
+                    Modulo mod = new Modulo();
+                    ModuloActual = mod;
                     int id = 0;
-                    this.PlanActual.ID = id;
-                    this.PlanActual.DescPlan = this.txtDescPlan.Text;
-                    this.PlanActual.IdEspecialidad = Int32.Parse(this.cbxEspecialidad.SelectedValue.ToString());
-                    PlanActual.State = BusinessEntity.States.New;
+                    this.ModuloActual.ID = id;
+                    this.ModuloActual.DescModulo = this.txtDescripcion.Text;
+                    this.ModuloActual.Ejecuta = this.txtEjecuta.Text;
+                    ModuloActual.State = BusinessEntity.States.New;
                     break;
 
                 case ModoForm.Modificacion:
                     this.btnAceptar.Text = "Guardar";
-                    Plan pll = new Plan();
-                    PlanActual = pll;
-                    this.PlanActual.ID = int.Parse(this.txtID.Text);
-                    this.PlanActual.DescPlan = this.txtDescPlan.Text;
-                    this.PlanActual.IdEspecialidad = Int32.Parse(this.cbxEspecialidad.SelectedValue.ToString());
-                    PlanActual.State = BusinessEntity.States.Modified;
+                    Modulo pll = new Modulo();
+                    ModuloActual = pll;
+                    this.ModuloActual.ID = int.Parse(this.txtID.Text);
+                    this.ModuloActual.DescModulo = this.txtDescripcion.Text;
+                    this.ModuloActual.Ejecuta = this.txtEjecuta.Text;
+                    ModuloActual.State = BusinessEntity.States.Modified;
                     break;
 
                 case ModoForm.Baja:
                     this.btnAceptar.Text = "Eliminar";
-                    PlanActual.State = BusinessEntity.States.Deleted;
+                    ModuloActual.State = BusinessEntity.States.Deleted;
                     break;
 
                 case ModoForm.Consulta:
                     this.btnAceptar.Text = "Aceptar";
-                    PlanActual.State = BusinessEntity.States.Unmodified;
+                    ModuloActual.State = BusinessEntity.States.Unmodified;
                     break;
             }
         }
@@ -105,17 +100,17 @@ namespace UI.Desktop
         public override void GuardarCambios()
         {
             MapearADatos();
-            PlanLogic us = new PlanLogic();
-            us.Save(PlanActual);
+            ModuloLogic us = new ModuloLogic();
+            us.Save(ModuloActual);
         }
 
         public override bool Validar()
         {
 
-            bool b2 = string.IsNullOrEmpty(this.txtDescPlan.Text);
-            //bool b3 = string.IsNullOrEmpty(this.txtIdEspecialidad.Text);
+            bool b2 = string.IsNullOrEmpty(this.txtDescripcion.Text);
+            bool b3 = string.IsNullOrEmpty(this.txtEjecuta.Text);
 
-            if (b2 == false /*&& b3 == false*/)
+            if (b2 == false && b3 == false)
             {
                 return true;
             }
@@ -141,5 +136,6 @@ namespace UI.Desktop
         {
             this.Close();
         }
+
     }
 }

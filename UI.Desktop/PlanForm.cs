@@ -46,7 +46,7 @@ namespace UI.Desktop
         private void tsbEditar_Click(object sender, EventArgs e)
         {
             int id = ((Business.Entities.Plan)this.dgvPlanes.SelectedRows[0].DataBoundItem).ID;
-            PlanDesktop mat = new PlanDesktop(id, ModoForm.Modicacion);
+            PlanDesktop mat = new PlanDesktop(id, ModoForm.Modificacion);
             mat.ShowDialog();
             Listar();
         }

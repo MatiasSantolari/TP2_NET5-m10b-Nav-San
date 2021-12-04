@@ -49,7 +49,7 @@ namespace UI.Desktop
         private void tsbEditar_Click(object sender, EventArgs e)
         {
             int id = ((Business.Entities.Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID;
-            MateriaDesktop mat = new MateriaDesktop(id, ModoForm.Modicacion);
+            MateriaDesktop mat = new MateriaDesktop(id, ModoForm.Modificacion);
             mat.ShowDialog();
             this.Listar();
         }

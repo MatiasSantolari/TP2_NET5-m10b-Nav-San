@@ -20,7 +20,7 @@ namespace UI.Desktop
         {
             InitializeComponent();
             cbxAnioEspecialidad.DataSource = Enum.GetValues(typeof(Comision.Anios));
-            Business.Logic.PlanesLogic pl = new PlanesLogic();
+            Business.Logic.PlanLogic pl = new PlanLogic();
             cbxPlan.DataSource = pl.GetAll();
             cbxPlan.DisplayMember = "DescPlan";
             cbxPlan.ValueMember = "ID";
