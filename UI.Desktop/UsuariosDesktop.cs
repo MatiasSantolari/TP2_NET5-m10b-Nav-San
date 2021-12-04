@@ -116,7 +116,7 @@ namespace UI.Desktop
         {
             MapearADatos();
             UsuarioLogic us = new UsuarioLogic();
-            if (Modo == ModoForm.Alta)
+            /*if (Modo == ModoForm.Alta)
             {
                 Persona per = us.BuscaPersonaxNombApeEm(UsuarioActual.Nombre, UsuarioActual.Apellido, UsuarioActual.Email);
                 if (per.ID != 0 && per.Nombre != null)
@@ -143,6 +143,8 @@ namespace UI.Desktop
             {
                 us.Save(UsuarioActual);
             }
+
+             */
         }
 
 
@@ -180,7 +182,7 @@ namespace UI.Desktop
             }
 
         }
-
+        /*
         public bool ValidarBorrado()
         {
             UsuarioLogic ul = new UsuarioLogic();
@@ -196,7 +198,7 @@ namespace UI.Desktop
         }
 
 
-
+        */
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
