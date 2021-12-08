@@ -1,0 +1,6 @@
+C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Business.Entities\bin\Debug\Business.Entities.dll
+C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Business.Entities\bin\Debug\Business.Entities.pdb
+C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Business.Entities\obj\Debug\Business.Entities.csproj.AssemblyReference.cache
+C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Business.Entities\obj\Debug\Business.Entities.csproj.CoreCompileInputs.cache
+C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Business.Entities\obj\Debug\Business.Entities.dll
+C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Business.Entities\obj\Debug\Business.Entities.pdb

@@ -100,6 +100,30 @@
     <Compile Include="Docentes_CursosForm.Designer.cs">
       <DependentUpon>Docentes_CursosForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MateriaDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MateriaDesktop.Designer.cs">
+      <DependentUpon>MateriaDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MateriaForm.Designer.cs">
+      <DependentUpon>MateriaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlanDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlanDesktop.Designer.cs">
+      <DependentUpon>PlanDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlanForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlanForm.Designer.cs">
+      <DependentUpon>PlanForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UsuariosDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +161,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Docentes_CursosForm.resx">
       <DependentUpon>Docentes_CursosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MateriaDesktop.resx">
+      <DependentUpon>MateriaDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MateriaForm.resx">
+      <DependentUpon>MateriaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlanDesktop.resx">
+      <DependentUpon>PlanDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlanForm.resx">
+      <DependentUpon>PlanForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsuariosDesktop.resx">
       <DependentUpon>UsuariosDesktop.cs</DependentUpon>
