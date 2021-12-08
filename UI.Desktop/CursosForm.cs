@@ -91,7 +91,7 @@ namespace UI.Desktop
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
             int id = ((Curso)this.dgvCursos.SelectedRows[0].DataBoundItem).ID;
-            CursoDesktop us = new CursoDesktop(id, ModoForm.Baja);
+            CursosDesktop us = new CursosDesktop(id, ModoForm.Baja);
             us.ShowDialog();
             this.Lista();
         }
