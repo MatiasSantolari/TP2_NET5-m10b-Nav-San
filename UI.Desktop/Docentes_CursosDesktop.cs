@@ -23,7 +23,7 @@ namespace UI.Desktop
         {
 
             PersonaLogic perso = new PersonaLogic();
-            cbxDocente.DataSource = perso.RecuperarPorfesores();
+            cbxDocente.DataSource = perso.GetProfesores();
             cbxDocente.DisplayMember = "Nombre";
             cbxDocente.ValueMember = "ID";
 

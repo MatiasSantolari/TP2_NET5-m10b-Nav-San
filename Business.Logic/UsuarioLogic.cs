@@ -43,5 +43,10 @@ namespace Business.Logic
         public void Save(Usuario usuario) => UsuarioData.Save(usuario);
         public void Delete(int ID) => UsuarioData.Delete(ID);
 
+        public Persona GetPersona(int id)
+        {
+            return UsuarioData.GetPersona(id);
+        }
+
     }
 }

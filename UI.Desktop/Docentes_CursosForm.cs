@@ -60,7 +60,7 @@ namespace UI.Desktop
         private void Lista()
         {
             UsuarioLogic ul = new UsuarioLogic();
-            Persona per = ul.BuscaPersona(UsuarioID);
+            Persona per = ul.GetPersona(UsuarioID);
             if (per.TipoPersona.ToString() == "Admin")
             {
                 this.Listar();

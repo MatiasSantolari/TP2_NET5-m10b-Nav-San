@@ -111,7 +111,7 @@ namespace UI.Desktop
             ComisionLogic comi = new ComisionLogic();
             if (Modo == ModoForm.Baja)
             {
-                List<Curso> cursos = comi.BuscarCursos(ComisionActual.ID);
+                List<Curso> cursos = comi.GetCursos(ComisionActual.ID);
                 if (cursos.Count != 0)
                 {
                     this.Notificar("Debe eliminar los cursos que se dan en esta comision", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

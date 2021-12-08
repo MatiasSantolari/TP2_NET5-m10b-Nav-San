@@ -93,7 +93,7 @@ namespace UI.Desktop
                     this.PersonaActual.Telefono = this.txtTelefono.Text;
                     this.PersonaActual.FechaNac = DateTime.Parse(this.txtFechaNac.Text);
                     this.PersonaActual.Legajo = Int32.Parse(this.txtLegajo.Text);
-                    this.PersonaActual.TipoPersona = Int32.Parse(this.cbxTipoPersona.SelectedValue.ToString());
+                    this.PersonaActual.TipoPersona = (Persona.TipoPersonas)Int32.Parse(this.cbxTipoPersona.SelectedValue.ToString());
                     this.PersonaActual.IdPlan = Int32.Parse(this.cbxPlan.SelectedValue.ToString());
                     PersonaActual.State = BusinessEntity.States.New;
                     break;
@@ -110,7 +110,7 @@ namespace UI.Desktop
                     this.PersonaActual.Telefono = this.txtTelefono.Text;
                     this.PersonaActual.FechaNac = DateTime.Parse(this.txtFechaNac.Text);
                     this.PersonaActual.Legajo = Int32.Parse(this.txtLegajo.Text);
-                    this.PersonaActual.TipoPersona = Int32.Parse(this.cbxTipoPersona.SelectedValue.ToString());
+                    this.PersonaActual.TipoPersona = (Persona.TipoPersonas)Int32.Parse(this.cbxTipoPersona.SelectedValue.ToString());
                     this.PersonaActual.IdPlan = Int32.Parse(this.cbxPlan.SelectedValue.ToString());
                     PersonaActual.State = BusinessEntity.States.Modified;
                     break;

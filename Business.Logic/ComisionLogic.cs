@@ -43,14 +43,14 @@ namespace Business.Logic
             ComisionData.Delete(id);
         }
 
-        public List<Comision> BuscarComisionesxUsuario(int id)
+        public List<Comision> GetComisiones(int id)
         {
-            return ComisionData.BuscarComisionesxUsuario(id);
+            return ComisionData.GetComisiones(id);
         }
 
-        public List<Curso> BuscarCursos(int idComision)
+        public List<Curso> GetCursos(int id)
         {
-            return ComisionData.BuscarCursos(idComision);
+            return ComisionData.GetCursos(id);
         }
     }
 }

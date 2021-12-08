@@ -164,7 +164,7 @@ namespace Data.Database
             comi.State = BusinessEntity.States.Unmodified;
         }
 
-        public List<Comision> BuscarComisionesxUsuario(int id)
+        public List<Comision> GetComisiones(int id)
         {
             List<Comision> comisiones = new List<Comision>();
             try
@@ -181,12 +181,12 @@ namespace Data.Database
                 SqlDataReader drComisiones = cmdComisiones.ExecuteReader();
                 while (drComisiones.Read())
                 {
-                    Comision com = new Comision();
-                    com.ID = (int)drComisiones["id_comision"];
-                    com.DescComision = (string)drComisiones["desc_comision"];
-                    com.AnioEspecialidad = (Comision.Anios)drComisiones["anio_especialidad"];
-                    com.IDPlan = (int)drComisiones["id_plan"];
-                    comisiones.Add(com);
+                    Comision c = new Comision();
+                    c.ID = (int)drComisiones["id_comision"];
+                    c.DescComision = (string)drComisiones["desc_comision"];
+                    c.AnioEspecialidad = (Comision.Anios)drComisiones["anio_especialidad"];
+                    c.IDPlan = (int)drComisiones["id_plan"];
+                    comisiones.Add(c);
 
                 }
                 drComisiones.Close();
@@ -203,7 +203,7 @@ namespace Data.Database
             return comisiones;
         }
 
-        public List<Curso> BuscarCursos(int idComision)
+        public List<Curso> GetCursos(int id)
         {
             List<Curso> cursos = new List<Curso>();
             try
@@ -213,23 +213,23 @@ namespace Data.Database
                     "select * from comisiones co " +
                     "inner join cursos c on co.id_comision=c.id_comision " +
                     "where co.id_comision=@id;", sqlConnection);
-                cmdBuscaCursos.Parameters.Add("@id", SqlDbType.Int).Value = idComision;
+                cmdBuscaCursos.Parameters.Add("@id", SqlDbType.Int).Value = id;
                 SqlDataReader drCursos = cmdBuscaCursos.ExecuteReader();
                 if (drCursos.Read())
                 {
-                    Curso cur = new Curso();
-                    cur.ID = (int)drCursos["id_curso"];
-                    cur.IDMateria = (int)drCursos["id_materia"];
-                    cur.IDComision = (int)drCursos["id_comision"];
-                    cur.AnioCalendario = (int)drCursos["anio_calendario"];
-                    cur.Cupo = (int)drCursos["cupo"];
-                    cursos.Add(cur);
+                    Curso c = new Curso();
+                    c.ID = (int)drCursos["id_curso"];
+                    c.IDMateria = (int)drCursos["id_materia"];
+                    c.IDComision = (int)drCursos["id_comision"];
+                    c.AnioCalendario = (int)drCursos["anio_calendario"];
+                    c.Cupo = (int)drCursos["cupo"];
+                    cursos.Add(c);
                 }
                 drCursos.Close();
             }
             catch (Exception e)
             {
-                Exception ExcepcionManejada = new Exception("Error al recuperar datos de la materia", e);
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos del curso", e);
                 throw ExcepcionManejada;
             }
             finally

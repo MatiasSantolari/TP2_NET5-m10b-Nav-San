@@ -222,5 +222,44 @@ namespace Data.Database
             }
             usuario.State = BusinessEntity.States.Unmodified;
         }
+
+        public Persona GetPersona(int id)
+        {
+            Persona p = new Persona();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdBuscaPersona = new SqlCommand(
+                    "select p.id_persona,p.nombre,p.apellido,direccion,p.email,telefono,fecha_nac,legajo,tipo_persona,id_plan from usuarios u " +
+                    "inner join personas p on p.id_persona=u.id_persona " +
+                    "where id_usuario= @id", sqlConnection);
+                cmdBuscaPersona.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                SqlDataReader drPersona = cmdBuscaPersona.ExecuteReader();
+                if (drPersona.Read())
+                {
+                    p.ID = (int)drPersona["id_persona"];
+                    p.Nombre = (string)drPersona["nombre"];
+                    p.Apellido = (string)drPersona["apellido"];
+                    p.Direccion = (string)drPersona["direccion"];
+                    p.Email = (string)drPersona["email"];
+                    p.Telefono = (string)drPersona["telefono"];
+                    p.FechaNac = (DateTime)drPersona["fecha_nac"];
+                    p.Legajo = (int)drPersona["legajo"];
+                    p.TipoPersona = (Persona.TipoPersonas)drPersona["tipo_persona"];
+                    p.IdPlan = (int)drPersona["id_plan"];
+                }
+                drPersona.Close();
+            }
+            catch (Exception e)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos del usuario", e);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return p;
+        }
     }
 }

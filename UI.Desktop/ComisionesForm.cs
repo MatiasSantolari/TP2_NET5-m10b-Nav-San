@@ -30,7 +30,7 @@ namespace UI.Desktop
         private void Lista()
         {
             UsuarioLogic ul = new UsuarioLogic();
-            Persona per = ul.BuscaPersona(UsuarioId);
+            Persona per = ul.GetPersona(UsuarioId);
             if (per.TipoPersona.ToString() == "Admin")
             {
                 this.Listar();
@@ -49,7 +49,7 @@ namespace UI.Desktop
             try
             {
                 ComisionLogic comi = new ComisionLogic();
-                this.dgvComisiones.DataSource = comi.BuscarComisionesxUsuario(id);
+                this.dgvComisiones.DataSource = comi.GetComisiones(id);
             }
             catch (FormatException fe)
             {
