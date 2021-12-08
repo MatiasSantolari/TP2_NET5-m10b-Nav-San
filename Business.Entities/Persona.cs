@@ -119,12 +119,12 @@ namespace Business.Entities
                 _id_plan = value;
             }
         }
-        /*public enum TipoPersonas
+        public enum TipoPersonas
         {
             Admin,
             Docente,
             Alumno
-        }*/
+        }
     }
 }
 
