@@ -100,5 +100,10 @@ namespace UI.Desktop
         {
             this.Close();
         }
+
+        private void CursosForm_Load(object sender, EventArgs e)
+        {
+            this.Lista();
+        }
     }
 }

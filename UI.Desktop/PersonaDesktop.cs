@@ -23,9 +23,9 @@ namespace UI.Desktop
             cbxPlan.ValueMember = "ID";
 
             PersonaLogic pel = new PersonaLogic();
-            cbxTipoPersona.DataSource = pel.GetAll();
             cbxTipoPersona.DisplayMember = "TipoPersona";
             cbxTipoPersona.ValueMember = "ID";
+            cbxTipoPersona.DataSource = Enum.GetValues(typeof(Persona.TipoPersonas));
         }
 
         public PersonaDesktop(ModoForm modo) : this()
@@ -169,5 +169,6 @@ namespace UI.Desktop
         {
             this.Close();
         }
+
     }
 }
