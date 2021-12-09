@@ -120,7 +120,7 @@ namespace UI.Desktop
 
             if (Modo == ModoForm.Baja)
             {
-                List<Docente_Curso> dcs = cu.BuscaDocentesCurso(CursoActual.ID);
+                List<Docente_Curso> dcs = cu.GetDocentesCurso(CursoActual.ID);
 
                 if (dcs.Count != 0)
                 {

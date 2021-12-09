@@ -38,9 +38,9 @@ namespace Business.Logic
         }
 
 
-        public Curso BuscarCurso(int idMateria, int idComision)
+        public Curso GetCurso(int idMateria, int idComision)
         {
-            return docenteCursoData.BuscarCurso(idMateria, idComision);
+            return docenteCursoData.GetCurso(idMateria, idComision);
         }
     }
 }

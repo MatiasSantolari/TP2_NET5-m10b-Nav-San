@@ -1,0 +1,11 @@
+C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Business.Logic\bin\Debug\Business.Logic.dll
+C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Business.Logic\bin\Debug\Business.Logic.pdb
+C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Business.Logic\bin\Debug\Business.Entities.dll
+C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Business.Logic\bin\Debug\Data.Database.dll
+C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Business.Logic\bin\Debug\Business.Entities.pdb
+C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Business.Logic\bin\Debug\Data.Database.pdb
+C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Business.Logic\obj\Debug\Business.Logic.csproj.AssemblyReference.cache
+C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Business.Logic\obj\Debug\Business.Logic.csproj.CoreCompileInputs.cache
+C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Business.Logic\obj\Debug\Business.Logic.csproj.CopyComplete
+C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Business.Logic\obj\Debug\Business.Logic.dll
+C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Business.Logic\obj\Debug\Business.Logic.pdb

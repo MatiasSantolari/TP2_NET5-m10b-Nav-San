@@ -31,7 +31,7 @@ namespace Data.Database
                     p.Telefono = (string)drPersonas["telefono"];
                     p.FechaNac = (DateTime)drPersonas["fecha_nac"];
                     p.Legajo = (int)drPersonas["legajo"];
-                    p.TipoPersona = (int)drPersonas["tipo_persona"];
+                    p.TipoPersona = (Persona.TipoPersonas)(int)drPersonas["tipo_persona"];
                     personas.Add(p);
                 }
                 drPersonas.Close();
@@ -67,7 +67,7 @@ namespace Data.Database
                     p.Telefono = (string)drPersona["telefono"];
                     p.FechaNac = (DateTime)drPersona["fecha_nac"];
                     p.Legajo = (int)drPersona["legajo"];
-                    p.TipoPersona = (int)drPersona["tipo_persona"];
+                    p.TipoPersona = (Persona.TipoPersonas)(int)drPersona["tipo_persona"];
                 }
                 drPersona.Close();
             }
@@ -178,6 +178,44 @@ namespace Data.Database
                 this.Update(p);
             }
             p.State = BusinessEntity.States.Unmodified;
+        }
+
+        public List<Persona> GetProfesores()
+        {
+            List<Persona> profesores = new List<Persona>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdPersonas = new SqlCommand(
+                    "select * from personas where tipo_persona = 2", sqlConnection); //como param del nuevo command pasamos el objConeccion y el command.text
+                SqlDataReader drPersonas = cmdPersonas.ExecuteReader();
+                while (drPersonas.Read())
+                {
+                    Persona p = new Persona();
+                    p.ID = (int)drPersonas["id_persona"];
+                    p.Nombre = (string)drPersonas["nombre"];
+                    p.Apellido = (string)drPersonas["apellido"];
+                    p.Direccion = (string)drPersonas["direccion"];
+                    p.Email = (string)drPersonas["email"];
+                    p.Telefono = (string)drPersonas["telefono"];
+                    p.FechaNac = (DateTime)drPersonas["fecha_nac"];
+                    p.Legajo = (int)drPersonas["legajo"];
+                    p.TipoPersona = (Persona.TipoPersonas)drPersonas["tipo_persona"];
+                    p.IdPlan = (int)drPersonas["id_plan"];
+                    profesores.Add(p);
+                }
+                drPersonas.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de profesores", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return profesores;
         }
 
     }

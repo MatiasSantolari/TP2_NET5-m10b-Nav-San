@@ -19,7 +19,7 @@ namespace Data.Database
             {
                 if (_Alumnos_Inscripciones == null)
                 {
-                    _Alumnos_Inscripciones = new List<Business.Entities.Alumnos_Inscripciones>();
+                    _Alumnos_Inscripciones = new List<Alumnos_Inscripciones>();
                     Alumnos_Inscripciones al_insc;
                     al_insc = new Alumnos_Inscripciones();
                     al_insc.ID = 1;

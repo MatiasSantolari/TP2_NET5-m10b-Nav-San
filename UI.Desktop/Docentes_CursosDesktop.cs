@@ -23,7 +23,7 @@ namespace UI.Desktop
         {
 
             PersonaLogic perso = new PersonaLogic();
-            cbxDocente.DataSource = perso.RecuperarPorfesores();
+            cbxDocente.DataSource = perso.GetProfesores();
             cbxDocente.DisplayMember = "Nombre";
             cbxDocente.ValueMember = "ID";
 
@@ -117,7 +117,7 @@ namespace UI.Desktop
 
                     Docente_CursoLogic dcl = new Docente_CursoLogic();
                     //busco en la tabla por la info obtenida de los combos
-                    this.DocenteCursoActual.IDCurso = dcl.BuscarCurso(idMateria, idComision).ID;
+                    this.DocenteCursoActual.IDCurso = dcl.GetCurso(idMateria, idComision).ID;
 
                     this.DocenteCursoActual.Cargo = (Docente_Curso.cargos)(this.cbxCargo.SelectedValue);
                     DocenteCursoActual.State = BusinessEntity.States.New;
@@ -136,7 +136,7 @@ namespace UI.Desktop
 
                     Docente_CursoLogic dcl1 = new Docente_CursoLogic();
                     //busco en la tabla por la info obtenida de los combos
-                    this.DocenteCursoActual.IDCurso = dcl1.BuscarCurso(idMateria1, idComision1).ID;
+                    this.DocenteCursoActual.IDCurso = dcl1.GetCurso(idMateria1, idComision1).ID;
 
                     this.DocenteCursoActual.Cargo = (Docente_Curso.cargos)(this.cbxCargo.SelectedValue);
                     DocenteCursoActual.State = BusinessEntity.States.Modified;

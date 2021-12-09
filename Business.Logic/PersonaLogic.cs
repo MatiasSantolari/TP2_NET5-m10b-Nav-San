@@ -49,5 +49,10 @@ namespace Business.Logic
         {
             PersonaData.Delete(id);
         }
+
+        public List<Persona> GetProfesores()
+        {
+            return PersonaData.GetProfesores();
+        }
     }
 }

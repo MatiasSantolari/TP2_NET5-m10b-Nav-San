@@ -34,7 +34,7 @@ namespace UI.Desktop
                 Docente_CursoLogic dc = new Docente_CursoLogic();
                 this.dgvDocentes_Cursos.DataSource = dc.GetAll();
             }
-            catch (FormatException fe)
+            catch (FormatException)
             {
                 MessageBox.Show("Error al recuperar la lista DocentesCursos");
                 Exception exepcionManejada = new Exception("Error al recuperar la lista de DocentesCursos");
@@ -60,7 +60,7 @@ namespace UI.Desktop
         private void Lista()
         {
             UsuarioLogic ul = new UsuarioLogic();
-            Persona per = ul.BuscaPersona(UsuarioID);
+            Persona per = ul.GetPersona(UsuarioID);
             if (per.TipoPersona.ToString() == "Admin")
             {
                 this.Listar();
