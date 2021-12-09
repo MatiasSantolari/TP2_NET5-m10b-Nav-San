@@ -33,7 +33,7 @@ namespace Business.Logic
 
         }
 
-        public void Save(Business.Entities.Comision comi)
+        public void Save(Comision comi)
         {
             ComisionData.Save(comi);
         }

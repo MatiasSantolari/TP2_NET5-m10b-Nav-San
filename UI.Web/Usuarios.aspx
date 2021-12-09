@@ -53,13 +53,13 @@
         <asp:Panel ID="gridActionsPanel" runat="server">
             <asp:LinkButton ID="editarLinkButton" runat="server" OnClick="editarLinkButton_Click">Editar</asp:LinkButton>
             <br />
-            <asp:LinkButton ID="eliminarLinkButton" runat="server">Eliminar</asp:LinkButton>
+            <asp:LinkButton ID="eliminarLinkButton" runat="server" OnClick="eliminarLinkButton_Click">Eliminar</asp:LinkButton>
             <br />
-            <asp:LinkButton ID="nuevoLinkButton" runat="server">Nuevo</asp:LinkButton>
+            <asp:LinkButton ID="nuevoLinkButton" runat="server" OnClick="nuevoLinkButton_Click">Nuevo</asp:LinkButton>
         </asp:Panel>
 
         <asp:Panel ID="formActionsPanel" runat="server">
-            <asp:LinkButton ID="aceptarLinkButton" runat="server">Aceptar</asp:LinkButton>
+            <asp:LinkButton ID="aceptarLinkButton" runat="server" OnClick="aceptarLinkButton_Click">Aceptar</asp:LinkButton>
             <br />
             <asp:LinkButton ID="cancelarLinkButton" runat="server">Cancelar</asp:LinkButton>
         </asp:Panel>

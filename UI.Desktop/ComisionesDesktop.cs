@@ -89,9 +89,9 @@ namespace UI.Desktop
                     ComisionActual = comi;
 
                     this.ComisionActual.DescComision = this.txtDescripcion.Text;
-                   this.ComisionActual.AnioEspecialidad = (Comision.Anios)(this.cbxAnioEspecialidad.SelectedValue); ;
+                    this.ComisionActual.AnioEspecialidad = (Comision.Anios)(this.cbxAnioEspecialidad.SelectedValue); ;
                     this.ComisionActual.IDPlan = int.Parse(cbxPlan.SelectedValue.ToString());
-                    ComisionActual.State = Business.Entities.Comision.States.Modified;
+                    ComisionActual.State = Comision.States.Modified;
                     break;
 
                 case ModoForm.Baja:

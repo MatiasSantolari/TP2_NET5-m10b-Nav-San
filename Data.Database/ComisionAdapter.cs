@@ -46,7 +46,7 @@ namespace Data.Database
             return comisiones;
         }
 
-        public Business.Entities.Comision GetOne(int ID)
+        public Comision GetOne(int ID)
         {
             Comision com = new Comision();
             try
