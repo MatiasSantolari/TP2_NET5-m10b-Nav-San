@@ -129,7 +129,7 @@ namespace UI.Desktop
                     this.Notificar("Debe registrar la persona primero", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            else if (Modo == ModoForm.Modicacion)
+            else if (Modo == ModoForm.Modificacion)
             {
 
                 Usuario usuarioAnterior = us.GetOne(UsuarioActual.ID);
@@ -143,8 +143,9 @@ namespace UI.Desktop
             {
                 us.Save(UsuarioActual);
             }
+            */
 
-             */
+             
         }
 
 
@@ -215,5 +216,6 @@ namespace UI.Desktop
         {
             this.Close();
         }
+
     }
 }
