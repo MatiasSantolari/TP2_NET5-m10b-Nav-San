@@ -22,13 +22,13 @@ namespace Login
             this.Dispose();
         }
 
-        private void formMain_Shown(object sender, EventArgs e)
+        /*private void formMain_Shown(object sender, EventArgs e)
         {
-            /*formLogin appLogin = new formLogin();
-            appLogin.Show(); */
+            //formLogin appLogin = new formLogin();
+            //appLogin.Show(); 
 
-            /*formLogin appLogin = new formLogin();
-            appLogin.ShowDialog();*/
+            //formLogin appLogin = new formLogin();
+            //appLogin.ShowDialog();
 
             formLogin appLogin = new formLogin();
             if (appLogin.ShowDialog() != DialogResult.OK)
@@ -37,7 +37,15 @@ namespace Login
             }
 
 
-        }
+        }*/
 
+        private void formMain_Load(object sender, EventArgs e)
+        {
+            formLogin appLogin = new formLogin();
+            if (appLogin.ShowDialog() != DialogResult.OK)
+            {
+                this.Dispose();
+            }
+        }
     }
 }
