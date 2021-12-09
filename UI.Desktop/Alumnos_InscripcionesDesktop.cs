@@ -17,6 +17,20 @@ namespace UI.Desktop
         public Alumnos_InscripcionesDesktop()
         {
             InitializeComponent();
+            PersonaLogic p = new PersonaLogic();
+            cbxAlumno.DataSource = p.GetAll();
+            cbxAlumno.DisplayMember = "Nombre";
+            cbxAlumno.ValueMember = "ID";
+
+            MateriaLogic materia = new MateriaLogic();
+            cbxMateria.DataSource = materia.GetAll();
+            cbxMateria.DisplayMember = "DescMateria";
+            cbxMateria.ValueMember = "ID";
+
+            ComisionLogic comision = new ComisionLogic();
+            cbxComision.DataSource = comision.GetAll();
+            cbxComision.DisplayMember = "DescComision";
+            cbxComision.ValueMember = "ID";
         }
 
         public Alumnos_InscripcionesDesktop(ModoForm modo) : this()
@@ -39,8 +53,6 @@ namespace UI.Desktop
         public override void MapearDeDatos()
         {
             this.txtID.Text = this.AlIActual.ID.ToString();
-            this.txtAlumno.Text = this.AlIActual.IDAlumno.ToString();
-            this.txtCurso.Text = this.AlIActual.IDCurso.ToString();
             this.txtCondicion.Text = this.AlIActual.Condicion.ToString();
             this.txtNota.Text = this.AlIActual.Nota.ToString();
             switch (Modo)
@@ -73,8 +85,10 @@ namespace UI.Desktop
                     Business.Entities.Alumnos_Inscripciones Ali = new Business.Entities.Alumnos_Inscripciones();
                     AlIActual = Ali;
                     this.AlIActual.ID = int.Parse(this.txtID.Text);
-                    this.AlIActual.IDAlumno = int.Parse(this.txtAlumno.Text);
-                    this.AlIActual.IDCurso = int.Parse(this.txtCurso.Text);
+                    this.AlIActual.IDAlumno = Int32.Parse(this.cbxAlumno.SelectedValue.ToString());
+                    //cuidado aca abajo
+                    this.AlIActual.IDCurso = Int32.Parse(this.cbxComision.SelectedValue.ToString())
+                    //te pasaste
                     this.AlIActual.Condicion = this.txtCondicion.Text;
                     this.AlIActual.Nota = int.Parse(this.txtNota.Text);
                     AlIActual.State = BusinessEntity.States.New;
@@ -85,8 +99,10 @@ namespace UI.Desktop
                     Alumnos_Inscripciones Uss = new Alumnos_Inscripciones();
                     AlIActual = Uss;
                     this.AlIActual.ID= int.Parse(this.txtID.Text);
-                    this.AlIActual.IDAlumno = int.Parse(this.txtAlumno.Text);
-                    this.AlIActual.IDCurso = int.Parse(this.txtCurso.Text);
+                    this.AlIActual.IDAlumno = Int32.Parse(this.cbxAlumno.SelectedValue.ToString());
+                    //cuidado aca abajo
+                    this.AlIActual.IDCurso = Int32.Parse(this.cbxComision.SelectedValue.ToString())
+                    //te pasaste
                     this.AlIActual.Nota = int.Parse(this.txtNota.Text);
                     this.AlIActual.Condicion = this.txtCondicion.Text;
                     AlIActual.State = BusinessEntity.States.Modified;
@@ -115,12 +131,10 @@ namespace UI.Desktop
         {
 
             bool b2 = string.IsNullOrEmpty(this.txtID.Text);
-            bool b3 = string.IsNullOrEmpty(this.txtAlumno.Text);
-            bool b4 = string.IsNullOrEmpty(this.txtCurso.Text);
             bool b5 = string.IsNullOrEmpty(this.txtCondicion.Text);
             bool b6 = string.IsNullOrEmpty(this.txtNota.Text);
 
-            if (b2 == true || b3 == true || b4 == true || b5 == true || b6 == true)
+            if (b2 == true || b5 == true || b6 == true)
             {
                 this.Notificar("Por favor, rellenar los campos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;

@@ -49,8 +49,7 @@ namespace UI.Desktop
             this.txtID.Text = this.CursoActual.ID.ToString();
             this.txtAnio.Text = this.CursoActual.AnioCalendario.ToString();
             this.txtCupo.Text = this.CursoActual.Cupo.ToString();
-            cbxMateria.SelectedValue = this.CursoActual.IDMateria;
-            cbxComision.SelectedValue = this.CursoActual.IDComision;
+
             switch (Modo)
             {
                 case ModoForm.Alta:
