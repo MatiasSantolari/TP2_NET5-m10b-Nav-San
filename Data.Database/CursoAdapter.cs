@@ -207,7 +207,7 @@ namespace Data.Database
             curso.State = BusinessEntity.States.Unmodified;
         }
 
-        public List<Docente_Curso> BuscaDocentesCurso(int idCurso)
+        public List<Docente_Curso> GetDocentesCurso(int idCurso)
         {
             List<Docente_Curso> DocentesCursos = new List<Docente_Curso>();
             try

@@ -10,7 +10,6 @@ namespace Business.Logic
 {
     public class CursoLogic
     {
-        private CursoAdapter _cursoData;
         public CursoAdapter CursoData { get; set; }
 
         public CursoLogic()
@@ -39,9 +38,9 @@ namespace Business.Logic
             CursoData.Delete(id);
         }
 
-        public List<Docente_Curso> BuscaDocentesCurso(int idCurso)
+        public List<Docente_Curso> GetDocentesCurso(int idCurso)
         {
-            return CursoData.BuscaDocentesCurso(idCurso);
+            return CursoData.GetDocentesCurso(idCurso);
         }
     }
 }

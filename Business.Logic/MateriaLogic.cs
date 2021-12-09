@@ -22,7 +22,7 @@ namespace Business.Logic
             MateriaData = new MateriaAdapter();
         }
 
-        public Business.Entities.Materia GetOne(int id)
+        public Materia GetOne(int id)
         {
             return MateriaData.GetOne(id);
         }

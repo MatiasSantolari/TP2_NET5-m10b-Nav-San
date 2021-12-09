@@ -159,7 +159,7 @@ namespace Data.Database
             dc.State = BusinessEntity.States.Unmodified;
         }
 
-        public Curso BuscarCurso(int idMateria, int idComision)
+        public Curso GetCurso(int idMateria, int idComision)
         {
             Curso curso = new Curso();
             try
@@ -182,7 +182,7 @@ namespace Data.Database
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error, no se encontraron cursos para esa comision y materia", Ex);
+                Exception ExcepcionManejada = new Exception("No se encontró el curso", Ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -192,5 +192,6 @@ namespace Data.Database
 
             return curso;
         }
+
     }
 }
