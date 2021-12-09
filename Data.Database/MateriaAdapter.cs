@@ -103,10 +103,8 @@ namespace Data.Database
         {
             try
             {
-                //abrimos la conexión
                 this.OpenConnection();
 
-                //creamos la sentencia sql y asignamos un valor al parámetro
                 SqlCommand cmdDelete = new SqlCommand("delete materias where id_materia=@id", sqlConnection);
                 cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = ID;
                 cmdDelete.ExecuteNonQuery();
@@ -161,6 +159,39 @@ namespace Data.Database
                 this.Update(materia);
             }
             materia.State = BusinessEntity.States.Unmodified;
+        }
+
+        public List<Comision> GetComisiones(int id)
+        {
+            List<Comision> comisiones = new List<Comision>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdBuscarComision = new SqlCommand(
+                    "Select co.id_comision,desc_comision,anio_especialidad,id_plan from cursos cu inner join comisiones co  on cu.id_comision = co.id_comision where id_materia=@id;", sqlConnection);
+                cmdBuscarComision.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                SqlDataReader drComision = cmdBuscarComision.ExecuteReader();
+                while (drComision.Read())
+                {
+                    Comision c = new Comision();
+                    c.ID = (int)drComision["id_comision"];
+                    c.DescComision = (string)drComision["desc_comision"];
+                    c.AnioEspecialidad = (Comision.Anios)drComision["anio_especialidad"];
+                    c.IDPlan = (int)drComision["id_plan"];
+                    comisiones.Add(c);
+                }
+                drComision.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error, no se encontraron comisiones para esa materia", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return comisiones;
         }
 
     }

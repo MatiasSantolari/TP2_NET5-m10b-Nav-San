@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Business.Logic;
 using Business.Entities;
+using Business.Logic;
 
 namespace UI.Desktop
 {
@@ -19,11 +19,12 @@ namespace UI.Desktop
             InitializeComponent();
             Mostrardatos();
         }
+
         private void Mostrardatos()
         {
 
-            PersonaLogic perso = new PersonaLogic();
-            cbxDocente.DataSource = perso.GetProfesores();
+            PersonaLogic p = new PersonaLogic();
+            cbxDocente.DataSource = p.GetProfesores();
             cbxDocente.DisplayMember = "Nombre";
             cbxDocente.ValueMember = "ID";
 
@@ -32,9 +33,6 @@ namespace UI.Desktop
             cbxMateria.DisplayMember = "DescMateria";
             cbxMateria.ValueMember = "ID";
 
-            /*
-            List<Comision>comisiones = materia.BuscarComisiones((int)cbxMateria.SelectedValue);
-            */
             ComisionLogic comision = new ComisionLogic();
             cbxComision.DataSource = comision.GetAll();
             cbxComision.DisplayMember = "DescComision";
@@ -62,17 +60,17 @@ namespace UI.Desktop
 
         public override void MapearDeDatos()
         {
-            //mapeando el id
 
             this.txtID.Text = this.DocenteCursoActual.ID.ToString();
 
             this.cbxDocente.SelectedItem = this.DocenteCursoActual.IDDocente;
 
             CursoLogic cursoData = new CursoLogic();
-            Curso curso = cursoData.GetOne(DocenteCursoActual.IDCurso);
+            Curso c = cursoData.GetOne(DocenteCursoActual.IDCurso);
 
-            this.cbxMateria.SelectedValue = curso.IDMateria;
-            this.cbxComision.SelectedValue = curso.IDComision;
+            this.cbxMateria.SelectedValue = c.IDMateria;
+            this.cbxComision.SelectedValue = c.IDComision;
+
             cbxCargo.SelectedItem = this.DocenteCursoActual.Cargo;
 
 
@@ -110,13 +108,11 @@ namespace UI.Desktop
                     this.DocenteCursoActual.IDDocente = int.Parse(cbxDocente.SelectedValue.ToString());
 
 
-                    //guardo la info del los combo
                     int idMateria = (int)cbxMateria.SelectedValue;
                     int idComision = (int)cbxComision.SelectedValue;
 
 
                     Docente_CursoLogic dcl = new Docente_CursoLogic();
-                    //busco en la tabla por la info obtenida de los combos
                     this.DocenteCursoActual.IDCurso = dcl.GetCurso(idMateria, idComision).ID;
 
                     this.DocenteCursoActual.Cargo = (Docente_Curso.cargos)(this.cbxCargo.SelectedValue);
@@ -125,18 +121,17 @@ namespace UI.Desktop
 
                 case ModoForm.Modificacion:
                     this.btnAceptar.Text = "Guardar";
-                    Docente_Curso doceC = new Business.Entities.Docente_Curso();
+                    Docente_Curso doceC = new Docente_Curso();
                     DocenteCursoActual = doceC;
                     DocenteCursoActual.ID = int.Parse(txtID.Text);
                     DocenteCursoActual.IDDocente = int.Parse(cbxDocente.SelectedValue.ToString());
 
-                    int idMateria1 = (int)cbxMateria.SelectedValue;
-                    int idComision1 = (int)cbxComision.SelectedValue;
+                    int idM = (int)cbxMateria.SelectedValue;
+                    int idC = (int)cbxComision.SelectedValue;
 
 
                     Docente_CursoLogic dcl1 = new Docente_CursoLogic();
-                    //busco en la tabla por la info obtenida de los combos
-                    this.DocenteCursoActual.IDCurso = dcl1.GetCurso(idMateria1, idComision1).ID;
+                    this.DocenteCursoActual.IDCurso = dcl1.GetCurso(idM, idC).ID;
 
                     this.DocenteCursoActual.Cargo = (Docente_Curso.cargos)(this.cbxCargo.SelectedValue);
                     DocenteCursoActual.State = BusinessEntity.States.Modified;
@@ -187,6 +182,5 @@ namespace UI.Desktop
         {
             this.Close();
         }
-
     }
 }

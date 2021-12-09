@@ -14,7 +14,7 @@ namespace UI.Desktop
 {
     public partial class CursosDesktop : ApplicationForm
     {
-        public Business.Entities.Curso CursoActual { get; set; }
+        public Curso CursoActual { get; set; }
         public CursosDesktop()
         {
             InitializeComponent();

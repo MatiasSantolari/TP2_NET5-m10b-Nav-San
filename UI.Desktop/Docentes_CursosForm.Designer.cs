@@ -31,11 +31,11 @@ namespace UI.Desktop
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Docentes_CursosForm));
             this.tscDocentes_Cursos = new System.Windows.Forms.ToolStripContainer();
-            this.tsDocentes_Cursos = new System.Windows.Forms.ToolStrip();
             this.tlDocentes_Cursos = new System.Windows.Forms.TableLayoutPanel();
             this.dgvDocentes_Cursos = new System.Windows.Forms.DataGridView();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.tsDocentes_Cursos = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
@@ -46,9 +46,9 @@ namespace UI.Desktop
             this.tscDocentes_Cursos.ContentPanel.SuspendLayout();
             this.tscDocentes_Cursos.TopToolStripPanel.SuspendLayout();
             this.tscDocentes_Cursos.SuspendLayout();
-            this.tsDocentes_Cursos.SuspendLayout();
             this.tlDocentes_Cursos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocentes_Cursos)).BeginInit();
+            this.tsDocentes_Cursos.SuspendLayout();
             this.SuspendLayout();
             // 
             // tscDocentes_Cursos
@@ -68,19 +68,6 @@ namespace UI.Desktop
             // tscDocentes_Cursos.TopToolStripPanel
             // 
             this.tscDocentes_Cursos.TopToolStripPanel.Controls.Add(this.tsDocentes_Cursos);
-            // 
-            // tsDocentes_Cursos
-            // 
-            this.tsDocentes_Cursos.Dock = System.Windows.Forms.DockStyle.None;
-            this.tsDocentes_Cursos.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.tsDocentes_Cursos.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbNuevo,
-            this.tsbEditar,
-            this.tsbEliminar});
-            this.tsDocentes_Cursos.Location = new System.Drawing.Point(4, 0);
-            this.tsDocentes_Cursos.Name = "tsDocentes_Cursos";
-            this.tsDocentes_Cursos.Size = new System.Drawing.Size(120, 33);
-            this.tsDocentes_Cursos.TabIndex = 0;
             // 
             // tlDocentes_Cursos
             // 
@@ -137,6 +124,19 @@ namespace UI.Desktop
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // tsDocentes_Cursos
+            // 
+            this.tsDocentes_Cursos.Dock = System.Windows.Forms.DockStyle.None;
+            this.tsDocentes_Cursos.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.tsDocentes_Cursos.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbNuevo,
+            this.tsbEditar,
+            this.tsbEliminar});
+            this.tsDocentes_Cursos.Location = new System.Drawing.Point(4, 0);
+            this.tsDocentes_Cursos.Name = "tsDocentes_Cursos";
+            this.tsDocentes_Cursos.Size = new System.Drawing.Size(120, 33);
+            this.tsDocentes_Cursos.TabIndex = 0;
+            // 
             // tsbNuevo
             // 
             this.tsbNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -172,7 +172,7 @@ namespace UI.Desktop
             // 
             // ID
             // 
-            this.ID.DataPropertyName = "id_dictado";
+            this.ID.DataPropertyName = "ID";
             this.ID.HeaderText = "ID";
             this.ID.MinimumWidth = 8;
             this.ID.Name = "ID";
@@ -180,7 +180,7 @@ namespace UI.Desktop
             // 
             // Curso
             // 
-            this.Curso.DataPropertyName = "id_curso";
+            this.Curso.DataPropertyName = "IDCurso";
             this.Curso.HeaderText = "Curso";
             this.Curso.MinimumWidth = 8;
             this.Curso.Name = "Curso";
@@ -188,7 +188,7 @@ namespace UI.Desktop
             // 
             // Docente
             // 
-            this.Docente.DataPropertyName = "id_docente";
+            this.Docente.DataPropertyName = "IDDocente";
             this.Docente.HeaderText = "Docente";
             this.Docente.MinimumWidth = 8;
             this.Docente.Name = "Docente";
@@ -196,7 +196,7 @@ namespace UI.Desktop
             // 
             // Cargo
             // 
-            this.Cargo.DataPropertyName = "cargo";
+            this.Cargo.DataPropertyName = "Cargo";
             this.Cargo.HeaderText = "Cargo";
             this.Cargo.MinimumWidth = 8;
             this.Cargo.Name = "Cargo";
@@ -216,10 +216,10 @@ namespace UI.Desktop
             this.tscDocentes_Cursos.TopToolStripPanel.PerformLayout();
             this.tscDocentes_Cursos.ResumeLayout(false);
             this.tscDocentes_Cursos.PerformLayout();
-            this.tsDocentes_Cursos.ResumeLayout(false);
-            this.tsDocentes_Cursos.PerformLayout();
             this.tlDocentes_Cursos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocentes_Cursos)).EndInit();
+            this.tsDocentes_Cursos.ResumeLayout(false);
+            this.tsDocentes_Cursos.PerformLayout();
             this.ResumeLayout(false);
 
         }
