@@ -6,14 +6,15 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Business.Entities;
 using Business.Logic;
+using System.Text.RegularExpressions;
 
 namespace UI.Web
 {
-
-public partial class Usuarios : Page
+    public partial class Usuarios : System.Web.UI.Page
     {
-        UsuarioLogic _logic;
-        private UsuarioLogic Logic
+        private UsuarioLogic _logic;
+
+        public UsuarioLogic Logic
         {
             get
             {
@@ -23,27 +24,56 @@ public partial class Usuarios : Page
                 }
                 return _logic;
             }
+
         }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!Page.IsPostBack)
+            {
+                LoadGrid();
+            }
+            if (this.GridView.Rows.Count > 0)
+            {
+                this.GridView.HeaderRow.TableSection = TableRowSection.TableHeader;
+            }
+        }
+
+        private void LoadGrid()
+        {
+            PersonaLogic personaLogic = new PersonaLogic();
+
+            this.GridView.DataSource = this.Logic.GetAll();
+            this.GridView.DataBind();
+
+            if (this.LegajoDropDown.Items.Count == 1)
+            {
+                this.LegajoDropDown.DataSource = personaLogic.GetAll();
+                this.LegajoDropDown.DataTextField = "Legajo";
+                this.LegajoDropDown.DataValueField = "ID";
+                this.LegajoDropDown.DataBind();
+            }
+        }
+
         public enum FormModes
         {
-            alta, baja, modificacion
+            alta,
+            baja,
+            modificacion
         }
-        public FormModes formMode
+
+        public FormModes FormMode
         {
             get { return (FormModes)this.ViewState["FormMode"]; }
             set { this.ViewState["FormMode"] = value; }
-            /*la propiedad se almacena dentro del viewState de la pagina porque va a ser 
-             necesario mantenerla almacenada entre postBacks*/
         }
-        private Usuario Entity
-        {
-            get;set;
-        }
+
+        private Usuario Entity { get; set; }
         private int SelectedID
         {
             get
             {
-                if(this.ViewState["SelectedID"] != null)
+                if (this.ViewState["SelectedID"] != null)
                 {
                     return (int)this.ViewState["SelectedID"];
                 }
@@ -57,6 +87,7 @@ public partial class Usuarios : Page
                 this.ViewState["SelectedID"] = value;
             }
         }
+
         private bool IsEntitySelected
         {
             get
@@ -64,47 +95,40 @@ public partial class Usuarios : Page
                 return (this.SelectedID != 0);
             }
         }
-        private void LoadGrid()
-        {
 
-            this.GridView.DataSource = this.Logic.GetAll();
-            this.GridView.DataBind();
-        }
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            this.LoadGrid();
-        }
-
-        protected void GridView_SelectedIndexChanged(object sender, EventArgs e)
+        protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.SelectedID = (int)this.GridView.SelectedValue;
+
         }
 
-        private void LoadForm(int id)
+        private void LoadForm(int ID)
         {
-            this.Entity = this.Logic.GetOne(id);
-            this.nombreTextBox.Text = this.Entity.Nombre;
-            this.apellidoTextBox.Text = this.Entity.Apellido;
-            this.emailTextBox.Text = this.Entity.Email;
+            this.Entity = this.Logic.GetOne(ID);
             this.habilitadoCheckBox.Checked = this.Entity.Habilitado;
             this.nombreUsuarioTextBox.Text = this.Entity.NombreUsuario;
+            this.LegajoDropDown.SelectedValue = this.Entity.Persona.ID.ToString();
+
         }
 
-        protected void editarLinkButton_Click(object sender, EventArgs e)
+        protected void editarlinkButton_Click(object sender, EventArgs e)
         {
             if (this.IsEntitySelected)
             {
+                this.EnableForm(true);
                 this.formPanel.Visible = true;
-                this.formMode = FormModes.modificacion;
+                this.formActionsPanel.Visible = true;
+                this.FormMode = FormModes.modificacion;
                 this.LoadForm(this.SelectedID);
             }
         }
 
+
         private void LoadEntity(Usuario usuario)
         {
-            usuario.Nombre = this.nombreTextBox.Text;
-            usuario.Apellido = this.apellidoTextBox.Text;
-            usuario.Email = this.emailTextBox.Text;
+            usuario.Persona = new Persona();
+            usuario.Persona.ID = int.Parse(this.LegajoDropDown.SelectedItem.Value);
+
             usuario.NombreUsuario = this.nombreUsuarioTextBox.Text;
             usuario.Clave = this.claveTextBox.Text;
             usuario.Habilitado = this.habilitadoCheckBox.Checked;
@@ -117,7 +141,7 @@ public partial class Usuarios : Page
 
         protected void aceptarLinkButton_Click(object sender, EventArgs e)
         {
-            switch (this.formMode)
+            switch (this.FormMode)
             {
                 case FormModes.baja:
                     this.DeleteEntity(this.SelectedID);
@@ -140,19 +164,21 @@ public partial class Usuarios : Page
                 default:
                     break;
             }
+
             this.formPanel.Visible = false;
-            
+            this.formActionsPanel.Visible = false;
+
+            this.GridView.SelectedIndex = -1;
+            this.SelectedID = 0;
         }
 
         private void EnableForm(bool enable)
         {
-            this.nombreTextBox.Enabled = enable;
-            this.apellidoTextBox.Enabled = enable;
-            this.emailTextBox.Enabled = enable;
+            this.LegajoDropDown.Enabled = enable;
             this.nombreUsuarioTextBox.Enabled = enable;
-            this.claveTextBox.Visible = enable;
+            this.claveTextBox.Enabled = enable;
             this.claveLabel.Visible = enable;
-            this.repetirClaveLabel.Visible = enable;
+            this.repetirClaveTextBox.Enabled = enable;
             this.repetirClaveTextBox.Visible = enable;
         }
 
@@ -161,30 +187,44 @@ public partial class Usuarios : Page
             if (this.IsEntitySelected)
             {
                 this.formPanel.Visible = true;
-                this.formMode = FormModes.baja;
+                this.formActionsPanel.Visible = true;
+                this.FormMode = FormModes.baja;
                 this.EnableForm(false);
                 this.LoadForm(this.SelectedID);
             }
         }
-        private void DeleteEntity(int id)
+
+        private void DeleteEntity(int ID)
         {
-            this.Logic.Delete(id);
+            this.Logic.Delete(ID);
+
         }
 
         protected void nuevoLinkButton_Click(object sender, EventArgs e)
         {
             this.formPanel.Visible = true;
-            this.formMode = FormModes.alta;
+            this.formActionsPanel.Visible = true;
+            this.FormMode = FormModes.alta;
             this.ClearForm();
             this.EnableForm(true);
         }
+
+
         private void ClearForm()
         {
-            this.nombreTextBox.Text = string.Empty;
-            this.apellidoTextBox.Text = string.Empty;
-            this.emailTextBox.Text = string.Empty;
+            this.LegajoDropDown.SelectedIndex = 0;
             this.habilitadoCheckBox.Checked = false;
             this.nombreUsuarioTextBox.Text = string.Empty;
+            this.claveTextBox.Text = string.Empty;
+            this.repetirClaveTextBox.Text = string.Empty;
         }
+
+        protected void cancelarLinkButtom_Click(object sender, EventArgs e)
+        {
+            this.formActionsPanel.Visible = false;
+            this.formPanel.Visible = false;
+        }
+
+
     }
 }
