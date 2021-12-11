@@ -195,5 +195,38 @@ namespace Data.Database
             }
             return DocentesCursos;
         }
+
+        public List<Curso> getCursos(int idMateria)
+        {
+            List<Curso> cursos = new List<Curso>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdCursos = new SqlCommand("select * from cursos where id_materia = @id", sqlConnection);
+                cmdCursos.Parameters.Add("@id", SqlDbType.Int).Value = idMateria;
+                SqlDataReader drCursos = cmdCursos.ExecuteReader();
+                while (drCursos.Read())
+                {
+                    Curso cur = new Curso();
+                    cur.ID = (int)drCursos["id_curso"];
+                    cur.AnioCalendario = (int)drCursos["anio_calendario"];
+                    cur.Cupo = (int)drCursos["cupo"];
+                    cur.IDMateria = (int)drCursos["id_materia"];
+                    cur.IDComision = (int)drCursos["id_comision"];
+                    cursos.Add(cur);
+                }
+                drCursos.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de cursos", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return cursos;
+        }
     }
 }

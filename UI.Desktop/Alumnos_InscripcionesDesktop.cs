@@ -27,10 +27,7 @@ namespace UI.Desktop
             cbxMateria.DisplayMember = "DescMateria";
             cbxMateria.ValueMember = "ID";
 
-            ComisionLogic comision = new ComisionLogic();
-            cbxComision.DataSource = comision.GetAll();
-            cbxComision.DisplayMember = "DescComision";
-            cbxComision.ValueMember = "ID";
+            
         }
 
         public Alumnos_InscripcionesDesktop(ModoForm modo) : this()
@@ -78,17 +75,23 @@ namespace UI.Desktop
 
         public override void MapearADatos()
         {
+            int idMateria, idComision;
+            Alumnos_InscripcionesLogic ail = new Alumnos_InscripcionesLogic();
+
             switch (Modo)
             {
                 case ModoForm.Alta:
                     this.btnAceptar.Text = "Guardar";
-                    Business.Entities.Alumnos_Inscripciones Ali = new Business.Entities.Alumnos_Inscripciones();
+                    Alumnos_Inscripciones Ali = new Alumnos_Inscripciones();
                     AlIActual = Ali;
                     this.AlIActual.ID = int.Parse(this.txtID.Text);
                     this.AlIActual.IDAlumno = Int32.Parse(this.cbxAlumno.SelectedValue.ToString());
-                    //cuidado aca abajo
-                    this.AlIActual.IDCurso = Int32.Parse(this.cbxComision.SelectedValue.ToString())
-                    //te pasaste
+
+                    idMateria = (int)cbxMateria.SelectedValue;
+                    idComision = (int)cbxComision.SelectedValue;
+
+                    this.AlIActual.IDCurso = ail.GetCurso(idMateria, idComision).ID;
+
                     this.AlIActual.Condicion = this.txtCondicion.Text;
                     this.AlIActual.Nota = int.Parse(this.txtNota.Text);
                     AlIActual.State = BusinessEntity.States.New;
@@ -100,9 +103,11 @@ namespace UI.Desktop
                     AlIActual = Uss;
                     this.AlIActual.ID= int.Parse(this.txtID.Text);
                     this.AlIActual.IDAlumno = Int32.Parse(this.cbxAlumno.SelectedValue.ToString());
-                    //cuidado aca abajo
-                    this.AlIActual.IDCurso = Int32.Parse(this.cbxComision.SelectedValue.ToString())
-                    //te pasaste
+                    
+                    idMateria = (int)cbxMateria.SelectedValue;
+                    idComision = (int)cbxComision.SelectedValue;
+
+                    this.AlIActual.IDCurso = ail.GetCurso(idMateria, idComision).ID;
                     this.AlIActual.Nota = int.Parse(this.txtNota.Text);
                     this.AlIActual.Condicion = this.txtCondicion.Text;
                     AlIActual.State = BusinessEntity.States.Modified;
@@ -123,8 +128,8 @@ namespace UI.Desktop
         public override void GuardarCambios()
         {
             MapearADatos();
-            Alumnos_InscripcionesLogic us = new Alumnos_InscripcionesLogic();
-            us.Save(AlIActual);
+            Alumnos_InscripcionesLogic ail = new Alumnos_InscripcionesLogic();
+            ail.Save(AlIActual);
         }
 
         public override bool Validar()
@@ -160,6 +165,17 @@ namespace UI.Desktop
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cbxMateria_ValueMemberChanged(object sender, EventArgs e)
+        {
+            CursoLogic cl = new CursoLogic();
+            
+            cbxComision.Visible = true;
+            ComisionLogic comision = new ComisionLogic();
+            cbxComision.DataSource = comision.GetComisiones(cl.GetCursos(Int32.Parse(this.cbxAlumno.SelectedValue.ToString())));
+            cbxComision.DisplayMember = "DescComision";
+            cbxComision.ValueMember = "ID";
         }
     }
 }

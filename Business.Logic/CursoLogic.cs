@@ -42,5 +42,10 @@ namespace Business.Logic
         {
             return CursoData.GetDocentesCurso(idCurso);
         }
+
+        public List <Curso> GetCursos(int idMateria)
+        {
+            return CursoData.getCursos(idMateria);
+        }
     }
 }

@@ -67,6 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Alumnos_Inscripciones.aspx" />
+    <Content Include="Comisiones.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Usuarios.aspx" />
@@ -74,6 +76,20 @@
     <Content Include="MasterPage.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alumnos_Inscripciones.aspx.cs">
+      <DependentUpon>Alumnos_Inscripciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Alumnos_Inscripciones.aspx.designer.cs">
+      <DependentUpon>Alumnos_Inscripciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Comisiones.aspx.cs">
+      <DependentUpon>Comisiones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Comisiones.aspx.designer.cs">
+      <DependentUpon>Comisiones.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

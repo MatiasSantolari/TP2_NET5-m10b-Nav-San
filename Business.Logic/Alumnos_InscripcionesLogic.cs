@@ -22,7 +22,7 @@ namespace Business.Logic
             Alumnos_InscripcionesData = new Alumno_InscripcionAdapter();
         }
 
-        public Business.Entities.Alumnos_Inscripciones GetOne(int id)
+        public Alumnos_Inscripciones GetOne(int id)
         {
             return Alumnos_InscripcionesData.GetOne(id);
         }
@@ -41,6 +41,11 @@ namespace Business.Logic
         public void Delete(int id)
         {
             Alumnos_InscripcionesData.Delete(id);
+        }
+
+        public Curso GetCurso(int idMateria, int idComision)
+        {
+            return Alumnos_InscripcionesData.GetCurso(idMateria, idComision);
         }
     }
 }
