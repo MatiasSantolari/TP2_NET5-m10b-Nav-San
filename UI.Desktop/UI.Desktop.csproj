@@ -241,6 +241,10 @@
       <Project>{9dc4b5e7-2b08-4c03-be59-f851be751fa6}</Project>
       <Name>Business.Logic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Login\Login.csproj">
+      <Project>{111c1a3b-e93b-4345-9e2f-30a6da587035}</Project>
+      <Name>Login</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

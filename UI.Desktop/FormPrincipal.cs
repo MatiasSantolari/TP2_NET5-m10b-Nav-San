@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Login;
+using Business.Logic;
+using Business.Entities;
 
 namespace UI.Desktop
 {
     public partial class FormPrincipal : Form
     {
+        public int UsuarioID { get; set; }
         public FormPrincipal()
         {
             InitializeComponent();
@@ -67,7 +71,50 @@ namespace UI.Desktop
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            this.Close();
+            UsuarioID = -1;
+            this.Close();        
+        }
+
+        private void FormPrincipal_Shown(object sender, EventArgs e)
+        {
+            formLogin appLogin = new formLogin();
+            if (appLogin.ShowDialog() != DialogResult.OK)
+            {
+                this.Dispose();
+            }
+            UsuarioID = appLogin.UsuarioID;
+            UsuarioLogic ul = new UsuarioLogic();
+            Persona per = ul.GetPersona(UsuarioID);
+            
+            if (per.TipoPersona.ToString() == "Admin")
+            {
+                //especialidades
+                pbEspecialidad.Visible = false;
+                lblEspecialidad.Visible = false;
+            }
+
+            if (per.TipoPersona.ToString() == "Alumno")
+            {
+                //Docente_curso
+                pbCursosDoc.Visible = false;
+                labelCursDoc.Visible = false;
+
+                //cursos
+                pbCursos.Visible = false;
+                lblCursos.Visible = false;
+
+                //comisiones
+                pbComisiones.Visible = false;
+                lblComisiones.Visible = false;
+
+            }
+
+            if (per.TipoPersona.ToString() == "Docente")
+            {
+                //alumnos_insc
+                pbInsc.Visible = false;
+                lblInsc.Visible = false;
+            }
         }
     }
 }

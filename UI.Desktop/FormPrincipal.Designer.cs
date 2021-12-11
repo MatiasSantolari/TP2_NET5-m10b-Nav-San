@@ -36,8 +36,8 @@ namespace UI.Desktop
             this.btnLogout = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.lblEspecialidad = new System.Windows.Forms.Label();
+            this.pbEspecialidad = new System.Windows.Forms.PictureBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
@@ -45,17 +45,17 @@ namespace UI.Desktop
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.lblComisiones = new System.Windows.Forms.Label();
+            this.pbComisiones = new System.Windows.Forms.PictureBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.lblCursos = new System.Windows.Forms.Label();
+            this.pbCursos = new System.Windows.Forms.PictureBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.labelCursDoc = new System.Windows.Forms.Label();
+            this.pbCursosDoc = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.lblInsc = new System.Windows.Forms.Label();
+            this.pbInsc = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -66,19 +66,19 @@ namespace UI.Desktop
             ((System.ComponentModel.ISupportInitialize)(this.pbUsuario)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEspecialidad)).BeginInit();
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbComisiones)).BeginInit();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCursos)).BeginInit();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCursosDoc)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInsc)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -98,38 +98,42 @@ namespace UI.Desktop
             this.tblPrincipal.Controls.Add(this.tableLayoutPanel1, 0, 1);
             this.tblPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.tblPrincipal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tblPrincipal.Name = "tblPrincipal";
             this.tblPrincipal.RowCount = 2;
             this.tblPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tblPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblPrincipal.Size = new System.Drawing.Size(617, 479);
+            this.tblPrincipal.Size = new System.Drawing.Size(926, 737);
             this.tblPrincipal.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(4, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 20);
+            this.label1.Size = new System.Drawing.Size(144, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Bienvenido";
             // 
             // pbUsuario
             // 
             this.pbUsuario.Image = ((System.Drawing.Image)(resources.GetObject("pbUsuario.Image")));
-            this.pbUsuario.Location = new System.Drawing.Point(460, 3);
+            this.pbUsuario.Location = new System.Drawing.Point(692, 5);
+            this.pbUsuario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pbUsuario.Name = "pbUsuario";
-            this.pbUsuario.Size = new System.Drawing.Size(68, 60);
+            this.pbUsuario.Size = new System.Drawing.Size(102, 92);
             this.pbUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbUsuario.TabIndex = 1;
             this.pbUsuario.TabStop = false;
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(534, 3);
+            this.btnLogout.Location = new System.Drawing.Point(802, 5);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(80, 23);
+            this.btnLogout.Size = new System.Drawing.Size(120, 35);
             this.btnLogout.TabIndex = 2;
             this.btnLogout.Text = "Cerrar sesion";
             this.btnLogout.UseVisualStyleBackColor = true;
@@ -152,62 +156,70 @@ namespace UI.Desktop
             this.tableLayoutPanel1.Controls.Add(this.groupBox2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 69);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 107);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.34F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(611, 407);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(918, 625);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // groupBox9
             // 
-            this.groupBox9.Controls.Add(this.label10);
-            this.groupBox9.Controls.Add(this.pictureBox9);
-            this.groupBox9.Location = new System.Drawing.Point(409, 273);
+            this.groupBox9.Controls.Add(this.lblEspecialidad);
+            this.groupBox9.Controls.Add(this.pbEspecialidad);
+            this.groupBox9.Location = new System.Drawing.Point(614, 421);
+            this.groupBox9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(199, 119);
+            this.groupBox9.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox9.Size = new System.Drawing.Size(298, 183);
             this.groupBox9.TabIndex = 8;
             this.groupBox9.TabStop = false;
             // 
-            // label10
+            // lblEspecialidad
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(62, 103);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(78, 13);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Especialidades";
+            this.lblEspecialidad.AutoSize = true;
+            this.lblEspecialidad.Location = new System.Drawing.Point(93, 158);
+            this.lblEspecialidad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEspecialidad.Name = "lblEspecialidad";
+            this.lblEspecialidad.Size = new System.Drawing.Size(116, 20);
+            this.lblEspecialidad.TabIndex = 1;
+            this.lblEspecialidad.Text = "Especialidades";
             // 
-            // pictureBox9
+            // pbEspecialidad
             // 
-            this.pictureBox9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pbEspecialidad.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(6, 19);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(187, 65);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox9.TabIndex = 0;
-            this.pictureBox9.TabStop = false;
+            this.pbEspecialidad.Image = ((System.Drawing.Image)(resources.GetObject("pbEspecialidad.Image")));
+            this.pbEspecialidad.Location = new System.Drawing.Point(9, 29);
+            this.pbEspecialidad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pbEspecialidad.Name = "pbEspecialidad";
+            this.pbEspecialidad.Size = new System.Drawing.Size(280, 100);
+            this.pbEspecialidad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbEspecialidad.TabIndex = 0;
+            this.pbEspecialidad.TabStop = false;
             // 
             // groupBox8
             // 
             this.groupBox8.Controls.Add(this.label9);
             this.groupBox8.Controls.Add(this.pictureBox8);
-            this.groupBox8.Location = new System.Drawing.Point(206, 273);
+            this.groupBox8.Location = new System.Drawing.Point(309, 421);
+            this.groupBox8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(197, 119);
+            this.groupBox8.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox8.Size = new System.Drawing.Size(296, 183);
             this.groupBox8.TabIndex = 7;
             this.groupBox8.TabStop = false;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(68, 103);
+            this.label9.Location = new System.Drawing.Point(102, 158);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(51, 13);
+            this.label9.Size = new System.Drawing.Size(76, 20);
             this.label9.TabIndex = 1;
             this.label9.Text = "Personas";
             this.label9.Click += new System.EventHandler(this.pictureBox8_Click);
@@ -217,9 +229,10 @@ namespace UI.Desktop
             this.pictureBox8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(6, 19);
+            this.pictureBox8.Location = new System.Drawing.Point(9, 29);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(185, 65);
+            this.pictureBox8.Size = new System.Drawing.Size(278, 100);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox8.TabIndex = 0;
             this.pictureBox8.TabStop = false;
@@ -229,18 +242,21 @@ namespace UI.Desktop
             // 
             this.groupBox7.Controls.Add(this.label8);
             this.groupBox7.Controls.Add(this.pictureBox7);
-            this.groupBox7.Location = new System.Drawing.Point(3, 273);
+            this.groupBox7.Location = new System.Drawing.Point(4, 421);
+            this.groupBox7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(197, 119);
+            this.groupBox7.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox7.Size = new System.Drawing.Size(296, 183);
             this.groupBox7.TabIndex = 6;
             this.groupBox7.TabStop = false;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(72, 103);
+            this.label8.Location = new System.Drawing.Point(108, 158);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(48, 13);
+            this.label8.Size = new System.Drawing.Size(72, 20);
             this.label8.TabIndex = 1;
             this.label8.Text = "Usuarios";
             this.label8.Click += new System.EventHandler(this.pictureBox7_Click);
@@ -250,9 +266,10 @@ namespace UI.Desktop
             this.pictureBox7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(6, 19);
+            this.pictureBox7.Location = new System.Drawing.Point(9, 29);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(185, 65);
+            this.pictureBox7.Size = new System.Drawing.Size(278, 100);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox7.TabIndex = 0;
             this.pictureBox7.TabStop = false;
@@ -260,152 +277,171 @@ namespace UI.Desktop
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.label7);
-            this.groupBox6.Controls.Add(this.pictureBox6);
-            this.groupBox6.Location = new System.Drawing.Point(409, 138);
+            this.groupBox6.Controls.Add(this.lblComisiones);
+            this.groupBox6.Controls.Add(this.pbComisiones);
+            this.groupBox6.Location = new System.Drawing.Point(614, 213);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(199, 119);
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox6.Size = new System.Drawing.Size(298, 183);
             this.groupBox6.TabIndex = 5;
             this.groupBox6.TabStop = false;
             // 
-            // label7
+            // lblComisiones
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(71, 103);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(60, 13);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Comisiones";
-            this.label7.Click += new System.EventHandler(this.pictureBox6_Click);
+            this.lblComisiones.AutoSize = true;
+            this.lblComisiones.Location = new System.Drawing.Point(106, 158);
+            this.lblComisiones.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblComisiones.Name = "lblComisiones";
+            this.lblComisiones.Size = new System.Drawing.Size(91, 20);
+            this.lblComisiones.TabIndex = 1;
+            this.lblComisiones.Text = "Comisiones";
+            this.lblComisiones.Click += new System.EventHandler(this.pictureBox6_Click);
             // 
-            // pictureBox6
+            // pbComisiones
             // 
-            this.pictureBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pbComisiones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(6, 19);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(187, 65);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 0;
-            this.pictureBox6.TabStop = false;
-            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
+            this.pbComisiones.Image = ((System.Drawing.Image)(resources.GetObject("pbComisiones.Image")));
+            this.pbComisiones.Location = new System.Drawing.Point(9, 29);
+            this.pbComisiones.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pbComisiones.Name = "pbComisiones";
+            this.pbComisiones.Size = new System.Drawing.Size(280, 100);
+            this.pbComisiones.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbComisiones.TabIndex = 0;
+            this.pbComisiones.TabStop = false;
+            this.pbComisiones.Click += new System.EventHandler(this.pictureBox6_Click);
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.label6);
-            this.groupBox5.Controls.Add(this.pictureBox5);
-            this.groupBox5.Location = new System.Drawing.Point(206, 138);
+            this.groupBox5.Controls.Add(this.lblCursos);
+            this.groupBox5.Controls.Add(this.pbCursos);
+            this.groupBox5.Location = new System.Drawing.Point(309, 213);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(197, 119);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox5.Size = new System.Drawing.Size(296, 183);
             this.groupBox5.TabIndex = 4;
             this.groupBox5.TabStop = false;
             // 
-            // label6
+            // lblCursos
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(80, 103);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(39, 13);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Cursos";
-            this.label6.Click += new System.EventHandler(this.pictureBox5_Click);
+            this.lblCursos.AutoSize = true;
+            this.lblCursos.Location = new System.Drawing.Point(120, 158);
+            this.lblCursos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCursos.Name = "lblCursos";
+            this.lblCursos.Size = new System.Drawing.Size(59, 20);
+            this.lblCursos.TabIndex = 1;
+            this.lblCursos.Text = "Cursos";
+            this.lblCursos.Click += new System.EventHandler(this.pictureBox5_Click);
             // 
-            // pictureBox5
+            // pbCursos
             // 
-            this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pbCursos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(6, 19);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(185, 65);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 0;
-            this.pictureBox5.TabStop = false;
-            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
+            this.pbCursos.Image = ((System.Drawing.Image)(resources.GetObject("pbCursos.Image")));
+            this.pbCursos.Location = new System.Drawing.Point(9, 29);
+            this.pbCursos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pbCursos.Name = "pbCursos";
+            this.pbCursos.Size = new System.Drawing.Size(278, 100);
+            this.pbCursos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbCursos.TabIndex = 0;
+            this.pbCursos.TabStop = false;
+            this.pbCursos.Click += new System.EventHandler(this.pictureBox5_Click);
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Controls.Add(this.pictureBox4);
-            this.groupBox4.Location = new System.Drawing.Point(3, 138);
+            this.groupBox4.Controls.Add(this.labelCursDoc);
+            this.groupBox4.Controls.Add(this.pbCursosDoc);
+            this.groupBox4.Location = new System.Drawing.Point(4, 213);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(197, 119);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox4.Size = new System.Drawing.Size(296, 183);
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             // 
-            // label5
+            // labelCursDoc
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(52, 103);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(88, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Cursos Docentes";
-            this.label5.Click += new System.EventHandler(this.pictureBox4_Click);
+            this.labelCursDoc.AutoSize = true;
+            this.labelCursDoc.Location = new System.Drawing.Point(78, 158);
+            this.labelCursDoc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCursDoc.Name = "labelCursDoc";
+            this.labelCursDoc.Size = new System.Drawing.Size(132, 20);
+            this.labelCursDoc.TabIndex = 1;
+            this.labelCursDoc.Text = "Cursos Docentes";
+            this.labelCursDoc.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
-            // pictureBox4
+            // pbCursosDoc
             // 
-            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pbCursosDoc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(6, 19);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(185, 65);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 0;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            this.pbCursosDoc.Image = ((System.Drawing.Image)(resources.GetObject("pbCursosDoc.Image")));
+            this.pbCursosDoc.Location = new System.Drawing.Point(9, 29);
+            this.pbCursosDoc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pbCursosDoc.Name = "pbCursosDoc";
+            this.pbCursosDoc.Size = new System.Drawing.Size(278, 100);
+            this.pbCursosDoc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbCursosDoc.TabIndex = 0;
+            this.pbCursosDoc.TabStop = false;
+            this.pbCursosDoc.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.pictureBox3);
-            this.groupBox3.Location = new System.Drawing.Point(409, 3);
+            this.groupBox3.Controls.Add(this.lblInsc);
+            this.groupBox3.Controls.Add(this.pbInsc);
+            this.groupBox3.Location = new System.Drawing.Point(614, 5);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(199, 119);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox3.Size = new System.Drawing.Size(298, 183);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             // 
-            // label4
+            // lblInsc
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(45, 103);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(112, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Inscripciones Alumnos";
-            this.label4.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.lblInsc.AutoSize = true;
+            this.lblInsc.Location = new System.Drawing.Point(68, 158);
+            this.lblInsc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblInsc.Name = "lblInsc";
+            this.lblInsc.Size = new System.Drawing.Size(168, 20);
+            this.lblInsc.TabIndex = 1;
+            this.lblInsc.Text = "Inscripciones Alumnos";
+            this.lblInsc.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
-            // pictureBox3
+            // pbInsc
             // 
-            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pbInsc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(6, 19);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(187, 65);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.pbInsc.Image = ((System.Drawing.Image)(resources.GetObject("pbInsc.Image")));
+            this.pbInsc.Location = new System.Drawing.Point(9, 29);
+            this.pbInsc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pbInsc.Name = "pbInsc";
+            this.pbInsc.Size = new System.Drawing.Size(280, 100);
+            this.pbInsc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbInsc.TabIndex = 0;
+            this.pbInsc.TabStop = false;
+            this.pbInsc.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.pictureBox2);
-            this.groupBox2.Location = new System.Drawing.Point(206, 3);
+            this.groupBox2.Location = new System.Drawing.Point(309, 5);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(197, 119);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox2.Size = new System.Drawing.Size(296, 183);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(80, 103);
+            this.label3.Location = new System.Drawing.Point(120, 158);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 13);
+            this.label3.Size = new System.Drawing.Size(57, 20);
             this.label3.TabIndex = 1;
             this.label3.Text = "Planes";
             this.label3.Click += new System.EventHandler(this.pictureBox2_Click);
@@ -415,9 +451,10 @@ namespace UI.Desktop
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(6, 19);
+            this.pictureBox2.Location = new System.Drawing.Point(9, 29);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(185, 65);
+            this.pictureBox2.Size = new System.Drawing.Size(278, 100);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
@@ -427,18 +464,21 @@ namespace UI.Desktop
             // 
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Location = new System.Drawing.Point(4, 5);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(197, 119);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Size = new System.Drawing.Size(296, 183);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(72, 103);
+            this.label2.Location = new System.Drawing.Point(108, 158);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 13);
+            this.label2.Size = new System.Drawing.Size(70, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Materias";
             this.label2.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -448,9 +488,10 @@ namespace UI.Desktop
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(6, 19);
+            this.pictureBox1.Location = new System.Drawing.Point(9, 29);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(185, 65);
+            this.pictureBox1.Size = new System.Drawing.Size(278, 100);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -458,19 +499,21 @@ namespace UI.Desktop
             // 
             // FormPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(617, 479);
+            this.ClientSize = new System.Drawing.Size(926, 737);
             this.Controls.Add(this.tblPrincipal);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormPrincipal";
             this.Text = "FormPrincipal";
+            this.Shown += new System.EventHandler(this.FormPrincipal_Shown);
             this.tblPrincipal.ResumeLayout(false);
             this.tblPrincipal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbUsuario)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEspecialidad)).EndInit();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
@@ -479,16 +522,16 @@ namespace UI.Desktop
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbComisiones)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCursos)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCursosDoc)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInsc)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -507,8 +550,8 @@ namespace UI.Desktop
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.Label lblEspecialidad;
+        private System.Windows.Forms.PictureBox pbEspecialidad;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pictureBox8;
@@ -516,17 +559,17 @@ namespace UI.Desktop
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Label lblComisiones;
+        private System.Windows.Forms.PictureBox pbComisiones;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label lblCursos;
+        private System.Windows.Forms.PictureBox pbCursos;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label labelCursDoc;
+        private System.Windows.Forms.PictureBox pbCursosDoc;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label lblInsc;
+        private System.Windows.Forms.PictureBox pbInsc;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox2;

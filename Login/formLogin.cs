@@ -14,6 +14,19 @@ namespace Login
 {
     public partial class formLogin : Form
     {
+        private int _usuario_id;
+
+        public int UsuarioID
+        {
+            get
+            {
+                return _usuario_id;
+            }
+            set
+            {
+                _usuario_id = value;
+            }
+        }
         public formLogin()
         {
             InitializeComponent();
@@ -21,39 +34,31 @@ namespace Login
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            /*UsuarioLogic ul = new UsuarioLogic();
-            List<Usuario> users = ul.GetAll();
+            
+            //la propiedad Text de los TextBox contiene el texto escrito en ellos
+            UsuarioLogic ul = new UsuarioLogic();
+            List<Usuario> usuarios = ul.GetAll();
 
             Usuario usuario = new Usuario();
-            bool encuentra = false;
+            bool band = false;
 
-            foreach (Usuario user in users)
+            foreach (Usuario user in usuarios)
             {
-                if (user.NombreUsuario == txtUsuario.Text && usuario.Clave == txtPass.Text)
+                if ((user.NombreUsuario == txtUsuario.Text) && (user.Clave ==txtPass.Text))
                 {
-                    encuentra = true;
+                    band = true;
                     usuario = user;
                 }
             }
 
-            if (encuentra == true)
-            {
-                this.DialogResult = DialogResult.OK; 
-            }
-            else
-            {
-                MessageBox.Show("Usuario y/o contraseña incorrectos", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } */
-
-            //la propiedad Text de los TextBox contiene el texto escrito en ellos
-            if (this.txtUsuario.Text == "Admin" && this.txtPass.Text == "admin")
-            {
+            if (band == true)
+            {                
+                UsuarioID = usuario.ID;
                 this.DialogResult = DialogResult.OK;
             }
             else
             {
-                MessageBox.Show("Usuario y/o contraseña incorrectos", "Login"
-                    , MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Usuario y/o contraseña incorrectos", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
