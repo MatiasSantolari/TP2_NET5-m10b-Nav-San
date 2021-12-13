@@ -63,3 +63,7 @@ C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\UI.Web\obj\Debug\UI
 C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\UI.Web\obj\Debug\UI.Web.csproj.CopyComplete
 C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\UI.Web\obj\Debug\UI.Web.dll
 C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\UI.Web\obj\Debug\UI.Web.pdb
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Web\obj\Debug\UI.Web.csproj.AssemblyReference.cache
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Web\obj\Debug\UI.Web.csproj.CoreCompileInputs.cache
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Web\obj\Debug\UI.Web.dll
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Web\obj\Debug\UI.Web.pdb

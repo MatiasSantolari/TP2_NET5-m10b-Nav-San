@@ -31,6 +31,26 @@ C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\UI.Desktop\bin\Debu
 C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.csproj.CopyComplete
 C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.exe
 C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.pdb
-C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\UI.Desktop\bin\Debug\Login.exe
-C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\UI.Desktop\bin\Debug\Login.pdb
-C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\UI.Desktop\bin\Debug\Login.exe.config
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.csproj.AssemblyReference.cache
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.Alumnos_InscripcionesDesktop.resources
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.Alumnos_InscripcionesForm.resources
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.ComisionesDesktop.resources
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.ComisionesForm.resources
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.CursosDesktop.resources
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.CursosForm.resources
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.Docentes_CursosDesktop.resources
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.Docentes_CursosForm.resources
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.FormPrincipal.resources
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.MateriaDesktop.resources
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.MateriaForm.resources
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.PersonaDesktop.resources
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.PersonaForm.resources
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.PlanDesktop.resources
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.PlanForm.resources
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.UsuariosDesktop.resources
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.UsuariosForm.resources
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.Properties.Resources.resources
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.csproj.GenerateResource.cache
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.csproj.CoreCompileInputs.cache
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.exe
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.pdb

@@ -4,3 +4,9 @@ C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Business.Entities\o
 C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Business.Entities\obj\Debug\Business.Entities.csproj.CoreCompileInputs.cache
 C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Business.Entities\obj\Debug\Business.Entities.dll
 C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Business.Entities\obj\Debug\Business.Entities.pdb
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\Business.Entities\bin\Debug\Business.Entities.dll
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\Business.Entities\bin\Debug\Business.Entities.pdb
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\Business.Entities\obj\Debug\Business.Entities.csproj.AssemblyReference.cache
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\Business.Entities\obj\Debug\Business.Entities.csproj.CoreCompileInputs.cache
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\Business.Entities\obj\Debug\Business.Entities.dll
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\Business.Entities\obj\Debug\Business.Entities.pdb

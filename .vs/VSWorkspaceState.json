@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Data.Database"
+    "\\Data.Database",
+    "\\UI.Desktop"
   ],
-  "SelectedNode": "\\Data.Database\\PersonaAdapter.cs",
+  "SelectedNode": "\\UI.Desktop\\FormPrincipal.cs",
   "PreviewInSolutionExplorer": false
 }

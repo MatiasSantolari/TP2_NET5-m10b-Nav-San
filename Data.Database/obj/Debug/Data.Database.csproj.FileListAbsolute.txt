@@ -7,3 +7,12 @@ C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Data.Database\obj\D
 C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Data.Database\obj\Debug\Data.Database.csproj.CopyComplete
 C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Data.Database\obj\Debug\Data.Database.dll
 C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Data.Database\obj\Debug\Data.Database.pdb
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\Data.Database\bin\Debug\Data.Database.dll
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\Data.Database\bin\Debug\Data.Database.pdb
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\Data.Database\bin\Debug\Business.Entities.dll
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\Data.Database\bin\Debug\Business.Entities.pdb
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\Data.Database\obj\Debug\Data.Database.csproj.AssemblyReference.cache
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\Data.Database\obj\Debug\Data.Database.csproj.CoreCompileInputs.cache
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\Data.Database\obj\Debug\Data.Database.csproj.CopyComplete
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\Data.Database\obj\Debug\Data.Database.dll
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\Data.Database\obj\Debug\Data.Database.pdb

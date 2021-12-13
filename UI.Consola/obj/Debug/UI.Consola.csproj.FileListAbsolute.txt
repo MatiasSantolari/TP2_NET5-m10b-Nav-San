@@ -12,3 +12,17 @@ C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\UI.Consola\obj\Debu
 C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\UI.Consola\obj\Debug\UI.Consola.csproj.CopyComplete
 C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\UI.Consola\obj\Debug\UI.Consola.exe
 C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\UI.Consola\obj\Debug\UI.Consola.pdb
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Consola\bin\Debug\UI.Consola.exe.config
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Consola\bin\Debug\UI.Consola.exe
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Consola\bin\Debug\UI.Consola.pdb
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Consola\bin\Debug\Business.Entities.dll
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Consola\bin\Debug\Business.Logic.dll
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Consola\bin\Debug\Data.Database.dll
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Consola\bin\Debug\Business.Entities.pdb
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Consola\bin\Debug\Business.Logic.pdb
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Consola\bin\Debug\Data.Database.pdb
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Consola\obj\Debug\UI.Consola.csproj.AssemblyReference.cache
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Consola\obj\Debug\UI.Consola.csproj.CoreCompileInputs.cache
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Consola\obj\Debug\UI.Consola.csproj.CopyComplete
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Consola\obj\Debug\UI.Consola.exe
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\UI.Consola\obj\Debug\UI.Consola.pdb
