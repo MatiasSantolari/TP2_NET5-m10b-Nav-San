@@ -6,25 +6,23 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Business.Entities;
 using Business.Logic;
-using System.Text.RegularExpressions;
 
 namespace UI.Web
 {
-    public partial class Usuarios : System.Web.UI.Page
+    public partial class Planes : System.Web.UI.Page
     {
-        private UsuarioLogic _logic;
+        private PlanLogic _logic;
 
-        public UsuarioLogic Logic
+        public PlanLogic Logic
         {
             get
             {
                 if (_logic == null)
                 {
-                    _logic = new UsuarioLogic();
+                    _logic = new PlanLogic();
                 }
                 return _logic;
             }
-
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -41,17 +39,17 @@ namespace UI.Web
 
         private void LoadGrid()
         {
-            PersonaLogic personaLogic = new PersonaLogic();
+            EspecialidadLogic espec = new EspecialidadLogic();
 
             this.gridView.DataSource = this.Logic.GetAll();
             this.gridView.DataBind();
 
-            if (this.LegajoDropDown.Items.Count == 1)
+            if (this.especDropDown.Items.Count == 1)
             {
-                this.LegajoDropDown.DataSource = personaLogic.GetAll();
-                this.LegajoDropDown.DataTextField = "Legajo";
-                this.LegajoDropDown.DataValueField = "ID";
-                this.LegajoDropDown.DataBind();
+                this.especDropDown.DataSource = espec.GetAll();
+                this.especDropDown.DataTextField = "Descripcion";
+                this.especDropDown.DataValueField = "ID";
+                this.especDropDown.DataBind();
             }
         }
 
@@ -68,7 +66,8 @@ namespace UI.Web
             set { this.ViewState["FormMode"] = value; }
         }
 
-        private Usuario Entity { get; set; }
+        private Plan Entity { get; set; }
+
         private int SelectedID
         {
             get
@@ -101,14 +100,12 @@ namespace UI.Web
             this.SelectedID = (int)this.gridView.SelectedValue;
 
         }
-
         private void LoadForm(int ID)
         {
             this.Entity = this.Logic.GetOne(ID);
-            this.HabilitadoCheckBox.Checked = this.Entity.Habilitado;
-            this.nombreUsuarioTextBox.Text = this.Entity.NombreUsuario;
-            this.LegajoDropDown.SelectedValue = this.Entity.Persona.ID.ToString();
+            this.descripcionTextBox.Text = this.Entity.DescPlan;
 
+            this.especDropDown.SelectedValue = this.Entity.Especialidad.ID.ToString();
         }
 
         protected void editarlinkButton_Click(object sender, EventArgs e)
@@ -123,20 +120,17 @@ namespace UI.Web
             }
         }
 
-
-        private void LoadEntity(Usuario usuario)
+        private void LoadEntity(Plan plan)
         {
-            usuario.Persona = new Persona();
-            usuario.Persona.ID = int.Parse(this.LegajoDropDown.SelectedItem.Value);
+            plan.DescPlan = this.descripcionTextBox.Text;
 
-            usuario.NombreUsuario = this.nombreUsuarioTextBox.Text;
-            usuario.Clave = this.claveTextBox.Text;
-            usuario.Habilitado = this.HabilitadoCheckBox.Checked;
+            plan.Especialidad = new Especialidad();
+            plan.Especialidad.ID = int.Parse(this.especDropDown.SelectedItem.Value);
         }
 
-        private void SaveEntity(Usuario usuario)
+        private void SaveEntity(Plan plan)
         {
-            this.Logic.Save(usuario);
+            this.Logic.Save(plan);
         }
 
         protected void aceptarLinkButton_Click(object sender, EventArgs e)
@@ -148,7 +142,7 @@ namespace UI.Web
                     this.LoadGrid();
                     break;
                 case FormModes.modificacion:
-                    this.Entity = new Usuario();
+                    this.Entity = new Plan();
                     this.Entity.ID = this.SelectedID;
                     this.Entity.State = BusinessEntity.States.Modified;
                     this.LoadEntity(this.Entity);
@@ -156,7 +150,7 @@ namespace UI.Web
                     this.LoadGrid();
                     break;
                 case FormModes.alta:
-                    this.Entity = new Usuario();
+                    this.Entity = new Plan();
                     this.LoadEntity(this.Entity);
                     this.SaveEntity(this.Entity);
                     this.LoadGrid();
@@ -174,12 +168,9 @@ namespace UI.Web
 
         private void EnableForm(bool enable)
         {
-            this.LegajoDropDown.Enabled = enable;
-            this.nombreUsuarioTextBox.Enabled = enable;
-            this.claveTextBox.Enabled = enable;
-            this.claveLabel.Visible = enable;
-            this.repetirclaveTextBox.Enabled = enable;
-            this.repetirclaveLabel.Visible = enable;
+            this.descripcionTextBox.Enabled = enable;
+
+            this.especDropDown.Enabled = enable;
         }
 
         protected void eliminarLinkButton_Click(object sender, EventArgs e)
@@ -196,10 +187,15 @@ namespace UI.Web
 
         private void DeleteEntity(int ID)
         {
-            this.Logic.Delete(ID);
-
+            try
+            {
+                this.Logic.Delete(ID);
+            }
+            catch (Exception ex)
+            {
+                this.ModelState.AddModelError("", ex.Message);
+            }
         }
-
         protected void nuevoLinkButton_Click(object sender, EventArgs e)
         {
             this.formPanel.Visible = true;
@@ -208,21 +204,21 @@ namespace UI.Web
             this.ClearForm();
             this.EnableForm(true);
         }
-
-
         private void ClearForm()
         {
-            this.LegajoDropDown.SelectedIndex = 0;
-            this.HabilitadoCheckBox.Checked = false;
-            this.nombreUsuarioTextBox.Text = string.Empty;
-            this.claveTextBox.Text = string.Empty;
-            this.repetirclaveTextBox.Text = string.Empty;
-        }
+            this.descripcionTextBox.Text = string.Empty;
 
+            //esto no es etc
+            this.especDropDown.SelectedIndex = 0;
+
+        }
         protected void cancelarLinkButtom_Click(object sender, EventArgs e)
         {
             this.formActionPanel.Visible = false;
             this.formPanel.Visible = false;
+
+            this.gridView.SelectedIndex = -1;
+            this.SelectedID = 0;
         }
     }
 }

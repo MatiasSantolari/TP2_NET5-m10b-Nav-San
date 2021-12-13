@@ -12,58 +12,51 @@
     
     <div>
         <asp:Panel ID="gridPanel" runat="server">
-            <asp:GridView ID="GridView" runat="server"
-                SelectedRowStyle-BackColor="Black"
-                SelectedRowStyle-ForeColor="White"
-                DataKeyNames="ID" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView_SelectedIndexChanged">
-                <Columns>
-                    <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
-                    <asp:BoundField HeaderText="Apellido" DataField="Apellido" />
-                    <asp:BoundField HeaderText="EMail" DataField="EMail" />
-                    <asp:BoundField HeaderText="Usuario" DataField="NombreUsuario" />
-                    <asp:BoundField HeaderText="Habilitado" DataField="Habilitado" />
-                    <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
-                </Columns>
-            </asp:GridView>
-        </asp:Panel>
-        </div>
-        <asp:Panel ID="formPanel" runat="server" Visible="False">
-            <asp:Label ID="nombreLabel" runat="server" Text="Nombre: "></asp:Label>
-            <asp:TextBox ID="nombreTextBox" runat="server"></asp:TextBox>
+        <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="False" SelectedRowStyle-BackColor="Black"
+            SelectedRowStyle-ForeColor="White" DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" CssClass="table table-responsive-lg">
+            <Columns>  
+                <asp:BoundField HeaderText="Legajo" DataField="LegajoPersona" />
+                <asp:BoundField HeaderText="Usuario" DataField="NombreUsuario" />
+                <asp:BoundField HeaderText="Habilitado" DataField="Habilitado" />
+                <asp:CommandField SelectText="Seleccionar" ShowSelectButton="true" />
+            </Columns>
+            <SelectedRowStyle BackColor="Black" ForeColor="White" />
+        </asp:GridView>    
+    </asp:Panel>
+
+    <div class="form-group">
+        <asp:Panel ID="formPanel" Visible="false" runat="server">
+            <asp:Label ID="LegajoLabel" runat="server" Text="Legajo: "></asp:Label>
+            <asp:DropDownList ID="LegajoDropDown" class="form-control" runat="server" AppendDataBoundItems="True">
+                <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
+            </asp:DropDownList>
+            <asp:RequiredFieldValidator ID="rfvLegajo" runat="server" ControlToValidate="LegajoDropDown" ErrorMessage="Seleccione un legajo" ForeColor="Red" ToolTip="No seleccionó un legajo" InitialValue="0" ValidationGroup="vg">*</asp:RequiredFieldValidator>
             <br />
-            <asp:Label ID="apellidoLabel" runat="server" Text="Apellido: "></asp:Label>
-            <asp:TextBox ID="apellidoTextBox" runat="server"></asp:TextBox>
-            <br />
-            <asp:Label ID="emailLabel" runat="server" Text="Email: "></asp:Label>
-            <asp:TextBox ID="emailTextBox" runat="server"></asp:TextBox>
+            <asp:Label ID="nombreUsuarioLabel" runat="server" Text="Usuario: "></asp:Label>
+            <asp:TextBox ID="nombreUsuarioTextBox" class="form-control" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfvUsuario" runat="server" ControlToValidate="nombreUsuarioTextBox" ErrorMessage="El nombre de usuario no puede estar vacio" ForeColor="Red" ToolTip="El nombre de usuario no puede estar vacio" ValidationGroup="vg">*</asp:RequiredFieldValidator>
             <br />
             <asp:Label ID="habilitadoLabel" runat="server" Text="Habilitado: "></asp:Label>
-            <asp:CheckBox ID="habilitadoCheckBox" runat="server" /><br />
-            <asp:Label ID="nombreUsuarioLabel" runat="server" Text="Usuario: "></asp:Label>
-            <asp:TextBox ID="nombreUsuarioTextBox" runat="server"></asp:TextBox>
+            <asp:CheckBox ID="HabilitadoCheckBox" class="form-control" runat="server"></asp:CheckBox>
             <br />
             <asp:Label ID="claveLabel" runat="server" Text="Clave: "></asp:Label>
-            <asp:TextBox ID="claveTextBox" TextMode="Password" runat="server"></asp:TextBox>
+            <asp:TextBox ID="claveTextBox" class="form-control" TextMode="Password" runat="server"></asp:TextBox>
             <br />
-            <asp:Label ID="repetirClaveLabel" runat="server" Text="Repetir Clave:"></asp:Label>
-            <asp:TextBox ID="repetirClaveTextBox" TextMode="Password" runat="server"></asp:TextBox>
+            <asp:Label ID="repetirclaveLabel" runat="server" Text="Repetir clave: "></asp:Label>
+            <asp:TextBox ID="repetirclaveTextBox" class="form-control" TextMode="Password" runat="server"></asp:TextBox>
+            <asp:CompareValidator ID="cvClaves" runat="server" ControlToCompare="claveTextBox" ControlToValidate="repetirclaveTextBox" Operator="DataTypeCheck" ErrorMessage="Las claves no coinciden" ForeColor="Red" Type="String" ToolTip="Las claves no coinciden" ValidationGroup="vg">*</asp:CompareValidator>
             <br />
         </asp:Panel>
-
-        <asp:Panel ID="gridActionsPanel" runat="server">
-            <asp:LinkButton ID="editarLinkButton" runat="server" OnClick="editarLinkButton_Click">Editar</asp:LinkButton>
-            <br />
-            <asp:LinkButton ID="eliminarLinkButton" runat="server" OnClick="eliminarLinkButton_Click">Eliminar</asp:LinkButton>
-            <br />
-            <asp:LinkButton ID="nuevoLinkButton" runat="server" OnClick="nuevoLinkButton_Click">Nuevo</asp:LinkButton>
+        </div>
+        <asp:Panel ID="gridActionsPanel" runat="server" class="btn-group">
+            <asp:LinkButton ID="editarlinkButton" class="btn btn-secondary" runat="server" OnClick="editarlinkButton_Click">Editar</asp:LinkButton>
+            <asp:LinkButton ID="eliminarLinkButton" class="btn btn-secondary" runat="server" OnClick="eliminarLinkButton_Click">Eliminar</asp:LinkButton>
+            <asp:LinkButton ID="nuevoLinkButton" class="btn btn-secondary" runat="server" OnClick="nuevoLinkButton_Click">Nuevo</asp:LinkButton>
         </asp:Panel>
-
-        <asp:Panel ID="formActionsPanel" runat="server">
-            <asp:LinkButton ID="aceptarLinkButton" runat="server" OnClick="aceptarLinkButton_Click">Aceptar</asp:LinkButton>
-            <br />
-            <asp:LinkButton ID="cancelarLinkButton" runat="server" OnClick="cancelarLinkButton_Click">Cancelar</asp:LinkButton>
+        <asp:Panel ID="formActionPanel" Visible="false" runat="server">
+            <asp:LinkButton ID="aceptarLinkButton" class="btn btn-success" runat="server" OnClick="aceptarLinkButton_Click" ValidationGroup="vg" >Aceptar</asp:LinkButton>
+            <asp:LinkButton ID="cancelarLinkButtom" class="btn btn-danger" runat="server" OnClick="cancelarLinkButtom_Click">Cancelar</asp:LinkButton>
         </asp:Panel>
-        
         <asp:Panel ID="ValidationActionPanel" runat="server">
             <asp:ValidationSummary ID="ValidationSummary" runat="server" ForeColor="Red" ValidationGroup="vg" />
         </asp:Panel>

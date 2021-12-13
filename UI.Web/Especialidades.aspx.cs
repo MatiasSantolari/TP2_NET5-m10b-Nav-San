@@ -6,21 +6,20 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Business.Entities;
 using Business.Logic;
-using System.Text.RegularExpressions;
 
 namespace UI.Web
 {
-    public partial class Usuarios : System.Web.UI.Page
+    public partial class Especialidades : System.Web.UI.Page
     {
-        private UsuarioLogic _logic;
+        private EspecialidadLogic _logic;
 
-        public UsuarioLogic Logic
+        public EspecialidadLogic Logic
         {
             get
             {
                 if (_logic == null)
                 {
-                    _logic = new UsuarioLogic();
+                    _logic = new EspecialidadLogic();
                 }
                 return _logic;
             }
@@ -41,18 +40,9 @@ namespace UI.Web
 
         private void LoadGrid()
         {
-            PersonaLogic personaLogic = new PersonaLogic();
-
             this.gridView.DataSource = this.Logic.GetAll();
             this.gridView.DataBind();
 
-            if (this.LegajoDropDown.Items.Count == 1)
-            {
-                this.LegajoDropDown.DataSource = personaLogic.GetAll();
-                this.LegajoDropDown.DataTextField = "Legajo";
-                this.LegajoDropDown.DataValueField = "ID";
-                this.LegajoDropDown.DataBind();
-            }
         }
 
         public enum FormModes
@@ -68,7 +58,7 @@ namespace UI.Web
             set { this.ViewState["FormMode"] = value; }
         }
 
-        private Usuario Entity { get; set; }
+        private Especialidad Entity { get; set; }
         private int SelectedID
         {
             get
@@ -105,10 +95,7 @@ namespace UI.Web
         private void LoadForm(int ID)
         {
             this.Entity = this.Logic.GetOne(ID);
-            this.HabilitadoCheckBox.Checked = this.Entity.Habilitado;
-            this.nombreUsuarioTextBox.Text = this.Entity.NombreUsuario;
-            this.LegajoDropDown.SelectedValue = this.Entity.Persona.ID.ToString();
-
+            this.descTextBox.Text = this.Entity.DescEspecialidad;
         }
 
         protected void editarlinkButton_Click(object sender, EventArgs e)
@@ -123,20 +110,14 @@ namespace UI.Web
             }
         }
 
-
-        private void LoadEntity(Usuario usuario)
+        private void LoadEntity(Especialidad espec)
         {
-            usuario.Persona = new Persona();
-            usuario.Persona.ID = int.Parse(this.LegajoDropDown.SelectedItem.Value);
-
-            usuario.NombreUsuario = this.nombreUsuarioTextBox.Text;
-            usuario.Clave = this.claveTextBox.Text;
-            usuario.Habilitado = this.HabilitadoCheckBox.Checked;
+            espec.DescEspecialidad = this.descTextBox.Text;
         }
 
-        private void SaveEntity(Usuario usuario)
+        private void SaveEntity(Especialidad espec)
         {
-            this.Logic.Save(usuario);
+            this.Logic.Save(espec);
         }
 
         protected void aceptarLinkButton_Click(object sender, EventArgs e)
@@ -148,7 +129,7 @@ namespace UI.Web
                     this.LoadGrid();
                     break;
                 case FormModes.modificacion:
-                    this.Entity = new Usuario();
+                    this.Entity = new Especialidad();
                     this.Entity.ID = this.SelectedID;
                     this.Entity.State = BusinessEntity.States.Modified;
                     this.LoadEntity(this.Entity);
@@ -156,7 +137,7 @@ namespace UI.Web
                     this.LoadGrid();
                     break;
                 case FormModes.alta:
-                    this.Entity = new Usuario();
+                    this.Entity = new Especialidad();
                     this.LoadEntity(this.Entity);
                     this.SaveEntity(this.Entity);
                     this.LoadGrid();
@@ -174,12 +155,7 @@ namespace UI.Web
 
         private void EnableForm(bool enable)
         {
-            this.LegajoDropDown.Enabled = enable;
-            this.nombreUsuarioTextBox.Enabled = enable;
-            this.claveTextBox.Enabled = enable;
-            this.claveLabel.Visible = enable;
-            this.repetirclaveTextBox.Enabled = enable;
-            this.repetirclaveLabel.Visible = enable;
+            this.descTextBox.Enabled = enable;
         }
 
         protected void eliminarLinkButton_Click(object sender, EventArgs e)
@@ -196,7 +172,14 @@ namespace UI.Web
 
         private void DeleteEntity(int ID)
         {
-            this.Logic.Delete(ID);
+            try
+            {
+                this.Logic.Delete(ID);
+            }
+            catch (Exception ex)
+            {
+                this.ModelState.AddModelError("", ex.Message);
+            }
 
         }
 
@@ -212,17 +195,18 @@ namespace UI.Web
 
         private void ClearForm()
         {
-            this.LegajoDropDown.SelectedIndex = 0;
-            this.HabilitadoCheckBox.Checked = false;
-            this.nombreUsuarioTextBox.Text = string.Empty;
-            this.claveTextBox.Text = string.Empty;
-            this.repetirclaveTextBox.Text = string.Empty;
+            this.descTextBox.Text = string.Empty;
         }
 
         protected void cancelarLinkButtom_Click(object sender, EventArgs e)
         {
             this.formActionPanel.Visible = false;
             this.formPanel.Visible = false;
+
+            this.gridView.SelectedIndex = -1;
+            this.SelectedID = 0;
         }
+
+
     }
 }
