@@ -27,10 +27,12 @@ namespace UI.Desktop
             cbxMateria.DisplayMember = "DescMateria";
             cbxMateria.ValueMember = "ID";
 
+            /*
             CursoLogic cl = new CursoLogic();
             cbxComision.DataSource = cl.GetComisionesXMateria(1);
             cbxComision.DisplayMember = "DescComision";
             cbxComision.ValueMember = "ID";
+            */
         }
 
         public Alumnos_InscripcionesDesktop(ModoForm modo) : this()
@@ -87,7 +89,8 @@ namespace UI.Desktop
                     this.btnAceptar.Text = "Guardar";
                     Alumnos_Inscripciones Ali = new Alumnos_Inscripciones();
                     AlIActual = Ali;
-                    this.AlIActual.ID = int.Parse(this.txtID.Text);
+                    int id = 0;
+                    this.AlIActual.ID = id;
                     this.AlIActual.IDAlumno = Int32.Parse(this.cbxAlumno.SelectedValue.ToString());
 
                     idMateria = (int)cbxMateria.SelectedValue;
@@ -96,7 +99,12 @@ namespace UI.Desktop
                     this.AlIActual.IDCurso = ail.GetCurso(idMateria, idComision).ID;
 
                     this.AlIActual.Condicion = this.txtCondicion.Text;
-                    this.AlIActual.Nota = int.Parse(this.txtNota.Text);
+                    
+                    if (this.txtNota.Text.Length == 0) 
+                        { this.AlIActual.Nota = 0; }
+                    else 
+                        { this.AlIActual.Nota = Int32.Parse(this.txtNota.Text); }
+
                     AlIActual.State = BusinessEntity.States.New;
                     break;
 
@@ -138,11 +146,13 @@ namespace UI.Desktop
         public override bool Validar()
         {
 
-            bool b2 = string.IsNullOrEmpty(this.txtID.Text);
+            //bool b2 = string.IsNullOrEmpty(this.txtID.Text);
+            bool b1 = cbxComision.Enabled;
             bool b5 = string.IsNullOrEmpty(this.txtCondicion.Text);
-            bool b6 = string.IsNullOrEmpty(this.txtNota.Text);
+            
+            
 
-            if (b2 == true || b5 == true || b6 == true)
+            if (b1 == false || b5 == true)
             {
                 this.Notificar("Por favor, rellenar los campos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
@@ -170,12 +180,28 @@ namespace UI.Desktop
             this.Close();
         }
 
-        private void cbxMateria_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbxMateria_SelectionChangeCommitted(object sender, EventArgs e)
         {
             CursoLogic cl = new CursoLogic();
-            cbxComision.DataSource = cl.GetComisionesXMateria(Int32.Parse(this.cbxAlumno.SelectedValue.ToString()));
-            cbxComision.DisplayMember = "DescComision";
-            cbxComision.ValueMember = "ID";
+            List<Comision> com = cl.GetComisionesXMateria(Int32.Parse(this.cbxMateria.SelectedValue.ToString()));
+            if (com.Any())
+            {
+                cbxComision.Enabled = true;
+                cbxComision.DataSource = com;
+                cbxComision.DisplayMember = "DescComision";
+                cbxComision.ValueMember = "ID";
+                
+            }
+            else
+            {
+                cbxComision.Enabled = false;
+            }
+            
+        }
+
+        private void cbxMateria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
 
         /*private void cbxMateria_ValueMemberChanged(object sender, EventArgs e)
