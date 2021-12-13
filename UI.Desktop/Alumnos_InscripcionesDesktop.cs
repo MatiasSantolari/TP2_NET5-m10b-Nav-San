@@ -27,7 +27,10 @@ namespace UI.Desktop
             cbxMateria.DisplayMember = "DescMateria";
             cbxMateria.ValueMember = "ID";
 
-            
+            CursoLogic cl = new CursoLogic();
+            cbxComision.DataSource = cl.GetComisionesXMateria(1);
+            cbxComision.DisplayMember = "DescComision";
+            cbxComision.ValueMember = "ID";
         }
 
         public Alumnos_InscripcionesDesktop(ModoForm modo) : this()
@@ -167,15 +170,25 @@ namespace UI.Desktop
             this.Close();
         }
 
-        private void cbxMateria_ValueMemberChanged(object sender, EventArgs e)
+        private void cbxMateria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CursoLogic cl = new CursoLogic();
+            cbxComision.DataSource = cl.GetComisionesXMateria(Int32.Parse(this.cbxAlumno.SelectedValue.ToString()));
+            cbxComision.DisplayMember = "DescComision";
+            cbxComision.ValueMember = "ID";
+        }
+
+        /*private void cbxMateria_ValueMemberChanged(object sender, EventArgs e)
         {
             CursoLogic cl = new CursoLogic();
             
             cbxComision.Visible = true;
             ComisionLogic comision = new ComisionLogic();
-            cbxComision.DataSource = comision.GetComisiones(cl.GetCursos(Int32.Parse(this.cbxAlumno.SelectedValue.ToString())));
+            cbxComision.DataSource = cl.GetComisionesXMateria(Int32.Parse(this.cbxAlumno.SelectedValue.ToString()));
             cbxComision.DisplayMember = "DescComision";
             cbxComision.ValueMember = "ID";
-        }
+        }*/
+
+
     }
 }

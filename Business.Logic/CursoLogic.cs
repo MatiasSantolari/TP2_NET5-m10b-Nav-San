@@ -43,9 +43,9 @@ namespace Business.Logic
             return CursoData.GetDocentesCurso(idCurso);
         }
 
-        public List <Curso> GetCursos(int idMateria)
+        public List <Comision> GetComisionesXMateria(int idMateria)
         {
-            return CursoData.getCursos(idMateria);
+            return CursoData.GetComisionesXMateria(idMateria);
         }
     }
 }

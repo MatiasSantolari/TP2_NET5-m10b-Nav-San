@@ -31,3 +31,6 @@ C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\UI.Desktop\bin\Debu
 C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.csproj.CopyComplete
 C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.exe
 C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\UI.Desktop\obj\Debug\UI.Desktop.pdb
+C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\UI.Desktop\bin\Debug\Login.exe
+C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\UI.Desktop\bin\Debug\Login.pdb
+C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\UI.Desktop\bin\Debug\Login.exe.config

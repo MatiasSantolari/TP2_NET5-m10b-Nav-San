@@ -42,14 +42,11 @@ namespace Business.Logic
         {
             MateriaData.Delete(id);
         }
+
         public List<Comision> GetComisiones(int id)
         {
             return MateriaData.GetComisiones(id);
         }
 
-        public List<Curso> GetCursos(int idMateria)
-        {
-            return MateriaData.GetCursos(idMateria);
-        }
     }
 }

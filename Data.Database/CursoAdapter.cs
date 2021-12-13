@@ -196,37 +196,41 @@ namespace Data.Database
             return DocentesCursos;
         }
 
-        public List<Curso> getCursos(int idMateria)
+        public List<Comision> GetComisionesXMateria(int idMateria)
         {
-            List<Curso> cursos = new List<Curso>();
+            List<Comision> comisiones = new List<Comision>();
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdCursos = new SqlCommand("select * from cursos where id_materia = @id", sqlConnection);
-                cmdCursos.Parameters.Add("@id", SqlDbType.Int).Value = idMateria;
-                SqlDataReader drCursos = cmdCursos.ExecuteReader();
-                while (drCursos.Read())
+                SqlCommand sqlCommand = new SqlCommand("select co.id_comision,co.desc_comision, co.anio_especialidad, co.id_plan from cursos cu inner join comisiones co on cu.id_comision = co.id_comision where id_materia = @id_materia", sqlConnection);
+                sqlCommand.Parameters.Add("@id_materia", SqlDbType.Int).Value = idMateria;
+                SqlDataReader drComision = sqlCommand.ExecuteReader();
+
+                while (drComision.Read())
                 {
-                    Curso cur = new Curso();
-                    cur.ID = (int)drCursos["id_curso"];
-                    cur.AnioCalendario = (int)drCursos["anio_calendario"];
-                    cur.Cupo = (int)drCursos["cupo"];
-                    cur.IDMateria = (int)drCursos["id_materia"];
-                    cur.IDComision = (int)drCursos["id_comision"];
-                    cursos.Add(cur);
+                    if (drComision.HasRows)
+                    {
+                        Comision c = new Comision();
+                        c.DescComision = (string)drComision["desc_comision"];
+                        c.AnioEspecialidad = (Comision.Anios)(Int32)drComision["anio_especialidad"];
+                        c.ID = (int)drComision["id_comision"];
+                        c.IDPlan = (int)drComision["id_plan"];
+                        comisiones.Add(c);
+                    }
                 }
-                drCursos.Close();
+
+                drComision.Close();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al recuperar lista de cursos", Ex);
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos de las comisiones.", ex);
                 throw ExcepcionManejada;
             }
             finally
             {
                 this.CloseConnection();
             }
-            return cursos;
+            return comisiones;
         }
     }
 }

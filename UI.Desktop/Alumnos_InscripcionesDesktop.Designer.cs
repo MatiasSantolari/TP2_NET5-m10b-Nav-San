@@ -188,7 +188,6 @@ namespace UI.Desktop
             this.cbxComision.Name = "cbxComision";
             this.cbxComision.Size = new System.Drawing.Size(306, 28);
             this.cbxComision.TabIndex = 13;
-            this.cbxComision.Visible = false;
             // 
             // cbxMateria
             // 
@@ -199,7 +198,7 @@ namespace UI.Desktop
             this.cbxMateria.Name = "cbxMateria";
             this.cbxMateria.Size = new System.Drawing.Size(306, 28);
             this.cbxMateria.TabIndex = 14;
-            this.cbxMateria.ValueMemberChanged += new System.EventHandler(this.cbxMateria_ValueMemberChanged);
+            this.cbxMateria.SelectedIndexChanged += new System.EventHandler(this.cbxMateria_SelectedIndexChanged);
             // 
             // label6
             // 
