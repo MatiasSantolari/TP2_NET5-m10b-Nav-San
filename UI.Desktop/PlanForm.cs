@@ -48,7 +48,6 @@ namespace UI.Desktop
             else
             {
                 this.Listar();
-                //dgvPlanes.Visible = true;
                 tsbNuevo.Visible = false;
                 tsbEditar.Visible = false;
                 tsbEliminar.Visible = false;
@@ -60,7 +59,7 @@ namespace UI.Desktop
         {
             PlanDesktop mat = new PlanDesktop(ModoForm.Alta);
             mat.ShowDialog();
-            this.Listar();
+            this.Lista();
         }
 
         private void tsbEditar_Click(object sender, EventArgs e)
@@ -68,7 +67,7 @@ namespace UI.Desktop
             int id = ((Business.Entities.Plan)this.dgvPlanes.SelectedRows[0].DataBoundItem).ID;
             PlanDesktop mat = new PlanDesktop(id, ModoForm.Modificacion);
             mat.ShowDialog();
-            Listar();
+            Lista();
         }
 
         private void tsbEliminar_Click(object sender, EventArgs e)
@@ -76,7 +75,7 @@ namespace UI.Desktop
             int id = ((Business.Entities.Plan)this.dgvPlanes.SelectedRows[0].DataBoundItem).ID;
             PlanDesktop mat = new PlanDesktop(id, ModoForm.Baja);
             mat.ShowDialog();
-            this.Listar();
+            this.Lista();
         }
 
         private void PlanForm_Load(object sender, EventArgs e)
@@ -92,7 +91,7 @@ namespace UI.Desktop
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            this.Listar();
+            this.Lista();
         }
 
     }

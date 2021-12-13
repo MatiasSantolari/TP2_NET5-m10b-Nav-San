@@ -59,13 +59,13 @@ namespace UI.Desktop
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
-            UsuariosForm u = new UsuariosForm();
+            UsuariosForm u = new UsuariosForm(UsuarioID);
             u.ShowDialog();
         }
 
         private void pictureBox8_Click(object sender, EventArgs e)
         {
-            PersonaForm P = new PersonaForm();
+            PersonaForm P = new PersonaForm(UsuarioID);
             P.ShowDialog();
         }
 

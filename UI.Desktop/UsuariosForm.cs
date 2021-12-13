@@ -14,25 +14,43 @@ namespace UI.Desktop
 {
     public partial class UsuariosForm : Form
     {
-        public UsuariosForm()
+        public int UsuarioID { get; set; }
+        public UsuariosForm(int id)
         {
             InitializeComponent();
             this.dgvUsuarios.AutoGenerateColumns = false;
+            UsuarioID = id;
         }
         public void Listar()
         {
             UsuarioLogic ul = new UsuarioLogic();
             this.dgvUsuarios.DataSource = ul.GetAll();
         }
+        private void Lista()
+        {
+            UsuarioLogic ul = new UsuarioLogic();
+            Persona per = ul.GetPersona(UsuarioID);
+            if (per.TipoPersona.ToString() == "Admin")
+            {
+                this.Listar();
+            }
+            else
+            {
+                this.Listar();
+                tsbNuevo.Visible = false;
+                tsbEliminar.Visible = false;
+
+            }
+        }
 
         private void UsuariosForm_Load(object sender, EventArgs e)
         {
-            this.Listar();
+            this.Lista();
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            this.Listar();
+            this.Lista();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -44,7 +62,7 @@ namespace UI.Desktop
         {
             UsuariosDesktop ud = new UsuariosDesktop(ModoForm.Alta);
             ud.ShowDialog();
-            Listar();
+            Lista();
         }
 
         private void tsbEditar_Click(object sender, EventArgs e)
@@ -52,7 +70,7 @@ namespace UI.Desktop
             int id = ((Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
             UsuariosDesktop us = new UsuariosDesktop(id, ModoForm.Modificacion);
             us.ShowDialog();
-            Listar();
+            Lista();
         }
 
         private void tsbEliminar_Click(object sender, EventArgs e)
@@ -60,7 +78,7 @@ namespace UI.Desktop
             int id = ((Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
             UsuariosDesktop us = new UsuariosDesktop(id, ModoForm.Baja);
             us.ShowDialog();
-            Listar();
+            Lista();
         }
     }
 }
