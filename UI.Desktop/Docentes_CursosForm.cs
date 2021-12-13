@@ -78,7 +78,7 @@ namespace UI.Desktop
         {
             Docentes_CursosDesktop dc = new Docentes_CursosDesktop(ModoForm.Alta);
             dc.ShowDialog();
-            this.Listar();
+            this.Lista();
         }
 
         private void tsbEditar_Click(object sender, EventArgs e)
@@ -86,7 +86,7 @@ namespace UI.Desktop
             int id = ((Docente_Curso)this.dgvDocentes_Cursos.SelectedRows[0].DataBoundItem).ID;
             Docentes_CursosDesktop dc = new Docentes_CursosDesktop(id, ModoForm.Modificacion);
             dc.ShowDialog();
-            this.Listar();
+            this.Lista();
         }
 
         private void tsbEliminar_Click(object sender, EventArgs e)
@@ -94,7 +94,7 @@ namespace UI.Desktop
             int id = ((Docente_Curso)this.dgvDocentes_Cursos.SelectedRows[0].DataBoundItem).ID;
             Docentes_CursosDesktop dc = new Docentes_CursosDesktop(id, ModoForm.Baja);
             dc.ShowDialog();
-            this.Listar();
+            this.Lista();
         }
     }
 }
