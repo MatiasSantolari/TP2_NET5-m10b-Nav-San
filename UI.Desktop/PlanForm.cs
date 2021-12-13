@@ -14,11 +14,13 @@ namespace UI.Desktop
 {
     public partial class PlanForm : Form
     {
-        public PlanForm()
+        public int UsuarioID { get; set; }
+        public PlanForm(int id)
         {
 
             InitializeComponent();
             this.dgvPlanes.AutoGenerateColumns = false;
+            UsuarioID = id;
         }
 
         public void Listar()
@@ -33,6 +35,24 @@ namespace UI.Desktop
                 MessageBox.Show("Error al recuperar la lista de planes");
                 Exception ExcepcionManejada = new Exception("Error al recuperar lista de planes", fe);
                 throw ExcepcionManejada;
+            }
+        }
+        private void Lista()
+        {
+            UsuarioLogic ul = new UsuarioLogic();
+            Persona per = ul.GetPersona(UsuarioID);
+            if (per.TipoPersona.ToString() == "Admin")
+            {
+                this.Listar();
+            }
+            else
+            {
+                this.Listar();
+                //dgvPlanes.Visible = true;
+                tsbNuevo.Visible = false;
+                tsbEditar.Visible = false;
+                tsbEliminar.Visible = false;
+                
             }
         }
 
@@ -61,7 +81,7 @@ namespace UI.Desktop
 
         private void PlanForm_Load(object sender, EventArgs e)
         {
-            this.Listar();
+            this.Lista();
         }
 
 

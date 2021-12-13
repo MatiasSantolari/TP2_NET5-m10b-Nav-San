@@ -29,7 +29,7 @@ namespace UI.Desktop
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            PlanForm p = new PlanForm();
+            PlanForm p = new PlanForm(UsuarioID);
             p.ShowDialog();
         }
 
@@ -107,6 +107,10 @@ namespace UI.Desktop
                 pbComisiones.Visible = false;
                 lblComisiones.Visible = false;
 
+                //especialidades
+                pbEspecialidad.Visible = false;
+                lblEspecialidad.Visible = false;
+
             }
 
             if (per.TipoPersona.ToString() == "Docente")
@@ -114,6 +118,10 @@ namespace UI.Desktop
                 //alumnos_insc
                 pbInsc.Visible = false;
                 lblInsc.Visible = false;
+
+                //especialidades
+                pbEspecialidad.Visible = false;
+                lblEspecialidad.Visible = false;
             }
         }
     }
