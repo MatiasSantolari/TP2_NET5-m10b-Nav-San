@@ -106,7 +106,7 @@ namespace UI.Web
             this.descripcionTextBox.Text = this.Entity.DescMateria;
             this.hssemTextBox.Text = this.Entity.HsSemanales.ToString();
             this.hstotTextBox.Text = this.Entity.HsTotales.ToString();
-            this.planDropDown.SelectedValue = this.Entity.Plan.ID.ToString();
+            this.planDropDown.SelectedValue = this.Entity.IdPlan.ToString();
         }
 
         protected void editarlinkButton_Click(object sender, EventArgs e)
@@ -126,9 +126,7 @@ namespace UI.Web
             materia.DescMateria = this.descripcionTextBox.Text;
             materia.HsSemanales = int.Parse(this.hssemTextBox.Text);
             materia.HsTotales = int.Parse(this.hstotTextBox.Text);
-
-            materia.Plan = new Plan();
-            materia.Plan.ID = int.Parse(this.planDropDown.SelectedItem.Value);
+            materia.IdPlan = int.Parse(this.planDropDown.SelectedItem.Value);
         }
 
         private void SaveEntity(Materia materia)

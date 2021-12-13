@@ -117,8 +117,8 @@ namespace UI.Web
             this.Entity = this.Logic.GetOne(ID);
             this.anioCalendarioTextBox.Text = this.Entity.AnioCalendario.ToString();
             this.cupoTextBox.Text = this.Entity.Cupo.ToString();
-            this.MateriaDropDown.SelectedValue = this.Entity.Materia.ID.ToString();
-            this.ComisionDropDown.SelectedValue = this.Entity.Comision.ID.ToString();
+            this.MateriaDropDown.SelectedValue = this.Entity.IDMateria.ToString();
+            this.ComisionDropDown.SelectedValue = this.Entity.IDComision.ToString();
 
         }
 
@@ -146,12 +146,8 @@ namespace UI.Web
         {
             curso.AnioCalendario = int.Parse(this.anioCalendarioTextBox.Text);
             curso.Cupo = int.Parse(this.cupoTextBox.Text);
-
-            curso.Comision = new Comision();
-            curso.Materia = new Materia();
-
-            curso.Comision.ID = int.Parse(this.ComisionDropDown.SelectedItem.Value);
-            curso.Materia.ID = int.Parse(this.MateriaDropDown.SelectedItem.Value);
+            curso.IDComision = int.Parse(this.ComisionDropDown.SelectedItem.Value);
+            curso.IDMateria = int.Parse(this.MateriaDropDown.SelectedItem.Value);
 
         }
 

@@ -104,8 +104,7 @@ namespace UI.Web
         {
             this.Entity = this.Logic.GetOne(ID);
             this.descripcionTextBox.Text = this.Entity.DescPlan;
-
-            this.especDropDown.SelectedValue = this.Entity.Especialidad.ID.ToString();
+            this.especDropDown.SelectedValue = this.Entity.IdEspecialidad.ToString();
         }
 
         protected void editarlinkButton_Click(object sender, EventArgs e)
@@ -123,9 +122,7 @@ namespace UI.Web
         private void LoadEntity(Plan plan)
         {
             plan.DescPlan = this.descripcionTextBox.Text;
-
-            plan.Especialidad = new Especialidad();
-            plan.Especialidad.ID = int.Parse(this.especDropDown.SelectedItem.Value);
+            plan.IdEspecialidad = int.Parse(this.especDropDown.SelectedItem.Value);
         }
 
         private void SaveEntity(Plan plan)

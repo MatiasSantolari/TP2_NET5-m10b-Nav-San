@@ -118,7 +118,7 @@ namespace UI.Web
                         {
                             inscripcion.IDCurso = cursos.ID;
                             inscripcion.IDAlumno = usuario.ID;
-                            if (AlumnoInscripcionLogic.Inscribir(alumnoInscripcion))
+                            if (AlumnoInscripcionLogic.ValidaInscripcion(alumnoIns))
                             {
                                 //testing  ScriptManager
                                 string script = "alert(\"Inscripcion realizada\");";
@@ -128,7 +128,7 @@ namespace UI.Web
                             else
                             {
                                 //testing  ScriptManager
-                                string script = "alert(\"Error, ya se ha realizado la inscripcion a este curso\");";
+                                string script = "alert(\"Ya se ha realizado la inscripcion a este curso\");";
                                 ScriptManager.RegisterStartupScript(this, GetType(),
                                                       "ServerControlScript", script, true);
                             }

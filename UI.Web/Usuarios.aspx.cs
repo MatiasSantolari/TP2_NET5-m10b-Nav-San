@@ -107,7 +107,6 @@ namespace UI.Web
             this.Entity = this.Logic.GetOne(ID);
             this.HabilitadoCheckBox.Checked = this.Entity.Habilitado;
             this.nombreUsuarioTextBox.Text = this.Entity.NombreUsuario;
-            this.LegajoDropDown.SelectedValue = this.Entity.Persona.ID.ToString();
 
         }
 
@@ -125,10 +124,7 @@ namespace UI.Web
 
 
         private void LoadEntity(Usuario usuario)
-        {
-            usuario.Persona = new Persona();
-            usuario.Persona.ID = int.Parse(this.LegajoDropDown.SelectedItem.Value);
-
+        {           
             usuario.NombreUsuario = this.nombreUsuarioTextBox.Text;
             usuario.Clave = this.claveTextBox.Text;
             usuario.Habilitado = this.HabilitadoCheckBox.Checked;

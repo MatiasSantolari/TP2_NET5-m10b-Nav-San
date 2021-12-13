@@ -54,5 +54,19 @@ namespace Business.Logic
         {
             return PersonaData.GetProfesores();
         }
+
+        public List<Persona> GetPersonasXTipo(Persona.TipoPersonas tipo_persona)
+        {
+            try
+            {
+                return this.PersonaData.GetPersonasXTipo(tipo_persona);
+            }
+            catch (Exception ex)
+            {
+
+                Exception ExcepcionManejada = new Exception("Error al recuperar la lista de personas por tipo", ex);
+                throw ExcepcionManejada;
+            }
+        }
     }
 }

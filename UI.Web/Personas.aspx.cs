@@ -88,7 +88,7 @@ namespace UI.Web
 
         private void LoadForm(int ID)
         {
-            Persona persona = this.Logic.GetOneById(ID);
+            Persona persona = this.Logic.GetOne(ID);
             this.nombreTextBox.Text = persona.Nombre;
             this.apellidoTextBox.Text = persona.Apellido;
             this.emailTextBox.Text = persona.Email;
@@ -96,7 +96,7 @@ namespace UI.Web
             this.telefonoTextBox.Text = persona.Telefono;
             this.fechaNacimientoTextBox.Text = persona.FechaNac.ToShortDateString();
             this.legajoTextBox.Text = persona.Legajo.ToString();
-            this.planDropDown.SelectedValue = persona.Plan.ID.ToString();
+            this.planDropDown.SelectedValue = persona.IdPlan.ToString();
 
         }
 
@@ -131,8 +131,7 @@ namespace UI.Web
             persona.Legajo = int.Parse(this.legajoTextBox.Text);
             persona.FechaNac = DateTime.Parse(this.fechaNacimientoTextBox.Text);
             persona.Telefono = this.telefonoTextBox.Text;
-            persona.Plan = new Plan();
-            persona.Plan.ID = int.Parse(this.planDropDown.SelectedItem.Value);
+            persona.IdPlan = int.Parse(this.planDropDown.SelectedItem.Value);
 
             return persona;
         }

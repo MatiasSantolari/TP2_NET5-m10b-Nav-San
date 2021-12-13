@@ -106,7 +106,7 @@ namespace UI.Web
             this.comision = this.Logic.GetOne(ID);
             this.descripcionTextBox.Text = this.comision.DescComision;
             this.anioEspecialidadTextBox.Text = this.comision.AnioEspecialidad.ToString();
-            this.planDropDown.SelectedValue = this.comision.Plan.ID.ToString();
+            this.planDropDown.SelectedValue = this.comision.IDPlan.ToString();
 
         }
 
@@ -131,10 +131,8 @@ namespace UI.Web
         private void LoadEntity(Comision comision)
         {
             comision.DescComision = this.descripcionTextBox.Text;
-            comision.AnioEspecialidad = int.Parse(this.anioEspecialidadTextBox.Text);
-            comision.Plan = new Plan();
-
-            comision.Plan.ID = int.Parse(this.planDropDown.SelectedItem.Value);
+            comision.AnioEspecialidad = (Comision.Anios)int.Parse(this.anioEspecialidadTextBox.Text);
+            comision.IDPlan = int.Parse(this.planDropDown.SelectedItem.Value);
         }
         private void SaveEntity(Comision comision)
         {

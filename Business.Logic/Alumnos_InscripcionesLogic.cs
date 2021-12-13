@@ -11,6 +11,19 @@ namespace Business.Logic
     public class Alumnos_InscripcionesLogic : BusinessLogic
     {
         private Alumno_InscripcionAdapter _alumnos_inscripcionesData;
+        private CursoAdapter _cursoAdapter;
+
+        public CursoAdapter CursoData
+        {
+            get
+            {
+                return _cursoAdapter;
+            }
+            set
+            {
+                _cursoAdapter = value;
+            }
+        }
         public Alumno_InscripcionAdapter Alumnos_InscripcionesData
         {
             get { return _alumnos_inscripcionesData; }
@@ -47,5 +60,30 @@ namespace Business.Logic
         {
             return Alumnos_InscripcionesData.GetCurso(idMateria, idComision);
         }
+
+        public bool ValidaInscripcion(Alumnos_Inscripciones ali)
+        {
+            try
+            {
+                List<Alumnos_Inscripciones> inscripciones = Alumnos_InscripcionesData.GetAll();
+                foreach (var ins in inscripciones)
+                {
+                    if (ins.IDAlumno == ali.IDAlumno && ins.IDCurso == ali.IDCurso)
+                    {
+                        return false;
+                    }
+                }
+
+                Alumnos_InscripcionesData.ValidaInscripcion(ali);
+                CursoData.ActualizaCupo(ali.IDCurso);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al realizar la inscripción del alumno", ex);
+                throw ExcepcionManejada;
+            }
+        }
     }
 }
+

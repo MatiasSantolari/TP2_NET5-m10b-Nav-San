@@ -223,5 +223,13 @@ namespace Data.Database
 
             return curso;
         }
+
+        public void ValidaInscripcion(Alumnos_Inscripciones ali)
+        {
+            if (ali.State == BusinessEntity.States.New)
+            {
+                this.Insert(ali);
+            }
+        }
     }
 }

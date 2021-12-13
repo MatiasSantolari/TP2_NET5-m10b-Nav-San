@@ -49,7 +49,7 @@ namespace UI.Web
 
             if (this.DocenteDropDown.Items.Count == 1)
             {
-                this.DocenteDropDown.DataSource = docente.GetAllPersonasByType(Persona.TipoPersonas.Docente);
+                this.DocenteDropDown.DataSource = docente.GetPersonasXTipo(Persona.TipoPersonas.Docente);
                 this.DocenteDropDown.DataTextField = "Legajo";
                 this.DocenteDropDown.DataValueField = "ID";
                 this.DocenteDropDown.DataBind();
@@ -119,9 +119,9 @@ namespace UI.Web
 
         private void LoadForm(int ID)
         {
-            this.Entity = this.Logic.GetOneD(ID);
-            this.DocenteDropDown.SelectedValue = this.Entity.Docente.ID.ToString();
-            this.CursoDropDown.SelectedValue = this.Entity.Curso.ID.ToString();
+            this.Entity = this.Logic.GetOne(ID);
+            this.DocenteDropDown.SelectedValue = this.Entity.IDDocente.ToString();
+            this.CursoDropDown.SelectedValue = this.Entity.IDCurso.ToString();
             this.TipoDropDown.SelectedValue = this.Entity.Cargo.ToString();
         }
 
@@ -146,11 +146,8 @@ namespace UI.Web
 
         private void LoadEntity(Docente_Curso dc)
         {
-            dc.Curso = new Curso();
-            dc.Docente = new Persona();
-
-            dc.Curso.ID = int.Parse(this.CursoDropDown.SelectedItem.Value);
-            dc.Docente.ID = int.Parse(this.DocenteDropDown.SelectedItem.Value);
+            dc.IDCurso = int.Parse(this.CursoDropDown.SelectedItem.Value);
+            dc.IDDocente = int.Parse(this.DocenteDropDown.SelectedItem.Value);
             dc.Cargo = (Docente_Curso.cargos)Enum.Parse(typeof(Docente_Curso.cargos), this.TipoDropDown.SelectedItem.Value);
         }
 

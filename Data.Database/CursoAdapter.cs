@@ -232,5 +232,28 @@ namespace Data.Database
             }
             return comisiones;
         }
+
+        public void ActualizaCupo(int id)
+        {
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdActualizaCupo = new SqlCommand(
+                    "UPDATE cursos SET cupo=@cupo " +
+                    "WHERE id_curso=@id", sqlConnection);
+
+                cmdActualizaCupo.Parameters.Add("@id", SqlDbType.Int, 50).Value = id;
+                cmdActualizaCupo.Parameters.Add("@cupo", SqlDbType.Int, 50).Value = GetOne(id).Cupo - 1;
+
+
+                cmdActualizaCupo.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al eliminar el cupo", ex);
+                throw ExcepcionManejada;
+            }
+        }
+
     }
 }
