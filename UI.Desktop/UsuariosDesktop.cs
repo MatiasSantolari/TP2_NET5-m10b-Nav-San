@@ -121,8 +121,8 @@ namespace UI.Desktop
                 Persona per = us.BuscaPersonaxNombApeEm(UsuarioActual.Nombre, UsuarioActual.Apellido, UsuarioActual.Email);
                 if (per.ID != 0 && per.Nombre != null)
                 {
-                    us.CargarIDPersona(UsuarioActual, per.ID);
-                    us.Save(UsuarioActual);
+                    //us.CargarIDPersona(UsuarioActual, per.ID);
+                    us.SavePlus(UsuarioActual, per.ID);
                 }
                 else
                 {
@@ -135,9 +135,9 @@ namespace UI.Desktop
                 Usuario usuarioAnterior = us.GetOne(UsuarioActual.ID);
                 Persona per = us.BuscaPersonaxNombApeEm(usuarioAnterior.Nombre, usuarioAnterior.Apellido, usuarioAnterior.Email);
 
-                us.ActualizarPersona(UsuarioActual, per.ID);
+                //us.ActualizarPersona(UsuarioActual, per.ID);
 
-                us.Save(UsuarioActual);
+                us.SavePlus(UsuarioActual, per.ID);
             }
             else
             {

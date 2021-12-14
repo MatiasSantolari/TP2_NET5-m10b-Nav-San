@@ -172,6 +172,18 @@ namespace Data.Database
             usuario.State = BusinessEntity.States.Unmodified;
         }
 
+        public void SavePlus(Usuario usuario, int idPersona)
+        {
+            if (usuario.State == BusinessEntity.States.New)
+            {
+                this.CargarIDPersona(usuario, idPersona);
+            }
+            else if (usuario.State == BusinessEntity.States.Modified)
+            {
+                this.ActualizarPersona(usuario, idPersona);
+            }
+        }
+
         public Persona GetPersona(int id)
         {
             Persona p = new Persona();
@@ -295,6 +307,15 @@ namespace Data.Database
                 cmdSave.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = usuario.Email;
                 cmdSave.Parameters.Add("@id_persona", SqlDbType.Int).Value = idPersona;
                 cmdSave.ExecuteNonQuery();
+
+                SqlCommand cmdSave2 = new SqlCommand(
+                    "UPDATE personas SET nombre=@nombre, apellido=@apellido, email=@email " +
+                    "where id_persona=@id_persona ", sqlConnection);
+                cmdSave2.Parameters.Add("@id_persona", SqlDbType.Int).Value = idPersona;
+                cmdSave2.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = usuario.Nombre;
+                cmdSave2.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = usuario.Apellido;
+                cmdSave2.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = usuario.Email;
+                cmdSave2.ExecuteNonQuery();
             }
             catch (Exception e)
             {
