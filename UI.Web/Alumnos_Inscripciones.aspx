@@ -6,10 +6,22 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Inscripciones</title>
+    <style type="text/css">
+        header{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <h1>Inscripciones</h1>
+        <nav>
+            <li><a href="Comisiones.aspx">Comisiones</a></li>
+            <li><a href="Personas.aspx">Personas</a></li>
+        </nav>
+        <div align="center">
             <asp:Panel ID="gridPanel" runat="server">
                 <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="False" SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="White" DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" CssClass="table table-responsive-lg">
                     <Columns>

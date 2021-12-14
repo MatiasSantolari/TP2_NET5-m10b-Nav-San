@@ -14,10 +14,13 @@ namespace UI.Desktop
 {
     public partial class MateriaForm : Form
     {
-        public MateriaForm()
+        public int UsuarioID { get; set; }
+
+        public MateriaForm(int id)
         {
             InitializeComponent();
             this.dgvMaterias.AutoGenerateColumns = false;
+            UsuarioID = id;
         }
         public void Listar()
         {
@@ -26,12 +29,12 @@ namespace UI.Desktop
         }
         private void MateriasForm_Load(object sender, EventArgs e)
         {
-            this.Listar();
+            this.Lista();
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            this.Listar();
+            this.Lista();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -43,23 +46,42 @@ namespace UI.Desktop
         {
             MateriaDesktop mat = new MateriaDesktop(ModoForm.Alta);
             mat.ShowDialog();
-            this.Listar();
+            this.Lista();
         }
 
         private void tsbEditar_Click(object sender, EventArgs e)
         {
-            int id = ((Business.Entities.Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID;
+            int id = ((Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID;
             MateriaDesktop mat = new MateriaDesktop(id, ModoForm.Modificacion);
             mat.ShowDialog();
-            this.Listar();
+            this.Lista();
         }
 
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
-            int id = ((Business.Entities.Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID;
+            int id = ((Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID;
             MateriaDesktop mat = new MateriaDesktop(id, ModoForm.Baja);
             mat.ShowDialog();
-            this.Listar();
+            this.Lista();
+        }
+
+        private void Lista()
+        {
+            UsuarioLogic ul = new UsuarioLogic();
+            Persona per = ul.GetPersona(UsuarioID);
+            if (per.TipoPersona.ToString() == "Admin")
+            {
+                this.Listar();
+            }
+            else
+            {
+                this.Listar();
+                //dgvPlanes.Visible = true;
+                tsbNuevo.Visible = false;
+                tsbEditar.Visible = false;
+                tsbEliminar.Visible = false;
+
+            }
         }
     }
 }

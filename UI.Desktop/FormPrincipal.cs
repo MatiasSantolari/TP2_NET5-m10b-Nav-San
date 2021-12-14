@@ -23,7 +23,7 @@ namespace UI.Desktop
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            MateriaForm m = new MateriaForm();
+            MateriaForm m = new MateriaForm(UsuarioID);
             m.ShowDialog();
         }
 
@@ -35,25 +35,25 @@ namespace UI.Desktop
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            Alumnos_InscripcionesForm a = new Alumnos_InscripcionesForm();
+            Alumnos_InscripcionesForm a = new Alumnos_InscripcionesForm(UsuarioID);
             a.ShowDialog();
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            Docentes_CursosForm d = new Docentes_CursosForm();
+            Docentes_CursosForm d = new Docentes_CursosForm(UsuarioID);
             d.ShowDialog();
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            CursosForm c = new CursosForm();
+            CursosForm c = new CursosForm(UsuarioID);
             c.ShowDialog();
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-            ComisionesForm c = new ComisionesForm();
+            ComisionesForm c = new ComisionesForm(UsuarioID);
             c.ShowDialog();
         }
 

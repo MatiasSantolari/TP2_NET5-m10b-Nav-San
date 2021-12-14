@@ -18,7 +18,7 @@ namespace UI.Desktop
         {
             InitializeComponent();
             PersonaLogic p = new PersonaLogic();
-            cbxAlumno.DataSource = p.GetAll();
+            cbxAlumno.DataSource = p.GetPersonasXTipo(Persona.TipoPersonas.Alumno);
             cbxAlumno.DisplayMember = "Nombre";
             cbxAlumno.ValueMember = "ID";
 
@@ -87,26 +87,39 @@ namespace UI.Desktop
             {
                 case ModoForm.Alta:
                     this.btnAceptar.Text = "Guardar";
+
+
                     Alumnos_Inscripciones Ali = new Alumnos_Inscripciones();
                     AlIActual = Ali;
                     int id = 0;
                     this.AlIActual.ID = id;
-                    this.AlIActual.IDAlumno = Int32.Parse(this.cbxAlumno.SelectedValue.ToString());
+                    this.AlIActual.IDAlumno = int.Parse(this.cbxAlumno.SelectedValue.ToString());
 
                     idMateria = (int)cbxMateria.SelectedValue;
                     idComision = (int)cbxComision.SelectedValue;
 
                     this.AlIActual.IDCurso = ail.GetCurso(idMateria, idComision).ID;
+                    
 
                     this.AlIActual.Condicion = this.txtCondicion.Text;
                     
                     if (this.txtNota.Text.Length == 0) 
                         { this.AlIActual.Nota = 0; }
                     else 
-                        { this.AlIActual.Nota = Int32.Parse(this.txtNota.Text); }
+                        { this.AlIActual.Nota = int.Parse(this.txtNota.Text); }
 
-                    AlIActual.State = BusinessEntity.States.New;
+                    if (ail.ValidaInscripcion(AlIActual) == false)
+                    {
+                        CursoLogic cl = new CursoLogic();
+                        cl.ActualizaCupo(AlIActual.IDCurso);
+                        AlIActual.State = BusinessEntity.States.New;
+                    }
+                    else
+                    {
+                        AlIActual.State = BusinessEntity.States.Unmodified;
+                    }
                     break;
+                    
 
                 case ModoForm.Modificacion:
                     this.btnAceptar.Text = "Guardar";

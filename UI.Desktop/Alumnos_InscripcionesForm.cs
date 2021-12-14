@@ -14,10 +14,12 @@ namespace UI.Desktop
 {
     public partial class Alumnos_InscripcionesForm : Form
     {
-        public Alumnos_InscripcionesForm()
+        public int UsuarioID { get; set; }
+        public Alumnos_InscripcionesForm(int id)
         {
             InitializeComponent();
             this.dgvAlumnos_Inscipciones.AutoGenerateColumns = false;
+            UsuarioID = id;
         }
 
         public void Listar()
@@ -38,12 +40,12 @@ namespace UI.Desktop
 
         private void ListaAlumnos_Inscripciones_Load(object sender, EventArgs e)
         {
-            this.Listar();
+            this.Lista();
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            this.Listar();
+            this.Lista();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -55,7 +57,7 @@ namespace UI.Desktop
         {
             Alumnos_InscripcionesDesktop alinsc = new Alumnos_InscripcionesDesktop(ModoForm.Alta);
             alinsc.ShowDialog();
-            this.Listar();
+            this.Lista();
         }
 
         private void tsbEditar_Click(object sender, EventArgs e)
@@ -63,7 +65,7 @@ namespace UI.Desktop
             int id = ((Alumnos_Inscripciones)this.dgvAlumnos_Inscipciones.SelectedRows[0].DataBoundItem).ID;
             Alumnos_InscripcionesDesktop alinsc = new Alumnos_InscripcionesDesktop(id, ModoForm.Modificacion);
             alinsc.ShowDialog();
-            this.Listar();
+            this.Lista();
         }
 
         private void tsbEliminar_Click(object sender, EventArgs e)
@@ -71,7 +73,25 @@ namespace UI.Desktop
             int id = ((Alumnos_Inscripciones)this.dgvAlumnos_Inscipciones.SelectedRows[0].DataBoundItem).ID;
             Alumnos_InscripcionesDesktop alinsc = new Alumnos_InscripcionesDesktop(id, ModoForm.Baja);
             alinsc.ShowDialog();
-            this.Listar();
+            this.Lista();
+        }
+
+        private void Lista()
+        {
+            UsuarioLogic ul = new UsuarioLogic();
+            Persona per = ul.GetPersona(UsuarioID);
+            if (per.TipoPersona.ToString() == "Admin" || per.TipoPersona.ToString() == "Alumno")
+            {
+                this.Listar();
+            }
+            else
+            {
+                this.Listar();
+                tsbNuevo.Visible = false;
+                tsbEditar.Visible = false;
+                tsbEliminar.Visible = false;
+
+            }
         }
     }
 }

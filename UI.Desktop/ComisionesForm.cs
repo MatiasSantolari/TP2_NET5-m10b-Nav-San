@@ -16,11 +16,11 @@ namespace UI.Desktop
     {
         public int UsuarioId { get; set; }
 
-        public ComisionesForm()
+        public ComisionesForm(int id)
         {
             InitializeComponent();
             this.dgvComisiones.AutoGenerateColumns = false;
-
+            UsuarioId = id;
         }
         public void Listar()
         {
@@ -37,14 +37,15 @@ namespace UI.Desktop
             }
             else
             {
+                this.Listar(UsuarioId);
                 tsbNuevo.Visible = false;
                 tsbEditar.Visible = false;
                 tsbEliminar.Visible = false;
-                ListarComisionesUsuario(UsuarioId);
+                
             }
         }
 
-        public void ListarComisionesUsuario(int id)
+        public void Listar(int id)
         {
             try
             {
@@ -61,7 +62,7 @@ namespace UI.Desktop
 
         private void ComisionesForm_Load(object sender, EventArgs e)
         {
-            this.Listar();
+            this.Lista();
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)

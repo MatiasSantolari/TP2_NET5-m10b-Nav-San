@@ -16,11 +16,6 @@ namespace UI.Desktop
     {
         public int UsuarioID { get; set; }
 
-        public CursosForm()
-        {
-            InitializeComponent();
-            this.dgvCursos.AutoGenerateColumns = false;
-        }
 
         public CursosForm(int id)
         {
@@ -39,10 +34,10 @@ namespace UI.Desktop
             }
             else
             {
+                this.Listar();
                 tsbNuevo.Visible = false;
                 tsbEditar.Visible = false;
                 tsbEliminar.Visible = false;
-                this.Listar();
             }
         }
 

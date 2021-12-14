@@ -15,11 +15,6 @@ namespace UI.Desktop
     public partial class Docentes_CursosForm : Form
     {
         public int UsuarioID { get; set; }
-        public Docentes_CursosForm()
-        {
-            InitializeComponent();
-            this.dgvDocentes_Cursos.AutoGenerateColumns = false;
-        }
         public Docentes_CursosForm(int id)
         {
             InitializeComponent();
