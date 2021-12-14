@@ -74,8 +74,7 @@ namespace Business.Logic
                     }
                 }
 
-                Alumnos_InscripcionesData.ValidaInscripcion(ali);
-                CursoData.ActualizaCupo(ali.IDCurso);
+                Alumnos_InscripcionesData.Insert(ali);
                 return true;
             }
             catch (Exception ex)

@@ -48,9 +48,9 @@ namespace Business.Logic
             return CursoData.GetComisionesXMateria(idMateria);
         }
 
-        public void ActualizaCupo(int id)
+        public void ActualizaCupo(Curso c)
         {
-            CursoData.ActualizaCupo(id);        
+            CursoData.ActualizaCupo(c);        
         }
     }
 }

@@ -108,11 +108,12 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmdSave = new SqlCommand("UPDATE alumnos_inscripciones SET id_alumno = @id_alumno, id_curso = @id_curso, condicion = @condicion, nota = @nota  where id_inscripcion=@id_inscripcion", sqlConnection);
-                cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = alumnos_inscripciones.ID;
+                cmdSave.Parameters.Add("@id_inscripcion", SqlDbType.Int).Value = alumnos_inscripciones.ID;
                 cmdSave.Parameters.Add("@id_alumno", SqlDbType.Int).Value = alumnos_inscripciones.IDAlumno;
                 cmdSave.Parameters.Add("@id_curso", SqlDbType.Int).Value = alumnos_inscripciones.IDCurso;
                 cmdSave.Parameters.Add("@condicion", SqlDbType.VarChar, 50).Value = alumnos_inscripciones.Condicion;
                 cmdSave.Parameters.Add("@nota", SqlDbType.Int).Value = alumnos_inscripciones.Nota;
+
                 cmdSave.ExecuteNonQuery();
             }
             catch (Exception e)
@@ -148,7 +149,7 @@ namespace Data.Database
                 this.CloseConnection();
             }
         }
-        protected void Insert(Alumnos_Inscripciones alumnos_inscripciones)
+        public void Insert(Alumnos_Inscripciones alumnos_inscripciones)
         {
             try
             {
@@ -224,12 +225,12 @@ namespace Data.Database
             return curso;
         }
 
-        public void ValidaInscripcion(Alumnos_Inscripciones ali)
+        /*public void ValidaInscripcion(Alumnos_Inscripciones ali)
         {
             if (ali.State == BusinessEntity.States.New)
             {
                 this.Insert(ali);
             }
-        }
+        }*/
     }
 }

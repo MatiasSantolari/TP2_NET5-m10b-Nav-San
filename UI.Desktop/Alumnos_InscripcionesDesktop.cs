@@ -108,10 +108,10 @@ namespace UI.Desktop
                     else 
                         { this.AlIActual.Nota = int.Parse(this.txtNota.Text); }
 
-                    if (ail.ValidaInscripcion(AlIActual) == false)
+                    if (ail.ValidaInscripcion(AlIActual) == true)
                     {
                         CursoLogic cl = new CursoLogic();
-                        cl.ActualizaCupo(AlIActual.IDCurso);
+                        cl.ActualizaCupo(cl.GetOne(AlIActual.IDCurso));
                         AlIActual.State = BusinessEntity.States.New;
                     }
                     else

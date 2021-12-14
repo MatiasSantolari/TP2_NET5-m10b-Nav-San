@@ -233,7 +233,7 @@ namespace Data.Database
             return comisiones;
         }
 
-        public void ActualizaCupo(int id)
+        public void ActualizaCupo(Curso curso)
         {
             try
             {
@@ -242,16 +242,21 @@ namespace Data.Database
                     "UPDATE cursos SET cupo=@cupo " +
                     "WHERE id_curso=@id", sqlConnection);
 
-                cmdActualizaCupo.Parameters.Add("@id", SqlDbType.Int, 50).Value = id;
-                cmdActualizaCupo.Parameters.Add("@cupo", SqlDbType.Int, 50).Value = GetOne(id).Cupo - 1;
+                cmdActualizaCupo.Parameters.Add("@id", SqlDbType.Int, 50).Value = curso.ID;
+                cmdActualizaCupo.Parameters.Add("@cupo", SqlDbType.Int, 50).Value = curso.Cupo - 1;
 
 
                 cmdActualizaCupo.ExecuteNonQuery();
+                
             }
             catch (Exception ex)
             {
                 Exception ExcepcionManejada = new Exception("Error al eliminar el cupo", ex);
                 throw ExcepcionManejada;
+            }
+            finally 
+            { 
+                this.CloseConnection(); 
             }
         }
 
