@@ -9,57 +9,6 @@ namespace Data.Database
 {
     public class UsuarioAdapter : Adapter
     {
-        #region DatosEnMemoria
-        // Esta región solo se usa en esta etapa donde los datos se mantienen en memoria.
-        // Al modificar este proyecto para que acceda a la base de datos esta será eliminada
-        private static List<Usuario> _Usuarios;
-
-        private static List<Usuario> Usuarios
-        {
-            get
-            {
-                if (_Usuarios == null)
-                {
-                    _Usuarios = new List<Usuario>();
-                    Usuario usr;
-                    usr = new Usuario();
-                    usr.ID = 1;
-                    usr.State = BusinessEntity.States.Unmodified;
-                    usr.Nombre = "Casimiro";
-                    usr.Apellido = "Cegado";
-                    usr.NombreUsuario = "casicegado";
-                    usr.Clave = "miro";
-                    usr.Email = "casimirocegado@gmail.com";
-                    usr.Habilitado = true;
-                    _Usuarios.Add(usr);
-
-                    usr = new Business.Entities.Usuario();
-                    usr.ID = 2;
-                    usr.State = Business.Entities.BusinessEntity.States.Unmodified;
-                    usr.Nombre = "Armando Esteban";
-                    usr.Apellido = "Quito";
-                    usr.NombreUsuario = "aequito";
-                    usr.Clave = "carpintero";
-                    usr.Email = "armandoquito@gmail.com";
-                    usr.Habilitado = true;
-                    _Usuarios.Add(usr);
-
-                    usr = new Business.Entities.Usuario();
-                    usr.ID = 3;
-                    usr.State = Business.Entities.BusinessEntity.States.Unmodified;
-                    usr.Nombre = "Alan";
-                    usr.Apellido = "Brado";
-                    usr.NombreUsuario = "alanbrado";
-                    usr.Clave = "abrete sesamo";
-                    usr.Email = "alanbrado@gmail.com";
-                    usr.Habilitado = true;
-                    _Usuarios.Add(usr);
-
-                }
-                return _Usuarios;
-            }
-        }
-        #endregion
 
         public List<Usuario> GetAll()
         {
@@ -96,7 +45,7 @@ namespace Data.Database
             return usuarios;
         }
 
-        public Business.Entities.Usuario GetOne(int ID)
+        public Usuario GetOne(int ID)
         {
             Usuario usr = new Usuario();
             try
@@ -260,6 +209,46 @@ namespace Data.Database
                 this.CloseConnection();
             }
             return p;
+        }
+
+        public Persona BuscaPersonaxNombApeEm(string Nombre, string Apellido, string Email)
+        {
+            Persona per = new Persona();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdPersonas = new SqlCommand("Select * from personas where nombre= @nombre and apellido=@apellido and email=@email", sqlConnection);
+                cmdPersonas.Parameters.Add("@nombre", SqlDbType.VarChar).Value = Nombre;
+                cmdPersonas.Parameters.Add("@apellido", SqlDbType.VarChar).Value = Apellido;
+                cmdPersonas.Parameters.Add("@email", SqlDbType.VarChar).Value = Email;
+
+
+                SqlDataReader drUsuarios = cmdPersonas.ExecuteReader();
+                if (drUsuarios.Read())
+                {
+                    per.ID = (int)drUsuarios["id_persona"];
+                    per.Nombre = (string)drUsuarios["nombre"];
+                    per.Apellido = (string)drUsuarios["apellido"];
+                    per.Direccion = (string)drUsuarios["direccion"];
+                    per.Email = (string)drUsuarios["email"];
+                    per.Telefono = (string)drUsuarios["telefono"];
+                    per.FechaNac = (DateTime)drUsuarios["fecha_nac"];
+                    per.Legajo = (int)drUsuarios["legajo"];
+                    per.TipoPersona = (Persona.TipoPersonas)(int)drUsuarios["tipo_persona"];
+                    per.IdPlan = (int)drUsuarios["id_plan"];
+                }
+                drUsuarios.Close();
+            }
+            catch (Exception e)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos del usuario", e);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return per;
         }
     }
 }

@@ -48,5 +48,10 @@ namespace Business.Logic
             return UsuarioData.GetPersona(id);
         }
 
+        public Persona BuscaPersonaxNombApeEm(string Nombre, string Apellido, string Email)
+        {
+            return UsuarioData.BuscaPersonaxNombApeEm(Nombre, Apellido, Email);
+        }
+
     }
 }
