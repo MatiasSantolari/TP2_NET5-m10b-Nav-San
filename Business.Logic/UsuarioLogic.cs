@@ -52,6 +52,14 @@ namespace Business.Logic
         {
             return UsuarioData.BuscaPersonaxNombApeEm(Nombre, Apellido, Email);
         }
+        public void CargarIDPersona(Usuario usuario, int id)
+        {
+            UsuarioData.CargarIDPersona(usuario, id);
+        }
+        public void ActualizarPersona(Usuario usuario, int id)
+        {
+            UsuarioData.ActualizarPersona(usuario, id);
+        }
 
     }
 }

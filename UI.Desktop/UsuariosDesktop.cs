@@ -116,12 +116,12 @@ namespace UI.Desktop
         {
             MapearADatos();
             UsuarioLogic us = new UsuarioLogic();
-            /*if (Modo == ModoForm.Alta)
+            if (Modo == ModoForm.Alta)
             {
                 Persona per = us.BuscaPersonaxNombApeEm(UsuarioActual.Nombre, UsuarioActual.Apellido, UsuarioActual.Email);
                 if (per.ID != 0 && per.Nombre != null)
                 {
-                    us.CargarIDPersona(UsuarioActual.Nombre, UsuarioActual.Apellido, UsuarioActual.Email, per.ID);
+                    us.CargarIDPersona(UsuarioActual, per.ID);
                     us.Save(UsuarioActual);
                 }
                 else
@@ -135,14 +135,14 @@ namespace UI.Desktop
                 Usuario usuarioAnterior = us.GetOne(UsuarioActual.ID);
                 Persona per = us.BuscaPersonaxNombApeEm(usuarioAnterior.Nombre, usuarioAnterior.Apellido, usuarioAnterior.Email);
 
-                us.ActualizarPersona(UsuarioActual.Nombre, UsuarioActual.Apellido, UsuarioActual.Email, per.ID);
+                us.ActualizarPersona(UsuarioActual, per.ID);
 
                 us.Save(UsuarioActual);
             }
             else
             {
                 us.Save(UsuarioActual);
-            }*/
+            }
             
 
              
