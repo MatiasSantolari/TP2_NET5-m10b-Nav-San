@@ -1,2 +1,24 @@
 
 .vs/
+
+Business.Logic/bin/
+
+Business.Logic/obj/
+
+Data.Database/bin/
+
+Data.Database/obj/
+
+Login/bin/
+
+Login/obj/
+
+UI.Consola/bin/
+
+UI.Web/bin/
+
+UI.Web/obj/
+
+UI.Desktop/bin/
+
+UI.Desktop/obj/

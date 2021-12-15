@@ -69,13 +69,13 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.Panel formPanel;
 
         /// <summary>
-        /// Control DocenteLabel.
+        /// Control AlumnoLabel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label DocenteLabel;
+        protected global::System.Web.UI.WebControls.Label AlumnoLabel;
 
         /// <summary>
         /// Control DocenteDropDown.
@@ -96,22 +96,49 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDocente;
 
         /// <summary>
-        /// Control CursoLabel.
+        /// Control MateriaLabel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CursoLabel;
+        protected global::System.Web.UI.WebControls.Label MateriaLabel;
 
         /// <summary>
-        /// Control CursoDropDown.
+        /// Control MateriaDropDown.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList CursoDropDown;
+        protected global::System.Web.UI.WebControls.DropDownList MateriaDropDown;
+
+        /// <summary>
+        /// Control RequiredFieldValidator1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+
+        /// <summary>
+        /// Control ComisionLabel.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ComisionLabel;
+
+        /// <summary>
+        /// Control ComisionDropDown.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ComisionDropDown;
 
         /// <summary>
         /// Control rfvCurso.

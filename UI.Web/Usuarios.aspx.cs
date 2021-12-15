@@ -10,7 +10,7 @@ using System.Text.RegularExpressions;
 
 namespace UI.Web
 {
-    public partial class Usuarios : System.Web.UI.Page
+    public partial class Usuarios : Page
     {
         private UsuarioLogic _logic;
 

@@ -9,7 +9,7 @@ using Business.Logic;
 
 namespace UI.Web
 {
-    public partial class Materias : System.Web.UI.Page
+    public partial class Materias : Page
     {
         private MateriaLogic _logic;
 
@@ -47,7 +47,7 @@ namespace UI.Web
             if (this.planDropDown.Items.Count == 1)
             {
                 this.planDropDown.DataSource = plan.GetAll();
-                this.planDropDown.DataTextField = "Descripcion";
+                this.planDropDown.DataTextField = "DescPlan";
                 this.planDropDown.DataValueField = "ID";
                 this.planDropDown.DataBind();
             }
@@ -163,7 +163,6 @@ namespace UI.Web
             this.formPanel.Visible = false;
             this.formActionPanel.Visible = false;
 
-            //probando limpiar seleccion
             this.gridView.SelectedIndex = -1;
             this.SelectedID = 0;
         }
@@ -222,7 +221,7 @@ namespace UI.Web
             this.formActionPanel.Visible = false;
             this.formPanel.Visible = false;
 
-            //Probando limpiar seleccion
+
             this.gridView.SelectedIndex = -1;
             this.SelectedID = 0;
         }

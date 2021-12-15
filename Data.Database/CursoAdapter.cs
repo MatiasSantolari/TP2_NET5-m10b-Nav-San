@@ -259,6 +259,37 @@ namespace Data.Database
                 this.CloseConnection(); 
             }
         }
+        public Curso GetOne(int idmateria, int idcomision)
+        {
+            Curso cur = new Curso();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdCursos = new SqlCommand("Select * from cursos where id_materia = @materia and id_comision=@comision", sqlConnection);
+                cmdCursos.Parameters.Add("@materia", SqlDbType.Int).Value = idmateria;
+                cmdCursos.Parameters.Add("@comision", SqlDbType.Int).Value = idcomision;
+                SqlDataReader drCursos = cmdCursos.ExecuteReader();
+                if (drCursos.Read())
+                {
+                    cur.ID = (int)drCursos["id_curso"];
+                    cur.AnioCalendario = (int)drCursos["anio_calendario"];
+                    cur.Cupo = (int)drCursos["cupo"];
+                    cur.IDMateria = (int)drCursos["id_materia"];
+                    cur.IDComision = (int)drCursos["id_comision"];
+                }
+                drCursos.Close();
+            }
+            catch (Exception e)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos del curso", e);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return cur;
+        }
 
     }
 }

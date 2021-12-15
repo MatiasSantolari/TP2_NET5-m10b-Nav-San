@@ -126,7 +126,7 @@ namespace UI.Desktop
                     Alumnos_Inscripciones Uss = new Alumnos_Inscripciones();
                     AlIActual = Uss;
                     this.AlIActual.ID= int.Parse(this.txtID.Text);
-                    this.AlIActual.IDAlumno = Int32.Parse(this.cbxAlumno.SelectedValue.ToString());
+                    this.AlIActual.IDAlumno = int.Parse(this.cbxAlumno.SelectedValue.ToString());
                     
                     idMateria = (int)cbxMateria.SelectedValue;
                     idComision = (int)cbxComision.SelectedValue;

@@ -35,7 +35,7 @@ namespace UI.Web
             if (this.planDropDown.Items.Count == 1)
             {
                 this.planDropDown.DataSource = plan.GetAll();
-                this.planDropDown.DataTextField = "Descripcion";
+                this.planDropDown.DataTextField = "DescPlan";
                 this.planDropDown.DataValueField = "ID";
                 this.planDropDown.DataBind();
             }

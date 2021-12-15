@@ -42,7 +42,7 @@ namespace UI.Web
         private void LoadGrid()
         {
             PersonaLogic docente = new PersonaLogic();
-            CursoLogic curso = new CursoLogic();
+            MateriaLogic materia = new MateriaLogic();
 
             this.gridView.DataSource = this.Logic.GetAll();
             this.gridView.DataBind();
@@ -54,13 +54,15 @@ namespace UI.Web
                 this.DocenteDropDown.DataValueField = "ID";
                 this.DocenteDropDown.DataBind();
             }
-            if (this.CursoDropDown.Items.Count == 1)
+            if (this.MateriaDropDown.Items.Count == 1)
             {
-                this.CursoDropDown.DataSource = curso.GetAll();
-                this.CursoDropDown.DataTextField = "CursoDescripcion";
-                this.CursoDropDown.DataValueField = "ID";
-                this.CursoDropDown.DataBind();
+                this.MateriaDropDown.DataSource = materia.GetAll();
+                this.MateriaDropDown.DataTextField = "DescMateria";
+                this.MateriaDropDown.DataValueField = "ID";
+                this.MateriaDropDown.DataBind();
             }
+            this.ComisionDropDown.Enabled = false;
+            
 
             if (this.TipoDropDown.Items.Count == 1)
             {
@@ -119,16 +121,30 @@ namespace UI.Web
 
         private void LoadForm(int ID)
         {
+            
+            CursoLogic cl = new CursoLogic();
+            MateriaLogic ml = new MateriaLogic();
+            ComisionLogic col = new ComisionLogic();
+
+            Curso c = new Curso();
+            c = cl.GetOne(this.Entity.IDCurso);
+            Materia m = new Materia();
+            m = ml.GetOne(c.IDMateria);
+            Comision com = new Comision();
+            com = col.GetOne(c.IDComision);
+
             this.Entity = this.Logic.GetOne(ID);
             this.DocenteDropDown.SelectedValue = this.Entity.IDDocente.ToString();
-            this.CursoDropDown.SelectedValue = this.Entity.IDCurso.ToString();
+            this.MateriaDropDown.SelectedValue = m.DescMateria;
+            this.ComisionDropDown.SelectedValue = com.DescComision;
             this.TipoDropDown.SelectedValue = this.Entity.Cargo.ToString();
         }
 
         private void EnableForm(bool enable)
         {
             this.DocenteDropDown.Enabled = enable;
-            this.CursoDropDown.Enabled = enable;
+            this.MateriaDropDown.Enabled = enable;
+            this.ComisionDropDown.Enabled = enable;
             this.TipoDropDown.Enabled = enable;
         }
 
@@ -146,7 +162,16 @@ namespace UI.Web
 
         private void LoadEntity(Docente_Curso dc)
         {
-            dc.IDCurso = int.Parse(this.CursoDropDown.SelectedItem.Value);
+            int idMateria, idComision;
+
+            idMateria = int.Parse(this.MateriaDropDown.SelectedValue.ToString());
+            idComision = int.Parse(this.ComisionDropDown.SelectedValue.ToString());
+
+            CursoLogic cl = new CursoLogic();
+            Curso c = new Curso();
+            c = cl.GetOne(idMateria, idComision);
+
+            dc.IDCurso = c.ID;
             dc.IDDocente = int.Parse(this.DocenteDropDown.SelectedItem.Value);
             dc.Cargo = (Docente_Curso.cargos)Enum.Parse(typeof(Docente_Curso.cargos), this.TipoDropDown.SelectedItem.Value);
         }
@@ -193,7 +218,8 @@ namespace UI.Web
         private void ClearForm()
         {
             this.DocenteDropDown.SelectedIndex = 0;
-            this.CursoDropDown.SelectedIndex = 0;
+            this.MateriaDropDown.SelectedIndex = 0;
+            this.ComisionDropDown.SelectedIndex = 0;
             this.TipoDropDown.SelectedIndex = 0;
         }
 
@@ -238,7 +264,22 @@ namespace UI.Web
             this.SelectedID = 0;
         }
 
+        protected void MateriaDropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CursoLogic cl = new CursoLogic();
+            List<Comision> com = cl.GetComisionesXMateria(int.Parse(this.MateriaDropDown.SelectedValue.ToString()));
+            if (com.Any())
+            {
+                ComisionDropDown.Enabled = true;
+                ComisionDropDown.DataSource = com;
+                ComisionDropDown.DataTextField = "DescComision";
+                ComisionDropDown.DataValueField = "ID";
 
-
+            }
+            else
+            {
+                ComisionDropDown.Enabled = false;
+            }
+        }
     }
 }

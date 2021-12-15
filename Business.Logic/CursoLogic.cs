@@ -52,5 +52,9 @@ namespace Business.Logic
         {
             CursoData.ActualizaCupo(c);        
         }
+        public Curso GetOne(int idmateria, int idcomision)
+        {
+            return CursoData.GetOne(idmateria, idcomision);
+        }
     }
 }

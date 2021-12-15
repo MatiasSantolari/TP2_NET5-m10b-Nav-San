@@ -36,6 +36,7 @@
             </asp:Menu>
         </asp:Panel>
         <div align="center">
+            
             <asp:Panel ID="gridPanel" runat="server">
                 <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="False" SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="White" DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" CssClass="table table-responsive-lg">
                     <Columns>
@@ -48,6 +49,46 @@
                     </Columns>
                     <SelectedRowStyle BackColor="Black" ForeColor="White" />
                 </asp:GridView>
+            </asp:Panel>
+            </div>
+            <div class="form-group">
+            <asp:Panel ID="formPanel" Visible="false" runat="server">
+        
+                <br />
+                <asp:Label ID="AlumnoLabel" runat="server" Text="Alumno: "></asp:Label>
+                <asp:DropDownList ID="AlumnoDropDown" class="form-control" runat="server" AppendDataBoundItems="True">
+                    <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
+                </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="rfvAlumno" runat="server" ControlToValidate="AlumnoDropDown" ErrorMessage="Seleccione un alumno" ForeColor="Red" ToolTip="No seleccionó un alumno" InitialValue="0" ValidationGroup="vg">*</asp:RequiredFieldValidator>
+                <br />
+                 <asp:Label ID="MateriaLabel" runat="server" Text="Materia: "></asp:Label>
+                <asp:DropDownList ID="MateriaDropDown" class="form-control" runat="server" AppendDataBoundItems="True" OnSelectedIndexChanged="MateriaDropDown_SelectedIndexChanged">
+                    <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
+                </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TipoDropDown" ErrorMessage="Seleccione un tipo de docente" ForeColor="Red" ToolTip="No seleccionó un tipo docente" InitialValue="0" ValidationGroup="vg">*</asp:RequiredFieldValidator>
+                <br/>
+                <asp:Label ID="ComisionLabel" runat="server" Text="Comisión: "></asp:Label>
+                <asp:DropDownList ID="ComisionDropDown" class="form-control" runat="server" AppendDataBoundItems="True">
+                    <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
+                </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="rfvCurso" runat="server" ControlToValidate="CursoDropDown" ErrorMessage="Seleccione un curso" ForeColor="Red" ToolTip="No seleccionó un curso" InitialValue="0" ValidationGroup="vg">*</asp:RequiredFieldValidator>
+                <br />
+                <asp:Label ID="condicionLabel" runat="server" Text="Condición: "></asp:Label>
+                <asp:TextBox ID="condicionTextBox" class="form-control" runat="server"></asp:TextBox>
+                <br />
+                <asp:Label ID="notaLabel" runat="server" Text="Nota: "></asp:Label>
+                <asp:TextBox ID="notaTextBox" class="form-control" runat="server"></asp:TextBox>
+                <br />
+            </asp:Panel>
+
+
+            <div align="center">
+            <asp:Panel ID="Panel2" runat="server" class="btn-group">
+                <asp:LinkButton ID="LinkButton1" class="btn btn-secondary" runat="server" OnClick="editarlinkButton_Click">Editar</asp:LinkButton>
+                <div class="divider"></div>
+                <asp:LinkButton ID="LinkButton2" class="btn btn-secondary" runat="server" OnClick="eliminarLinkButton_Click">Eliminar</asp:LinkButton>
+                <div class="divider"></div>
+                <asp:LinkButton ID="LinkButton3" class="btn btn-secondary" runat="server" OnClick="nuevoLinkButton_Click">Nuevo</asp:LinkButton>
             </asp:Panel>
             <asp:Panel ID="formActionPanel" Visible="true" runat="server">
                 <asp:LinkButton ID="inscribirLinkButton" class="btn btn-success" runat="server"  ValidationGroup="vg" OnClick="inscribirLinkButton_Click">Inscribir</asp:LinkButton>

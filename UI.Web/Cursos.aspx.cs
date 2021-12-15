@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace UI.Web
 {
-    public partial class Cursos : System.Web.UI.Page
+    public partial class Cursos :  Page
     {
         private CursoLogic _Logic;
 
@@ -50,14 +50,14 @@ namespace UI.Web
             if (this.MateriaDropDown.Items.Count == 1)
             {
                 this.MateriaDropDown.DataSource = materia.GetAll();
-                this.MateriaDropDown.DataTextField = "Descripcion";
+                this.MateriaDropDown.DataTextField = "DescMateria";
                 this.MateriaDropDown.DataValueField = "ID";
                 this.MateriaDropDown.DataBind();
             }
             if (this.ComisionDropDown.Items.Count == 1)
             {
                 this.ComisionDropDown.DataSource = comision.GetAll();
-                this.ComisionDropDown.DataTextField = "Descripcion";
+                this.ComisionDropDown.DataTextField = "DescComision";
                 this.ComisionDropDown.DataValueField = "ID";
                 this.ComisionDropDown.DataBind();
             }

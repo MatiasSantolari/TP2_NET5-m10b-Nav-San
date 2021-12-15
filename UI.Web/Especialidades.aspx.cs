@@ -9,7 +9,7 @@ using Business.Logic;
 
 namespace UI.Web
 {
-    public partial class Especialidades : System.Web.UI.Page
+    public partial class Especialidades : Page
     {
         private EspecialidadLogic _logic;
 
