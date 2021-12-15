@@ -40,7 +40,7 @@
             <asp:Panel ID="gridPanel" runat="server">
                 <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="False" SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="White" DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" CssClass="table table-responsive-lg">
                     <Columns>
-                        <asp:BoundField HeaderText="Nombre" DataField="Descripcion" />
+                        <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
                         <asp:BoundField HeaderText="Comision" DataField="ComisionDescripcion" />
                         <asp:BoundField HeaderText="Materia" DataField="MateriaDescripcion" />
                         <asp:BoundField HeaderText="Cupo" DataField="Cupo" />
@@ -80,7 +80,7 @@
                 <asp:TextBox ID="notaTextBox" class="form-control" runat="server"></asp:TextBox>
                 <br />
             </asp:Panel>
-
+            </div>
 
             <div align="center">
             <asp:Panel ID="Panel2" runat="server" class="btn-group">

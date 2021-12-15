@@ -49,7 +49,7 @@ namespace UI.Web
             if (this.LegajoDropDown.Items.Count == 1)
             {
                 this.LegajoDropDown.DataSource = personaLogic.GetAll();
-                this.LegajoDropDown.DataTextField = "Legajo";
+                this.LegajoDropDown.DataTextField = "legajo";
                 this.LegajoDropDown.DataValueField = "ID";
                 this.LegajoDropDown.DataBind();
             }

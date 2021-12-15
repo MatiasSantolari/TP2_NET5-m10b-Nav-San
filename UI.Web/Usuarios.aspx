@@ -42,7 +42,6 @@
         <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="False" SelectedRowStyle-BackColor="Black"
             SelectedRowStyle-ForeColor="White" DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" CssClass="table table-responsive-lg">
             <Columns>  
-                <asp:BoundField HeaderText="Legajo" DataField="LegajoPersona" />
                 <asp:BoundField HeaderText="Usuario" DataField="NombreUsuario" />
                 <asp:BoundField HeaderText="Habilitado" DataField="Habilitado" />
                 <asp:CommandField SelectText="Seleccionar" ShowSelectButton="true" />
