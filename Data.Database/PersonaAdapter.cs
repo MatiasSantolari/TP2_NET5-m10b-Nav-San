@@ -32,6 +32,7 @@ namespace Data.Database
                     p.FechaNac = (DateTime)drPersonas["fecha_nac"];
                     p.Legajo = (int)drPersonas["legajo"];
                     p.TipoPersona = (Persona.TipoPersonas)(int)drPersonas["tipo_persona"];
+                    p.IdPlan = (int)drPersonas["id_plan"];
                     personas.Add(p);
                 }
                 drPersonas.Close();
@@ -187,7 +188,7 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmdPersonas = new SqlCommand(
-                    "select * from personas where tipo_persona = 2", sqlConnection); //como param del nuevo command pasamos el objConeccion y el command.text
+                    "select * from personas where tipo_persona = 1", sqlConnection); //como param del nuevo command pasamos el objConeccion y el command.text
                 SqlDataReader drPersonas = cmdPersonas.ExecuteReader();
                 while (drPersonas.Read())
                 {
