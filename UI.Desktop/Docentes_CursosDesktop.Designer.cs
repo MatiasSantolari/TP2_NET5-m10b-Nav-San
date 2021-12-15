@@ -66,7 +66,7 @@ namespace UI.Desktop
             this.tableLayoutPanel1.Controls.Add(this.cbxComision, 3, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -91,7 +91,7 @@ namespace UI.Desktop
             // 
             this.txtID.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtID.Location = new System.Drawing.Point(57, 2);
-            this.txtID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtID.Margin = new System.Windows.Forms.Padding(2);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(204, 20);
@@ -102,16 +102,17 @@ namespace UI.Desktop
             this.cbxMateria.Dock = System.Windows.Forms.DockStyle.Top;
             this.cbxMateria.FormattingEnabled = true;
             this.cbxMateria.Location = new System.Drawing.Point(57, 26);
-            this.cbxMateria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxMateria.Margin = new System.Windows.Forms.Padding(2);
             this.cbxMateria.Name = "cbxMateria";
             this.cbxMateria.Size = new System.Drawing.Size(204, 21);
             this.cbxMateria.TabIndex = 6;
+            this.cbxMateria.SelectionChangeCommitted += new System.EventHandler(this.cbxMateria_SelectionChangeCommitted);
             // 
             // btnAceptar
             // 
             this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAceptar.Location = new System.Drawing.Point(265, 76);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(60, 19);
             this.btnAceptar.TabIndex = 8;
@@ -122,7 +123,7 @@ namespace UI.Desktop
             // btnCancelar
             // 
             this.btnCancelar.Location = new System.Drawing.Point(329, 76);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(72, 19);
             this.btnCancelar.TabIndex = 9;
@@ -155,7 +156,7 @@ namespace UI.Desktop
             this.cbxDocente.Dock = System.Windows.Forms.DockStyle.Top;
             this.cbxDocente.FormattingEnabled = true;
             this.cbxDocente.Location = new System.Drawing.Point(57, 51);
-            this.cbxDocente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxDocente.Margin = new System.Windows.Forms.Padding(2);
             this.cbxDocente.Name = "cbxDocente";
             this.cbxDocente.Size = new System.Drawing.Size(204, 21);
             this.cbxDocente.TabIndex = 11;
@@ -165,7 +166,7 @@ namespace UI.Desktop
             this.cbxCargo.Dock = System.Windows.Forms.DockStyle.Top;
             this.cbxCargo.FormattingEnabled = true;
             this.cbxCargo.Location = new System.Drawing.Point(329, 51);
-            this.cbxCargo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxCargo.Margin = new System.Windows.Forms.Padding(2);
             this.cbxCargo.Name = "cbxCargo";
             this.cbxCargo.Size = new System.Drawing.Size(204, 21);
             this.cbxCargo.TabIndex = 5;
@@ -195,7 +196,7 @@ namespace UI.Desktop
             this.cbxComision.Dock = System.Windows.Forms.DockStyle.Top;
             this.cbxComision.FormattingEnabled = true;
             this.cbxComision.Location = new System.Drawing.Point(329, 26);
-            this.cbxComision.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxComision.Margin = new System.Windows.Forms.Padding(2);
             this.cbxComision.Name = "cbxComision";
             this.cbxComision.Size = new System.Drawing.Size(204, 21);
             this.cbxComision.TabIndex = 12;
@@ -206,7 +207,7 @@ namespace UI.Desktop
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(535, 104);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Docentes_CursosDesktop";
             this.Text = "Docentes_CursosDesktop";
             this.tableLayoutPanel1.ResumeLayout(false);

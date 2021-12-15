@@ -33,10 +33,12 @@ namespace UI.Desktop
             cbxMateria.DisplayMember = "DescMateria";
             cbxMateria.ValueMember = "ID";
 
+            /*
             ComisionLogic comision = new ComisionLogic();
             cbxComision.DataSource = comision.GetAll();
             cbxComision.DisplayMember = "DescComision";
             cbxComision.ValueMember = "ID";
+            */
 
             cbxCargo.DataSource = Enum.GetValues(typeof(Docente_Curso.cargos));
         }
@@ -181,6 +183,24 @@ namespace UI.Desktop
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cbxMateria_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            CursoLogic cl = new CursoLogic();
+            List<Comision> com = cl.GetComisionesXMateria(Int32.Parse(this.cbxMateria.SelectedValue.ToString()));
+            if (com.Any())
+            {
+                cbxComision.Enabled = true;
+                cbxComision.DataSource = com;
+                cbxComision.DisplayMember = "DescComision";
+                cbxComision.ValueMember = "ID";
+
+            }
+            else
+            {
+                cbxComision.Enabled = false;
+            }
         }
     }
 }

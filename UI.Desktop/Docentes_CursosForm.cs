@@ -60,6 +60,13 @@ namespace UI.Desktop
             {
                 this.Listar();
             }
+            else if (per.TipoPersona.ToString() == "Docente")
+            {
+                this.Listar();
+                tsbNuevo.Visible = false;
+                tsbEditar.Visible = false;
+                tsbEliminar.Visible = false;
+            }
             else
             {
                 tsbNuevo.Visible = false;
