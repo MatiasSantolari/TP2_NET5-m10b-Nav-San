@@ -41,6 +41,7 @@ namespace Business.Logic
         }
 
         public void Save(Usuario usuario) => UsuarioData.Save(usuario);
+        public void SavePlus(Usuario usuario, int idPersona) => UsuarioData.SavePlus(usuario, idPersona);
         public void Delete(int ID) => UsuarioData.Delete(ID);
 
         public Persona GetPersona(int id)
@@ -51,6 +52,14 @@ namespace Business.Logic
         public Persona BuscaPersonaxNombApeEm(string Nombre, string Apellido, string Email)
         {
             return UsuarioData.BuscaPersonaxNombApeEm(Nombre, Apellido, Email);
+        }
+        public void CargarIDPersona(Usuario usuario, int id)
+        {
+            UsuarioData.CargarIDPersona(usuario, id);
+        }
+        public void ActualizarPersona(Usuario usuario, int id)
+        {
+            UsuarioData.ActualizarPersona(usuario, id);
         }
 
     }
