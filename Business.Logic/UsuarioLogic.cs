@@ -62,5 +62,17 @@ namespace Business.Logic
             UsuarioData.ActualizarPersona(usuario, id);
         }
 
+        public bool Autenticar(string nom_user, string contrasenia)
+        {
+            try
+            {
+                return this.UsuarioData.Autenticar(nom_user, contrasenia);
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al autentificar", ex);
+                throw ExcepcionManejada;
+            }
+        }
     }
 }

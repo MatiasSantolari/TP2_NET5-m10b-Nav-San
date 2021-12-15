@@ -327,5 +327,27 @@ namespace Data.Database
                 this.CloseConnection();
             }
         }
+
+        public bool Autenticar(string usuario, string contrasenia)
+        {
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdAutenticar = new SqlCommand("select * from usuarios where nombre_usuario = @usuario and clave = @contrasenia", sqlConnection);
+                cmdAutenticar.Parameters.Add("@usuario", SqlDbType.NVarChar).Value = usuario;
+                cmdAutenticar.Parameters.Add("@contrasenia", SqlDbType.NVarChar).Value = contrasenia;
+                SqlDataReader drAutenticacion = cmdAutenticar.ExecuteReader();
+                return drAutenticacion.Read();
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos para iniciar sesion", ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
     }
 }

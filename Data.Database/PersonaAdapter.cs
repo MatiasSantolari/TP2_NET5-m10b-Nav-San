@@ -258,5 +258,55 @@ namespace Data.Database
             return personas;
         }
 
+        public Persona GetOne(string nom, string cont)
+        {
+            Persona per = new Persona();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdPersona = new SqlCommand("select *, desc_plan from personas pe inner join planes p on p.id_plan = pe.id_plan inner join usuarios us on pe.id_persona = us.id_persona where us.nombre_usuario = @nom and us.clave =@contra", sqlConnection);
+                cmdPersona.Parameters.Add("@nombre", SqlDbType.VarChar).Value = nom;
+                cmdPersona.Parameters.Add("@contra", SqlDbType.VarChar).Value = cont;
+                SqlDataReader drPersonas = cmdPersona.ExecuteReader();
+                if (drPersonas.Read())
+                {
+                    per.ID = (int)drPersonas["id_persona"];
+                    per.Nombre = (string)drPersonas["nombre"];
+                    per.Apellido = (string)drPersonas["apellido"];
+                    per.Direccion = (string)drPersonas["direccion"];
+                    per.Email = (string)drPersonas["email"];
+                    per.FechaNac = (DateTime)drPersonas["fecha_nac"];
+                    per.Legajo = (int)drPersonas["legajo"];
+                    per.IdPlan = (int)drPersonas["id_plan"];
+                    per.Telefono = (string)drPersonas["telefono"];
+                    switch ((int)drPersonas["tipo_persona"])
+                    {
+                        case 0:
+                            per.TipoPersona = Persona.TipoPersonas.Admin;
+                            break;
+
+                        case 1:
+                            per.TipoPersona = Persona.TipoPersonas.Docente;
+                            break;
+
+                        case 2:
+                            per.TipoPersona = Persona.TipoPersonas.Alumno;
+                            break;
+                    }
+                }
+                drPersonas.Close();
+            }
+            catch (Exception e)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos de la persona", e);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return per;
+        }
+
     }
 }

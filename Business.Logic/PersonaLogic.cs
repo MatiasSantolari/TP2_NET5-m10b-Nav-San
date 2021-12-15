@@ -68,5 +68,19 @@ namespace Business.Logic
                 throw ExcepcionManejada;
             }
         }
+
+        public Persona GetOne(string usr, string contra)
+        {
+            try
+            {
+                return this.PersonaData.GetOne(usr, contra);
+            }
+            catch (Exception ex)
+            {
+
+                Exception ExcepcionManejada = new Exception("Error al recuperar la lista de personas por tipo", ex);
+                throw ExcepcionManejada;
+            }
+        }
     }
 }
