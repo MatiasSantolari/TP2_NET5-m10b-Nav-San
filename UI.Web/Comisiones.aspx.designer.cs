@@ -87,15 +87,6 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.TextBox descripcionTextBox;
 
         /// <summary>
-        /// Control rfvDescripcion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDescripcion;
-
-        /// <summary>
         /// Control anioEspecialidadLabel.
         /// </summary>
         /// <remarks>
@@ -114,24 +105,6 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.TextBox anioEspecialidadTextBox;
 
         /// <summary>
-        /// Control rfanioEspecialidad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfanioEspecialidad;
-
-        /// <summary>
-        /// Control rngAnio.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator rngAnio;
-
-        /// <summary>
         /// Control planLabel.
         /// </summary>
         /// <remarks>
@@ -148,15 +121,6 @@ namespace UI.Web
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList planDropDown;
-
-        /// <summary>
-        /// Control revPlan.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator revPlan;
 
         /// <summary>
         /// Control gridActionsPanel.

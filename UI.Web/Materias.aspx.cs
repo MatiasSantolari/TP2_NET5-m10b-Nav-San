@@ -146,7 +146,10 @@ namespace UI.Web
                     this.Entity = new Materia();
                     this.Entity.ID = this.SelectedID;
                     this.Entity.State = BusinessEntity.States.Modified;
-                    this.LoadEntity(this.Entity);
+                    Entity.DescMateria = this.descripcionTextBox.Text;
+                    Entity.HsSemanales = int.Parse(this.hssemTextBox.Text);
+                    Entity.HsTotales = int.Parse(this.hstotTextBox.Text);
+                    Entity.IdPlan = int.Parse(this.planDropDown.SelectedItem.Value);
                     this.SaveEntity(this.Entity);
                     this.LoadGrid();
                     break;

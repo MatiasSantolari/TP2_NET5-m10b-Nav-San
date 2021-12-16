@@ -52,7 +52,6 @@
             <asp:Panel ID="formPanel" Visible="false" runat="server">
                 <asp:Label ID="descripcionLabel" runat="server" Text="Descripcion: "></asp:Label>
                 <asp:TextBox ID="descTextBox" class="form-control" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="rfvDesc" runat="server" ControlToValidate="descTextBox" ErrorMessage="La descripcion no puede estar vacía" ForeColor="Red" ToolTip="La descripcion no puede estar vacía" ValidationGroup="vg">*</asp:RequiredFieldValidator>
                 <br />
             </asp:Panel>
             </div> 

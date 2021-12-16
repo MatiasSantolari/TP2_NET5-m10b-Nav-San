@@ -137,18 +137,35 @@ namespace UI.Web
                     this.LoadGrid();
                     break;
                 case FormModes.modificacion:
-                    this.Entity = new Business.Entities.Alumnos_Inscripciones();
-                    this.Entity.ID = this.SelectedID;
+                    Entity = new Business.Entities.Alumnos_Inscripciones();
+                    Entity.ID = this.SelectedID;
                     this.Entity.State = BusinessEntity.States.Modified;
-                    this.LoadEntity(this.Entity);
-                    this.SaveEntity(this.Entity);
-                    this.LoadGrid();
+                    int idMateria, idComision;
+
+                    idMateria = int.Parse(this.MateriaDropDown.SelectedValue.ToString());
+                    idComision = int.Parse(this.ComisionDropDown.SelectedValue.ToString());
+
+                    CursoLogic cl = new CursoLogic();
+                    Curso c = new Curso();
+                    c = cl.GetOne(idMateria, idComision);
+
+                    Entity.IDCurso = c.ID;
+                    Entity.IDAlumno = int.Parse(this.AlumnoDropDown.SelectedItem.Value);
+                    Entity.Condicion = this.condicionTextBox.Text;
+                    Entity.Nota = int.Parse(this.notaTextBox.Text);
+
+                    if (this.notaTextBox.Text.Length == 0)
+                    { Entity.Nota = 0; }
+                    else
+                    { Entity.Nota = int.Parse(this.notaTextBox.Text); }
                     break;
                 case FormModes.alta:
                     this.Entity = new Business.Entities.Alumnos_Inscripciones();
                     int id = 0;
                     this.Entity.ID = id;
-
+                    Entity = new Business.Entities.Alumnos_Inscripciones();
+                    Entity.ID = this.SelectedID;
+                    this.Entity.State = BusinessEntity.States.Modified;
                     this.LoadEntity(this.Entity);
                     this.SaveEntity(this.Entity);
                     this.LoadGrid();
@@ -251,7 +268,6 @@ namespace UI.Web
                 ali.State = BusinessEntity.States.Unmodified;
             }
         }
-
         private void SaveEntity(Business.Entities.Alumnos_Inscripciones ali)
         {
             this.Logic.Save(ali);
@@ -301,7 +317,7 @@ namespace UI.Web
         {
             CursoLogic cl = new CursoLogic();
             List<Comision> com = cl.GetComisionesXMateria(int.Parse(this.MateriaDropDown.SelectedValue.ToString()));
-            if (com.Any())
+            if (this.ComisionDropDown.Items.Count == 1)
             {
                 ComisionDropDown.Enabled = true;
                 ComisionDropDown.DataSource = com;

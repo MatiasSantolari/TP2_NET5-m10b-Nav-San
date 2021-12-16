@@ -87,24 +87,6 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.TextBox anioCalendarioTextBox;
 
         /// <summary>
-        /// Control rfanioCalendario.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfanioCalendario;
-
-        /// <summary>
-        /// Control rnganio.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator rnganio;
-
-        /// <summary>
         /// Control cupoLabel.
         /// </summary>
         /// <remarks>
@@ -121,24 +103,6 @@ namespace UI.Web
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox cupoTextBox;
-
-        /// <summary>
-        /// Control rfvCupo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCupo;
-
-        /// <summary>
-        /// Control rngcupo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator rngcupo;
 
         /// <summary>
         /// Control MateriaLabel.
@@ -159,15 +123,6 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.DropDownList MateriaDropDown;
 
         /// <summary>
-        /// Control rfvMateria.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvMateria;
-
-        /// <summary>
         /// Control ComisionLabel.
         /// </summary>
         /// <remarks>
@@ -184,15 +139,6 @@ namespace UI.Web
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ComisionDropDown;
-
-        /// <summary>
-        /// Control rfvComision.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvComision;
 
         /// <summary>
         /// Control gridActionsPanel.

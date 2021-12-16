@@ -87,15 +87,6 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.DropDownList DocenteDropDown;
 
         /// <summary>
-        /// Control rfvDocente.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDocente;
-
-        /// <summary>
         /// Control MateriaLabel.
         /// </summary>
         /// <remarks>
@@ -112,15 +103,6 @@ namespace UI.Web
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList MateriaDropDown;
-
-        /// <summary>
-        /// Control RequiredFieldValidator1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
         /// Control ComisionLabel.
@@ -141,15 +123,6 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.DropDownList ComisionDropDown;
 
         /// <summary>
-        /// Control rfvCurso.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCurso;
-
-        /// <summary>
         /// Control TipoLabel.
         /// </summary>
         /// <remarks>
@@ -166,15 +139,6 @@ namespace UI.Web
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList TipoDropDown;
-
-        /// <summary>
-        /// Control rfvTipo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTipo;
 
         /// <summary>
         /// Control gridActionsPanel.

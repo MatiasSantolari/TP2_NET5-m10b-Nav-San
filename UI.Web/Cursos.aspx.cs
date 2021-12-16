@@ -211,7 +211,10 @@ namespace UI.Web
                     this.Entity = new Curso();
                     this.Entity.ID = this.SelectedID;
                     this.Entity.State = BusinessEntity.States.Modified;
-                    this.LoadEntity(this.Entity);
+                    Entity.AnioCalendario = int.Parse(this.anioCalendarioTextBox.Text);
+                    Entity.Cupo = int.Parse(this.cupoTextBox.Text);
+                    Entity.IDComision = int.Parse(this.ComisionDropDown.SelectedItem.Value);
+                    Entity.IDMateria = int.Parse(this.MateriaDropDown.SelectedItem.Value);
                     this.SaveEntity(this.Entity);
                     this.LoadGrid();
                     break;

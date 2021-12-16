@@ -23,7 +23,6 @@
 </head>
 <body>
     <h1 style="background-color:lightblue;">ACADEMIA</h1>
-
     <form id="form1" runat="server">
         <div align="center">
             <asp:Label ID="usuarioLabel" runat="server" Text="Ingresar Usuario: "></asp:Label>

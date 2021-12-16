@@ -59,26 +59,22 @@
                 <asp:DropDownList ID="DocenteDropDown" class="form-control" runat="server" AppendDataBoundItems="True">
                     <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
                 </asp:DropDownList>
-                <asp:RequiredFieldValidator ID="rfvDocente" runat="server" ControlToValidate="DocenteDropDown" ErrorMessage="Seleccione un docente" ForeColor="Red" ToolTip="No seleccionó un docente" InitialValue="0" ValidationGroup="vg">*</asp:RequiredFieldValidator>
                 <br />
                  <asp:Label ID="MateriaLabel" runat="server" Text="Materia: "></asp:Label>
                 <asp:DropDownList ID="MateriaDropDown" class="form-control" runat="server" AppendDataBoundItems="True" OnSelectedIndexChanged="MateriaDropDown_SelectedIndexChanged">
                     <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
                 </asp:DropDownList>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TipoDropDown" ErrorMessage="Seleccione un tipo de docente" ForeColor="Red" ToolTip="No seleccionó un tipo docente" InitialValue="0" ValidationGroup="vg">*</asp:RequiredFieldValidator>
                 <br/>
                 <asp:Label ID="ComisionLabel" runat="server" Text="Comisión: "></asp:Label>
                 <asp:DropDownList ID="ComisionDropDown" class="form-control" runat="server" AppendDataBoundItems="True">
                     <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
                 </asp:DropDownList>
-                <asp:RequiredFieldValidator ID="rfvCurso" runat="server" ControlToValidate="CursoDropDown" ErrorMessage="Seleccione un curso" ForeColor="Red" ToolTip="No seleccionó un curso" InitialValue="0" ValidationGroup="vg">*</asp:RequiredFieldValidator>
                 <br />
                  <asp:Label ID="TipoLabel" runat="server" Text="Tipo: "></asp:Label>
 
                 <asp:DropDownList ID="TipoDropDown" class="form-control" runat="server" AppendDataBoundItems="True">
                     <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
                 </asp:DropDownList>
-                <asp:RequiredFieldValidator ID="rfvTipo" runat="server" ControlToValidate="TipoDropDown" ErrorMessage="Seleccione un tipo de docente" ForeColor="Red" ToolTip="No seleccionó un tipo docente" InitialValue="0" ValidationGroup="vg">*</asp:RequiredFieldValidator>
                 <br />
 
             </asp:Panel>

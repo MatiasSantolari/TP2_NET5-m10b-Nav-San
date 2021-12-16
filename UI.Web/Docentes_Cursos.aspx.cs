@@ -235,7 +235,19 @@ namespace UI.Web
                     this.Entity = new Docente_Curso();
                     this.Entity.ID = this.SelectedID;
                     this.Entity.State = BusinessEntity.States.Modified;
-                    this.LoadEntity(this.Entity);
+                    int idMateria, idComision;
+
+                    idMateria = int.Parse(this.MateriaDropDown.SelectedValue.ToString());
+                    idComision = int.Parse(this.ComisionDropDown.SelectedValue.ToString());
+
+                    CursoLogic cl = new CursoLogic();
+                    Curso c = new Curso();
+                    c = cl.GetOne(idMateria, idComision);
+
+                    Entity.IDCurso = c.ID;
+                    Entity.IDDocente = int.Parse(this.DocenteDropDown.SelectedItem.Value);
+                    Entity.Cargo = (Docente_Curso.cargos)Enum.Parse(typeof(Docente_Curso.cargos), this.TipoDropDown.SelectedItem.Value);
+
                     this.SaveEntity(this.Entity);
                     this.LoadGrid();
                     break;

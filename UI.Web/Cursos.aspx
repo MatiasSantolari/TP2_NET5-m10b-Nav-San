@@ -57,27 +57,21 @@
         
                 <asp:Label ID="anioCalendarioLabel" runat="server" Text="Año calendario: "></asp:Label>
                 <asp:TextBox ID="anioCalendarioTextBox" class="form-control" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="rfanioCalendario" runat="server" ControlToValidate="anioCalendarioTextBox"  ErrorMessage="El Año calendario no puede estar vacío" ForeColor="Red" ToolTip="El Año calendario no puede estar vacío" ValidationGroup="vg">*</asp:RequiredFieldValidator>
-                <asp:RangeValidator ID="rnganio" runat="server" ControlToValidate="aniocalendarioTextBox" Type="Integer" MinimumValue="1900" MaximumValue="2100" ErrorMessage="Ingrese un año válido." ForeColor="Red" ToolTip="Ingrese un año válido." ValidationGroup="vg"/>
 
                 <br />
                 <asp:Label ID="cupoLabel" runat="server" Text="Cupo: "></asp:Label>
                 <asp:TextBox ID="cupoTextBox" class="form-control" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="rfvCupo" runat="server" ControlToValidate="CupoTextBox"  ErrorMessage="El cupo no puede estar vacio" ForeColor="Red" ToolTip="El cupo no puede estar vacio" ValidationGroup="vg">*</asp:RequiredFieldValidator>
-                <asp:RangeValidator ID="rngcupo" runat="server" ControlToValidate="cupoTextBox" Type="Integer" MinimumValue="1" MaximumValue="100" ErrorMessage="Ingrese un entero entre 1 y 100 para el cupo." ForeColor="Red" ToolTip="Ingrese un entero entre 1 y 100 para el cupo." ValidationGroup="vg"/>
 
                 <br />
                 <asp:Label ID="MateriaLabel" runat="server" Text="Materia: "></asp:Label>
                 <asp:DropDownList ID="MateriaDropDown" class="form-control" runat="server" AppendDataBoundItems="True">
                     <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
                 </asp:DropDownList>
-                <asp:RequiredFieldValidator ID="rfvMateria" runat="server" ControlToValidate="MateriaDropDown" ErrorMessage="Seleccione una materia" ForeColor="Red" ToolTip="No seleccionó una materia" InitialValue="0" ValidationGroup="vg">*</asp:RequiredFieldValidator>
                 <br />
                  <asp:Label ID="ComisionLabel" runat="server" Text="Comision: "></asp:Label>
                 <asp:DropDownList ID="ComisionDropDown" class="form-control" runat="server" AppendDataBoundItems="True">
                     <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
                 </asp:DropDownList>
-                <asp:RequiredFieldValidator ID="rfvComision" runat="server" ControlToValidate="ComisionDropDown" ErrorMessage="Seleccione una comision" ForeColor="Red" ToolTip="No seleccionó una comision" InitialValue="0" ValidationGroup="vg">*</asp:RequiredFieldValidator>
                 <br />
             </asp:Panel>
             </div>

@@ -192,7 +192,9 @@ namespace UI.Web
                     this.comision = new Comision();
                     this.comision.ID = this.SelectedID;
                     this.comision.State = BusinessEntity.States.Modified;
-                    this.LoadEntity(this.comision);
+                    comision.DescComision = this.descripcionTextBox.Text;
+                    comision.AnioEspecialidad = (Comision.Anios)int.Parse(this.anioEspecialidadTextBox.Text);
+                    comision.IDPlan = int.Parse(this.planDropDown.SelectedItem.Value);
                     this.SaveEntity(this.comision);
                     this.LoadGrid();
                     break;

@@ -57,24 +57,18 @@
             <asp:Panel ID="formPanel" Visible="false" runat="server">
                 <asp:Label ID="descripcionLabel" runat="server" Text="Descripcion: "></asp:Label>
                 <asp:TextBox ID="descripcionTextBox" class="form-control" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="rfvDescripcion" runat="server" ControlToValidate="descripcionTextBox" ErrorMessage="La descripcion no puede estar vacía" ForeColor="Red" ToolTip="La descripcion no puede estar vacía" ValidationGroup="vg">*</asp:RequiredFieldValidator>
                 <br />
                 <asp:Label ID="hssemLabel" runat="server" Text="Hs Semanales: "></asp:Label>
                 <asp:TextBox ID="hssemTextBox" class="form-control" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="rfvHssem" runat="server" ControlToValidate="hssemTextBox"  ErrorMessage="Las horas semanales de la materia no pueden estar vacías" ForeColor="Red" ToolTip="Las horas semanales de la materia no pueden estar vacías" ValidationGroup="vg">*</asp:RequiredFieldValidator>
-                <asp:RangeValidator ID="rngHssem" runat="server" ControlToValidate="hssemTextBox" Type="Integer" MinimumValue="1" MaximumValue="100" ErrorMessage="Ingrese un numero entre 1 y 100 para las horas semanales." ForeColor="Red" ToolTip="Ingrese un entero entre 1 y 100 para las horas totales." ValidationGroup="vg"/>
                 <br />
                 <asp:Label ID="hstotLabel" runat="server" Text="Hs Totales: "></asp:Label>
                 <asp:TextBox ID="hstotTextBox" class="form-control" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="revHstot" runat="server" ControlToValidate="hstotTextBox" ErrorMessage="Las horas totales de la materia no pueden estar vacías" ForeColor="Red" ToolTip="Las horas totales de la materia no pueden estar vacías"  ValidationGroup="vg">*</asp:RequiredFieldValidator>
-                <asp:RangeValidator ID="rngHstot" runat="server" ControlToValidate="hstotTextBox" Type="Integer" MinimumValue="1" MaximumValue="100" ErrorMessage="Ingrese un entero entre 1 y 100 para las horas totales." ForeColor="Red" ToolTip="Ingrese un entero entre 1 y 100 para las horas totales." ValidationGroup="vg"/>
                 <br />
 
                 <asp:Label ID="planLabel" runat="server" Text="Plan: "></asp:Label>
                 <asp:DropDownList ID="planDropDown" class="form-control" runat="server" AppendDataBoundItems="True">
                     <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
                 </asp:DropDownList>
-                <asp:RequiredFieldValidator ID="revPlan" runat="server" ControlToValidate="planDropDown" ErrorMessage="Seleccione un plan" ForeColor="Red" ToolTip="No seleccionó un plan" InitialValue="0" ValidationGroup="vg">*</asp:RequiredFieldValidator>
                 <br />
             </asp:Panel>
             </div>

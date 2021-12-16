@@ -55,18 +55,14 @@
             <asp:Panel ID="formPanel" Visible="false" runat="server">
                 <asp:Label ID="descripcionLabel" runat="server" Text="Descripción: "></asp:Label>
                 <asp:TextBox ID="descripcionTextBox" class="form-control" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="rfvDescripcion" runat="server" ControlToValidate="descripcionTextBox" ErrorMessage="La descripcion no puede estar vacía" ForeColor="Red" ToolTip="La descripcion no puede estar vacía" ValidationGroup="vg">*</asp:RequiredFieldValidator>
                 <br />
                 <asp:Label ID="anioEspecialidadLabel" runat="server" Text="Año: "></asp:Label>
                 <asp:TextBox ID="anioEspecialidadTextBox" class="form-control" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="rfanioEspecialidad" runat="server" ControlToValidate="anioEspecialidadTextBox"  ErrorMessage="El Año de especialidad no puede estar vacío" ForeColor="Red" ToolTip="El Año de especialidad no puede estar vacío" ValidationGroup="vg">*</asp:RequiredFieldValidator>
-                <asp:RangeValidator ID="rngAnio" runat="server" ControlToValidate="anioEspecialidadTextBox" Type="Integer" MinimumValue="1" MaximumValue="3000" ErrorMessage="Ingrese un año valido." ForeColor="Red" ToolTip="Ingrese un numero valido." ValidationGroup="vg"/>        
                 <br />
                 <asp:Label ID="planLabel" runat="server" Text="Plan: "></asp:Label>
                 <asp:DropDownList ID="planDropDown" class="form-control" runat="server" AppendDataBoundItems="True">
                     <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
                 </asp:DropDownList>
-                <asp:RequiredFieldValidator ID="revPlan" runat="server" ControlToValidate="planDropDown" ErrorMessage="Seleccione un plan" ForeColor="Red" ToolTip="No seleccionó un plan" InitialValue="0" ValidationGroup="vg">*</asp:RequiredFieldValidator>
                 <br />
             </asp:Panel>
             </div>

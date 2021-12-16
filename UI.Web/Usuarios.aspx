@@ -57,11 +57,9 @@
             <asp:DropDownList ID="LegajoDropDown" class="form-control" runat="server" AppendDataBoundItems="True">
                 <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
             </asp:DropDownList>
-            <asp:RequiredFieldValidator ID="rfvLegajo" runat="server" ControlToValidate="LegajoDropDown" ErrorMessage="Seleccione un legajo" ForeColor="Red" ToolTip="No seleccionó un legajo" InitialValue="0" ValidationGroup="vg">*</asp:RequiredFieldValidator>
             <br />
             <asp:Label ID="nombreUsuarioLabel" runat="server" Text="Usuario: "></asp:Label>
             <asp:TextBox ID="nombreUsuarioTextBox" class="form-control" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="rfvUsuario" runat="server" ControlToValidate="nombreUsuarioTextBox" ErrorMessage="El nombre de usuario no puede estar vacio" ForeColor="Red" ToolTip="El nombre de usuario no puede estar vacio" ValidationGroup="vg">*</asp:RequiredFieldValidator>
             <br />
             <asp:Label ID="habilitadoLabel" runat="server" Text="Habilitado: "></asp:Label>
             <asp:CheckBox ID="HabilitadoCheckBox" class="form-control" runat="server"></asp:CheckBox>
@@ -71,7 +69,6 @@
             <br />
             <asp:Label ID="repetirclaveLabel" runat="server" Text="Repetir clave: "></asp:Label>
             <asp:TextBox ID="repetirclaveTextBox" class="form-control" TextMode="Password" runat="server"></asp:TextBox>
-            <asp:CompareValidator ID="cvClaves" runat="server" ControlToCompare="claveTextBox" ControlToValidate="repetirclaveTextBox" Operator="DataTypeCheck" ErrorMessage="Las claves no coinciden" ForeColor="Red" Type="String" ToolTip="Las claves no coinciden" ValidationGroup="vg">*</asp:CompareValidator>
             <br />
         </asp:Panel>
         </div>
@@ -89,7 +86,6 @@
             <asp:LinkButton ID="cancelarLinkButtom" class="btn btn-danger" runat="server" OnClick="cancelarLinkButtom_Click">Cancelar</asp:LinkButton>
         </asp:Panel>
         <asp:Panel ID="ValidationActionPanel" runat="server">
-            <asp:ValidationSummary ID="ValidationSummary" runat="server" ForeColor="Red" ValidationGroup="vg" />
         </asp:Panel>
         </div>
         </div>

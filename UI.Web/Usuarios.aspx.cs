@@ -147,7 +147,9 @@ namespace UI.Web
                     this.Entity = new Usuario();
                     this.Entity.ID = this.SelectedID;
                     this.Entity.State = BusinessEntity.States.Modified;
-                    this.LoadEntity(this.Entity);
+                    Entity.NombreUsuario = this.nombreUsuarioTextBox.Text;
+                    Entity.Clave = this.claveTextBox.Text;
+                    Entity.Habilitado = this.HabilitadoCheckBox.Checked;
                     this.SaveEntity(this.Entity);
                     this.LoadGrid();
                     break;

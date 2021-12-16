@@ -132,7 +132,7 @@ namespace UI.Web
                     this.Entity = new Especialidad();
                     this.Entity.ID = this.SelectedID;
                     this.Entity.State = BusinessEntity.States.Modified;
-                    this.LoadEntity(this.Entity);
+                    Entity.DescEspecialidad = this.descTextBox.Text;
                     this.SaveEntity(this.Entity);
                     this.LoadGrid();
                     break;
