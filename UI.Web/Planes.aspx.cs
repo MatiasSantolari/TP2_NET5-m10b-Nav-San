@@ -142,7 +142,9 @@ namespace UI.Web
                     this.Entity = new Plan();
                     this.Entity.ID = this.SelectedID;
                     this.Entity.State = BusinessEntity.States.Modified;
-                    this.LoadEntity(this.Entity);
+                    Entity.DescPlan = this.descripcionTextBox.Text;
+                    Entity.IdEspecialidad = int.Parse(this.especDropDown.SelectedItem.Value);
+                    //this.LoadEntity(this.Entity);
                     this.SaveEntity(this.Entity);
                     this.LoadGrid();
                     break;

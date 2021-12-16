@@ -80,7 +80,6 @@
     <Content Include="Planes.aspx" />
     <Content Include="Usuarios.aspx" />
     <Content Include="Web.config" />
-    <Content Include="MasterPage.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Alumnos_Inscripciones.aspx.cs">
@@ -157,13 +156,6 @@
       <DependentUpon>Planes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Site.Master.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site.Master.designer.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-    </Compile>
     <Compile Include="Usuarios.aspx.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -171,17 +163,9 @@
     <Compile Include="Usuarios.aspx.designer.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
     </Compile>
-    <Compile Include="MasterPage.aspx.cs">
-      <DependentUpon>MasterPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MasterPage.aspx.designer.cs">
-      <DependentUpon>MasterPage.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="Site.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

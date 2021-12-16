@@ -55,14 +55,12 @@
             <asp:Panel ID="formPanel" Visible="false" runat="server">
                 <asp:Label ID="descripcionLabel" runat="server" Text="Descripcion: "></asp:Label>
                 <asp:TextBox ID="descripcionTextBox" class="form-control" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="rfvDescripcion" runat="server" ControlToValidate="descripcionTextBox" ErrorMessage="La descripcion no puede estar vacía" ForeColor="Red" ToolTip="La descripcion no puede estar vacía" ValidationGroup="vg">*</asp:RequiredFieldValidator>
                 <br />
 
                 <asp:Label ID="especLabel" runat="server" Text="Especialidad: "></asp:Label>
                 <asp:DropDownList ID="especDropDown" class="form-control" runat="server" AppendDataBoundItems="True">
                     <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
                 </asp:DropDownList>
-                <asp:RequiredFieldValidator ID="revEspec" runat="server" ControlToValidate="especDropDown" ErrorMessage="Seleccione una especialidad" ForeColor="Red" ToolTip="Seleccione una especialidad" InitialValue="0" ValidationGroup="vg">*</asp:RequiredFieldValidator>
                 <br />
             </asp:Panel>
             </div>
@@ -80,7 +78,6 @@
                 <asp:LinkButton ID="cancelarLinkButtom" class="btn btn-danger" runat="server" OnClick="cancelarLinkButtom_Click">Cancelar</asp:LinkButton>
             </asp:Panel>
             <asp:Panel ID="ValidationActionPanel" runat="server">
-                <asp:ValidationSummary ID="ValidationSummary" runat="server" ForeColor="Red" ValidationGroup="vg" />
             </asp:Panel>
             </div>
         </div>

@@ -18,48 +18,30 @@ namespace UI.Web
         }
 
 
-        private bool Validar(string usuario, string contraseña)
-        {
-            try
-            {
-                UsuarioLogic usuarioLogic = new UsuarioLogic();
-                return usuarioLogic.Autenticar(usuario, contraseña);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-        private void Ingreso()
-
+        private void Validar(string usuario, string contraseña)
         {
 
-            if (!string.IsNullOrEmpty(usuarioTextBox.Text) && !string.IsNullOrEmpty(contraseniaTextBox.Text))
+            try 
             {
+                UsuarioLogic ul = new UsuarioLogic();
+                List<Usuario> usuarios = ul.GetAll();
 
-                if (this.Validar(this.usuarioTextBox.Text, this.contraseniaTextBox.Text))
+                Usuario u = new Usuario();
+                bool band = false;
+
+                foreach (Usuario user in usuarios)
                 {
+                    if ((user.NombreUsuario == this.usuarioTextBox.Text) && (user.Clave == this.contraseniaTextBox.Text))
+                    {
+                        band = true;
+                        u = user;
+                    }
+                }
 
+                if (band == true)
+                {
                     PersonaLogic personaLogic = new PersonaLogic();
-                    //Persona.TipoPersonas tipoMenu = personaLogic.GetTipoPersonaByUser(this.usuarioTextBox.Text);
-
-                    Session["USUARIO"] = personaLogic.GetOne(this.usuarioTextBox.Text, this.contraseniaTextBox.Text);
-                    /*if (tipoMenu == Persona.TipoPersonas.Admin)
-                    {
-
-                        Response.Redirect("~/MenuAdministrador.aspx");
-
-                    }
-                    else if (tipoMenu == Persona.TipoPersonas.Alumno)
-                    {
-
-                        Response.Redirect("~/MenuAlumnos.aspx");
-                    }
-                    else if (tipoMenu == Persona.TipoPersonas.Docente)
-                    {
-
-                        Response.Redirect("~/MenuDocentes.aspx");
-                    }*/
+                    Session["USUARIO"] = personaLogic.GetOne(u.ID);
                     Response.Redirect("~/Home.aspx");
                 }
                 else
@@ -67,16 +49,16 @@ namespace UI.Web
                     mensajeLabel.Text = "Usuario o contraseña incorrecto/s";
                 }
             }
-            else
+            catch (Exception ex)
             {
-                mensajeLabel.Text = "Usuario o contraseña vacios";
+                throw ex;
             }
-
         }
+       
 
         protected void ingresarButton_Click(object sender, EventArgs e)
         {
-            Ingreso();
+            Validar(this.usuarioTextBox.Text, this.contraseniaTextBox.Text);
         }
     }
 }

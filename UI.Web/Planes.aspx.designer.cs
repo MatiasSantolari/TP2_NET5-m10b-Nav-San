@@ -87,15 +87,6 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.TextBox descripcionTextBox;
 
         /// <summary>
-        /// Control rfvDescripcion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDescripcion;
-
-        /// <summary>
         /// Control especLabel.
         /// </summary>
         /// <remarks>
@@ -112,15 +103,6 @@ namespace UI.Web
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList especDropDown;
-
-        /// <summary>
-        /// Control revEspec.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator revEspec;
 
         /// <summary>
         /// Control gridActionsPanel.
@@ -193,14 +175,5 @@ namespace UI.Web
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel ValidationActionPanel;
-
-        /// <summary>
-        /// Control ValidationSummary.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary;
     }
 }

@@ -29,15 +29,15 @@
             <asp:Label ID="usuarioLabel" runat="server" Text="Ingresar Usuario: "></asp:Label>
             <br />
             <asp:TextBox ID="usuarioTextBox" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="rfUsuario" runat="server" ControlToValidate="usuarioTextBox"  ErrorMessage="El Usuario no puede estar vacío" ForeColor="Red" ToolTip="El Usuario no puede estar vacío" ValidationGroup="vg">*</asp:RequiredFieldValidator>
+            
 
              <br />
             <asp:Label ID="contraseniaLabel" runat="server" Text="Ingresar contrasenia: "></asp:Label>
             <br />
             <asp:TextBox ID="contraseniaTextBox" runat="server" type ="password"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="rfContrasenia" runat="server" ControlToValidate="contraseniaTextBox"  ErrorMessage="La Contraseña no puede estar vacía" ForeColor="Red" ToolTip="La Contraseña no puede estar vacía" ValidationGroup="vg">*</asp:RequiredFieldValidator>
+            
             <br />
-            <asp:CustomValidator ID="loginValidator" ForeColor="Red" runat="server" ErrorMessage="Usuario o contraseña incorrectos" ValidationGroup="vg"></asp:CustomValidator>
+            
 
             <br />
             <asp:Button ID="ingresarButton" class="btn btn-success" runat="server" Text="Ingresar" OnClick="ingresarButton_Click" />
@@ -46,7 +46,7 @@
             <asp:Label ID="mensajeLabel" runat="server" ForeColor="Red" Text=""></asp:Label>
         </div>
         <asp:Panel ID="ValidationActionPanel" runat="server">
-            <asp:ValidationSummary ID="ValidationSummary" runat="server" ForeColor="Red" ValidationGroup="vg" />
+            
         </asp:Panel>
     </form>
 </body>
