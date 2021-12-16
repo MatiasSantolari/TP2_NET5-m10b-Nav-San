@@ -44,8 +44,8 @@
                      <Columns>  
                         <asp:BoundField HeaderText="Año Calendario" DataField="AnioCalendario" />
                          <asp:BoundField HeaderText="Cupo" DataField="Cupo" />
-                        <asp:BoundField HeaderText="Comision" DataField="ComisionDescripcion" />
-                         <asp:BoundField HeaderText="Materia" DataField="MateriaDescripcion" />
+                        <asp:BoundField HeaderText="Comision" DataField="IDComision" />
+                         <asp:BoundField HeaderText="Materia" DataField="IDMateria" />
                         <asp:CommandField SelectText="Seleccionar" ShowSelectButton="true" />
                     </Columns>
                     <SelectedRowStyle BackColor="Black" ForeColor="White" />

@@ -47,7 +47,7 @@ namespace UI.Web
             if (this.especDropDown.Items.Count == 1)
             {
                 this.especDropDown.DataSource = espec.GetAll();
-                this.especDropDown.DataTextField = "Descripcion";
+                this.especDropDown.DataTextField = "DescEspecialidad";
                 this.especDropDown.DataValueField = "ID";
                 this.especDropDown.DataBind();
             }
