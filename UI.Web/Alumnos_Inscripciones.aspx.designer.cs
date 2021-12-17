@@ -105,6 +105,15 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.DropDownList MateriaDropDown;
 
         /// <summary>
+        /// Control txtInvisible.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtInvisible;
+
+        /// <summary>
         /// Control ComisionLabel.
         /// </summary>
         /// <remarks>

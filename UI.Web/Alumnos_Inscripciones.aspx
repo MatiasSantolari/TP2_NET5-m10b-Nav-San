@@ -32,6 +32,8 @@
                     <asp:MenuItem NavigateUrl="~/Personas.aspx" Text="Datos Personales" Value="Datos Personales"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/Planes.aspx" Text="Planes" Value="Planes"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/Usuarios.aspx" Text="Usuario" Value="Usuario"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/Materias.aspx" Text="Materias" Value="Materias"></asp:MenuItem>
+
                 </Items>
             </asp:Menu>
         </asp:Panel>
@@ -60,9 +62,10 @@
                 </asp:DropDownList>
                 <br />
                  <asp:Label ID="MateriaLabel" runat="server" Text="Materia: "></asp:Label>
-                <asp:DropDownList ID="MateriaDropDown" class="form-control" runat="server" AppendDataBoundItems="True" OnSelectedIndexChanged="MateriaDropDown_SelectedIndexChanged">
+                 <asp:DropDownList ID="MateriaDropDown" class="form-control" runat="server" AppendDataBoundItems="True" OnSelectedIndexChanged="MateriaDropDown_SelectedIndexChanged">
                     <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
                 </asp:DropDownList>
+                <asp:TextBox ID="txtInvisible" runat="server" OnTextChanged="txtInvisible_TextChanged" Visible="False"></asp:TextBox>
                 <br/>
                 <asp:Label ID="ComisionLabel" runat="server" Text="Comisión: "></asp:Label>
                 <asp:DropDownList ID="ComisionDropDown" class="form-control" runat="server" AppendDataBoundItems="True">

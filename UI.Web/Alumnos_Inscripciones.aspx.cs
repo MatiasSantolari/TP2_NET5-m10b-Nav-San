@@ -105,7 +105,6 @@ namespace UI.Web
                 this.MateriaDropDown.DataValueField = "ID";
                 this.MateriaDropDown.DataBind();
             }
-            this.ComisionDropDown.Enabled = false;
         }
 
         public enum FormModes
@@ -158,6 +157,7 @@ namespace UI.Web
                     { Entity.Nota = 0; }
                     else
                     { Entity.Nota = int.Parse(this.notaTextBox.Text); }
+
                     break;
                 case FormModes.alta:
                     this.Entity = new Business.Entities.Alumnos_Inscripciones();
@@ -196,22 +196,21 @@ namespace UI.Web
 
         private void LoadForm(int ID)
         {
-
+            this.Entity = this.Logic.GetOne(ID);
             CursoLogic cl = new CursoLogic();
             MateriaLogic ml = new MateriaLogic();
             ComisionLogic col = new ComisionLogic();
 
-            Curso c = new Curso();
+            /*Curso c = new Curso();
             c = cl.GetOne(this.Entity.IDCurso);
             Materia m = new Materia();
             m = ml.GetOne(c.IDMateria);
             Comision com = new Comision();
-            com = col.GetOne(c.IDComision);
+            com = col.GetOne(c.IDComision);*/
 
-            this.Entity = this.Logic.GetOne(ID);
             this.AlumnoDropDown.SelectedValue = this.Entity.IDAlumno.ToString();
-            this.MateriaDropDown.SelectedValue = m.DescMateria;
-            this.ComisionDropDown.SelectedValue = com.DescComision;
+            /*this.MateriaDropDown.SelectedIndex = m.ID;
+            this.ComisionDropDown.SelectedIndex = com.ID;*/
             this.condicionTextBox.Text = this.Entity.Condicion.ToString();
             this.notaTextBox.Text = this.Entity.Nota.ToString();
         }
@@ -251,7 +250,6 @@ namespace UI.Web
             ali.IDCurso = c.ID;
             ali.IDAlumno = int.Parse(this.AlumnoDropDown.SelectedItem.Value);
             ali.Condicion = this.condicionTextBox.Text;
-            ali.Nota = int.Parse(this.notaTextBox.Text);
 
             if (this.notaTextBox.Text.Length == 0)
             { ali.Nota = 0; }
@@ -315,19 +313,20 @@ namespace UI.Web
 
         protected void MateriaDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
+            txtInvisible.Text = this.MateriaDropDown.SelectedValue.ToString();           
+            
+        }
+
+        protected void txtInvisible_TextChanged(object sender, EventArgs e)
+        {
             CursoLogic cl = new CursoLogic();
-            List<Comision> com = cl.GetComisionesXMateria(int.Parse(this.MateriaDropDown.SelectedValue.ToString()));
-            if (this.ComisionDropDown.Items.Count == 1)
+            List<Comision> com = cl.GetComisionesXMateria(int.Parse(this.txtInvisible.ToString()));
+
+            if (com.Any())
             {
-                ComisionDropDown.Enabled = true;
                 ComisionDropDown.DataSource = com;
                 ComisionDropDown.DataTextField = "DescComision";
                 ComisionDropDown.DataValueField = "ID";
-
-            }
-            else
-            {
-                ComisionDropDown.Enabled = false;
             }
         }
     }
