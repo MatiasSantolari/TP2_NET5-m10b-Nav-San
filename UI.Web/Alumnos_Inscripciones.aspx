@@ -61,17 +61,11 @@
                     <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
                 </asp:DropDownList>
                 <br />
-                 <asp:Label ID="MateriaLabel" runat="server" Text="Materia: "></asp:Label>
-                 <asp:DropDownList ID="MateriaDropDown" class="form-control" runat="server" AppendDataBoundItems="True" OnSelectedIndexChanged="MateriaDropDown_SelectedIndexChanged">
+                 <asp:Label ID="CursoLabel" runat="server" Text="Curso: "></asp:Label>
+                 <asp:DropDownList ID="CursoDropDown" class="form-control" runat="server" AppendDataBoundItems="True">
                     <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
                 </asp:DropDownList>
-                <asp:TextBox ID="txtInvisible" runat="server" OnTextChanged="txtInvisible_TextChanged" Visible="False"></asp:TextBox>
                 <br/>
-                <asp:Label ID="ComisionLabel" runat="server" Text="Comisión: "></asp:Label>
-                <asp:DropDownList ID="ComisionDropDown" class="form-control" runat="server" AppendDataBoundItems="True">
-                    <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
-                </asp:DropDownList>
-                <br />
                 <asp:Label ID="condicionLabel" runat="server" Text="Condición: "></asp:Label>
                 <asp:TextBox ID="condicionTextBox" class="form-control" runat="server"></asp:TextBox>
                 <br />
@@ -89,12 +83,19 @@
                 <div class="divider"></div>
                 <asp:LinkButton ID="LinkButton3" class="btn btn-secondary" runat="server" OnClick="nuevoLinkButton_Click">Nuevo</asp:LinkButton>
             </asp:Panel>
-            <asp:Panel ID="formActionPanel" Visible="true" runat="server">
+                <br />
+            <asp:Panel ID="formActionPanel" Visible="False" runat="server">
                 <asp:LinkButton ID="inscribirLinkButton" class="btn btn-success" runat="server"  ValidationGroup="vg" OnClick="inscribirLinkButton_Click">Inscribir</asp:LinkButton>
                 <div class="divider"></div>
                 <asp:LinkButton ID="cancelarLinkButtom" class="btn btn-danger" runat="server" OnClick="cancelarLinkButtom_Click">Cancelar</asp:LinkButton>                    
             </asp:Panel>
+            <asp:Panel ID="Panel3" Visible="False" runat="server">
+                <asp:LinkButton ID="LinkButton4" class="btn btn-success" runat="server"  ValidationGroup="vg" OnClick="aceptarLinkButton_Click">Inscribir</asp:LinkButton>
+                <div class="divider"></div>
+                <asp:LinkButton ID="LinkButton5" class="btn btn-danger" runat="server" OnClick="cancelarLinkButtom_Click">Cancelar</asp:LinkButton>                    
+            </asp:Panel>
             </div>
+
     </form>
 </body>
 </html>

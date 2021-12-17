@@ -86,7 +86,7 @@ namespace UI.Web
         private void LoadGrid()
         {
             PersonaLogic alumno = new PersonaLogic();
-            MateriaLogic materia = new MateriaLogic();
+            CursoLogic cl = new CursoLogic();
 
             this.gridView.DataSource = this.Logic.GetAll();
             this.gridView.DataBind();
@@ -98,12 +98,12 @@ namespace UI.Web
                 this.AlumnoDropDown.DataValueField = "ID";
                 this.AlumnoDropDown.DataBind();
             }
-            if (this.MateriaDropDown.Items.Count == 1)
+            if (this.CursoDropDown.Items.Count == 1)
             {
-                this.MateriaDropDown.DataSource = materia.GetAll();
-                this.MateriaDropDown.DataTextField = "DescMateria";
-                this.MateriaDropDown.DataValueField = "ID";
-                this.MateriaDropDown.DataBind();
+                this.CursoDropDown.DataSource = cl.GetAll();
+                this.CursoDropDown.DataTextField = "ID";
+                this.CursoDropDown.DataValueField = "ID";
+                this.CursoDropDown.DataBind();
             }
         }
 
@@ -139,16 +139,7 @@ namespace UI.Web
                     Entity = new Business.Entities.Alumnos_Inscripciones();
                     Entity.ID = this.SelectedID;
                     this.Entity.State = BusinessEntity.States.Modified;
-                    int idMateria, idComision;
-
-                    idMateria = int.Parse(this.MateriaDropDown.SelectedValue.ToString());
-                    idComision = int.Parse(this.ComisionDropDown.SelectedValue.ToString());
-
-                    CursoLogic cl = new CursoLogic();
-                    Curso c = new Curso();
-                    c = cl.GetOne(idMateria, idComision);
-
-                    Entity.IDCurso = c.ID;
+                    Entity.IDCurso = int.Parse(this.CursoDropDown.SelectedItem.Value);
                     Entity.IDAlumno = int.Parse(this.AlumnoDropDown.SelectedItem.Value);
                     Entity.Condicion = this.condicionTextBox.Text;
                     Entity.Nota = int.Parse(this.notaTextBox.Text);
@@ -175,6 +166,7 @@ namespace UI.Web
             }
             this.formPanel.Visible = false;
             this.formActionPanel.Visible = false;
+            this.Panel3.Visible = false;
 
             this.gridView.SelectedIndex = -1;
             this.SelectedID = 0;
@@ -197,9 +189,6 @@ namespace UI.Web
         private void LoadForm(int ID)
         {
             this.Entity = this.Logic.GetOne(ID);
-            CursoLogic cl = new CursoLogic();
-            MateriaLogic ml = new MateriaLogic();
-            ComisionLogic col = new ComisionLogic();
 
             /*Curso c = new Curso();
             c = cl.GetOne(this.Entity.IDCurso);
@@ -209,8 +198,7 @@ namespace UI.Web
             com = col.GetOne(c.IDComision);*/
 
             this.AlumnoDropDown.SelectedValue = this.Entity.IDAlumno.ToString();
-            /*this.MateriaDropDown.SelectedIndex = m.ID;
-            this.ComisionDropDown.SelectedIndex = com.ID;*/
+            this.CursoDropDown.SelectedValue = this.Entity.IDCurso.ToString();
             this.condicionTextBox.Text = this.Entity.Condicion.ToString();
             this.notaTextBox.Text = this.Entity.Nota.ToString();
         }
@@ -218,8 +206,7 @@ namespace UI.Web
         private void EnableForm(bool enable)
         {
             this.AlumnoDropDown.Enabled = enable;
-            this.MateriaDropDown.Enabled = enable;
-            this.ComisionDropDown.Enabled = enable;
+            this.CursoDropDown.Enabled = enable;
             this.condicionTextBox.Enabled = enable;
             this.notaTextBox.Enabled = enable;
         }
@@ -238,18 +225,10 @@ namespace UI.Web
 
         private void LoadEntity(Business.Entities.Alumnos_Inscripciones ali)
         {
-            int idMateria, idComision;
-
-            idMateria = int.Parse(this.MateriaDropDown.SelectedValue.ToString());
-            idComision = int.Parse(this.ComisionDropDown.SelectedValue.ToString());
-
-            CursoLogic cl = new CursoLogic();
-            Curso c = new Curso();
-            c = cl.GetOne(idMateria, idComision);
-
-            ali.IDCurso = c.ID;
+            
             ali.IDAlumno = int.Parse(this.AlumnoDropDown.SelectedItem.Value);
             ali.Condicion = this.condicionTextBox.Text;
+            ali.IDCurso = int.Parse(this.CursoDropDown.SelectedItem.Value);
 
             if (this.notaTextBox.Text.Length == 0)
             { ali.Nota = 0; }
@@ -258,6 +237,7 @@ namespace UI.Web
 
             if (Logic.ValidaInscripcion(ali) == true)
             {
+                CursoLogic cl = new CursoLogic();
                 cl.ActualizaCupo(cl.GetOne(ali.IDCurso));
                 ali.State = BusinessEntity.States.New;
             }
@@ -305,29 +285,10 @@ namespace UI.Web
         private void ClearForm()
         {
             this.AlumnoDropDown.SelectedIndex = 0;
-            this.MateriaDropDown.SelectedIndex = 0;
-            this.ComisionDropDown.SelectedIndex = 0;
+            this.CursoDropDown.SelectedIndex = 0;
             this.condicionTextBox.Text = null;
             this.notaTextBox.Text = null;
         }
 
-        protected void MateriaDropDown_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            txtInvisible.Text = this.MateriaDropDown.SelectedValue.ToString();           
-            
-        }
-
-        protected void txtInvisible_TextChanged(object sender, EventArgs e)
-        {
-            CursoLogic cl = new CursoLogic();
-            List<Comision> com = cl.GetComisionesXMateria(int.Parse(this.txtInvisible.ToString()));
-
-            if (com.Any())
-            {
-                ComisionDropDown.DataSource = com;
-                ComisionDropDown.DataTextField = "DescComision";
-                ComisionDropDown.DataValueField = "ID";
-            }
-        }
     }
 }

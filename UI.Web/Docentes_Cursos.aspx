@@ -61,16 +61,11 @@
                     <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
                 </asp:DropDownList>
                 <br />
-                 <asp:Label ID="MateriaLabel" runat="server" Text="Materia: "></asp:Label>
-                <asp:DropDownList ID="MateriaDropDown" class="form-control" runat="server" AppendDataBoundItems="True" OnSelectedIndexChanged="MateriaDropDown_SelectedIndexChanged">
+                 <asp:Label ID="CursoLabel" runat="server" Text="Curso: "></asp:Label>
+                <asp:DropDownList ID="CursoDropDown" class="form-control" runat="server" AppendDataBoundItems="True">
                     <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
                 </asp:DropDownList>
                 <br/>
-                <asp:Label ID="ComisionLabel" runat="server" Text="Comisión: "></asp:Label>
-                <asp:DropDownList ID="ComisionDropDown" class="form-control" runat="server" AppendDataBoundItems="True">
-                    <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
-                </asp:DropDownList>
-                <br />
                  <asp:Label ID="TipoLabel" runat="server" Text="Tipo: "></asp:Label>
 
                 <asp:DropDownList ID="TipoDropDown" class="form-control" runat="server" AppendDataBoundItems="True">
