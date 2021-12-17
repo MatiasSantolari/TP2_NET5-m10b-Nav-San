@@ -80,7 +80,7 @@ namespace UI.Desktop
         {
             UsuarioLogic ul = new UsuarioLogic();
             Persona per = ul.GetPersona(UsuarioID);
-            if (per.TipoPersona.ToString() == "Admin" || per.TipoPersona.ToString() == "Alumno")
+            if (per.TipoPersona.ToString() == "Admin")
             {
                 this.Listar();
             }
