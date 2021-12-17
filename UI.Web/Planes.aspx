@@ -55,10 +55,12 @@
             <div class="form-group">
             <asp:Panel ID="formPanel" Visible="false" runat="server">
                 <asp:Label ID="descripcionLabel" runat="server" Text="Descripcion: "></asp:Label>
+                <asp:Label ID="Label1" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                 <asp:TextBox ID="descripcionTextBox" class="form-control" runat="server"></asp:TextBox>
                 <br />
 
                 <asp:Label ID="especLabel" runat="server" Text="Especialidad: "></asp:Label>
+                <asp:Label ID="Label2" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                 <asp:DropDownList ID="especDropDown" class="form-control" runat="server" AppendDataBoundItems="True">
                     <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
                 </asp:DropDownList>

@@ -154,23 +154,28 @@ namespace UI.Web
 
         protected void aceptarLinkButton_Click(object sender, EventArgs e)
         {
-            switch (this.FormMode)
+            if (nombreTextBox.Text == "" || apellidoTextBox.Text == "" || planDropDown.SelectedValue.Equals("0") || emailTextBox.Text == "" || direccionTextBox.Text == "" || telefonoTextBox.Text == "" || fechaNacimientoTextBox.Text == "" || legajoTextBox.Text == "")
+            { Label1.Visible = true; Label2.Visible = true; Label3.Visible = true; Label4.Visible = true; Label5.Visible = true; Label6.Visible = true; Label7.Visible = true; Label8.Visible = true; }
+            else
             {
-                case FormModes.consulta:
-                    break;
-                case FormModes.modificacion:
+                switch (this.FormMode)
+                {
+                    case FormModes.consulta:
+                        break;
+                    case FormModes.modificacion:
 
-                    //this.AlumnoActual.State = BusinessEntity.States.Modified;
-                    var persona = LoadEntity();
-                    persona.State = BusinessEntity.States.Modified;
-                    this.SaveEntity(persona);
-                    this.PersonaActual = persona;
-                    break;
+                        //this.AlumnoActual.State = BusinessEntity.States.Modified;
+                        var persona = LoadEntity();
+                        persona.State = BusinessEntity.States.Modified;
+                        this.SaveEntity(persona);
+                        this.PersonaActual = persona;
+                        break;
 
 
+                }
             }
 
-        }
+            }
 
         protected void cancelarLinkButtom_Click(object sender, EventArgs e)
         {

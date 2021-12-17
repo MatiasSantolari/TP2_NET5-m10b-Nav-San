@@ -142,37 +142,42 @@ namespace UI.Web
 
         protected void aceptarLinkButton_Click(object sender, EventArgs e)
         {
-            switch (this.FormMode)
+            if (LegajoDropDown.SelectedValue.Equals("0") || nombreUsuarioTextBox.Text == "" || claveTextBox.Text == "" || repetirclaveTextBox.Text == "")
+            { Label1.Visible = true; Label2.Visible = true; Label3.Visible = true; Label4.Visible = true; }
+            else
             {
-                case FormModes.baja:
-                    this.DeleteEntity(this.SelectedID);
-                    this.LoadGrid();
-                    break;
-                case FormModes.modificacion:
-                    this.Entity = new Usuario();
-                    this.Entity.ID = this.SelectedID;
-                    this.Entity.State = BusinessEntity.States.Modified;
-                    Entity.NombreUsuario = this.nombreUsuarioTextBox.Text;
-                    Entity.Clave = this.claveTextBox.Text;
-                    Entity.Habilitado = this.HabilitadoCheckBox.Checked;
-                    this.SaveEntity(this.Entity);
-                    this.LoadGrid();
-                    break;
-                case FormModes.alta:
-                    this.Entity = new Usuario();
-                    this.LoadEntity(this.Entity);
-                    this.SaveEntity(this.Entity);
-                    this.LoadGrid();
-                    break;
-                default:
-                    break;
+                switch (this.FormMode)
+                {
+                    case FormModes.baja:
+                        this.DeleteEntity(this.SelectedID);
+                        this.LoadGrid();
+                        break;
+                    case FormModes.modificacion:
+                        this.Entity = new Usuario();
+                        this.Entity.ID = this.SelectedID;
+                        this.Entity.State = BusinessEntity.States.Modified;
+                        Entity.NombreUsuario = this.nombreUsuarioTextBox.Text;
+                        Entity.Clave = this.claveTextBox.Text;
+                        Entity.Habilitado = this.HabilitadoCheckBox.Checked;
+                        this.SaveEntity(this.Entity);
+                        this.LoadGrid();
+                        break;
+                    case FormModes.alta:
+                        this.Entity = new Usuario();
+                        this.LoadEntity(this.Entity);
+                        this.SaveEntity(this.Entity);
+                        this.LoadGrid();
+                        break;
+                    default:
+                        break;
+                }
+
+                this.formPanel.Visible = false;
+                this.formActionPanel.Visible = false;
+
+                this.gridView.SelectedIndex = -1;
+                this.SelectedID = 0;
             }
-
-            this.formPanel.Visible = false;
-            this.formActionPanel.Visible = false;
-
-            this.gridView.SelectedIndex = -1;
-            this.SelectedID = 0;
         }
 
         private void EnableForm(bool enable)

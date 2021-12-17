@@ -141,38 +141,45 @@ namespace UI.Web
 
         protected void aceptarLinkButton_Click(object sender, EventArgs e)
         {
-            switch (this.FormMode)
+            if (descripcionTextBox.Text == "" || hssemTextBox.Text == "" || hstotTextBox.Text == "" || planDropDown.SelectedValue.Equals("0"))
             {
-                case FormModes.baja:
-                    this.DeleteEntity(this.SelectedID);
-                    this.LoadGrid();
-                    break;
-                case FormModes.modificacion:
-                    this.Entity = new Materia();
-                    this.Entity.ID = this.SelectedID;
-                    this.Entity.State = BusinessEntity.States.Modified;
-                    Entity.DescMateria = this.descripcionTextBox.Text;
-                    Entity.HsSemanales = int.Parse(this.hssemTextBox.Text);
-                    Entity.HsTotales = int.Parse(this.hstotTextBox.Text);
-                    Entity.IdPlan = int.Parse(this.planDropDown.SelectedItem.Value);
-                    this.SaveEntity(this.Entity);
-                    this.LoadGrid();
-                    break;
-                case FormModes.alta:
-                    this.Entity = new Materia();
-                    this.LoadEntity(this.Entity);
-                    this.SaveEntity(this.Entity);
-                    this.LoadGrid();
-                    break;
-                default:
-                    break;
+                Label1.Visible = true; Label2.Visible = true; Label3.Visible = true; Label4.Visible = true;
             }
+            else
+            {
+                switch (this.FormMode)
+                {
+                    case FormModes.baja:
+                        this.DeleteEntity(this.SelectedID);
+                        this.LoadGrid();
+                        break;
+                    case FormModes.modificacion:
+                        this.Entity = new Materia();
+                        this.Entity.ID = this.SelectedID;
+                        this.Entity.State = BusinessEntity.States.Modified;
+                        Entity.DescMateria = this.descripcionTextBox.Text;
+                        Entity.HsSemanales = int.Parse(this.hssemTextBox.Text);
+                        Entity.HsTotales = int.Parse(this.hstotTextBox.Text);
+                        Entity.IdPlan = int.Parse(this.planDropDown.SelectedItem.Value);
+                        this.SaveEntity(this.Entity);
+                        this.LoadGrid();
+                        break;
+                    case FormModes.alta:
+                        this.Entity = new Materia();
+                        this.LoadEntity(this.Entity);
+                        this.SaveEntity(this.Entity);
+                        this.LoadGrid();
+                        break;
+                    default:
+                        break;
+                }
 
-            this.formPanel.Visible = false;
-            this.formActionPanel.Visible = false;
+                this.formPanel.Visible = false;
+                this.formActionPanel.Visible = false;
 
-            this.gridView.SelectedIndex = -1;
-            this.SelectedID = 0;
+                this.gridView.SelectedIndex = -1;
+                this.SelectedID = 0;
+            }
         }
 
         private void EnableForm(bool enable)

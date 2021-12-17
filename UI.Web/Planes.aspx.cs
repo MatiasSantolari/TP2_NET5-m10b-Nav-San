@@ -137,37 +137,42 @@ namespace UI.Web
 
         protected void aceptarLinkButton_Click(object sender, EventArgs e)
         {
-            switch (this.FormMode)
+            if (descripcionTextBox.Text == "" || especDropDown.SelectedValue.Equals("0"))
+            { Label1.Visible = true; Label2.Visible = true; }
+            else
             {
-                case FormModes.baja:
-                    this.DeleteEntity(this.SelectedID);
-                    this.LoadGrid();
-                    break;
-                case FormModes.modificacion:
-                    this.Entity = new Plan();
-                    this.Entity.ID = this.SelectedID;
-                    this.Entity.State = BusinessEntity.States.Modified;
-                    Entity.DescPlan = this.descripcionTextBox.Text;
-                    Entity.IdEspecialidad = int.Parse(this.especDropDown.SelectedItem.Value);
-                    //this.LoadEntity(this.Entity);
-                    this.SaveEntity(this.Entity);
-                    this.LoadGrid();
-                    break;
-                case FormModes.alta:
-                    this.Entity = new Plan();
-                    this.LoadEntity(this.Entity);
-                    this.SaveEntity(this.Entity);
-                    this.LoadGrid();
-                    break;
-                default:
-                    break;
+                switch (this.FormMode)
+                {
+                    case FormModes.baja:
+                        this.DeleteEntity(this.SelectedID);
+                        this.LoadGrid();
+                        break;
+                    case FormModes.modificacion:
+                        this.Entity = new Plan();
+                        this.Entity.ID = this.SelectedID;
+                        this.Entity.State = BusinessEntity.States.Modified;
+                        Entity.DescPlan = this.descripcionTextBox.Text;
+                        Entity.IdEspecialidad = int.Parse(this.especDropDown.SelectedItem.Value);
+                        //this.LoadEntity(this.Entity);
+                        this.SaveEntity(this.Entity);
+                        this.LoadGrid();
+                        break;
+                    case FormModes.alta:
+                        this.Entity = new Plan();
+                        this.LoadEntity(this.Entity);
+                        this.SaveEntity(this.Entity);
+                        this.LoadGrid();
+                        break;
+                    default:
+                        break;
+                }
+
+                this.formPanel.Visible = false;
+                this.formActionPanel.Visible = false;
+
+                this.gridView.SelectedIndex = -1;
+                this.SelectedID = 0;
             }
-
-            this.formPanel.Visible = false;
-            this.formActionPanel.Visible = false;
-
-            this.gridView.SelectedIndex = -1;
-            this.SelectedID = 0;
         }
 
         private void EnableForm(bool enable)

@@ -55,20 +55,24 @@
     <div class="form-group">
         <asp:Panel ID="formPanel" Visible="false" runat="server">
             <asp:Label ID="LegajoLabel" runat="server" Text="Legajo: "></asp:Label>
+            <asp:Label ID="Label1" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
             <asp:DropDownList ID="LegajoDropDown" class="form-control" runat="server" AppendDataBoundItems="True">
                 <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
             </asp:DropDownList>
             <br />
             <asp:Label ID="nombreUsuarioLabel" runat="server" Text="Usuario: "></asp:Label>
+            <asp:Label ID="Label2" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
             <asp:TextBox ID="nombreUsuarioTextBox" class="form-control" runat="server"></asp:TextBox>
             <br />
             <asp:Label ID="habilitadoLabel" runat="server" Text="Habilitado: "></asp:Label>
             <asp:CheckBox ID="HabilitadoCheckBox" class="form-control" runat="server"></asp:CheckBox>
             <br />
             <asp:Label ID="claveLabel" runat="server" Text="Clave: "></asp:Label>
+            <asp:Label ID="Label3" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
             <asp:TextBox ID="claveTextBox" class="form-control" TextMode="Password" runat="server"></asp:TextBox>
             <br />
             <asp:Label ID="repetirclaveLabel" runat="server" Text="Repetir clave: "></asp:Label>
+            <asp:Label ID="Label4" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
             <asp:TextBox ID="repetirclaveTextBox" class="form-control" TextMode="Password" runat="server"></asp:TextBox>
             <br />
         </asp:Panel>
