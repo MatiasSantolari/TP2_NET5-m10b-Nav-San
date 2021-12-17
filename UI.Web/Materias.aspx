@@ -22,7 +22,10 @@
     <h1 style="background-color:lightblue">Materias</h1>
 
         <asp:Panel ID="Panel1" runat="server">
-            <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal">
+            
+        </asp:Panel>
+    <form id="form1" runat="server">
+        <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal">
                 <Items>
                     <asp:MenuItem NavigateUrl="~/Home.aspx" Text="Home" Value="Home"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/Alumnos_Inscripciones.aspx" Text="Inscripciones" Value="Inscripciones"></asp:MenuItem>
@@ -33,11 +36,9 @@
                     <asp:MenuItem NavigateUrl="~/Personas.aspx" Text="Datos Personales" Value="Datos Personales"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/Planes.aspx" Text="Planes" Value="Planes"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/Usuarios.aspx" Text="Usuario" Value="Usuario"></asp:MenuItem>
-
+                    <asp:MenuItem NavigateUrl="~/Materias.aspx" Text="Materias" Value="Materias"></asp:MenuItem>
                 </Items>
             </asp:Menu>
-        </asp:Panel>
-    <form id="form1" runat="server">
         <div>
             <div align ="center">
             <asp:Panel ID="gridPanel" runat="server">

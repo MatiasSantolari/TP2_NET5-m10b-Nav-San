@@ -21,7 +21,10 @@
     <h1 style="background-color:lightblue">Especialidades</h1>
 
         <asp:Panel ID="Panel1" runat="server">
-            <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal">
+            
+        </asp:Panel>
+    <form id="form1" runat="server">
+        <asp:Menu ID="Menu2" runat="server" Orientation="Horizontal">
                 <Items>
                     <asp:MenuItem NavigateUrl="~/Home.aspx" Text="Home" Value="Home"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/Alumnos_Inscripciones.aspx" Text="Inscripciones" Value="Inscripciones"></asp:MenuItem>
@@ -35,8 +38,7 @@
                     <asp:MenuItem NavigateUrl="~/Materias.aspx" Text="Materias" Value="Materias"></asp:MenuItem>
                 </Items>
             </asp:Menu>
-        </asp:Panel>
-    <form id="form1" runat="server">
+
         <div>
             <div  align="center">
             <asp:Panel ID="gridPanel" runat="server">
