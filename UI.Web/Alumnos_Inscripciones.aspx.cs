@@ -145,49 +145,54 @@ namespace UI.Web
 
         protected void inscribirLinkButton_Click(object sender, EventArgs e)
         {
-            switch (this.FormMode)
+            if (condicionTextBox.Text == "" || notaTextBox.Text == "" || AlumnoDropDown.SelectedValue.Equals("0") || AlumnoDropDown.SelectedValue.Equals("0"))
+            { Label1.Visible = true; Label2.Visible = true; Label3.Visible = true; Label4.Visible = true; }
+            else
             {
-                case FormModes.baja:
-                    this.DeleteEntity(this.SelectedID);
-                    this.LoadGrid();
-                    break;
-                case FormModes.modificacion:
-                    Entity = new Business.Entities.Alumnos_Inscripciones();
-                    Entity.ID = this.SelectedID;
-                    this.Entity.State = BusinessEntity.States.Modified;
-                    Entity.IDCurso = int.Parse(this.CursoDropDown.SelectedItem.Value);
-                    Entity.IDAlumno = int.Parse(this.AlumnoDropDown.SelectedItem.Value);
-                    Entity.Condicion = this.condicionTextBox.Text;
+                switch (this.FormMode)
+                {
+                    case FormModes.baja:
+                        this.DeleteEntity(this.SelectedID);
+                        this.LoadGrid();
+                        break;
+                    case FormModes.modificacion:
+                        Entity = new Business.Entities.Alumnos_Inscripciones();
+                        Entity.ID = this.SelectedID;
+                        this.Entity.State = BusinessEntity.States.Modified;
+                        Entity.IDCurso = int.Parse(this.CursoDropDown.SelectedItem.Value);
+                        Entity.IDAlumno = int.Parse(this.AlumnoDropDown.SelectedItem.Value);
+                        Entity.Condicion = this.condicionTextBox.Text;
 
-                    if (this.notaTextBox.Text.Length == 0)
-                    { Entity.Nota = 0; }
-                    else
-                    { Entity.Nota = int.Parse(this.notaTextBox.Text); }
+                        if (this.notaTextBox.Text.Length == 0)
+                        { Entity.Nota = 0; }
+                        else
+                        { Entity.Nota = int.Parse(this.notaTextBox.Text); }
 
-                    this.SaveEntity(this.Entity);
-                    this.LoadGrid();
+                        this.SaveEntity(this.Entity);
+                        this.LoadGrid();
 
-                    break;
-                case FormModes.alta:
-                    this.Entity = new Business.Entities.Alumnos_Inscripciones();
-                    int id = 0;
-                    this.Entity.ID = id;
-                    Entity = new Business.Entities.Alumnos_Inscripciones();
-                    Entity.ID = this.SelectedID;
-                    this.Entity.State = BusinessEntity.States.Modified;
-                    this.LoadEntity(this.Entity);
-                    this.SaveEntity(this.Entity);
-                    this.LoadGrid();
-                    break;
-                default:
-                    break;
+                        break;
+                    case FormModes.alta:
+                        this.Entity = new Business.Entities.Alumnos_Inscripciones();
+                        int id = 0;
+                        this.Entity.ID = id;
+                        Entity = new Business.Entities.Alumnos_Inscripciones();
+                        Entity.ID = this.SelectedID;
+                        this.Entity.State = BusinessEntity.States.Modified;
+                        this.LoadEntity(this.Entity);
+                        this.SaveEntity(this.Entity);
+                        this.LoadGrid();
+                        break;
+                    default:
+                        break;
+                }
+                this.formPanel.Visible = false;
+                this.formActionPanel.Visible = false;
+                this.Panel3.Visible = false;
+
+                this.gridView.SelectedIndex = -1;
+                this.SelectedID = 0;
             }
-            this.formPanel.Visible = false;
-            this.formActionPanel.Visible = false;
-            this.Panel3.Visible = false;
-
-            this.gridView.SelectedIndex = -1;
-            this.SelectedID = 0;
         }
 
         protected void cancelarLinkButtom_Click(object sender, EventArgs e)

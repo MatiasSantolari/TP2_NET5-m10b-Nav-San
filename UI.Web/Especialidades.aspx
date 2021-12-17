@@ -54,6 +54,7 @@
             <div class="form-group">
             <asp:Panel ID="formPanel" Visible="false" runat="server">
                 <asp:Label ID="descripcionLabel" runat="server" Text="Descripcion: "></asp:Label>
+                <asp:Label ID="Label1" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                 <asp:TextBox ID="descTextBox" class="form-control" runat="server"></asp:TextBox>
                 <br />
             </asp:Panel>

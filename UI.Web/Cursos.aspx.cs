@@ -213,37 +213,42 @@ namespace UI.Web
 
         protected void aceptarLinkButton_Click(object sender, EventArgs e)
         {
-            switch (this.FormMode)
+            if (anioCalendarioTextBox.Text == "" || cupoTextBox.Text == "" || MateriaDropDown.SelectedValue.Equals("0") || ComisionDropDown.SelectedValue.Equals("0"))
+            { Label4.Visible = true; Label2.Visible = true; Label3.Visible = true; Label5.Visible = true; }
+            else
             {
-                case FormModes.baja:
-                    this.DeleteEntity(this.SelectedID);
-                    this.LoadGrid();
-                    break;
-                case FormModes.modificacion:
-                    this.Entity = new Curso();
-                    this.Entity.ID = this.SelectedID;
-                    this.Entity.State = BusinessEntity.States.Modified;
-                    Entity.AnioCalendario = int.Parse(this.anioCalendarioTextBox.Text);
-                    Entity.Cupo = int.Parse(this.cupoTextBox.Text);
-                    Entity.IDComision = int.Parse(this.ComisionDropDown.SelectedItem.Value);
-                    Entity.IDMateria = int.Parse(this.MateriaDropDown.SelectedItem.Value);
-                    this.SaveEntity(this.Entity);
-                    this.LoadGrid();
-                    break;
-                case FormModes.alta:
-                    this.Entity = new Curso();
-                    this.LoadEntity(this.Entity);
-                    this.SaveEntity(this.Entity);
-                    this.LoadGrid();
-                    break;
-                default:
-                    break;
-            }
-            this.formPanel.Visible = false;
-            this.formActionPanel.Visible = false;
+                switch (this.FormMode)
+                {
+                    case FormModes.baja:
+                        this.DeleteEntity(this.SelectedID);
+                        this.LoadGrid();
+                        break;
+                    case FormModes.modificacion:
+                        this.Entity = new Curso();
+                        this.Entity.ID = this.SelectedID;
+                        this.Entity.State = BusinessEntity.States.Modified;
+                        Entity.AnioCalendario = int.Parse(this.anioCalendarioTextBox.Text);
+                        Entity.Cupo = int.Parse(this.cupoTextBox.Text);
+                        Entity.IDComision = int.Parse(this.ComisionDropDown.SelectedItem.Value);
+                        Entity.IDMateria = int.Parse(this.MateriaDropDown.SelectedItem.Value);
+                        this.SaveEntity(this.Entity);
+                        this.LoadGrid();
+                        break;
+                    case FormModes.alta:
+                        this.Entity = new Curso();
+                        this.LoadEntity(this.Entity);
+                        this.SaveEntity(this.Entity);
+                        this.LoadGrid();
+                        break;
+                    default:
+                        break;
+                }
+                this.formPanel.Visible = false;
+                this.formActionPanel.Visible = false;
 
-            this.gridView.SelectedIndex = -1;
-            this.SelectedID = 0;
+                this.gridView.SelectedIndex = -1;
+                this.SelectedID = 0;
+            }
         }
 
         protected void cancelarLinkButtom_Click(object sender, EventArgs e)

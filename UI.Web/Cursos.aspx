@@ -57,19 +57,23 @@
             <asp:Panel ID="formPanel" Visible="false" runat="server">
         
                 <asp:Label ID="anioCalendarioLabel" runat="server" Text="Año calendario: "></asp:Label>
+                <asp:Label ID="Label2" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                 <asp:TextBox ID="anioCalendarioTextBox" class="form-control" runat="server"></asp:TextBox>
 
                 <br />
                 <asp:Label ID="cupoLabel" runat="server" Text="Cupo: "></asp:Label>
+                <asp:Label ID="Label3" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                 <asp:TextBox ID="cupoTextBox" class="form-control" runat="server"></asp:TextBox>
 
                 <br />
                 <asp:Label ID="MateriaLabel" runat="server" Text="Materia: "></asp:Label>
+                <asp:Label ID="Label4" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                 <asp:DropDownList ID="MateriaDropDown" class="form-control" runat="server" AppendDataBoundItems="True">
                     <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
                 </asp:DropDownList>
                 <br />
                  <asp:Label ID="ComisionLabel" runat="server" Text="Comision: "></asp:Label>
+                <asp:Label ID="Label5" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                 <asp:DropDownList ID="ComisionDropDown" class="form-control" runat="server" AppendDataBoundItems="True">
                     <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
                 </asp:DropDownList>

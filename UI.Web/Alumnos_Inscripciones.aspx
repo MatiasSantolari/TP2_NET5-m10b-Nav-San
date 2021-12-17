@@ -57,19 +57,23 @@
         
                 <br />
                 <asp:Label ID="AlumnoLabel" runat="server" Text="Alumno: "></asp:Label>
+                <asp:Label ID="Label1" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                 <asp:DropDownList ID="AlumnoDropDown" class="form-control" runat="server" AppendDataBoundItems="True">
                     <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
                 </asp:DropDownList>
                 <br />
                  <asp:Label ID="CursoLabel" runat="server" Text="Curso: "></asp:Label>
+                 <asp:Label ID="Label2" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                  <asp:DropDownList ID="CursoDropDown" class="form-control" runat="server" AppendDataBoundItems="True">
                     <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
                 </asp:DropDownList>
                 <br/>
                 <asp:Label ID="condicionLabel" runat="server" Text="Condición: "></asp:Label>
+                <asp:Label ID="Label4" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                 <asp:TextBox ID="condicionTextBox" class="form-control" runat="server"></asp:TextBox>
                 <br />
                 <asp:Label ID="notaLabel" runat="server" Text="Nota: "></asp:Label>
+                <asp:Label ID="Label3" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                 <asp:TextBox ID="notaTextBox" class="form-control" runat="server"></asp:TextBox>
                 <br />
             </asp:Panel>

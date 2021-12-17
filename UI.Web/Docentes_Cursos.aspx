@@ -56,17 +56,21 @@
             <asp:Panel ID="formPanel" Visible="false" runat="server">
         
                 <br />
-                <asp:Label ID="AlumnoLabel" runat="server" Text="Alumno: "></asp:Label>
+                <asp:Label ID="AlumnoLabel" runat="server" Text="Docente:"></asp:Label>
+                <asp:Label ID="Label2" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                 <asp:DropDownList ID="DocenteDropDown" class="form-control" runat="server" AppendDataBoundItems="True">
                     <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
                 </asp:DropDownList>
                 <br />
                  <asp:Label ID="CursoLabel" runat="server" Text="Curso: "></asp:Label>
+                <asp:Label ID="Label3" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                 <asp:DropDownList ID="CursoDropDown" class="form-control" runat="server" AppendDataBoundItems="True">
                     <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
                 </asp:DropDownList>
                 <br/>
                  <asp:Label ID="TipoLabel" runat="server" Text="Tipo: "></asp:Label>
+
+                <asp:Label ID="Label4" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
 
                 <asp:DropDownList ID="TipoDropDown" class="form-control" runat="server" AppendDataBoundItems="True">
                     <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>

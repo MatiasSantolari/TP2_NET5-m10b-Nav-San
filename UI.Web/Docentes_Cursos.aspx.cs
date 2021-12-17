@@ -211,37 +211,42 @@ namespace UI.Web
 
         protected void aceptarLinkButton_Click(object sender, EventArgs e)
         {
-            switch (this.FormMode)
+            if (TipoDropDown.SelectedValue.Equals("0") || CursoDropDown.SelectedValue.Equals("0") || DocenteDropDown.SelectedValue.Equals("0"))
+            { Label4.Visible = true; Label2.Visible = true; Label3.Visible = true; }
+            else
             {
-                case FormModes.baja:
-                    this.DeleteEntity(this.SelectedID);
-                    this.LoadGrid();
-                    break;
-                case FormModes.modificacion:
-                    this.Entity = new Docente_Curso();
-                    this.Entity.ID = this.SelectedID;
-                    this.Entity.State = BusinessEntity.States.Modified;
-                    Entity.IDCurso = int.Parse(this.CursoDropDown.SelectedItem.Value);
-                    Entity.IDDocente = int.Parse(this.DocenteDropDown.SelectedItem.Value);
-                    Entity.Cargo = (Docente_Curso.cargos)Enum.Parse(typeof(Docente_Curso.cargos), this.TipoDropDown.SelectedItem.Value);
+                switch (this.FormMode)
+                {
+                    case FormModes.baja:
+                        this.DeleteEntity(this.SelectedID);
+                        this.LoadGrid();
+                        break;
+                    case FormModes.modificacion:
+                        this.Entity = new Docente_Curso();
+                        this.Entity.ID = this.SelectedID;
+                        this.Entity.State = BusinessEntity.States.Modified;
+                        Entity.IDCurso = int.Parse(this.CursoDropDown.SelectedItem.Value);
+                        Entity.IDDocente = int.Parse(this.DocenteDropDown.SelectedItem.Value);
+                        Entity.Cargo = (Docente_Curso.cargos)Enum.Parse(typeof(Docente_Curso.cargos), this.TipoDropDown.SelectedItem.Value);
 
-                    this.SaveEntity(this.Entity);
-                    this.LoadGrid();
-                    break;
-                case FormModes.alta:
-                    this.Entity = new Docente_Curso();
-                    this.LoadEntity(this.Entity);
-                    this.SaveEntity(this.Entity);
-                    this.LoadGrid();
-                    break;
-                default:
-                    break;
+                        this.SaveEntity(this.Entity);
+                        this.LoadGrid();
+                        break;
+                    case FormModes.alta:
+                        this.Entity = new Docente_Curso();
+                        this.LoadEntity(this.Entity);
+                        this.SaveEntity(this.Entity);
+                        this.LoadGrid();
+                        break;
+                    default:
+                        break;
+                }
+                this.formPanel.Visible = false;
+                this.formActionPanel.Visible = false;
+
+                this.gridView.SelectedIndex = -1;
+                this.SelectedID = 0;
             }
-            this.formPanel.Visible = false;
-            this.formActionPanel.Visible = false;
-
-            this.gridView.SelectedIndex = -1;
-            this.SelectedID = 0;
         }
 
         protected void cancelarLinkButtom_Click(object sender, EventArgs e)
