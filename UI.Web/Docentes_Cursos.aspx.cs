@@ -57,7 +57,7 @@ namespace UI.Web
             if (this.CursoDropDown.Items.Count == 1)
             {
                 this.CursoDropDown.DataSource = curso.GetAll();
-                this.CursoDropDown.DataTextField = "DescMateria";
+                this.CursoDropDown.DataTextField = "ID";
                 this.CursoDropDown.DataValueField = "ID";
                 this.CursoDropDown.DataBind();
             }

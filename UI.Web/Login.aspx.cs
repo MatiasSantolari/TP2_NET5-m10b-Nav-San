@@ -35,13 +35,14 @@ namespace UI.Web
                     {
                         band = true;
                         u = user;
+                        break;
                     }
                 }
 
                 if (band == true)
                 {
-                    PersonaLogic personaLogic = new PersonaLogic();
-                    Session["USUARIO"] = personaLogic.GetOne(u.ID);
+                    UsuarioLogic usuarioLogic = new UsuarioLogic();
+                    Session["USUARIO"] = usuarioLogic.GetPersona(u.ID);
                     Response.Redirect("~/Home.aspx");
                 }
                 else
