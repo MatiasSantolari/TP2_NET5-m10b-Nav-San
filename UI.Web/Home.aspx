@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="UI.Web.Default" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="UI.Web.Default" %>
 
 <!DOCTYPE html>
 
@@ -12,6 +12,12 @@
 <body>
     <form id="form1" runat="server">
         <h1 style="background-color:lightblue">Home</h1>
+
+        <asp:Panel ID="Panel2" runat="server">
+            <div align="right">
+                <asp:Button ID="btnLogout" runat="server" Text="Cerrar Sesion" class="btn btn-danger" OnClick="btnLogout_Click" />
+            </div>
+        </asp:Panel>
 
         <asp:Panel ID="Panel1" runat="server">
             <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal">

@@ -69,7 +69,7 @@
                 <br />
             </asp:Panel>
             </div>
-            <div align="center">
+            <div>
             <asp:Panel ID="gridActionsPanel" runat="server" class="btn-group">
                 <asp:LinkButton ID="editarlinkButton" class="btn btn-secondary" runat="server" OnClick="editarlinkButton_Click">Editar</asp:LinkButton>
                 <br />

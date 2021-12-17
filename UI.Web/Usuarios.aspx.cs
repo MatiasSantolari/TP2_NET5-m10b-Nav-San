@@ -37,6 +37,11 @@ namespace UI.Web
             {
                 this.gridView.HeaderRow.TableSection = TableRowSection.TableHeader;
             }
+            Persona p = (Persona)Session["USUARIO"];
+            if (p.TipoPersona.ToString() == "Alumno" || p.TipoPersona.ToString() == "Docente")
+            {
+                this.gridActionsPanel.Visible = false;
+            }
         }
 
         private void LoadGrid()

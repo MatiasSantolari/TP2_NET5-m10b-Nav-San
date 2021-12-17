@@ -15,6 +15,10 @@ namespace UI.Web
 
         }
 
-        
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session["USUARIO"] = null;
+            Response.Redirect("~/Login.aspx");
+        }
     }
 }
