@@ -192,7 +192,7 @@ namespace UI.Web
 
         protected void aceptarLinkButton_Click(object sender, EventArgs e)
         {
-            if (descripcionTextBox.Text == "" || anioEspecialidadTextBox.Text == "" || planDropDown.SelectedValue.Equals(0)) 
+            if (descripcionTextBox.Text == "" || anioEspecialidadTextBox.Text == "" || planDropDown.SelectedValue.Equals("0")) 
             { Label1.Visible = true; Label2.Visible = true; Label3.Visible = true; }
             else { 
                 switch (this.FormMode)
