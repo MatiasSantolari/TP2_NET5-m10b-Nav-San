@@ -69,6 +69,7 @@ namespace Data.Database
                     p.FechaNac = (DateTime)drPersona["fecha_nac"];
                     p.Legajo = (int)drPersona["legajo"];
                     p.TipoPersona = (Persona.TipoPersonas)(int)drPersona["tipo_persona"];
+                    p.IdPlan = (int)drPersona["id_plan"];
                 }
                 drPersona.Close();
             }

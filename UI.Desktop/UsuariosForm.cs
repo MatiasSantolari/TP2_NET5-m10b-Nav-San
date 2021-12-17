@@ -36,7 +36,11 @@ namespace UI.Desktop
             }
             else
             {
-                this.Listar();
+                List<Usuario> listaUs = new List<Usuario>();
+                listaUs.Add(ul.GetOne(UsuarioID));
+                this.dgvUsuarios.DataSource = listaUs;
+                //this.Listar();
+                tsbEditar.Visible = false;
                 tsbNuevo.Visible = false;
                 tsbEliminar.Visible = false;
 
