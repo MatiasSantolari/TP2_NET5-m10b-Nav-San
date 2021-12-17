@@ -89,6 +89,12 @@ namespace UI.Web
             {
                 this.Panel2.Visible = false;
             }
+            if (p.TipoPersona.ToString() == "Admin")
+            {
+                this.Panel2.Visible = true;
+                this.gridPanel.Visible = true;
+            }
+
         }
 
 
@@ -152,12 +158,14 @@ namespace UI.Web
                     Entity.IDCurso = int.Parse(this.CursoDropDown.SelectedItem.Value);
                     Entity.IDAlumno = int.Parse(this.AlumnoDropDown.SelectedItem.Value);
                     Entity.Condicion = this.condicionTextBox.Text;
-                    Entity.Nota = int.Parse(this.notaTextBox.Text);
 
                     if (this.notaTextBox.Text.Length == 0)
                     { Entity.Nota = 0; }
                     else
                     { Entity.Nota = int.Parse(this.notaTextBox.Text); }
+
+                    this.SaveEntity(this.Entity);
+                    this.LoadGrid();
 
                     break;
                 case FormModes.alta:

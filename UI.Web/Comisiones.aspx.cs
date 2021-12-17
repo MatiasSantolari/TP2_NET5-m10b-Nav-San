@@ -192,35 +192,40 @@ namespace UI.Web
 
         protected void aceptarLinkButton_Click(object sender, EventArgs e)
         {
-            switch (this.FormMode)
-            {
-                case FormModes.baja:
-                    this.DeleteEntity(this.SelectedID);
-                    this.LoadGrid();
-                    break;
-                case FormModes.modificacion:
-                    this.comision = new Comision();
-                    this.comision.ID = this.SelectedID;
-                    this.comision.State = BusinessEntity.States.Modified;
-                    comision.DescComision = this.descripcionTextBox.Text;
-                    comision.AnioEspecialidad = (Comision.Anios)int.Parse(this.anioEspecialidadTextBox.Text);
-                    comision.IDPlan = int.Parse(this.planDropDown.SelectedItem.Value);
-                    this.SaveEntity(this.comision);
-                    this.LoadGrid();
-                    break;
-                case FormModes.alta:
-                    this.comision = new Comision();
-                    this.LoadEntity(this.comision);
-                    this.SaveEntity(this.comision);
-                    this.LoadGrid();
-                    break;
-                default:
-                    break;
+            if (descripcionTextBox.Text == "" || anioEspecialidadTextBox.Text == "" || planDropDown.SelectedValue.Equals(0)) 
+            { Label1.Visible = true; Label2.Visible = true; Label3.Visible = true; }
+            else { 
+                switch (this.FormMode)
+                {
+                    case FormModes.baja:
+                        this.DeleteEntity(this.SelectedID);
+                        this.LoadGrid();
+                        break;
+                    case FormModes.modificacion:
+                        this.comision = new Comision();
+                        this.comision.ID = this.SelectedID;
+                        this.comision.State = BusinessEntity.States.Modified;
+                        comision.DescComision = this.descripcionTextBox.Text;
+                        comision.AnioEspecialidad = (Comision.Anios)int.Parse(this.anioEspecialidadTextBox.Text);
+                        comision.IDPlan = int.Parse(this.planDropDown.SelectedItem.Value);
+                        this.SaveEntity(this.comision);
+                        this.LoadGrid();
+                        break;
+                    case FormModes.alta:
+                        this.comision = new Comision();
+                        this.LoadEntity(this.comision);
+                        this.SaveEntity(this.comision);
+                        this.LoadGrid();
+                        break;
+                    default:
+                        break;
+                }
+                    this.formPanel.Visible = false;
+                    this.formActionPanel.Visible = false;
+                    this.gridView.SelectedIndex = -1;
+                    this.SelectedID = 0;
             }
-            this.formPanel.Visible = false;
-            this.formActionPanel.Visible = false;
-            this.gridView.SelectedIndex = -1;
-            this.SelectedID = 0;
+            
         }
 
         protected void cancelarLinkButtom_Click(object sender, EventArgs e)

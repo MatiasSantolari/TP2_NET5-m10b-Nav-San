@@ -85,12 +85,12 @@
             </asp:Panel>
                 <br />
             <asp:Panel ID="formActionPanel" Visible="False" runat="server">
-                <asp:LinkButton ID="inscribirLinkButton" class="btn btn-success" runat="server"  ValidationGroup="vg" OnClick="inscribirLinkButton_Click">Inscribir</asp:LinkButton>
+                <asp:LinkButton ID="inscribirLinkButton" class="btn btn-success" runat="server"  ValidationGroup="vg" OnClick="inscribirLinkButton_Click">Aceptar</asp:LinkButton>
                 <div class="divider"></div>
                 <asp:LinkButton ID="cancelarLinkButtom" class="btn btn-danger" runat="server" OnClick="cancelarLinkButtom_Click">Cancelar</asp:LinkButton>                    
             </asp:Panel>
             <asp:Panel ID="Panel3" Visible="False" runat="server">
-                <asp:LinkButton ID="LinkButton4" class="btn btn-success" runat="server"  ValidationGroup="vg" OnClick="aceptarLinkButton_Click">Inscribir</asp:LinkButton>
+                <asp:LinkButton ID="LinkButton4" class="btn btn-success" runat="server"  ValidationGroup="vg" >Aceptar</asp:LinkButton>
                 <div class="divider"></div>
                 <asp:LinkButton ID="LinkButton5" class="btn btn-danger" runat="server" OnClick="cancelarLinkButtom_Click">Cancelar</asp:LinkButton>                    
             </asp:Panel>

@@ -74,7 +74,7 @@ namespace Business.Logic
                     }
                 }
 
-                Alumnos_InscripcionesData.Insert(ali);
+                //Alumnos_InscripcionesData.Insert(ali);
                 return true;
             }
             catch (Exception ex)
