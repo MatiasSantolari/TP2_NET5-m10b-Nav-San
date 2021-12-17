@@ -177,15 +177,6 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.TextBox legajoTextBox;
 
         /// <summary>
-        /// Control legajoRequerido.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator legajoRequerido;
-
-        /// <summary>
         /// Control planLabel.
         /// </summary>
         /// <remarks>
@@ -256,14 +247,5 @@ namespace UI.Web
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel ValidationActionPanel;
-
-        /// <summary>
-        /// Control ValidationSummary.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary;
     }
 }

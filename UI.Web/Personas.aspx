@@ -33,6 +33,7 @@
                     <asp:MenuItem NavigateUrl="~/Personas.aspx" Text="Datos Personales" Value="Datos Personales"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/Planes.aspx" Text="Planes" Value="Planes"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/Usuarios.aspx" Text="Usuario" Value="Usuario"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/Materias.aspx" Text="Materias" Value="Materias"></asp:MenuItem>
                 </Items>
             </asp:Menu>
         </asp:Panel>
@@ -59,7 +60,7 @@
                 <br />
                 <asp:Label ID="legajoLabel" runat="server" Text="Legajo: "></asp:Label>
                 <asp:TextBox ID="legajoTextBox" class="form-control" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="legajoRequerido" runat="server" ForeColor="Red" ControlToValidate="legajoTextBox" ValidationGroup="vg" ErrorMessage="Requerido"></asp:RequiredFieldValidator>      
+               
                 <br />
                  <asp:Label ID="planLabel" runat="server" Text="Plan: "></asp:Label>
                   <asp:DropDownList ID="planDropDown" class="form-control" runat="server" AppendDataBoundItems="True">
@@ -80,7 +81,7 @@
                 <asp:LinkButton ID="cancelarLinkButtom" class="btn btn-danger" runat="server" OnClick="cancelarLinkButtom_Click">Cancelar</asp:LinkButton>
             </asp:Panel>
             <asp:Panel ID="ValidationActionPanel" runat="server">
-                <asp:ValidationSummary ID="ValidationSummary" runat="server" ForeColor="Red" ValidationGroup="vg" />
+               
             </asp:Panel>
             </div>
     </form>
