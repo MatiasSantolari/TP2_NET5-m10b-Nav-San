@@ -1,0 +1,12 @@
+C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Util\bin\Debug\Util.dll
+C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Util\bin\Debug\Util.pdb
+C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Util\obj\Debug\Util.csproj.AssemblyReference.cache
+C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Util\obj\Debug\Util.csproj.CoreCompileInputs.cache
+C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Util\obj\Debug\Util.dll
+C:\Users\franc\Documents\Repos\TP2NET5\TP2_NET5-m10b-Nav-San\Util\obj\Debug\Util.pdb
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\Util\bin\Debug\Util.dll
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\Util\bin\Debug\Util.pdb
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\Util\obj\Debug\Util.csproj.AssemblyReference.cache
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\Util\obj\Debug\Util.csproj.CoreCompileInputs.cache
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\Util\obj\Debug\Util.dll
+D:\Mati\Facultad\3ro\.net\Trabajo Practico net-Nav_San\TP2_NET5-m10b-Nav-San\Util\obj\Debug\Util.pdb
