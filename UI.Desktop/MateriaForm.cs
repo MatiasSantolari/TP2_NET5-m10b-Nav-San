@@ -44,19 +44,20 @@ namespace UI.Desktop
 
                 DataTable dataTable1 = new DataTable();
                 dataTable1.TableName = "Materias";
+                dataTable1.Columns.Add("ID");
                 dataTable1.Columns.Add("DescMateria");
                 dataTable1.Columns.Add("HsSemanales");
                 dataTable1.Columns.Add("HsTotales");
                 dataTable1.Columns.Add("DescPlan");
                 foreach (var ma in mater)
                 {
-                    dataTable1.Rows.Add(ma.m.DescMateria, ma.m.HsSemanales, ma.m.HsTotales, ma.DescPlan);
+                    dataTable1.Rows.Add(ma.m.ID,ma.m.DescMateria, ma.m.HsSemanales, ma.m.HsTotales, ma.DescPlan);
                 }
-                
+
                 //var dtResultado = dataTable1.Rows.Cast<DataRow>().Where(row => !Array.TrueForAll(row.ItemArray, value => { return value.ToString().Length == 0; }));
                 //dataTable1 = dtResultado.CopyToDataTable();
-
                 this.dgvMaterias.DataSource = dataTable1;
+                dgvMaterias.AllowUserToAddRows = false;
             }
             catch (FormatException fe)
             {
@@ -91,18 +92,36 @@ namespace UI.Desktop
 
         private void tsbEditar_Click(object sender, EventArgs e)
         {
-            int id = ((Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID;
+            int ind = dgvMaterias.SelectedCells[0].RowIndex;
+            DataGridViewRow dataGridViewRow = dgvMaterias.Rows[ind];
+            int ID = Convert.ToInt32(dataGridViewRow.Cells["ID"].Value);
+            MateriaDesktop editar = new MateriaDesktop(ID, ModoForm.Modificacion);
+            editar.ShowDialog();
+            this.Lista();
+
+
+
+            /*int id = ((Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID;
             MateriaDesktop mat = new MateriaDesktop(id, ModoForm.Modificacion);
             mat.ShowDialog();
-            this.Lista();
+            this.Lista();*/
         }
 
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
-            int id = ((Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID;
+            int ind = dgvMaterias.SelectedCells[0].RowIndex;
+            DataGridViewRow dataGridViewRow = dgvMaterias.Rows[ind];
+            int ID = Convert.ToInt32(dataGridViewRow.Cells["ID"].Value);
+            MateriaDesktop editar = new MateriaDesktop(ID, ModoForm.Baja);
+            editar.ShowDialog();
+            this.Lista();
+
+
+
+            /*int id = ((Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID;
             MateriaDesktop mat = new MateriaDesktop(id, ModoForm.Baja);
             mat.ShowDialog();
-            this.Lista();
+            this.Lista();*/
         }
 
         private void Lista()

@@ -54,6 +54,7 @@ namespace UI.Desktop
 
                             DataTable dataTable1 = new DataTable();
                             dataTable1.TableName = "Alumno_Inscripcion";
+                            dataTable1.Columns.Add("ID");
                             dataTable1.Columns.Add("Nombre Alumno");
                             dataTable1.Columns.Add("Apellido Alumno");
                             dataTable1.Columns.Add("Materia");
@@ -62,10 +63,11 @@ namespace UI.Desktop
                             dataTable1.Columns.Add("Nota");
                             foreach (var ua in usu_alu)
                             {
-                                dataTable1.Rows.Add(ua.Nombre, ua.Apellido, ua.DescMateria, ua.DescComision, ua.usual.Condicion, ua.usual.Nota);
+                                dataTable1.Rows.Add(ua.usual.ID,ua.Nombre, ua.Apellido, ua.DescMateria, ua.DescComision, ua.usual.Condicion, ua.usual.Nota);
                             }
 
                             this.dgvAlumnos_Inscipciones.DataSource = dataTable1;
+                            dgvAlumnos_Inscipciones.AllowUserToAddRows = false;
                             break;
                         }
                     case Persona.TipoPersonas.Docente:
@@ -80,16 +82,18 @@ namespace UI.Desktop
 
                             DataTable dataTable1 = new DataTable();
                             dataTable1.TableName = "Alumno_Inscripcion";
+                            dataTable1.Columns.Add("ID");
                             dataTable1.Columns.Add("Nombre Alumno");
                             dataTable1.Columns.Add("Apellido Alumno");
                             dataTable1.Columns.Add("Condicion");
                             dataTable1.Columns.Add("Nota");
                             foreach (var ua in usu_alu)
                             {
-                                dataTable1.Rows.Add(ua.Nombre, ua.Apellido, ua.usual.Condicion, ua.usual.Nota);
+                                dataTable1.Rows.Add(ua.usual.ID,ua.Nombre, ua.Apellido, ua.usual.Condicion, ua.usual.Nota);
                             }
 
                             this.dgvAlumnos_Inscipciones.DataSource = dataTable1;
+                            dgvAlumnos_Inscipciones.AllowUserToAddRows = false;
                             break;
                         }
                     /*case Persona.TipoPersonas.Alumno:
@@ -136,18 +140,46 @@ namespace UI.Desktop
 
         private void tsbEditar_Click(object sender, EventArgs e)
         {
-            int id = ((Alumnos_Inscripciones)this.dgvAlumnos_Inscipciones.SelectedRows[0].DataBoundItem).ID;
+            int ind = dgvAlumnos_Inscipciones.SelectedCells[0].RowIndex;
+            DataGridViewRow dataGridViewRow = dgvAlumnos_Inscipciones.Rows[ind];
+            int ID = Convert.ToInt32(dataGridViewRow.Cells["ID"].Value);
+            Alumnos_InscripcionesDesktop editar = new Alumnos_InscripcionesDesktop(ID, ModoForm.Modificacion);
+            editar.ShowDialog();
+            this.Lista();
+
+
+
+
+
+
+
+
+
+            /*int id = ((Alumnos_Inscripciones)this.dgvAlumnos_Inscipciones.SelectedRows[0].DataBoundItem).ID;
             Alumnos_InscripcionesDesktop alinsc = new Alumnos_InscripcionesDesktop(id, ModoForm.Modificacion);
             alinsc.ShowDialog();
-            this.Lista();
+            this.Lista();*/
         }
 
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
-            int id = ((Alumnos_Inscripciones)this.dgvAlumnos_Inscipciones.SelectedRows[0].DataBoundItem).ID;
+            int ind = dgvAlumnos_Inscipciones.SelectedCells[0].RowIndex;
+            DataGridViewRow dataGridViewRow = dgvAlumnos_Inscipciones.Rows[ind];
+            int ID = Convert.ToInt32(dataGridViewRow.Cells["ID"].Value);
+            Alumnos_InscripcionesDesktop editar = new Alumnos_InscripcionesDesktop(ID, ModoForm.Baja);
+            editar.ShowDialog();
+            this.Lista();
+
+
+
+
+
+
+
+            /*int id = ((Alumnos_Inscripciones)this.dgvAlumnos_Inscipciones.SelectedRows[0].DataBoundItem).ID;
             Alumnos_InscripcionesDesktop alinsc = new Alumnos_InscripcionesDesktop(id, ModoForm.Baja);
             alinsc.ShowDialog();
-            this.Lista();
+            this.Lista();*/
         }
 
         private void Lista()
