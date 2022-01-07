@@ -53,8 +53,8 @@ namespace UI.Desktop
                     dataTable1.Rows.Add(ma.m.DescMateria, ma.m.HsSemanales, ma.m.HsTotales, ma.DescPlan);
                 }
                 
-                var dtResultado = dataTable1.Rows.Cast<DataRow>().Where(row => !Array.TrueForAll(row.ItemArray, value => { return value.ToString().Length == 0; }));
-                dataTable1 = dtResultado.CopyToDataTable();
+                //var dtResultado = dataTable1.Rows.Cast<DataRow>().Where(row => !Array.TrueForAll(row.ItemArray, value => { return value.ToString().Length == 0; }));
+                //dataTable1 = dtResultado.CopyToDataTable();
 
                 this.dgvMaterias.DataSource = dataTable1;
             }
