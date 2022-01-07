@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="Materia.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -139,7 +136,7 @@
   <data name="tsbNuevo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAACaWSURBVHhe7d0J1H33fO/xDEJCtWKuWcyXclGUpqqmulUs
+        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAACaWSURBVHhe7d0J1H33fO/xDEJCtWKuWcyXclGUpqqmulUs
         NZSr2pqqxuKyaupSY6vGVq+LomoZarol1BhUxRBzxBCaIGZiDDEk4t7Pj3+Wv/gm///v7POcffber/da
         r7XuvWtd2f9nn3Oez/M85+y9jybTfnFoPCHeEsfEifH/gEW7X0iaYQfFQ+KrUT35gWUzAKQZdvv4fFRP
         eoDGAJBm1P7xlKie7AC7MwCkmXRAvDaqJzrA6RkA0kx6elRPcoCKASDNoLtF9QQHOCMGgDTxDo5vRvUE
@@ -310,7 +307,7 @@
   <data name="tsbEditar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAACEPSURBVHhe7d0LsK1nXd/xBIkIRK0CAoqCM6CI0OqMAiqK
+        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAACEPSURBVHhe7d0LsK1nXd/xBIkIRK0CAoqCM6CI0OqMAiqK
         5SIWRi5txRFwim0BI3QEQiBiq0GDKLcOhXLrKBiCF8ZRLlKdVmAoyk2kKILY0gIBipWAxBjQQGx/T8Nq
         znPOc/bZe7/vs9bzvuvzmfmOdMZm7Rr7/v7JWXutswAAAGBON0x3TA9Kj0rnp4vSM9OL0qXpF9Jz0sXp
         wvSY9LD07ekrEgAwsK9Lj0gvTm9IH0l/l/7PxK5If5h+Lf3r9F3pBgkA2IE7pPJP669If55a492rv0lv
@@ -457,7 +454,7 @@
   <data name="tsbEliminar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAB7HSURBVHhe7d17rHV5Xd9xGCiX4SIw7YiIgIBQg1IiLVgp
+        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAB7HSURBVHhe7d17rHV5Xd9xGCiX4SIw7YiIgIBQg1IiLVgp
         hdFgQwWqESgpCKatUsCAAhYKtNIWDVoQFKqoFOsFEG/QIiZKpJViQSxSaEUpMuEyBS0WGwYYHYaxn0VI
         Q4+/eeb7O2ef53f2/r7eyeufSWbv5Mla63zO3vusfR2pabePr4yvj38Uz46XxGviN+P98SfxZ+ytq+LD
         8fb45XhZfE88MR4efzPuEjcISdKBduN4cPxIXBajHxj09LH4+fjmuDgkSXvebWP77f6X4pMxuvjD5/p0

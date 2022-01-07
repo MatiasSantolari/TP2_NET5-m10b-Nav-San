@@ -33,17 +33,16 @@ namespace UI.Desktop
             this.tsCursos = new System.Windows.Forms.ToolStripContainer();
             this.tlCursos = new System.Windows.Forms.TableLayoutPanel();
             this.dgvCursos = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Comision = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Anio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.tsCursosS = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
+            this.Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Comision = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Anio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tsCursos.ContentPanel.SuspendLayout();
             this.tsCursos.TopToolStripPanel.SuspendLayout();
             this.tsCursos.SuspendLayout();
@@ -58,13 +57,11 @@ namespace UI.Desktop
             // tsCursos.ContentPanel
             // 
             this.tsCursos.ContentPanel.Controls.Add(this.tlCursos);
-            this.tsCursos.ContentPanel.Margin = new System.Windows.Forms.Padding(2);
-            this.tsCursos.ContentPanel.Size = new System.Drawing.Size(533, 261);
+            this.tsCursos.ContentPanel.Size = new System.Drawing.Size(800, 416);
             this.tsCursos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tsCursos.Location = new System.Drawing.Point(0, 0);
-            this.tsCursos.Margin = new System.Windows.Forms.Padding(2);
             this.tsCursos.Name = "tsCursos";
-            this.tsCursos.Size = new System.Drawing.Size(533, 292);
+            this.tsCursos.Size = new System.Drawing.Size(800, 449);
             this.tsCursos.TabIndex = 0;
             this.tsCursos.Text = "toolStripContainer1";
             // 
@@ -82,81 +79,36 @@ namespace UI.Desktop
             this.tlCursos.Controls.Add(this.btnSalir, 1, 1);
             this.tlCursos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlCursos.Location = new System.Drawing.Point(0, 0);
-            this.tlCursos.Margin = new System.Windows.Forms.Padding(2);
             this.tlCursos.Name = "tlCursos";
             this.tlCursos.RowCount = 2;
             this.tlCursos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlCursos.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlCursos.Size = new System.Drawing.Size(533, 261);
+            this.tlCursos.Size = new System.Drawing.Size(800, 416);
             this.tlCursos.TabIndex = 0;
             // 
             // dgvCursos
             // 
             this.dgvCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
             this.Materia,
             this.Comision,
             this.Anio,
             this.Cupo});
             this.tlCursos.SetColumnSpan(this.dgvCursos, 2);
             this.dgvCursos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvCursos.Location = new System.Drawing.Point(2, 2);
-            this.dgvCursos.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvCursos.Location = new System.Drawing.Point(3, 3);
             this.dgvCursos.Name = "dgvCursos";
             this.dgvCursos.RowHeadersWidth = 62;
             this.dgvCursos.RowTemplate.Height = 28;
-            this.dgvCursos.Size = new System.Drawing.Size(529, 233);
+            this.dgvCursos.Size = new System.Drawing.Size(794, 373);
             this.dgvCursos.TabIndex = 0;
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 8;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 150;
-            // 
-            // Materia
-            // 
-            this.Materia.DataPropertyName = "IDMateria";
-            this.Materia.HeaderText = "Materia";
-            this.Materia.MinimumWidth = 8;
-            this.Materia.Name = "Materia";
-            this.Materia.Width = 150;
-            // 
-            // Comision
-            // 
-            this.Comision.DataPropertyName = "IDComision";
-            this.Comision.HeaderText = "Comisión";
-            this.Comision.MinimumWidth = 8;
-            this.Comision.Name = "Comision";
-            this.Comision.Width = 150;
-            // 
-            // Anio
-            // 
-            this.Anio.DataPropertyName = "AnioCalendario";
-            this.Anio.HeaderText = "Año";
-            this.Anio.MinimumWidth = 8;
-            this.Anio.Name = "Anio";
-            this.Anio.Width = 150;
-            // 
-            // Cupo
-            // 
-            this.Cupo.DataPropertyName = "Cupo";
-            this.Cupo.HeaderText = "Cupo";
-            this.Cupo.MinimumWidth = 8;
-            this.Cupo.Name = "Cupo";
-            this.Cupo.Width = 150;
             // 
             // btnActualizar
             // 
             this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizar.Location = new System.Drawing.Point(403, 239);
-            this.btnActualizar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnActualizar.Location = new System.Drawing.Point(605, 382);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(62, 20);
+            this.btnActualizar.Size = new System.Drawing.Size(93, 31);
             this.btnActualizar.TabIndex = 1;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
@@ -164,10 +116,9 @@ namespace UI.Desktop
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(469, 239);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSalir.Location = new System.Drawing.Point(704, 382);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(62, 20);
+            this.btnSalir.Size = new System.Drawing.Size(93, 31);
             this.btnSalir.TabIndex = 2;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -183,7 +134,7 @@ namespace UI.Desktop
             this.tsbEliminar});
             this.tsCursosS.Location = new System.Drawing.Point(4, 0);
             this.tsCursosS.Name = "tsCursosS";
-            this.tsCursosS.Size = new System.Drawing.Size(127, 31);
+            this.tsCursosS.Size = new System.Drawing.Size(120, 33);
             this.tsCursosS.TabIndex = 0;
             // 
             // tsbNuevo
@@ -192,7 +143,7 @@ namespace UI.Desktop
             this.tsbNuevo.Image = ((System.Drawing.Image)(resources.GetObject("tsbNuevo.Image")));
             this.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbNuevo.Name = "tsbNuevo";
-            this.tsbNuevo.Size = new System.Drawing.Size(28, 28);
+            this.tsbNuevo.Size = new System.Drawing.Size(34, 28);
             this.tsbNuevo.Text = "toolStripButton1";
             this.tsbNuevo.ToolTipText = "Nuevo";
             this.tsbNuevo.Click += new System.EventHandler(this.tsbNuevo_Click);
@@ -203,7 +154,7 @@ namespace UI.Desktop
             this.tsbEditar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEditar.Image")));
             this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEditar.Name = "tsbEditar";
-            this.tsbEditar.Size = new System.Drawing.Size(28, 28);
+            this.tsbEditar.Size = new System.Drawing.Size(34, 28);
             this.tsbEditar.Text = "toolStripButton1";
             this.tsbEditar.ToolTipText = "Editar";
             this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
@@ -214,18 +165,49 @@ namespace UI.Desktop
             this.tsbEliminar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEliminar.Image")));
             this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEliminar.Name = "tsbEliminar";
-            this.tsbEliminar.Size = new System.Drawing.Size(28, 28);
+            this.tsbEliminar.Size = new System.Drawing.Size(34, 28);
             this.tsbEliminar.Text = "toolStripButton1";
             this.tsbEliminar.ToolTipText = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
+            // Materia
+            // 
+            this.Materia.DataPropertyName = "Materia";
+            this.Materia.HeaderText = "Materia";
+            this.Materia.MinimumWidth = 8;
+            this.Materia.Name = "Materia";
+            this.Materia.Width = 150;
+            // 
+            // Comision
+            // 
+            this.Comision.DataPropertyName = "Comision";
+            this.Comision.HeaderText = "Comisión";
+            this.Comision.MinimumWidth = 8;
+            this.Comision.Name = "Comision";
+            this.Comision.Width = 150;
+            // 
+            // Anio
+            // 
+            this.Anio.DataPropertyName = "Anio";
+            this.Anio.HeaderText = "Año";
+            this.Anio.MinimumWidth = 8;
+            this.Anio.Name = "Anio";
+            this.Anio.Width = 150;
+            // 
+            // Cupo
+            // 
+            this.Cupo.DataPropertyName = "Cupo";
+            this.Cupo.HeaderText = "Cupo";
+            this.Cupo.MinimumWidth = 8;
+            this.Cupo.Name = "Cupo";
+            this.Cupo.Width = 150;
+            // 
             // CursosForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(533, 292);
+            this.ClientSize = new System.Drawing.Size(800, 449);
             this.Controls.Add(this.tsCursos);
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CursosForm";
             this.Text = "CursosForm";
             this.Load += new System.EventHandler(this.CursosForm_Load);
@@ -253,7 +235,6 @@ namespace UI.Desktop
         private System.Windows.Forms.ToolStripButton tsbNuevo;
         private System.Windows.Forms.ToolStripButton tsbEditar;
         private System.Windows.Forms.ToolStripButton tsbEliminar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Materia;
         private System.Windows.Forms.DataGridViewTextBoxColumn Comision;
         private System.Windows.Forms.DataGridViewTextBoxColumn Anio;

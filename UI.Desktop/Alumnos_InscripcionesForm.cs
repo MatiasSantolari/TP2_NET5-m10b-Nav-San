@@ -46,7 +46,7 @@ namespace UI.Desktop
                             var comisiones = com.GetAll();
 
                             var usu_alu = (from u in usuarios
-                                            join usual in alumnos on u.ID equals usual.IDAlumno
+                                            join usual in alumnos on u.IDPersona equals usual.IDAlumno
                                             join cur in cursos on usual.IDCurso equals cur.ID
                                             join mat in materias on cur.IDMateria equals mat.ID
                                             join comi in comisiones on cur.IDComision equals comi.ID
@@ -54,6 +54,7 @@ namespace UI.Desktop
 
                             DataTable dataTable1 = new DataTable();
                             dataTable1.TableName = "Alumno_Inscripcion";
+                            dataTable1.Columns.Add("ID");
                             dataTable1.Columns.Add("Nombre Alumno");
                             dataTable1.Columns.Add("Apellido Alumno");
                             dataTable1.Columns.Add("Materia");
@@ -62,46 +63,54 @@ namespace UI.Desktop
                             dataTable1.Columns.Add("Nota");
                             foreach (var ua in usu_alu)
                             {
-                                dataTable1.Rows.Add(ua.Nombre, ua.Apellido, ua.DescMateria, ua.DescComision, ua.usual.Condicion, ua.usual.Nota);
+                                dataTable1.Rows.Add(ua.usual.ID,ua.Nombre, ua.Apellido, ua.DescMateria, ua.DescComision, ua.usual.Condicion, ua.usual.Nota);
                             }
 
                             this.dgvAlumnos_Inscipciones.DataSource = dataTable1;
                             break;
                         }
-                    case Persona.TipoPersonas.Docente:
+                    case Persona.TipoPersonas.Alumno:
                         {
                             Alumnos_InscripcionesLogic ail = new Alumnos_InscripcionesLogic();
                             UsuarioLogic usu = new UsuarioLogic();
+                            CursoLogic cl = new CursoLogic();
+                            MateriaLogic ml = new MateriaLogic();
+                            ComisionLogic com = new ComisionLogic();
+
+
                             var usuarios = usu.GetAll();
                             var alumnos = ail.GetAll();
+                            var cursos = cl.GetAll();
+                            var materias = ml.GetAll();
+                            var comisiones = com.GetAll();
+
                             var usu_alu = (from u in usuarios
-                                            join usual in alumnos on u.ID equals usual.IDAlumno
-                                            select (usual, u.Nombre, u.Apellido)).ToList();
+                                           join usual in alumnos on u.IDPersona equals usual.IDAlumno
+                                           join cur in cursos on usual.IDCurso equals cur.ID
+                                           join mat in materias on cur.IDMateria equals mat.ID
+                                           join comi in comisiones on cur.IDComision equals comi.ID
+                                           where u.ID == UsuarioID
+                                           select (usual, u.Nombre, u.Apellido, mat.DescMateria, comi.DescComision)).ToList();
 
                             DataTable dataTable1 = new DataTable();
                             dataTable1.TableName = "Alumno_Inscripcion";
+                            dataTable1.Columns.Add("ID");
                             dataTable1.Columns.Add("Nombre Alumno");
                             dataTable1.Columns.Add("Apellido Alumno");
+                            dataTable1.Columns.Add("Materia");
+                            dataTable1.Columns.Add("Comision");
                             dataTable1.Columns.Add("Condicion");
                             dataTable1.Columns.Add("Nota");
                             foreach (var ua in usu_alu)
                             {
-                                dataTable1.Rows.Add(ua.Nombre, ua.Apellido, ua.usual.Condicion, ua.usual.Nota);
+                                dataTable1.Rows.Add(ua.usual.ID, ua.Nombre, ua.Apellido, ua.DescMateria, ua.DescComision, ua.usual.Condicion, ua.usual.Nota);
                             }
 
                             this.dgvAlumnos_Inscipciones.DataSource = dataTable1;
                             break;
                         }
-                    /*case Persona.TipoPersonas.Alumno:
-                        {
-                            Alumnos_InscripcionesLogic ail = new Alumnos_InscripcionesLogic();
-                            this.dgvAlumnos_Inscipciones.DataSource = ail.getCursosInscripto(Program.usuarioLog.ID);
-                            break;
-                        }*/
 
                 }
-                /* Alumnos_InscripcionesLogic alins = new Alumnos_InscripcionesLogic();
-                 this.dgvAlumnos_Inscipciones.DataSource = alins.GetAll();*/
             }
             catch (FormatException fe)
             {
@@ -136,17 +145,21 @@ namespace UI.Desktop
 
         private void tsbEditar_Click(object sender, EventArgs e)
         {
-            int id = ((Alumnos_Inscripciones)this.dgvAlumnos_Inscipciones.SelectedRows[0].DataBoundItem).ID;
-            Alumnos_InscripcionesDesktop alinsc = new Alumnos_InscripcionesDesktop(id, ModoForm.Modificacion);
-            alinsc.ShowDialog();
+            int ind = dgvAlumnos_Inscipciones.SelectedCells[0].RowIndex;
+            DataGridViewRow dataGridViewRow = dgvAlumnos_Inscipciones.Rows[ind];
+            int ID = Convert.ToInt32(dataGridViewRow.Cells["ID"].Value);
+            Alumnos_InscripcionesDesktop editar = new Alumnos_InscripcionesDesktop(ID, ModoForm.Modificacion);
+            editar.ShowDialog();
             this.Lista();
         }
 
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
-            int id = ((Alumnos_Inscripciones)this.dgvAlumnos_Inscipciones.SelectedRows[0].DataBoundItem).ID;
-            Alumnos_InscripcionesDesktop alinsc = new Alumnos_InscripcionesDesktop(id, ModoForm.Baja);
-            alinsc.ShowDialog();
+            int ind = dgvAlumnos_Inscipciones.SelectedCells[0].RowIndex;
+            DataGridViewRow dataGridViewRow = dgvAlumnos_Inscipciones.Rows[ind];
+            int ID = Convert.ToInt32(dataGridViewRow.Cells["ID"].Value);
+            Alumnos_InscripcionesDesktop editar = new Alumnos_InscripcionesDesktop(ID, ModoForm.Baja);
+            editar.ShowDialog();
             this.Lista();
         }
 

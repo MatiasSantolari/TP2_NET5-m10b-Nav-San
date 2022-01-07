@@ -46,7 +46,33 @@ namespace UI.Desktop
             try
             {
                 CursoLogic ul = new CursoLogic();
-                this.dgvCursos.DataSource = ul.GetAll();
+                MateriaLogic ml = new MateriaLogic();
+                ComisionLogic cl = new ComisionLogic();
+
+                var cursos = ul.GetAll();
+                var materias = ml.GetAll();
+                var comisiones = cl.GetAll();
+
+                var cur = (from c in cursos
+                           join m in materias on c.IDMateria equals m.ID
+                           join com in comisiones on c.IDComision equals com.ID
+                           select (m.DescMateria, com.DescComision, c.AnioCalendario, c.Cupo)).ToList();
+
+                DataTable dataTable = new DataTable();
+                dataTable.TableName = "Curso";
+                dataTable.Columns.Add("Materia");
+                dataTable.Columns.Add("Comision");
+                dataTable.Columns.Add("Anio");
+                dataTable.Columns.Add("Cupo");
+
+                foreach(var c in cur)
+                {
+                    dataTable.Rows.Add(c.DescMateria, c.DescComision, c.AnioCalendario, c.Cupo);
+                }
+
+                this.dgvCursos.DataSource = dataTable;
+
+
             }
             catch (FormatException fe)
             {

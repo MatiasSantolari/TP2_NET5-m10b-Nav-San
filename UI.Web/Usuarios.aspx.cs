@@ -129,7 +129,8 @@ namespace UI.Web
 
 
         private void LoadEntity(Usuario usuario)
-        {           
+        {
+            usuario.Nombre = this.nombreUsuarioTextBox.Text;
             usuario.NombreUsuario = this.nombreUsuarioTextBox.Text;
             usuario.Clave = this.claveTextBox.Text;
             usuario.Habilitado = this.HabilitadoCheckBox.Checked;
@@ -156,6 +157,7 @@ namespace UI.Web
                         this.Entity = new Usuario();
                         this.Entity.ID = this.SelectedID;
                         this.Entity.State = BusinessEntity.States.Modified;
+                        Entity.Nombre = this.nombreUsuarioTextBox.Text;
                         Entity.NombreUsuario = this.nombreUsuarioTextBox.Text;
                         Entity.Clave = this.claveTextBox.Text;
                         Entity.Habilitado = this.HabilitadoCheckBox.Checked;

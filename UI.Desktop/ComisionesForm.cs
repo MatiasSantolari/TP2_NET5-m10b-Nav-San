@@ -25,7 +25,26 @@ namespace UI.Desktop
         public void Listar()
         {
             ComisionLogic cl = new ComisionLogic();
-            this.dgvComisiones.DataSource = cl.GetAll();
+            PlanLogic pl = new PlanLogic();
+
+            var comisiones = cl.GetAll();
+            var planes = pl.GetAll();
+
+            var compl = (from c in comisiones
+                         join p in planes on c.IDPlan equals p.ID
+                         select(c.DescComision, c.AnioEspecialidad, p.DescPlan)).ToList();
+
+            DataTable dataTable = new DataTable();
+            dataTable.TableName = "Comision";
+            dataTable.Columns.Add("Descripcion");
+            dataTable.Columns.Add("Anio");
+            dataTable.Columns.Add("Plan");
+            foreach (var c in compl)
+            {
+                dataTable.Rows.Add(c.DescComision, c.AnioEspecialidad, c.DescPlan);
+            }
+
+            this.dgvComisiones.DataSource = dataTable;
         }
         private void Lista()
         {

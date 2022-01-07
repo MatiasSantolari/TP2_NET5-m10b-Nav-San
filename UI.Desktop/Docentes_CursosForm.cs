@@ -26,8 +26,89 @@ namespace UI.Desktop
 
             try
             {
-                Docente_CursoLogic dc = new Docente_CursoLogic();
-                this.dgvDocentes_Cursos.DataSource = dc.GetAll();
+                UsuarioLogic ul = new UsuarioLogic();
+                Persona per = ul.GetPersona(UsuarioID);
+                switch (per.TipoPersona)
+                {
+
+                    case Persona.TipoPersonas.Admin:
+                        {
+                            Docente_CursoLogic dcl = new Docente_CursoLogic();
+                            UsuarioLogic usu = new UsuarioLogic();
+                            CursoLogic cl = new CursoLogic();
+                            MateriaLogic ml = new MateriaLogic();
+                            ComisionLogic com = new ComisionLogic();
+
+                            var usuarios = usu.GetAll();
+                            var docentes = dcl.GetAll();
+                            var cursos = cl.GetAll();
+                            var materias = ml.GetAll();
+                            var comisiones = com.GetAll();
+
+                            var usu_doc = (from u in usuarios
+                                           join doc in docentes on u.ID equals doc.IDDocente
+                                           join cur in cursos on doc.IDCurso equals cur.ID
+                                           join mat in materias on cur.IDMateria equals mat.ID
+                                           join comi in comisiones on cur.IDComision equals comi.ID
+                                           select (u.Nombre, u.Apellido, mat.DescMateria, comi.DescComision, doc.Cargo)).ToList();
+
+                            DataTable dataTable1 = new DataTable();
+                            dataTable1.TableName = "Alumno_Inscripcion";
+                            dataTable1.Columns.Add("Materia");
+                            dataTable1.Columns.Add("Comision");
+                            dataTable1.Columns.Add("Nombre Docente");
+                            dataTable1.Columns.Add("Apellido Docente");
+                            dataTable1.Columns.Add("Cargo");
+
+                            foreach (var d in usu_doc)
+                            {
+                                dataTable1.Rows.Add(d.Nombre, d.Apellido, d.DescMateria, d.DescComision, d.Cargo);
+                            }
+
+                            this.dgvDocentes_Cursos.DataSource = dataTable1;
+                            break;
+                        }
+                    case Persona.TipoPersonas.Docente:
+                        {
+                            Alumnos_InscripcionesLogic ail = new Alumnos_InscripcionesLogic();
+                            UsuarioLogic usu = new UsuarioLogic();
+                            CursoLogic cl = new CursoLogic();
+                            MateriaLogic ml = new MateriaLogic();
+                            ComisionLogic com = new ComisionLogic();
+
+
+                            var usuarios = usu.GetAll();
+                            var alumnos = ail.GetAll();
+                            var cursos = cl.GetAll();
+                            var materias = ml.GetAll();
+                            var comisiones = com.GetAll();
+
+                            var usu_alu = (from u in usuarios
+                                           join usual in alumnos on u.ID equals usual.IDAlumno
+                                           join cur in cursos on usual.IDCurso equals cur.ID
+                                           join mat in materias on cur.IDMateria equals mat.ID
+                                           join comi in comisiones on cur.IDComision equals comi.ID
+                                           where u.ID == UsuarioID
+                                           select (usual, u.Nombre, u.Apellido, mat.DescMateria, comi.DescComision)).ToList();
+
+                            DataTable dataTable1 = new DataTable();
+                            dataTable1.TableName = "Alumno_Inscripcion";
+                            dataTable1.Columns.Add("Nombre Alumno");
+                            dataTable1.Columns.Add("Apellido Alumno");
+                            dataTable1.Columns.Add("Materia");
+                            dataTable1.Columns.Add("Comision");
+                            dataTable1.Columns.Add("Condicion");
+                            dataTable1.Columns.Add("Nota");
+                            foreach (var ua in usu_alu)
+                            {
+                                dataTable1.Rows.Add(ua.Nombre, ua.Apellido, ua.DescMateria, ua.DescComision, ua.usual.Condicion, ua.usual.Nota);
+                            }
+
+                            this.dgvAlumnos_Inscipciones.DataSource = dataTable1;
+                            break;
+                        }
+
+                }
             }
             catch (FormatException)
             {
