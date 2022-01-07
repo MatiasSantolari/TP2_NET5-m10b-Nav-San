@@ -26,8 +26,82 @@ namespace UI.Desktop
         {
             try
             {
-                Alumnos_InscripcionesLogic alins = new Alumnos_InscripcionesLogic();
-                this.dgvAlumnos_Inscipciones.DataSource = alins.GetAll();
+                UsuarioLogic ul = new UsuarioLogic();
+                Persona per = ul.GetPersona(UsuarioID);
+                switch (per.TipoPersona)
+                {
+                     
+                    case Persona.TipoPersonas.Admin:
+                        {
+                            Alumnos_InscripcionesLogic ail = new Alumnos_InscripcionesLogic();
+                            UsuarioLogic usu = new UsuarioLogic();
+                            CursoLogic cl = new CursoLogic();
+                            MateriaLogic ml = new MateriaLogic();
+                            ComisionLogic com = new ComisionLogic();
+
+                            var usuarios = usu.GetAll();
+                            var alumnos = ail.GetAll();
+                            var cursos = cl.GetAll();
+                            var materias = ml.GetAll();
+                            var comisiones = com.GetAll();
+
+                            var usu_alu = (from u in usuarios
+                                            join usual in alumnos on u.ID equals usual.IDAlumno
+                                            join cur in cursos on usual.IDCurso equals cur.ID
+                                            join mat in materias on cur.IDMateria equals mat.ID
+                                            join comi in comisiones on cur.IDComision equals comi.ID
+                                            select (usual, u.Nombre, u.Apellido, mat.DescMateria, comi.DescComision)).ToList();
+
+                            DataTable dataTable1 = new DataTable();
+                            dataTable1.TableName = "Alumno_Inscripcion";
+                            dataTable1.Columns.Add("Nombre Alumno");
+                            dataTable1.Columns.Add("Apellido Alumno");
+                            dataTable1.Columns.Add("Materia");
+                            dataTable1.Columns.Add("Comision");
+                            dataTable1.Columns.Add("Condicion");
+                            dataTable1.Columns.Add("Nota");
+                            foreach (var ua in usu_alu)
+                            {
+                                dataTable1.Rows.Add(ua.Nombre, ua.Apellido, ua.DescMateria, ua.DescComision, ua.usual.Condicion, ua.usual.Nota);
+                            }
+
+                            this.dgvAlumnos_Inscipciones.DataSource = dataTable1;
+                            break;
+                        }
+                    case Persona.TipoPersonas.Docente:
+                        {
+                            Alumnos_InscripcionesLogic ail = new Alumnos_InscripcionesLogic();
+                            UsuarioLogic usu = new UsuarioLogic();
+                            var usuarios = usu.GetAll();
+                            var alumnos = ail.GetAll();
+                            var usu_alu = (from u in usuarios
+                                            join usual in alumnos on u.ID equals usual.IDAlumno
+                                            select (usual, u.Nombre, u.Apellido)).ToList();
+
+                            DataTable dataTable1 = new DataTable();
+                            dataTable1.TableName = "Alumno_Inscripcion";
+                            dataTable1.Columns.Add("Nombre Alumno");
+                            dataTable1.Columns.Add("Apellido Alumno");
+                            dataTable1.Columns.Add("Condicion");
+                            dataTable1.Columns.Add("Nota");
+                            foreach (var ua in usu_alu)
+                            {
+                                dataTable1.Rows.Add(ua.Nombre, ua.Apellido, ua.usual.Condicion, ua.usual.Nota);
+                            }
+
+                            this.dgvAlumnos_Inscipciones.DataSource = dataTable1;
+                            break;
+                        }
+                    /*case Persona.TipoPersonas.Alumno:
+                        {
+                            Alumnos_InscripcionesLogic ail = new Alumnos_InscripcionesLogic();
+                            this.dgvAlumnos_Inscipciones.DataSource = ail.getCursosInscripto(Program.usuarioLog.ID);
+                            break;
+                        }*/
+
+                }
+                /* Alumnos_InscripcionesLogic alins = new Alumnos_InscripcionesLogic();
+                 this.dgvAlumnos_Inscipciones.DataSource = alins.GetAll();*/
             }
             catch (FormatException fe)
             {
