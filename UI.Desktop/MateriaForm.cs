@@ -24,8 +24,48 @@ namespace UI.Desktop
         }
         public void Listar()
         {
-            MateriaLogic ul = new MateriaLogic();
-            this.dgvMaterias.DataSource = ul.GetAll();
+            // MateriaLogic ul = new MateriaLogic();
+            // this.dgvMaterias.DataSource = ul.GetAll();
+
+
+            try
+            {
+
+                MateriaLogic mat = new MateriaLogic();
+                PlanLogic pla = new PlanLogic();
+
+
+                var materias = mat.GetAll();
+                var planes = pla.GetAll();
+
+                var mater = (from m in materias
+                             join p in planes on m.IdPlan equals p.ID
+                             select (m, p.DescPlan)).ToList();
+
+                DataTable dataTable1 = new DataTable();
+                dataTable1.TableName = "Materias";
+                dataTable1.Columns.Add("DescMateria");
+                dataTable1.Columns.Add("HsSemanales");
+                dataTable1.Columns.Add("HsTotales");
+                dataTable1.Columns.Add("DescPlan");
+                foreach (var ma in mater)
+                {
+                    dataTable1.Rows.Add(ma.m.DescMateria, ma.m.HsSemanales, ma.m.HsTotales, ma.DescPlan);
+                }
+                
+                var dtResultado = dataTable1.Rows.Cast<DataRow>().Where(row => !Array.TrueForAll(row.ItemArray, value => { return value.ToString().Length == 0; }));
+                dataTable1 = dtResultado.CopyToDataTable();
+
+                this.dgvMaterias.DataSource = dataTable1;
+            }
+            catch (FormatException fe)
+            {
+                MessageBox.Show("Error al recuperar las materias");
+                Exception ExcepcionManejada = new Exception("Error al recuperar las materias", fe);
+                throw ExcepcionManejada;
+            }
+
+
         }
         private void MateriasForm_Load(object sender, EventArgs e)
         {
