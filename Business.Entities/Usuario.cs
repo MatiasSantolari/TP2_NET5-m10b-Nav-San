@@ -14,6 +14,20 @@ namespace Business.Entities
         private string _apellido;
         private string _email;
         private bool _habilitado;
+        private int _id_persona;
+        
+        public int IdPersona
+        {
+            get
+            {
+                return _id_persona;
+            }
+            set
+            {
+                _id_persona = value;
+            }
+        }
+
 
         public string NombreUsuario
         {
