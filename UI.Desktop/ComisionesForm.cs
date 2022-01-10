@@ -32,19 +32,21 @@ namespace UI.Desktop
 
             var compl = (from c in comisiones
                          join p in planes on c.IDPlan equals p.ID
-                         select(c.DescComision, c.AnioEspecialidad, p.DescPlan)).ToList();
+                         select(c.ID, c.DescComision, c.AnioEspecialidad, p.DescPlan)).ToList();
 
             DataTable dataTable = new DataTable();
             dataTable.TableName = "Comision";
+            dataTable.Columns.Add("ID");
             dataTable.Columns.Add("Descripcion");
             dataTable.Columns.Add("Anio");
             dataTable.Columns.Add("Plan");
             foreach (var c in compl)
             {
-                dataTable.Rows.Add(c.DescComision, c.AnioEspecialidad, c.DescPlan);
+                dataTable.Rows.Add(c.ID, c.DescComision, c.AnioEspecialidad, c.DescPlan);
             }
 
             this.dgvComisiones.DataSource = dataTable;
+            dgvComisiones.AllowUserToAddRows = false;
         }
         private void Lista()
         {
@@ -102,18 +104,22 @@ namespace UI.Desktop
 
         private void tsbEditar_Click(object sender, EventArgs e)
         {
-            int id = ((Comision)this.dgvComisiones.SelectedRows[0].DataBoundItem).ID;
-            ComisionesDesktop us = new ComisionesDesktop(id, ModoForm.Modificacion);
-            us.ShowDialog();
-            Lista();
+            int ind = dgvComisiones.SelectedCells[0].RowIndex;
+            DataGridViewRow dataGridViewRow = dgvComisiones.Rows[ind];
+            int ID = Convert.ToInt32(dataGridViewRow.Cells["ID"].Value);
+            ComisionesDesktop editar = new ComisionesDesktop(ID, ModoForm.Modificacion);
+            editar.ShowDialog();
+            this.Lista();
         }
 
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
-            int id = ((Comision)this.dgvComisiones.SelectedRows[0].DataBoundItem).ID;
-            ComisionesDesktop us = new ComisionesDesktop(id, ModoForm.Baja);
-            us.ShowDialog();
-            Lista();
+            int ind = dgvComisiones.SelectedCells[0].RowIndex;
+            DataGridViewRow dataGridViewRow = dgvComisiones.Rows[ind];
+            int ID = Convert.ToInt32(dataGridViewRow.Cells["ID"].Value);
+            ComisionesDesktop editar = new ComisionesDesktop(ID, ModoForm.Baja);
+            editar.ShowDialog();
+            this.Lista();
         }
     }
 }

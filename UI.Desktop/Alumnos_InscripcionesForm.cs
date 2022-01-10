@@ -67,6 +67,7 @@ namespace UI.Desktop
                             }
 
                             this.dgvAlumnos_Inscipciones.DataSource = dataTable1;
+                            dgvAlumnos_Inscipciones.AllowUserToAddRows = false;
                             break;
                         }
                     case Persona.TipoPersonas.Alumno:
@@ -107,6 +108,7 @@ namespace UI.Desktop
                             }
 
                             this.dgvAlumnos_Inscipciones.DataSource = dataTable1;
+                            dgvAlumnos_Inscipciones.AllowUserToAddRows = false;
                             break;
                         }
 

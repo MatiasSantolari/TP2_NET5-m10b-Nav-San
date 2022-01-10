@@ -56,10 +56,11 @@ namespace UI.Desktop
                 var cur = (from c in cursos
                            join m in materias on c.IDMateria equals m.ID
                            join com in comisiones on c.IDComision equals com.ID
-                           select (m.DescMateria, com.DescComision, c.AnioCalendario, c.Cupo)).ToList();
+                           select (c.ID ,m.DescMateria, com.DescComision, c.AnioCalendario, c.Cupo)).ToList();
 
                 DataTable dataTable = new DataTable();
                 dataTable.TableName = "Curso";
+                dataTable.Columns.Add("ID");
                 dataTable.Columns.Add("Materia");
                 dataTable.Columns.Add("Comision");
                 dataTable.Columns.Add("Anio");
@@ -67,11 +68,11 @@ namespace UI.Desktop
 
                 foreach(var c in cur)
                 {
-                    dataTable.Rows.Add(c.DescMateria, c.DescComision, c.AnioCalendario, c.Cupo);
+                    dataTable.Rows.Add(c.ID, c.DescMateria, c.DescComision, c.AnioCalendario, c.Cupo);
                 }
 
                 this.dgvCursos.DataSource = dataTable;
-
+                dgvCursos.AllowUserToAddRows = false;
 
             }
             catch (FormatException fe)
@@ -103,17 +104,21 @@ namespace UI.Desktop
 
         private void tsbEditar_Click(object sender, EventArgs e)
         {
-            int id = ((Curso)this.dgvCursos.SelectedRows[0].DataBoundItem).ID;
-            CursosDesktop us = new CursosDesktop(id, ModoForm.Modificacion);
-            us.ShowDialog();
+            int ind = dgvCursos.SelectedCells[0].RowIndex;
+            DataGridViewRow dataGridViewRow = dgvCursos.Rows[ind];
+            int ID = Convert.ToInt32(dataGridViewRow.Cells["ID"].Value);
+            CursosDesktop editar = new CursosDesktop(ID, ModoForm.Modificacion);
+            editar.ShowDialog();
             this.Lista();
         }
 
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
-            int id = ((Curso)this.dgvCursos.SelectedRows[0].DataBoundItem).ID;
-            CursosDesktop us = new CursosDesktop(id, ModoForm.Baja);
-            us.ShowDialog();
+            int ind = dgvCursos.SelectedCells[0].RowIndex;
+            DataGridViewRow dataGridViewRow = dgvCursos.Rows[ind];
+            int ID = Convert.ToInt32(dataGridViewRow.Cells["ID"].Value);
+            CursosDesktop eliminar = new CursosDesktop(ID, ModoForm.Baja);
+            eliminar.ShowDialog();
             this.Lista();
         }
 

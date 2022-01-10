@@ -181,6 +181,7 @@ namespace UI.Desktop
             this.ID.HeaderText = "ID";
             this.ID.MinimumWidth = 8;
             this.ID.Name = "ID";
+            this.ID.Visible = false;
             this.ID.Width = 150;
             // 
             // NombreAlumno
