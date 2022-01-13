@@ -16,7 +16,7 @@ namespace Business.Entities
         private bool _habilitado;
         private int _id_persona;
         
-        public int IdPersona
+        public int IDPersona
         {
             get
             {

@@ -100,7 +100,7 @@ namespace UI.Desktop
 
                     var pers = (from p in personas
                                 join pl in planes on p.IdPlan equals pl.ID
-                                where p.ID = per.ID
+                                where p.ID == per.ID
                                 select (p, pl.DescPlan)).ToList();
 
                     DataTable dataTable1 = new DataTable();
@@ -117,7 +117,7 @@ namespace UI.Desktop
                     dataTable1.Columns.Add("DescPlan");
                     foreach (var perso in pers)
                     {
-                        dataTable1.Rows.Add(perso.pe.ID, perso.pe.Nombre, perso.pe.Apellido, perso.pe.Direccion, perso.pe.Email, perso.pe.Telefono, perso.pe.FechaNac, perso.pe.Legajo, perso.pe.TipoPersona, perso.DescPlan);
+                        dataTable1.Rows.Add(perso.p.ID, perso.p.Nombre, perso.p.Apellido, perso.p.Direccion, perso.p.Email, perso.p.Telefono, perso.p.FechaNac, perso.p.Legajo, perso.p.TipoPersona, perso.DescPlan);
                     }
 
                     this.dgvPersonas.DataSource = dataTable1;
