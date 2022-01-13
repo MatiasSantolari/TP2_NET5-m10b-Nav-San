@@ -124,5 +124,53 @@ namespace UI.Desktop
                 lblEspecialidad.Visible = false;
             }
         }
+
+        private void materiasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MateriaForm m = new MateriaForm(UsuarioID);
+            m.ShowDialog();
+        }
+
+        private void planesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PlanForm p = new PlanForm(UsuarioID);
+            p.ShowDialog();
+        }
+
+        private void inscripcionesAlumnosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Alumnos_InscripcionesForm a = new Alumnos_InscripcionesForm(UsuarioID);
+            a.ShowDialog();
+        }
+
+        private void cursosDocentesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Docentes_CursosForm d = new Docentes_CursosForm(UsuarioID);
+            d.ShowDialog();
+        }
+
+        private void cursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CursosForm c = new CursosForm(UsuarioID);
+            c.ShowDialog();
+        }
+
+        private void comisionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ComisionesForm c = new ComisionesForm(UsuarioID);
+            c.ShowDialog();
+        }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UsuariosForm u = new UsuariosForm(UsuarioID);
+            u.ShowDialog();
+        }
+
+        private void personasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PersonaForm P = new PersonaForm(UsuarioID);
+            P.ShowDialog();
+        }
     }
 }

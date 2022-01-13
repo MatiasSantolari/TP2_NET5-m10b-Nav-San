@@ -132,6 +132,7 @@ namespace UI.Web
         {
             usuario.Nombre = this.nombreUsuarioTextBox.Text;
             usuario.NombreUsuario = this.nombreUsuarioTextBox.Text;
+            usuario.Nombre = this.nombreUsuarioTextBox.Text;
             usuario.Clave = this.claveTextBox.Text;
             usuario.Habilitado = this.HabilitadoCheckBox.Checked;
         }

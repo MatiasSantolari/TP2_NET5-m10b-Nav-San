@@ -15,8 +15,8 @@ namespace Business.Entities
         private string _email;
         private bool _habilitado;
         private int _id_persona;
-
-        public int IDPersona
+        
+        public int IdPersona
         {
             get
             {
@@ -27,6 +27,8 @@ namespace Business.Entities
                 _id_persona = value;
             }
         }
+
+
         public string NombreUsuario
         {
             get

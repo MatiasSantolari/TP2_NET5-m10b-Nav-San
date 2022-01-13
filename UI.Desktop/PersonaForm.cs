@@ -23,7 +23,7 @@ namespace UI.Desktop
         }
         public void Listar()
         {
-            try
+            /*try
             {
                 UsuarioLogic ul = new UsuarioLogic();
                 Persona per = ul.GetPersona(UsuarioID);
@@ -51,11 +51,102 @@ namespace UI.Desktop
                 MessageBox.Show("Error al recuperar la lista de personas");
                 Exception ExcepcionManejada = new Exception("Error al recuperar lista de personas", fe);
                 throw ExcepcionManejada;
+            }*/
+
+            try
+            {
+                UsuarioLogic ul = new UsuarioLogic();
+                Persona per = ul.GetPersona(UsuarioID);
+                if (per.TipoPersona.ToString() == "Admin")
+                {
+                    PlanLogic pla = new PlanLogic();
+                    PersonaLogic ple = new PersonaLogic();
+
+
+                    var personas = ple.GetAll();
+                    var planes = pla.GetAll();
+
+                    var pers = (from pe in personas
+                                join pl in planes on pe.IdPlan equals pl.ID
+                                select (pe, pl.DescPlan)).ToList();
+
+                    DataTable dataTable1 = new DataTable();
+                    dataTable1.TableName = "Personas";
+                    dataTable1.Columns.Add("ID");
+                    dataTable1.Columns.Add("Nombre");
+                    dataTable1.Columns.Add("Apellido");
+                    dataTable1.Columns.Add("Direccion");
+                    dataTable1.Columns.Add("Email");
+                    dataTable1.Columns.Add("Telefono");
+                    dataTable1.Columns.Add("FechaNac");
+                    dataTable1.Columns.Add("Legajo");
+                    dataTable1.Columns.Add("TipoPersona");
+                    dataTable1.Columns.Add("DescPlan");
+                    foreach (var perso in pers)
+                    {
+                        dataTable1.Rows.Add(perso.pe.ID, perso.pe.Nombre, perso.pe.Apellido, perso.pe.Direccion, perso.pe.Email, perso.pe.Telefono, perso.pe.FechaNac, perso.pe.Legajo, perso.pe.TipoPersona, perso.DescPlan);
+                    }
+
+                    this.dgvPersonas.DataSource = dataTable1;
+                    dgvPersonas.AllowUserToAddRows = false;
+                }
+                else
+                {
+                    PlanLogic pla = new PlanLogic();
+                    PersonaLogic pel = new PersonaLogic();
+
+                    var planes = pla.GetAll();
+                    var personas = pel.GetAll();
+
+                    var pers = (from p in personas
+                                join pl in planes on p.IdPlan equals pl.ID
+                                where p.ID = per.ID
+                                select (p, pl.DescPlan)).ToList();
+
+                    DataTable dataTable1 = new DataTable();
+                    dataTable1.TableName = "Personas";
+                    dataTable1.Columns.Add("ID");
+                    dataTable1.Columns.Add("Nombre");
+                    dataTable1.Columns.Add("Apellido");
+                    dataTable1.Columns.Add("Direccion");
+                    dataTable1.Columns.Add("Email");
+                    dataTable1.Columns.Add("Telefono");
+                    dataTable1.Columns.Add("FechaNac");
+                    dataTable1.Columns.Add("Legajo");
+                    dataTable1.Columns.Add("TipoPersona");
+                    dataTable1.Columns.Add("DescPlan");
+                    foreach (var perso in pers)
+                    {
+                        dataTable1.Rows.Add(perso.pe.ID, perso.pe.Nombre, perso.pe.Apellido, perso.pe.Direccion, perso.pe.Email, perso.pe.Telefono, perso.pe.FechaNac, perso.pe.Legajo, perso.pe.TipoPersona, perso.DescPlan);
+                    }
+
+                    this.dgvPersonas.DataSource = dataTable1;
+                    dgvPersonas.AllowUserToAddRows = false;
+                }
+            }
+            catch (FormatException fe)
+            {
+                MessageBox.Show("Error al recuperar las Personas");
+                Exception ExcepcionManejada = new Exception("Error al recuperar las Personas", fe);
+                throw ExcepcionManejada;
             }
         }
         private void Lista()
         {
-            this.Listar();
+            UsuarioLogic ul = new UsuarioLogic();
+            Persona per = ul.GetPersona(UsuarioID);
+            if (per.TipoPersona.ToString() == "Admin")
+            {
+                this.Listar();
+            }
+            else
+            {
+                this.Listar();
+                tsbNuevo.Visible = false;
+                tsbEditar.Visible = false;
+                tsbEliminar.Visible = false;
+
+            }
         }
 
         private void tsbNuevo_Click(object sender, EventArgs e)
@@ -82,17 +173,21 @@ namespace UI.Desktop
 
         private void tsbEditar_Click(object sender, EventArgs e)
         {
-            int id = ((Business.Entities.Persona)this.dgvPersonas.SelectedRows[0].DataBoundItem).ID;
-            PersonaDesktop per = new PersonaDesktop(id, ModoForm.Modificacion);
-            per.ShowDialog();
+            int ind = dgvPersonas.SelectedCells[0].RowIndex;
+            DataGridViewRow dataGridViewRow = dgvPersonas.Rows[ind];
+            int ID = Convert.ToInt32(dataGridViewRow.Cells["ID"].Value);
+            PersonaDesktop editar = new PersonaDesktop(ID, ModoForm.Modificacion);
+            editar.ShowDialog();
             this.Lista();
         }
 
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
-            int id = ((Business.Entities.Persona)this.dgvPersonas.SelectedRows[0].DataBoundItem).ID;
-            PersonaDesktop per = new PersonaDesktop(id, ModoForm.Baja);
-            per.ShowDialog();
+            int ind = dgvPersonas.SelectedCells[0].RowIndex;
+            DataGridViewRow dataGridViewRow = dgvPersonas.Rows[ind];
+            int ID = Convert.ToInt32(dataGridViewRow.Cells["ID"].Value);
+            PersonaDesktop editar = new PersonaDesktop(ID, ModoForm.Baja);
+            editar.ShowDialog();
             this.Lista();
         }
     }
