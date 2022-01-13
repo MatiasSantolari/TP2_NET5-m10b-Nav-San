@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Business.Entities;
 using Business.Logic;
+using System.Data;
 
 namespace UI.Web
 {
@@ -39,12 +40,32 @@ namespace UI.Web
 
         private void LoadGrid()
         {
-            PlanLogic plan = new PlanLogic();
-            this.gridView.DataSource = this.Logic.GetAll();
+            ComisionLogic cl = new ComisionLogic();
+            PlanLogic pl = new PlanLogic();
+
+            var comisiones = cl.GetAll();
+            var planes = pl.GetAll();
+
+            var compl = (from c in comisiones
+                         join p in planes on c.IDPlan equals p.ID
+                         select (c.ID, c.DescComision, c.AnioEspecialidad, p.DescPlan)).ToList();
+
+            DataTable dataTable = new DataTable();
+            dataTable.TableName = "Comision";
+            dataTable.Columns.Add("ID");
+            dataTable.Columns.Add("Descripcion");
+            dataTable.Columns.Add("Anio");
+            dataTable.Columns.Add("Plan");
+            foreach (var c in compl)
+            {
+                dataTable.Rows.Add(c.ID, c.DescComision, c.AnioEspecialidad, c.DescPlan);
+            }
+
+            this.gridView.DataSource = dataTable;
             this.gridView.DataBind();
             if (this.planDropDown.Items.Count == 1)
             {
-                this.planDropDown.DataSource = plan.GetAll();
+                this.planDropDown.DataSource = pl.GetAll();
                 this.planDropDown.DataTextField = "DescPlan";
                 this.planDropDown.DataValueField = "ID";
                 this.planDropDown.DataBind();
@@ -79,7 +100,7 @@ namespace UI.Web
 
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.SelectedID = (int)this.gridView.SelectedValue;
+            this.SelectedID = int.Parse((string)this.gridView.SelectedValue);
         }
 
         private int SelectedID

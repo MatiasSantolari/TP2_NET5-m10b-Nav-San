@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 
 namespace UI.Web
 {
@@ -53,27 +54,49 @@ namespace UI.Web
 
         private void LoadGrid()
         {
-            MateriaLogic materia = new MateriaLogic();
-            ComisionLogic comision = new ComisionLogic();
+            CursoLogic ul = new CursoLogic();
+            MateriaLogic ml = new MateriaLogic();
+            ComisionLogic cl = new ComisionLogic();
 
-            this.gridView.DataSource = this.Logic.GetAll();
+            var cursos = ul.GetAll();
+            var materias = ml.GetAll();
+            var comisiones = cl.GetAll();
+
+            var cur = (from c in cursos
+                       join m in materias on c.IDMateria equals m.ID
+                       join com in comisiones on c.IDComision equals com.ID
+                       select (c.ID, m.DescMateria, com.DescComision, c.AnioCalendario, c.Cupo)).ToList();
+
+            DataTable dataTable = new DataTable();
+            dataTable.TableName = "Curso";
+            dataTable.Columns.Add("ID");
+            dataTable.Columns.Add("Materia");
+            dataTable.Columns.Add("Comision");
+            dataTable.Columns.Add("Anio");
+            dataTable.Columns.Add("Cupo");
+
+            foreach (var c in cur)
+            {
+                dataTable.Rows.Add(c.ID, c.DescMateria, c.DescComision, c.AnioCalendario, c.Cupo);
+            }
+
+            this.gridView.DataSource = dataTable;
             this.gridView.DataBind();
 
             if (this.MateriaDropDown.Items.Count == 1)
             {
-                this.MateriaDropDown.DataSource = materia.GetAll();
+                this.MateriaDropDown.DataSource = ml.GetAll();
                 this.MateriaDropDown.DataTextField = "DescMateria";
                 this.MateriaDropDown.DataValueField = "ID";
                 this.MateriaDropDown.DataBind();
             }
             if (this.ComisionDropDown.Items.Count == 1)
             {
-                this.ComisionDropDown.DataSource = comision.GetAll();
+                this.ComisionDropDown.DataSource = cl.GetAll();
                 this.ComisionDropDown.DataTextField = "DescComision";
                 this.ComisionDropDown.DataValueField = "ID";
                 this.ComisionDropDown.DataBind();
             }
-
         }
 
         public enum FormModes
@@ -92,7 +115,7 @@ namespace UI.Web
 
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.SelectedID = (int)this.gridView.SelectedValue;
+            this.SelectedID = int.Parse((string)this.gridView.SelectedValue);
         }
 
 

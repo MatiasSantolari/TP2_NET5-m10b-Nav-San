@@ -42,12 +42,12 @@
                 <div align="center">
                 <asp:gridView ID="gridView" runat="server" AutoGenerateColumns="False" SelectedRowStyle-BackColor="Black"
                     SelectedRowStyle-ForeColor="White" DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" CssClass="table table-responsive-lg">
-                     <Columns>  
-                        <asp:BoundField HeaderText="Año Calendario" DataField="AnioCalendario" />
-                         <asp:BoundField HeaderText="Cupo" DataField="Cupo" />
-                        <asp:BoundField HeaderText="Comision" DataField="IDComision" />
-                         <asp:BoundField HeaderText="Materia" DataField="IDMateria" />
-                        <asp:CommandField SelectText="Seleccionar" ShowSelectButton="true" />
+                     <Columns> 
+                         <asp:BoundField HeaderText="Materia" DataField="Materia" />
+                         <asp:BoundField HeaderText="Comision" DataField="Comision" />
+                         <asp:BoundField HeaderText="Año Calendario" DataField="Anio" />
+                         <asp:BoundField HeaderText="Cupo" DataField="Cupo" />               
+                         <asp:CommandField SelectText="Seleccionar" ShowSelectButton="true" />
                     </Columns>
                     <SelectedRowStyle BackColor="Black" ForeColor="White" />
                 </asp:gridView>
