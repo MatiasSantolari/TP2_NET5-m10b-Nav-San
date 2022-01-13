@@ -42,8 +42,10 @@
             <asp:Panel ID="gridPanel" runat="server">
                 <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="False" SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="White" DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" CssClass="table table-responsive-lg">
                     <Columns>
-                        <asp:BoundField HeaderText="Alumno" DataField="IDAlumno" />
-                        <asp:BoundField HeaderText="Curso" DataField="IDCurso" />
+                        <asp:BoundField HeaderText="Nombre Alumno" DataField="Nombre Alumno" />
+                        <asp:BoundField HeaderText="Apellido Alumno" DataField="Apellido Alumno" />
+                        <asp:BoundField HeaderText="Materia" DataField="Materia" />
+                        <asp:BoundField HeaderText="Comision" DataField="Comision" />
                         <asp:BoundField HeaderText="Condicion" DataField="Condicion" />
                         <asp:BoundField HeaderText="Nota" DataField="Nota" />
                         <asp:CommandField SelectText="Seleccionar" ShowSelectButton="true" />
