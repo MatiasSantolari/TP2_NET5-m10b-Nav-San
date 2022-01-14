@@ -48,7 +48,7 @@
                         <asp:BoundField HeaderText="Descripcion" DataField="DescMateria" />
                         <asp:BoundField HeaderText="HS Semanales" DataField="HsSemanales" />
                         <asp:BoundField HeaderText="HS Totales" DataField="HsTotales" />
-                        <asp:BoundField HeaderText="Plan" DataField="IdPlan" />
+                        <asp:BoundField HeaderText="Plan" DataField="Plan" />
                         <asp:CommandField SelectText="Seleccionar" ShowSelectButton="true" />
                     </Columns>
                     <SelectedRowStyle BackColor="Black" ForeColor="White" />

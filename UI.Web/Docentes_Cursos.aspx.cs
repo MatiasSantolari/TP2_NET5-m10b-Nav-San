@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 
 
 namespace UI.Web
@@ -52,22 +53,103 @@ namespace UI.Web
 
         private void LoadGrid()
         {
-            PersonaLogic docente = new PersonaLogic();
-            CursoLogic curso = new CursoLogic();
+            PersonaLogic docentess = new PersonaLogic();
+            CursoLogic cl = new CursoLogic();
+            Persona per = (Persona)Session["USUARIO"];
 
-            this.gridView.DataSource = this.Logic.GetAll();
+            switch (per.TipoPersona)
+            {
+
+                case Persona.TipoPersonas.Admin:
+                    {
+                        Docente_CursoLogic dcl = new Docente_CursoLogic();
+                        UsuarioLogic usu = new UsuarioLogic();
+                        MateriaLogic ml = new MateriaLogic();
+                        ComisionLogic com = new ComisionLogic();
+
+                        var usuarios = usu.GetAll();
+                        var docentes = dcl.GetAll();
+                        var cursos = cl.GetAll();
+                        var materias = ml.GetAll();
+                        var comisiones = com.GetAll();
+
+                        var usu_doc = (from u in usuarios
+                                       join doc in docentes on u.IDPersona equals doc.IDDocente
+                                       join cur in cursos on doc.IDCurso equals cur.ID
+                                       join mat in materias on cur.IDMateria equals mat.ID
+                                       join comi in comisiones on cur.IDComision equals comi.ID
+                                       select (doc.ID, u.Nombre, u.Apellido, mat.DescMateria, comi.DescComision, doc.Cargo)).ToList();
+
+                        DataTable dataTable1 = new DataTable();
+                        dataTable1.TableName = "Alumno_Inscripcion";
+                        dataTable1.Columns.Add("ID");
+                        dataTable1.Columns.Add("Materia");
+                        dataTable1.Columns.Add("Comision");
+                        dataTable1.Columns.Add("Nombre Docente");
+                        dataTable1.Columns.Add("Apellido Docente");
+                        dataTable1.Columns.Add("Cargo");
+
+                        foreach (var d in usu_doc)
+                        {
+                            dataTable1.Rows.Add(d.ID, d.DescMateria, d.DescComision, d.Nombre, d.Apellido, d.Cargo);
+                        }
+
+                        this.gridView.DataSource = dataTable1;
+                        break;
+                    }
+                case Persona.TipoPersonas.Docente:
+                    {
+                        Docente_CursoLogic ail = new Docente_CursoLogic();
+                        UsuarioLogic usu = new UsuarioLogic();
+                        MateriaLogic ml = new MateriaLogic();
+                        ComisionLogic com = new ComisionLogic();
+
+
+                        var usuarios = usu.GetAll();
+                        var docentes = ail.GetAll();
+                        var cursos = cl.GetAll();
+                        var materias = ml.GetAll();
+                        var comisiones = com.GetAll();
+
+                        var usu_alu = (from u in usuarios
+                                       join doc in docentes on u.IDPersona equals doc.IDDocente
+                                       join cur in cursos on doc.IDCurso equals cur.ID
+                                       join mat in materias on cur.IDMateria equals mat.ID
+                                       join comi in comisiones on cur.IDComision equals comi.ID
+                                       where u.IDPersona == per.ID
+                                       select (doc, u.Nombre, u.Apellido, mat.DescMateria, comi.DescComision)).ToList();
+
+                        DataTable dataTable1 = new DataTable();
+                        dataTable1.TableName = "Docente_Curso";
+                        dataTable1.Columns.Add("ID");
+
+                        dataTable1.Columns.Add("Materia");
+                        dataTable1.Columns.Add("Comision");
+                        dataTable1.Columns.Add("Nombre Docente");
+                        dataTable1.Columns.Add("Apellido Docente");
+                        dataTable1.Columns.Add("Cargo");
+                        foreach (var ua in usu_alu)
+                        {
+                            dataTable1.Rows.Add(ua.doc.ID, ua.DescMateria, ua.DescComision, ua.Nombre, ua.Apellido, ua.doc.Cargo);
+                        }
+
+                        this.gridView.DataSource = dataTable1;
+                        break;
+                    }
+
+            }
             this.gridView.DataBind();
 
             if (this.DocenteDropDown.Items.Count == 1)
             {
-                this.DocenteDropDown.DataSource = docente.GetPersonasXTipo(Persona.TipoPersonas.Docente);
+                this.DocenteDropDown.DataSource = docentess.GetPersonasXTipo(Persona.TipoPersonas.Docente);
                 this.DocenteDropDown.DataTextField = "Legajo";
                 this.DocenteDropDown.DataValueField = "ID";
                 this.DocenteDropDown.DataBind();
             }
             if (this.CursoDropDown.Items.Count == 1)
             {
-                this.CursoDropDown.DataSource = curso.GetAll();
+                this.CursoDropDown.DataSource = cl.GetAll();
                 this.CursoDropDown.DataTextField = "ID";
                 this.CursoDropDown.DataValueField = "ID";
                 this.CursoDropDown.DataBind();
@@ -97,7 +179,7 @@ namespace UI.Web
 
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.SelectedID = (int)this.gridView.SelectedValue;
+            this.SelectedID = int.Parse((string)this.gridView.SelectedValue);
         }
 
 

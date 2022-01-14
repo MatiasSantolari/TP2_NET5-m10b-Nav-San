@@ -48,7 +48,7 @@ namespace UI.Desktop
                 dataTable1.Columns.Add("DescMateria");
                 dataTable1.Columns.Add("HsSemanales");
                 dataTable1.Columns.Add("HsTotales");
-                dataTable1.Columns.Add("DescPlan");
+                dataTable1.Columns.Add("Plan");
                 foreach (var ma in mater)
                 {
                     dataTable1.Rows.Add(ma.m.ID,ma.m.DescMateria, ma.m.HsSemanales, ma.m.HsTotales, ma.DescPlan);

@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Business.Entities;
 using Business.Logic;
+using System.Data;
 
 namespace UI.Web
 {
@@ -44,14 +45,37 @@ namespace UI.Web
 
         private void LoadGrid()
         {
-            PlanLogic plan = new PlanLogic();
+            MateriaLogic mat = new MateriaLogic();
+            PlanLogic pla = new PlanLogic();
 
-            this.gridView.DataSource = this.Logic.GetAll();
+
+            var materias = mat.GetAll();
+            var planes = pla.GetAll();
+
+            var mater = (from m in materias
+                         join p in planes on m.IdPlan equals p.ID
+                         select (m, p.DescPlan)).ToList();
+
+            DataTable dataTable1 = new DataTable();
+            dataTable1.TableName = "Materias";
+            dataTable1.Columns.Add("ID");
+            dataTable1.Columns.Add("DescMateria");
+            dataTable1.Columns.Add("HsSemanales");
+            dataTable1.Columns.Add("HsTotales");
+            dataTable1.Columns.Add("DescPlan");
+            foreach (var ma in mater)
+            {
+                dataTable1.Rows.Add(ma.m.ID, ma.m.DescMateria, ma.m.HsSemanales, ma.m.HsTotales, ma.DescPlan);
+            }
+
+            //var dtResultado = dataTable1.Rows.Cast<DataRow>().Where(row => !Array.TrueForAll(row.ItemArray, value => { return value.ToString().Length == 0; }));
+            //dataTable1 = dtResultado.CopyToDataTable();
+            this.gridView.DataSource = dataTable1;
             this.gridView.DataBind();
 
             if (this.planDropDown.Items.Count == 1)
             {
-                this.planDropDown.DataSource = plan.GetAll();
+                this.planDropDown.DataSource = pla.GetAll();
                 this.planDropDown.DataTextField = "DescPlan";
                 this.planDropDown.DataValueField = "ID";
                 this.planDropDown.DataBind();
@@ -102,7 +126,7 @@ namespace UI.Web
 
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.SelectedID = (int)this.gridView.SelectedValue;
+            this.SelectedID = int.Parse((string)this.gridView.SelectedValue);
 
         }
         private void LoadForm(int ID)
