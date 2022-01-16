@@ -56,11 +56,13 @@ namespace UI.Desktop
             // tcPlanes.ContentPanel
             // 
             this.tcPlanes.ContentPanel.Controls.Add(this.tlPlanes);
-            this.tcPlanes.ContentPanel.Size = new System.Drawing.Size(483, 268);
+            this.tcPlanes.ContentPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tcPlanes.ContentPanel.Size = new System.Drawing.Size(724, 418);
             this.tcPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcPlanes.Location = new System.Drawing.Point(0, 0);
+            this.tcPlanes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tcPlanes.Name = "tcPlanes";
-            this.tcPlanes.Size = new System.Drawing.Size(483, 293);
+            this.tcPlanes.Size = new System.Drawing.Size(724, 451);
             this.tcPlanes.TabIndex = 0;
             this.tcPlanes.Text = "toolStripContainer1";
             // 
@@ -78,11 +80,12 @@ namespace UI.Desktop
             this.tlPlanes.Controls.Add(this.btnActualizar, 0, 1);
             this.tlPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlPlanes.Location = new System.Drawing.Point(0, 0);
+            this.tlPlanes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tlPlanes.Name = "tlPlanes";
             this.tlPlanes.RowCount = 2;
             this.tlPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlPlanes.Size = new System.Drawing.Size(483, 268);
+            this.tlPlanes.Size = new System.Drawing.Size(724, 418);
             this.tlPlanes.TabIndex = 0;
             // 
             // dgvPlanes
@@ -94,17 +97,20 @@ namespace UI.Desktop
             this.Especialidad});
             this.tlPlanes.SetColumnSpan(this.dgvPlanes, 2);
             this.dgvPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvPlanes.Location = new System.Drawing.Point(3, 3);
+            this.dgvPlanes.Location = new System.Drawing.Point(4, 5);
+            this.dgvPlanes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvPlanes.Name = "dgvPlanes";
             this.dgvPlanes.ReadOnly = true;
-            this.dgvPlanes.Size = new System.Drawing.Size(477, 233);
+            this.dgvPlanes.RowHeadersWidth = 62;
+            this.dgvPlanes.Size = new System.Drawing.Size(716, 363);
             this.dgvPlanes.TabIndex = 0;
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(405, 242);
+            this.btnSalir.Location = new System.Drawing.Point(608, 378);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.Size = new System.Drawing.Size(112, 35);
             this.btnSalir.TabIndex = 2;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -113,9 +119,10 @@ namespace UI.Desktop
             // btnActualizar
             // 
             this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizar.Location = new System.Drawing.Point(321, 242);
+            this.btnActualizar.Location = new System.Drawing.Point(483, 378);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(78, 23);
+            this.btnActualizar.Size = new System.Drawing.Size(117, 35);
             this.btnActualizar.TabIndex = 1;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
@@ -124,13 +131,14 @@ namespace UI.Desktop
             // tsPlanes
             // 
             this.tsPlanes.Dock = System.Windows.Forms.DockStyle.None;
+            this.tsPlanes.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.tsPlanes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbNuevo,
             this.tsbEditar,
             this.tsbEliminar});
-            this.tsPlanes.Location = new System.Drawing.Point(3, 0);
+            this.tsPlanes.Location = new System.Drawing.Point(4, 0);
             this.tsPlanes.Name = "tsPlanes";
-            this.tsPlanes.Size = new System.Drawing.Size(81, 25);
+            this.tsPlanes.Size = new System.Drawing.Size(120, 33);
             this.tsPlanes.TabIndex = 0;
             // 
             // tsbNuevo
@@ -139,7 +147,7 @@ namespace UI.Desktop
             this.tsbNuevo.Image = ((System.Drawing.Image)(resources.GetObject("tsbNuevo.Image")));
             this.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbNuevo.Name = "tsbNuevo";
-            this.tsbNuevo.Size = new System.Drawing.Size(23, 22);
+            this.tsbNuevo.Size = new System.Drawing.Size(34, 28);
             this.tsbNuevo.Text = "toolStripButton1";
             this.tsbNuevo.ToolTipText = "Nuevo";
             this.tsbNuevo.Click += new System.EventHandler(this.tsbNuevo_Click);
@@ -150,7 +158,7 @@ namespace UI.Desktop
             this.tsbEditar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEditar.Image")));
             this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEditar.Name = "tsbEditar";
-            this.tsbEditar.Size = new System.Drawing.Size(23, 22);
+            this.tsbEditar.Size = new System.Drawing.Size(34, 28);
             this.tsbEditar.Text = "toolStripButton2";
             this.tsbEditar.ToolTipText = "Editar";
             this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
@@ -161,7 +169,7 @@ namespace UI.Desktop
             this.tsbEliminar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEliminar.Image")));
             this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEliminar.Name = "tsbEliminar";
-            this.tsbEliminar.Size = new System.Drawing.Size(23, 22);
+            this.tsbEliminar.Size = new System.Drawing.Size(34, 28);
             this.tsbEliminar.Text = "toolStripButton3";
             this.tsbEliminar.ToolTipText = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
@@ -170,29 +178,37 @@ namespace UI.Desktop
             // 
             this.ID.DataPropertyName = "ID";
             this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 8;
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            this.ID.Width = 150;
             // 
             // Descripcion
             // 
             this.Descripcion.DataPropertyName = "DescPlan";
             this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.MinimumWidth = 8;
             this.Descripcion.Name = "Descripcion";
             this.Descripcion.ReadOnly = true;
+            this.Descripcion.Width = 150;
             // 
             // Especialidad
             // 
             this.Especialidad.DataPropertyName = "DescEspecialidad";
             this.Especialidad.HeaderText = "Especialidad";
+            this.Especialidad.MinimumWidth = 8;
             this.Especialidad.Name = "Especialidad";
             this.Especialidad.ReadOnly = true;
+            this.Especialidad.Width = 150;
             // 
             // PlanForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(483, 293);
+            this.ClientSize = new System.Drawing.Size(724, 451);
             this.Controls.Add(this.tcPlanes);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "PlanForm";
             this.Text = "PlanForm";
             this.Load += new System.EventHandler(this.PlanForm_Load);

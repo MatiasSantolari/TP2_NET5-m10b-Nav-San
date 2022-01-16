@@ -58,11 +58,13 @@ namespace UI.Desktop
             // tcMaterias.ContentPanel
             // 
             this.tcMaterias.ContentPanel.Controls.Add(this.tlMaterias);
-            this.tcMaterias.ContentPanel.Size = new System.Drawing.Size(752, 321);
+            this.tcMaterias.ContentPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tcMaterias.ContentPanel.Size = new System.Drawing.Size(1128, 499);
             this.tcMaterias.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcMaterias.Location = new System.Drawing.Point(0, 0);
+            this.tcMaterias.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tcMaterias.Name = "tcMaterias";
-            this.tcMaterias.Size = new System.Drawing.Size(752, 346);
+            this.tcMaterias.Size = new System.Drawing.Size(1128, 532);
             this.tcMaterias.TabIndex = 0;
             this.tcMaterias.Text = "toolStripContainer1";
             // 
@@ -80,11 +82,12 @@ namespace UI.Desktop
             this.tlMaterias.Controls.Add(this.btnSalir, 1, 1);
             this.tlMaterias.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlMaterias.Location = new System.Drawing.Point(0, 0);
+            this.tlMaterias.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tlMaterias.Name = "tlMaterias";
             this.tlMaterias.RowCount = 2;
             this.tlMaterias.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlMaterias.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlMaterias.Size = new System.Drawing.Size(752, 321);
+            this.tlMaterias.Size = new System.Drawing.Size(1128, 499);
             this.tlMaterias.TabIndex = 0;
             // 
             // dgvMaterias
@@ -97,18 +100,21 @@ namespace UI.Desktop
             this.Hs_Totales,
             this.Plan});
             this.tlMaterias.SetColumnSpan(this.dgvMaterias, 2);
-            this.dgvMaterias.Location = new System.Drawing.Point(3, 3);
+            this.dgvMaterias.Location = new System.Drawing.Point(4, 5);
+            this.dgvMaterias.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvMaterias.Name = "dgvMaterias";
             this.dgvMaterias.ReadOnly = true;
-            this.dgvMaterias.Size = new System.Drawing.Size(746, 286);
+            this.dgvMaterias.RowHeadersWidth = 62;
+            this.dgvMaterias.Size = new System.Drawing.Size(1119, 428);
             this.dgvMaterias.TabIndex = 0;
             // 
             // btnActualizar
             // 
             this.btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnActualizar.Location = new System.Drawing.Point(593, 295);
+            this.btnActualizar.Location = new System.Drawing.Point(892, 459);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(75, 23);
+            this.btnActualizar.Size = new System.Drawing.Size(112, 35);
             this.btnActualizar.TabIndex = 1;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
@@ -116,9 +122,10 @@ namespace UI.Desktop
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(674, 295);
+            this.btnSalir.Location = new System.Drawing.Point(1012, 459);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.Size = new System.Drawing.Size(112, 35);
             this.btnSalir.TabIndex = 2;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -127,13 +134,14 @@ namespace UI.Desktop
             // tsMaterias
             // 
             this.tsMaterias.Dock = System.Windows.Forms.DockStyle.None;
+            this.tsMaterias.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.tsMaterias.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbNuevo,
             this.tsbEditar,
             this.tsbEliminar});
-            this.tsMaterias.Location = new System.Drawing.Point(3, 0);
+            this.tsMaterias.Location = new System.Drawing.Point(4, 0);
             this.tsMaterias.Name = "tsMaterias";
-            this.tsMaterias.Size = new System.Drawing.Size(81, 25);
+            this.tsMaterias.Size = new System.Drawing.Size(120, 33);
             this.tsMaterias.TabIndex = 0;
             // 
             // tsbNuevo
@@ -142,7 +150,7 @@ namespace UI.Desktop
             this.tsbNuevo.Image = ((System.Drawing.Image)(resources.GetObject("tsbNuevo.Image")));
             this.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbNuevo.Name = "tsbNuevo";
-            this.tsbNuevo.Size = new System.Drawing.Size(23, 22);
+            this.tsbNuevo.Size = new System.Drawing.Size(34, 28);
             this.tsbNuevo.Text = "toolStripButton1";
             this.tsbNuevo.ToolTipText = "Nuevo";
             this.tsbNuevo.Click += new System.EventHandler(this.tsbNuevo_Click);
@@ -153,7 +161,7 @@ namespace UI.Desktop
             this.tsbEditar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEditar.Image")));
             this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEditar.Name = "tsbEditar";
-            this.tsbEditar.Size = new System.Drawing.Size(23, 22);
+            this.tsbEditar.Size = new System.Drawing.Size(34, 28);
             this.tsbEditar.ToolTipText = "Editar";
             this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
             // 
@@ -163,7 +171,7 @@ namespace UI.Desktop
             this.tsbEliminar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEliminar.Image")));
             this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEliminar.Name = "tsbEliminar";
-            this.tsbEliminar.Size = new System.Drawing.Size(23, 22);
+            this.tsbEliminar.Size = new System.Drawing.Size(34, 28);
             this.tsbEliminar.Text = "toolStripButton1";
             this.tsbEliminar.ToolTipText = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
@@ -172,43 +180,55 @@ namespace UI.Desktop
             // 
             this.ID.DataPropertyName = "ID";
             this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 8;
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            this.ID.Width = 150;
             // 
             // Descripcion
             // 
             this.Descripcion.DataPropertyName = "DescMateria";
             this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.MinimumWidth = 8;
             this.Descripcion.Name = "Descripcion";
             this.Descripcion.ReadOnly = true;
+            this.Descripcion.Width = 150;
             // 
             // Hs_Semanales
             // 
             this.Hs_Semanales.DataPropertyName = "HsSemanales";
             this.Hs_Semanales.HeaderText = "Hs_Semanales";
+            this.Hs_Semanales.MinimumWidth = 8;
             this.Hs_Semanales.Name = "Hs_Semanales";
             this.Hs_Semanales.ReadOnly = true;
+            this.Hs_Semanales.Width = 150;
             // 
             // Hs_Totales
             // 
             this.Hs_Totales.DataPropertyName = "HsTotales";
             this.Hs_Totales.HeaderText = "Hs_Totales";
+            this.Hs_Totales.MinimumWidth = 8;
             this.Hs_Totales.Name = "Hs_Totales";
             this.Hs_Totales.ReadOnly = true;
+            this.Hs_Totales.Width = 150;
             // 
             // Plan
             // 
-            this.Plan.DataPropertyName = "DescPlan";
+            this.Plan.DataPropertyName = "Plan";
             this.Plan.HeaderText = "Plan";
+            this.Plan.MinimumWidth = 8;
             this.Plan.Name = "Plan";
             this.Plan.ReadOnly = true;
+            this.Plan.Width = 150;
             // 
             // MateriaForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 346);
+            this.ClientSize = new System.Drawing.Size(1128, 532);
             this.Controls.Add(this.tcMaterias);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MateriaForm";
             this.Text = "MateriaForm";
             this.Load += new System.EventHandler(this.MateriasForm_Load);
