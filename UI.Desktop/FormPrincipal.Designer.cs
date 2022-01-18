@@ -134,6 +134,7 @@ namespace UI.Desktop
             this.pbUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbUsuario.TabIndex = 1;
             this.pbUsuario.TabStop = false;
+            this.pbUsuario.Click += new System.EventHandler(this.pbUsuario_Click);
             // 
             // btnLogout
             // 
