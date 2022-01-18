@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Login;
 using Business.Logic;
 using Business.Entities;
 
@@ -77,6 +76,7 @@ namespace UI.Desktop
 
         private void FormPrincipal_Shown(object sender, EventArgs e)
         {
+            
             formLogin appLogin = new formLogin();
             if (appLogin.ShowDialog() != DialogResult.OK)
             {
@@ -171,6 +171,11 @@ namespace UI.Desktop
         {
             PersonaForm P = new PersonaForm(UsuarioID);
             P.ShowDialog();
+        }
+
+        private void pbUsuario_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

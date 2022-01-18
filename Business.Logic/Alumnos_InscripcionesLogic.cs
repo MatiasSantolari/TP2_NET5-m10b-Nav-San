@@ -61,7 +61,7 @@ namespace Business.Logic
             return Alumnos_InscripcionesData.GetCurso(idMateria, idComision);
         }
 
-        public bool ValidaInscripcion(Alumnos_Inscripciones ali)
+        /*public bool ValidaInscripcion(Alumnos_Inscripciones ali)
         {
             try
             {
@@ -82,7 +82,7 @@ namespace Business.Logic
                 Exception ExcepcionManejada = new Exception("Error al realizar la inscripción del alumno", ex);
                 throw ExcepcionManejada;
             }
-        }
+        }*/
     }
 }
 
