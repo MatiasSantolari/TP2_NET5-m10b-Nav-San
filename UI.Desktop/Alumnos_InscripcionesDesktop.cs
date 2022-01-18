@@ -82,6 +82,7 @@ namespace UI.Desktop
         {
             int idMateria, idComision;
             Alumnos_InscripcionesLogic ail = new Alumnos_InscripcionesLogic();
+            Validaciones val = new Validaciones();
 
             switch (Modo)
             {
@@ -108,7 +109,7 @@ namespace UI.Desktop
                     else 
                         { this.AlIActual.Nota = int.Parse(this.txtNota.Text); }
 
-                    if (ail.ValidaInscripcion(AlIActual) == true)
+                    if (val.ValidaInscripcion(AlIActual) == true)
                     {
                         CursoLogic cl = new CursoLogic();
                         cl.ActualizaCupo(cl.GetOne(AlIActual.IDCurso));

@@ -42,6 +42,13 @@ namespace UI.Web
                 return _cursologic;
             }
         }
+        
+        private Validaciones _val;
+        public Validaciones Val
+        {
+            get { if(_val == null) { _val = new Validaciones(); } return _val; }
+        }
+
 
         private Business.Entities.Alumnos_Inscripciones Entity { get; set; }
 
@@ -258,7 +265,7 @@ namespace UI.Web
             else
             { ali.Nota = int.Parse(this.notaTextBox.Text); }
 
-            if (Logic.ValidaInscripcion(ali) == true)
+            if (Val.ValidaInscripcion(ali) == true)
             {
                 CursoLogic cl = new CursoLogic();
                 cl.ActualizaCupo(cl.GetOne(ali.IDCurso));
