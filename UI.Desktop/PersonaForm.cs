@@ -186,8 +186,24 @@ namespace UI.Desktop
             int ind = dgvPersonas.SelectedCells[0].RowIndex;
             DataGridViewRow dataGridViewRow = dgvPersonas.Rows[ind];
             int ID = Convert.ToInt32(dataGridViewRow.Cells["ID"].Value);
-            PersonaDesktop editar = new PersonaDesktop(ID, ModoForm.Baja);
-            editar.ShowDialog();
+
+            UsuarioLogic us = new UsuarioLogic();
+
+            var usarios = us.GetAll();
+
+            var usu = (from c in usarios
+                       where c.IDPersona == ID
+                       select c.ID).ToList();
+
+            if (usu.Count == 0)
+            {
+                PersonaDesktop eliminar = new PersonaDesktop(ID, ModoForm.Baja);
+                eliminar.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("La persona está siendo utilizada en otros datos. Primero elimine sus dependencias.");
+            }
             this.Lista();
         }
     }

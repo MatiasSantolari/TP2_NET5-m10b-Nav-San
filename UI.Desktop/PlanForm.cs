@@ -123,8 +123,24 @@ namespace UI.Desktop
             int ind = dgvPlanes.SelectedCells[0].RowIndex;
             DataGridViewRow dataGridViewRow = dgvPlanes.Rows[ind];
             int ID = Convert.ToInt32(dataGridViewRow.Cells["ID"].Value);
-            PlanDesktop editar = new PlanDesktop(ID, ModoForm.Baja);
-            editar.ShowDialog();
+
+            MateriaLogic ml = new MateriaLogic();
+
+            var materias = ml.GetAll();
+
+            var mat = (from c in materias
+                       where c.IdPlan == ID
+                       select c.ID).ToList();
+
+            if (mat.Count == 0)
+            {
+                PlanDesktop eliminar = new PlanDesktop(ID, ModoForm.Baja);
+                eliminar.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("El plan está siendo utilizada en otros datos. Primero elimine sus dependencias.");
+            }
             this.Lista();
 
 

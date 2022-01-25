@@ -117,8 +117,24 @@ namespace UI.Desktop
             int ind = dgvComisiones.SelectedCells[0].RowIndex;
             DataGridViewRow dataGridViewRow = dgvComisiones.Rows[ind];
             int ID = Convert.ToInt32(dataGridViewRow.Cells["ID"].Value);
-            ComisionesDesktop editar = new ComisionesDesktop(ID, ModoForm.Baja);
-            editar.ShowDialog();
+
+            CursoLogic ul = new CursoLogic();
+
+            var cursos = ul.GetAll();
+
+            var cur = (from c in cursos
+                       where c.IDComision == ID
+                       select c.ID).ToList();
+
+            if (cur.Count == 0)
+            {
+                ComisionesDesktop eliminar = new ComisionesDesktop(ID, ModoForm.Baja);
+                eliminar.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("La comisión está siendo utilizada en otros datos. Primero elimine sus dependencias.");
+            }
             this.Lista();
         }
     }
