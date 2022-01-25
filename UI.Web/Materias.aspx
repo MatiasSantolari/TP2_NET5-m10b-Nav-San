@@ -21,10 +21,12 @@
 
     <h1 style="background-color:lightblue">Materias</h1>
 
+    <form id="form1" runat="server">
+
         <asp:Panel ID="Panel1" runat="server">
+            <asp:Button ID="btnReporteMaterias" runat="server" OnClick="btnReporteMaterias_Click" Text="Generar Reporte" Width="148px" />
             
         </asp:Panel>
-    <form id="form1" runat="server">
         <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal">
                 <Items>
                     <asp:MenuItem NavigateUrl="~/Home.aspx" Text="Home" Value="Home"></asp:MenuItem>
@@ -48,7 +50,7 @@
                         <asp:BoundField HeaderText="Descripcion" DataField="DescMateria" />
                         <asp:BoundField HeaderText="HS Semanales" DataField="HsSemanales" />
                         <asp:BoundField HeaderText="HS Totales" DataField="HsTotales" />
-                        <asp:BoundField HeaderText="Plan" DataField="Plan" />
+                        <asp:BoundField HeaderText="Plan" DataField="DescPlan" />
                         <asp:CommandField SelectText="Seleccionar" ShowSelectButton="true" />
                     </Columns>
                     <SelectedRowStyle BackColor="Black" ForeColor="White" />
@@ -57,6 +59,7 @@
             </div>
             <div class="form-group">
             <asp:Panel ID="formPanel" Visible="false" runat="server">
+                <br />
                 <asp:Label ID="descripcionLabel" runat="server" Text="Descripcion: "></asp:Label>
                 <asp:Label ID="Label1" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                 <asp:TextBox ID="descripcionTextBox" class="form-control" runat="server"></asp:TextBox>

@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Business.Entities;
 using Business.Logic;
 using System.Data;
+using Microsoft.Reporting.WebForms;
 
 namespace UI.Web
 {
@@ -264,5 +265,35 @@ namespace UI.Web
             this.gridView.SelectedIndex = -1;
             this.SelectedID = 0;
         }
+
+        protected void btnReporteMaterias_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/ReporteMaterias.aspx");
+
+            //ExportToPDF();
+        }
+        /*private void ExportToPDF()
+        {
+            string deviceInfo = "";
+            string[] streamIds;
+            string[] warnings;
+
+            string mimeType = string.Empty;
+            string encoding = string.Empty;
+            string extension = string.Empty;
+
+            ReportViewer viewer = new Microsoft.Reporting.WebForms.ReportViewer();
+            viewer.ProcessingMode = ProcessingMode.Local;
+            viewer.LocalReport.ReportPath = "ReportedeMaterias.rdlc";
+            MateriaLogic ml = new MateriaLogic();
+            viewer.LocalReport.DataSources.Add(new ReportDataSource("MateriasDS", ml.GetAll));
+
+            viewer.LocalReport.Render("PDF", deviceInfo, out mimeType, out encoding, out extension, out streamIds, out warnings);
+
+            string filename = @"C:\Users\Usuario\Downloads\ReporteMaterias.pdf";
+            File.WriteAllBytes(filename, bytes);
+            System.Diagnostics.Process.Start(filename);
+        }*/
+
     }
 }
