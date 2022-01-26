@@ -73,5 +73,74 @@ namespace Business.Logic
             }
         }
 
+
+        //Sin probar
+
+        public bool ValidaMail(String mail)
+        {
+            try
+            {
+                bool rta = new bool();
+                rta = mail.Contains("@") && mail.Contains(".com");
+                return rta;
+
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al validar el mail ingresado", ex);
+                throw ExcepcionManejada;
+            }
+        }
+
+        public bool ValidaFecha(String fecha)
+        {
+            /*esta validacion la pense asi: 
+             * primero el usuario ingresa el string y antes de convertirlo en datetime 
+             * validamos que el string tenga la forma que queremos
+            */
+
+            try 
+            {
+                DateTime i = new DateTime();
+                bool result = DateTime.TryParse(fecha, out i); //ahora i vale ese datetime
+                return result;
+
+                /*tambien podria validar mas que la sintaxis, ejemplo que la fecha ingresada 
+                sea mayor a la actual pero creo que eso no era siempre asi, veré si es 
+                necesario en algun momento y de ser el caso haré una validacion extra 
+                que ademas valide que la fecha sea posterior a hoy
+                */
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al validar la fecha ingresada", ex);
+                throw ExcepcionManejada;
+            }
+
+
+        }
+
+        public bool ValidaInteger(String nro)
+        {
+            /*esta validacion la pense asi: 
+             * primero el usuario ingresa el string y antes de convertirlo en int 
+             * validamos que el string tenga la forma que queremos
+            */
+
+            try
+            {
+                int i = new int();
+                bool result = int.TryParse(nro, out i); //ahora i vale ese nro
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al validar el numero ingresado", ex);
+                throw ExcepcionManejada;
+            }
+
+
+        }
+
     }
 }
