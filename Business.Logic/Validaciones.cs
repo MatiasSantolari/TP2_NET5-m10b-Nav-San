@@ -141,6 +141,27 @@ namespace Business.Logic
 
 
         }
+        public bool ValidaFloat(String nro)
+        {
+            /*esta validacion la pense asi: 
+             * primero el usuario ingresa el string y antes de convertirlo en float 
+             * validamos que el string tenga la forma que queremos
+            */
+
+            try
+            {
+                float i = new float();
+                bool result = float.TryParse(nro, out i); //ahora i vale ese nro
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al validar el numero ingresado", ex);
+                throw ExcepcionManejada;
+            }
+
+
+        }
 
     }
 }
