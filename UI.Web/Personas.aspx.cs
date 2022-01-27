@@ -97,7 +97,6 @@ namespace UI.Web
             this.fechaNacimientoTextBox.Text = persona.FechaNac.ToShortDateString();
             this.legajoTextBox.Text = persona.Legajo.ToString();
             this.planDropDown.SelectedValue = persona.IdPlan.ToString();
-
         }
 
         private void EnableForm(bool enable)
@@ -147,6 +146,8 @@ namespace UI.Web
 
 
             this.EnableForm(true);
+            this.aceptarLinkButton.Visible = true;
+            this.cancelarLinkButtom.Visible = true;
             this.FormMode = FormModes.modificacion;
             //this.LoadForm(AlumnoActual.ID);
 
@@ -158,21 +159,53 @@ namespace UI.Web
             { Label1.Visible = true; Label2.Visible = true; Label3.Visible = true; Label4.Visible = true; Label5.Visible = true; Label6.Visible = true; Label7.Visible = true; Label8.Visible = true; }
             else
             {
-                switch (this.FormMode)
+                Validaciones val = new Validaciones();
+                if(val.ValidaMail(this.emailTextBox.Text) && 
+                    val.ValidaInteger(this.legajoTextBox.Text)&&
+                    val.ValidaFecha(this.fechaNacimientoTextBox.Text))
+                //quizas falta validar que el telefono sea un bigint(seguramente)
+                //val.ValidaInteger(this.planDropDown.SelectedItem.Value) == true
                 {
-                    case FormModes.consulta:
-                        break;
-                    case FormModes.modificacion:
+                    this.lblValidacionLegajo.Visible = false;
+                    this.lblValidacionFecha.Visible = false;
+                    this.lblValidacionEmail.Visible = false;
+                    Label1.Visible = false; Label2.Visible = false; Label3.Visible = false;
+                    Label4.Visible = false; Label5.Visible = false; Label6.Visible = false;
+                    Label7.Visible = false; Label8.Visible = false;
+                    this.aceptarLinkButton.Visible = false;
+                    this.cancelarLinkButtom.Visible = false;
+                    switch (this.FormMode)
+                    {
+                        case FormModes.consulta:
+                            break;
+                        case FormModes.modificacion:
 
-                        //this.AlumnoActual.State = BusinessEntity.States.Modified;
-                        var persona = LoadEntity();
-                        persona.State = BusinessEntity.States.Modified;
-                        this.SaveEntity(persona);
-                        this.PersonaActual = persona;
-                        break;
+                            //this.AlumnoActual.State = BusinessEntity.States.Modified;
+                            var persona = LoadEntity();
+                            persona.State = BusinessEntity.States.Modified;
+                            this.SaveEntity(persona);
+                            this.PersonaActual = persona;
+                            this.aceptarLinkButton.Visible = false;
+                            this.cancelarLinkButtom.Visible = false;
+                            break;
 
 
+                    }
                 }
+                else
+                {
+                    if (val.ValidaMail(this.emailTextBox.Text)==false) { this.lblValidacionEmail.Visible = true; }
+                    else { this.lblValidacionEmail.Visible = false; }
+                    if (val.ValidaInteger(this.legajoTextBox.Text)==false) { this.lblValidacionLegajo.Visible = true; }
+                    else { this.lblValidacionLegajo.Visible = false; }
+                    if (val.ValidaFecha(this.fechaNacimientoTextBox.Text)==false) { this.lblValidacionFecha.Visible = true; }
+                    else { this.lblValidacionFecha.Visible = false; }
+                    EnableForm(true);
+                
+                }
+                    
+
+                
             }
 
             }
@@ -181,8 +214,19 @@ namespace UI.Web
         {
             LoadForm(PersonaActual.ID);
             EnableForm(false);
+            this.lblValidacionLegajo.Visible = false;
+            this.lblValidacionFecha.Visible = false;
+            this.lblValidacionEmail.Visible = false;
+            Label1.Visible = false; Label2.Visible = false; Label3.Visible = false; 
+            Label4.Visible = false; Label5.Visible = false; Label6.Visible = false; 
+            Label7.Visible = false; Label8.Visible = false;
+            this.aceptarLinkButton.Visible = false;
+            this.cancelarLinkButtom.Visible = false;
         }
 
-
+        protected void emailTextBox_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
