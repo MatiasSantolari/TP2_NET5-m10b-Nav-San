@@ -98,14 +98,17 @@ namespace UI.Desktop
                 //Docente_curso
                 pbCursosDoc.Visible = false;
                 labelCursDoc.Visible = false;
+                cursosDocentesToolStripMenuItem.Visible = false;
 
                 //cursos
                 pbCursos.Visible = false;
                 lblCursos.Visible = false;
+                cursosToolStripMenuItem.Visible = false;
 
                 //comisiones
                 pbComisiones.Visible = false;
                 lblComisiones.Visible = false;
+                comisionesToolStripMenuItem.Visible = false;
 
                 //especialidades
                 pbEspecialidad.Visible = false;
@@ -118,6 +121,7 @@ namespace UI.Desktop
                 //alumnos_insc
                 pbInsc.Visible = false;
                 lblInsc.Visible = false;
+                inscripcionesAlumnosToolStripMenuItem.Visible = false;
 
                 //especialidades
                 pbEspecialidad.Visible = false;
