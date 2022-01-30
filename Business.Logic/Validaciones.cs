@@ -226,6 +226,121 @@ namespace Business.Logic
                         break;
                     }
                 }
+
+                //las personas a las que consultaremos si estan usando el plan
+                PersonaLogic pl = new PersonaLogic();
+                List<Persona> listaPersonas = new List<Persona>();
+                listaPersonas = pl.GetAll();
+
+                foreach (var per in listaPersonas)
+                {
+                    if (per.IdPlan == p.ID)
+                    {
+                        rta = true;
+                        break;
+                    }
+                }
+                //vemos si aparecio alguna coincidencia o no
+                if (rta == false) { return false; }
+                else { return true; }
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("No se logró validar la integridad con la base de datos, intentelo mas tarde", ex);
+                throw ExcepcionManejada;
+            }
+        }
+
+        public bool ValidaBorradoMateria(Materia m)  //Materia
+        {
+            try
+            {
+                bool rta = false;
+                //los cursos a los que consultaremos si estan usando la materia
+                CursoLogic cl = new CursoLogic();
+                List<Curso> listaCursos = new List<Curso>();
+                listaCursos = cl.GetAll();
+
+                foreach (var cur in listaCursos)
+                {
+                    if (cur.IDMateria == m.ID)
+                    {
+                        rta = true;
+                        break;
+                    }
+                }
+                //vemos si aparecio alguna coincidencia o no
+                if (rta == false) { return false; }
+                else { return true; }
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("No se logró validar la integridad con la base de datos, intentelo mas tarde", ex);
+                throw ExcepcionManejada;
+            }
+        }
+
+        public bool ValidaBorradoCurso(Curso c)  //Curso
+        {
+            try
+            {
+                bool rta = false;
+                //las inscripciones de alumnos a las que consultaremos si estan usando el curso
+                Alumnos_InscripcionesLogic al = new Alumnos_InscripcionesLogic;
+                List<Alumnos_Inscripciones> listaAluIns = new List<Alumnos_Inscripciones>();
+                listaAluIns = al.GetAll();
+
+                foreach (var ai in listaAluIns)
+                {
+                    if (ai.IDCurso == c.ID)
+                    {
+                        rta = true;
+                        break;
+                    }
+                }
+
+                //los cursos de docentes a los que consultaremos si estan usando el curso
+                Docente_CursoLogic dl = new Docente_CursoLogic();
+                List<Docente_Curso> listaDocCur = new List<Docente_Curso>();
+                listaDocCur = dl.GetAll();
+
+                foreach (var dc in listaDocCur)
+                {
+                    if (dc.IDCurso == c.ID)
+                    {
+                        rta = true;
+                        break;
+                    }
+                }
+                //vemos si aparecio alguna coincidencia o no
+                if (rta == false) { return false; }
+                else { return true; }
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("No se logró validar la integridad con la base de datos, intentelo mas tarde", ex);
+                throw ExcepcionManejada;
+            }
+        }
+
+        public bool ValidaBorradoComision(Comision c)  //Comision
+        {
+            try
+            {
+                bool rta = false;
+                //los cursos a los que consultaremos si estan usando la comision
+                CursoLogic cl = new CursoLogic();
+                List<Curso> listaCursos = new List<Curso>();
+                listaCursos = cl.GetAll();
+
+                foreach (var cur in listaCursos)
+                {
+                    if (cur.IDComision == c.ID)
+                    {
+                        rta = true;
+                        break;
+                    }
+                }
                 //vemos si aparecio alguna coincidencia o no
                 if (rta == false) { return false; }
                 else { return true; }
