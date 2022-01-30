@@ -163,5 +163,79 @@ namespace Business.Logic
 
         }
 
+        // Validaciones con respecto a los Delete
+
+        public bool ValidaBorradoEspecialidad(Especialidad e)  //Especialidad
+        {
+            try
+            {
+                bool rta = false;
+                //los planes a los que consultaremos si estan usando la especialidad
+                PlanLogic pl = new PlanLogic();
+                List<Plan> listaPlan = new List<Plan>();
+                listaPlan = pl.GetAll();
+
+                foreach (var plan in listaPlan)
+                {
+                    if (plan.IdEspecialidad == e.ID)
+                    {
+                        rta=true;
+                        break;
+                    }
+                }
+                //vemos si aparecio alguna coincidencia o no
+                if (rta == false) { return false; }
+                else { return true; }
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("No se logró validar la integridad con la base de datos, intentelo mas tarde", ex);
+                throw ExcepcionManejada;
+            }
+        }
+
+        public bool ValidaBorradoPlan(Plan p)  //Plan
+        {
+            try
+            {
+                bool rta = false;
+                //las materias a las que consultaremos si estan usando el plan
+                MateriaLogic ml = new MateriaLogic();
+                List<Materia> listaMaterias = new List<Materia>();
+                listaMaterias = ml.GetAll();
+
+                foreach (var mat in listaMaterias)
+                {
+                    if (mat.IdPlan == p.ID)
+                    {
+                        rta = true;
+                        break;
+                    }
+                }
+
+                //las comisiones a las que consultaremos si estan usando el plan
+                ComisionLogic cl = new ComisionLogic();
+                List<Comision> listaComisiones = new List<Comision>();
+                listaComisiones = cl.GetAll();
+
+                foreach (var com in listaComisiones)
+                {
+                    if (com.IDPlan == p.ID)
+                    {
+                        rta = true;
+                        break;
+                    }
+                }
+                //vemos si aparecio alguna coincidencia o no
+                if (rta == false) { return false; }
+                else { return true; }
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("No se logró validar la integridad con la base de datos, intentelo mas tarde", ex);
+                throw ExcepcionManejada;
+            }
+        }
+
     }
 }
