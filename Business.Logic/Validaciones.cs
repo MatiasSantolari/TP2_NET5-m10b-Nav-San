@@ -352,5 +352,47 @@ namespace Business.Logic
             }
         }
 
+        public bool ValidaBorradoUsuario(Usuario u)  //Usuario
+        {
+            try
+            {
+                bool rta = false;
+                //los cursos de docentes a los que consultaremos si estan usando al usuario
+                Docente_CursoLogic dcl = new Docente_CursoLogic();
+                List<Docente_Curso> listaDocCur = new List<Docente_Curso>();
+                listaDocCur = dcl.GetAll();
+
+                foreach (var dc in listaDocCur)
+                {
+                    if (dc.IDDocente == u.ID)
+                    {
+                        rta = true;
+                        break;
+                    }
+                }
+                //las inscripciones de alumnos a los que consultaremos si estan usando al usuario
+                Alumnos_InscripcionesLogic ail = new Alumnos_InscripcionesLogic();
+                List<Alumnos_Inscripciones> listaAluIns = new List<Alumnos_Inscripciones>();
+                listaAluIns = ail.GetAll();
+
+                foreach (var ai in listaAluIns)
+                {
+                    if (ai.IDAlumno == u.ID)
+                    {
+                        rta = true;
+                        break;
+                    }
+                }
+                //vemos si aparecio alguna coincidencia o no
+                if (rta == false) { return false; }
+                else { return true; }
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("No se logró validar la integridad con la base de datos, intentelo mas tarde", ex);
+                throw ExcepcionManejada;
+            }
+        }
+
     }
 }
