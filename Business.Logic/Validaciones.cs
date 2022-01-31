@@ -286,7 +286,7 @@ namespace Business.Logic
             {
                 bool rta = false;
                 //las inscripciones de alumnos a las que consultaremos si estan usando el curso
-                Alumnos_InscripcionesLogic al = new Alumnos_InscripcionesLogic;
+                Alumnos_InscripcionesLogic al = new Alumnos_InscripcionesLogic();
                 List<Alumnos_Inscripciones> listaAluIns = new List<Alumnos_Inscripciones>();
                 listaAluIns = al.GetAll();
 

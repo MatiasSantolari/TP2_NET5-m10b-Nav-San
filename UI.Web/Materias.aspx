@@ -67,10 +67,12 @@
                 <asp:Label ID="hssemLabel" runat="server" Text="Hs Semanales: "></asp:Label>
                 <asp:Label ID="Label2" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                 <asp:TextBox ID="hssemTextBox" class="form-control" runat="server"></asp:TextBox>
+                <asp:Label ID="lblValidacionHsSem" runat="server" ForeColor="Red" Text="Cantidad de Horas Invalida" Visible="False"></asp:Label>
                 <br />
                 <asp:Label ID="hstotLabel" runat="server" Text="Hs Totales: "></asp:Label>
                 <asp:Label ID="Label3" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                 <asp:TextBox ID="hstotTextBox" class="form-control" runat="server"></asp:TextBox>
+                <asp:Label ID="lblValidacionHsTot" runat="server" ForeColor="Red" Text="Cantidad de Horas Invalida" Visible="False"></asp:Label>
                 <br />
 
                 <asp:Label ID="planLabel" runat="server" Text="Plan: "></asp:Label>
