@@ -190,7 +190,21 @@ namespace UI.Web
                 this.formActionPanel.Visible = true;
                 this.FormMode = FormModes.baja;
                 this.EnableForm(false);
-                this.LoadForm(this.SelectedID);
+
+                //
+                Validaciones val = new Validaciones();
+                PlanLogic pl = new PlanLogic();
+                Plan p = new Plan();
+                p = pl.GetOne(SelectedID);
+                if (val.ValidaBorradoPlan(p) == true) { ValidacionBorrado.Visible = true; }
+                else 
+                { 
+                    ValidacionBorrado.Visible = false;
+                    this.LoadForm(this.SelectedID);
+                }
+                //
+
+                
             }
         }
 
