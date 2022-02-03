@@ -143,6 +143,8 @@ namespace UI.Web
         {
             if (this.IsEntitySelected)
             {
+                lblValidacionHsSem.Visible = false;
+                lblValidacionHsTot.Visible = false;
                 this.EnableForm(true);
                 this.formPanel.Visible = true;
                 this.formActionPanel.Visible = true;
@@ -209,6 +211,11 @@ namespace UI.Web
                         default:
                             break;
                     }
+                    this.formPanel.Visible = false;
+                    this.formActionPanel.Visible = false;
+
+                    this.gridView.SelectedIndex = -1;
+                    this.SelectedID = 0;
                 }
                 else
                 {
@@ -221,11 +228,7 @@ namespace UI.Web
                 }
 
 
-                this.formPanel.Visible = false;
-                this.formActionPanel.Visible = false;
-
-                this.gridView.SelectedIndex = -1;
-                this.SelectedID = 0;
+                
             }
         }
 
@@ -242,6 +245,8 @@ namespace UI.Web
         {
             if (this.IsEntitySelected)
             {
+                lblValidacionHsSem.Visible = false;
+                lblValidacionHsTot.Visible = false;
                 this.formPanel.Visible = true;
                 this.formActionPanel.Visible = true;
                 this.FormMode = FormModes.baja;
@@ -263,6 +268,8 @@ namespace UI.Web
         }
         protected void nuevoLinkButton_Click(object sender, EventArgs e)
         {
+            lblValidacionHsSem.Visible = false;
+            lblValidacionHsTot.Visible = false;
             this.formPanel.Visible = true;
             this.formActionPanel.Visible = true;
             this.FormMode = FormModes.alta;

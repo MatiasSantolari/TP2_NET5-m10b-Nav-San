@@ -116,6 +116,7 @@ namespace UI.Web
         {
             if (this.IsEntitySelected)
             {
+                ValidacionBorrado.Visible = false;
                 this.EnableForm(true);
                 this.formPanel.Visible = true;
                 this.formActionPanel.Visible = true;
@@ -186,6 +187,7 @@ namespace UI.Web
         {
             if (this.IsEntitySelected)
             {
+                ValidacionBorrado.Visible = false;
                 this.formPanel.Visible = true;
                 this.formActionPanel.Visible = true;
                 this.FormMode = FormModes.baja;
@@ -221,6 +223,7 @@ namespace UI.Web
         }
         protected void nuevoLinkButton_Click(object sender, EventArgs e)
         {
+            ValidacionBorrado.Visible = false;
             this.formPanel.Visible = true;
             this.formActionPanel.Visible = true;
             this.FormMode = FormModes.alta;
