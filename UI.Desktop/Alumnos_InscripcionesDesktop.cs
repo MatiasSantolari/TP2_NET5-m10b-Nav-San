@@ -27,12 +27,6 @@ namespace UI.Desktop
             cbxMateria.DisplayMember = "DescMateria";
             cbxMateria.ValueMember = "ID";
 
-            /*
-            CursoLogic cl = new CursoLogic();
-            cbxComision.DataSource = cl.GetComisionesXMateria(1);
-            cbxComision.DisplayMember = "DescComision";
-            cbxComision.ValueMember = "ID";
-            */
         }
 
         public Alumnos_InscripcionesDesktop(ModoForm modo) : this()
@@ -57,6 +51,19 @@ namespace UI.Desktop
             this.txtID.Text = this.AlIActual.ID.ToString();
             this.txtCondicion.Text = this.AlIActual.Condicion.ToString();
             this.txtNota.Text = this.AlIActual.Nota.ToString();
+            this.cbxAlumno.SelectedValue = this.AlIActual.IDAlumno;
+            CursoLogic cl = new CursoLogic();
+            Curso c = cl.GetOne(AlIActual.IDCurso);
+            this.cbxMateria.SelectedValue = c.IDMateria;
+            List<Comision> com = cl.GetComisionesXMateria(c.IDMateria);
+            cbxComision.Enabled = true;
+            cbxComision.DataSource = com;
+            cbxComision.DisplayMember = "DescComision";
+            cbxComision.ValueMember = "ID";
+
+            this.cbxComision.SelectedValue = c.IDComision;
+            
+
             switch (Modo)
             {
                 case ModoForm.Alta:
@@ -117,6 +124,7 @@ namespace UI.Desktop
                     }
                     else
                     {
+                        MessageBox.Show("El alumno ya se encuentra inscripto a esta materia.");
                         AlIActual.State = BusinessEntity.States.Unmodified;
                     }
                     break;
@@ -135,7 +143,17 @@ namespace UI.Desktop
                     this.AlIActual.IDCurso = ail.GetCurso(idMateria, idComision).ID;
                     this.AlIActual.Nota = int.Parse(this.txtNota.Text);
                     this.AlIActual.Condicion = this.txtCondicion.Text;
-                    AlIActual.State = BusinessEntity.States.Modified;
+
+                    if (val.ValidaInscripcion(AlIActual) == true)
+                    {
+                        AlIActual.State = BusinessEntity.States.Modified;
+                    }
+                    else
+                    {
+                        MessageBox.Show("El alumno ya se encuentra inscripto a esta materia.");
+                        AlIActual.State = BusinessEntity.States.Unmodified;
+                    } 
+                    
                     break;
 
                 case ModoForm.Baja:
@@ -181,12 +199,22 @@ namespace UI.Desktop
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            bool b = this.Validar();
-            if (b == true)
+            Validaciones validaciones = new Validaciones();
+
+            if (validaciones.ValidaInteger(txtNota.Text) && int.Parse(txtNota.Text) >= 0 && int.Parse(txtNota.Text) < 11)
             {
-                this.GuardarCambios();
-                this.Close();
+                bool b = this.Validar();
+                if (b == true)
+                {
+                    this.GuardarCambios();
+                    this.Close();
+                }
             }
+            else
+            {
+                txtNota.ForeColor = Color.Red;
+            }
+            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

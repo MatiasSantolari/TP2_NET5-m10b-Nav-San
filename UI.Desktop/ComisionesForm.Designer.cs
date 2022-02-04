@@ -35,14 +35,14 @@ namespace UI.Desktop
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.dgvComisiones = new System.Windows.Forms.DataGridView();
-            this.tsComisiones = new System.Windows.Forms.ToolStrip();
-            this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
-            this.tsbEditar = new System.Windows.Forms.ToolStripButton();
-            this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripción = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Anio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tsComisiones = new System.Windows.Forms.ToolStrip();
+            this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
+            this.tsbEditar = new System.Windows.Forms.ToolStripButton();
+            this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.tcComisiones.ContentPanel.SuspendLayout();
             this.tcComisiones.TopToolStripPanel.SuspendLayout();
             this.tcComisiones.SuspendLayout();
@@ -124,6 +124,39 @@ namespace UI.Desktop
             this.dgvComisiones.Size = new System.Drawing.Size(794, 373);
             this.dgvComisiones.TabIndex = 2;
             // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 8;
+            this.ID.Name = "ID";
+            this.ID.Visible = false;
+            this.ID.Width = 150;
+            // 
+            // Descripción
+            // 
+            this.Descripción.DataPropertyName = "Descripcion";
+            this.Descripción.HeaderText = "Descripción";
+            this.Descripción.MinimumWidth = 8;
+            this.Descripción.Name = "Descripción";
+            this.Descripción.Width = 150;
+            // 
+            // Anio
+            // 
+            this.Anio.DataPropertyName = "Anio";
+            this.Anio.HeaderText = "Año";
+            this.Anio.MinimumWidth = 8;
+            this.Anio.Name = "Anio";
+            this.Anio.Width = 150;
+            // 
+            // Plan
+            // 
+            this.Plan.DataPropertyName = "Plan";
+            this.Plan.HeaderText = "Plan";
+            this.Plan.MinimumWidth = 8;
+            this.Plan.Name = "Plan";
+            this.Plan.Width = 150;
+            // 
             // tsComisiones
             // 
             this.tsComisiones.Dock = System.Windows.Forms.DockStyle.None;
@@ -170,39 +203,6 @@ namespace UI.Desktop
             this.tsbEliminar.ToolTipText = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 8;
-            this.ID.Name = "ID";
-            this.ID.Visible = false;
-            this.ID.Width = 150;
-            // 
-            // Descripción
-            // 
-            this.Descripción.DataPropertyName = "Descripcion";
-            this.Descripción.HeaderText = "Descripción";
-            this.Descripción.MinimumWidth = 8;
-            this.Descripción.Name = "Descripción";
-            this.Descripción.Width = 150;
-            // 
-            // Anio
-            // 
-            this.Anio.DataPropertyName = "Anio";
-            this.Anio.HeaderText = "Año";
-            this.Anio.MinimumWidth = 8;
-            this.Anio.Name = "Anio";
-            this.Anio.Width = 150;
-            // 
-            // Plan
-            // 
-            this.Plan.DataPropertyName = "Plan";
-            this.Plan.HeaderText = "Plan";
-            this.Plan.MinimumWidth = 8;
-            this.Plan.Name = "Plan";
-            this.Plan.Width = 150;
-            // 
             // ComisionesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -210,7 +210,7 @@ namespace UI.Desktop
             this.ClientSize = new System.Drawing.Size(800, 449);
             this.Controls.Add(this.tcComisiones);
             this.Name = "ComisionesForm";
-            this.Text = "ComisionesForm";
+            this.Text = "Comisiones";
             this.Load += new System.EventHandler(this.ComisionesForm_Load);
             this.tcComisiones.ContentPanel.ResumeLayout(false);
             this.tcComisiones.TopToolStripPanel.ResumeLayout(false);

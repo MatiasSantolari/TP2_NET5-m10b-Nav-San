@@ -49,6 +49,8 @@ namespace UI.Desktop
             this.txtID.Text = this.CursoActual.ID.ToString();
             this.txtAnio.Text = this.CursoActual.AnioCalendario.ToString();
             this.txtCupo.Text = this.CursoActual.Cupo.ToString();
+            this.cbxComision.SelectedValue = this.CursoActual.IDComision;
+            this.cbxMateria.SelectedValue = this.CursoActual.IDMateria;
 
             switch (Modo)
             {
@@ -85,7 +87,17 @@ namespace UI.Desktop
                     this.CursoActual.Cupo = int.Parse(this.txtCupo.Text);
                     this.CursoActual.IDComision = int.Parse(cbxComision.SelectedValue.ToString());
                     this.CursoActual.IDMateria = int.Parse(cbxMateria.SelectedValue.ToString());
-                    CursoActual.State = BusinessEntity.States.New;
+                    Validaciones validaciones = new Validaciones();
+                    if (validaciones.ValidaCurso(CursoActual))
+                    {
+                        CursoActual.State = BusinessEntity.States.New;
+                    }
+                    else
+                    {
+                        MessageBox.Show("El curso ya existe, por favor vuelva a intentarlo.");
+                        CursoActual.State = BusinessEntity.States.Unmodified;
+                    }
+                    
                     break;
 
                 case ModoForm.Modificacion:
@@ -97,7 +109,17 @@ namespace UI.Desktop
                     this.CursoActual.Cupo = int.Parse(this.txtCupo.Text);
                     this.CursoActual.IDComision = int.Parse(cbxComision.SelectedValue.ToString());
                     this.CursoActual.IDMateria = int.Parse(cbxMateria.SelectedValue.ToString());
-                    CursoActual.State = BusinessEntity.States.Modified;
+                    Validaciones validaciones1 = new Validaciones();
+                    if (validaciones1.ValidaCurso(CursoActual))
+                    {
+                        CursoActual.State = BusinessEntity.States.Modified;
+                    }
+                    else
+                    {
+                        MessageBox.Show("El curso ya existe, por favor vuelva a intentarlo.");
+                        CursoActual.State = BusinessEntity.States.Unmodified;
+                    }
+                    
                     break;
 
                 case ModoForm.Baja:
@@ -156,12 +178,28 @@ namespace UI.Desktop
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            bool b = this.Validar();
-            if (b == true)
+            Validaciones validaciones = new Validaciones();
+            if(validaciones.ValidaInteger(txtAnio.Text) && validaciones.ValidaInteger(txtCupo.Text) && int.Parse(txtAnio.Text) >1900 && int.Parse(txtAnio.Text) < 2023) 
             {
-                this.GuardarCambios();
-                this.Close();
+                bool b = this.Validar();
+                if (b == true)
+                {
+                    this.GuardarCambios();
+                    this.Close();
+                }
             }
+            else
+            {
+                if (!validaciones.ValidaInteger(txtAnio.Text)){
+                    txtAnio.ForeColor = Color.Red;
+                }
+                if (!validaciones.ValidaInteger(txtCupo.Text))
+                {
+                    txtCupo.ForeColor = Color.Red;
+                }
+            }
+
+            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

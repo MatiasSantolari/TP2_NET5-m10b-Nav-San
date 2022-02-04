@@ -54,7 +54,8 @@ namespace Business.Logic
         {
             try
             {
-                List<Alumnos_Inscripciones> inscripciones = Alumnos_InscripcionesData.GetAll();
+                Alumno_InscripcionAdapter alumnos_InscripcionesData = new Alumno_InscripcionAdapter();
+                List<Alumnos_Inscripciones> inscripciones = alumnos_InscripcionesData.GetAll();
                 foreach (var ins in inscripciones)
                 {
                     if (ins.IDAlumno == ali.IDAlumno && ins.IDCurso == ali.IDCurso)
@@ -69,6 +70,51 @@ namespace Business.Logic
             catch (Exception ex)
             {
                 Exception ExcepcionManejada = new Exception("Error al realizar la inscripción del alumno", ex);
+                throw ExcepcionManejada;
+            }
+        }
+
+        public bool ValidaCurso(Curso cursoAct)
+        {
+            try
+            {
+                CursoAdapter cursoAdapter = new CursoAdapter();
+                List<Curso> cursos = cursoAdapter.GetAll();
+                foreach (var cur in cursos)
+                {
+                    if (cur.IDComision == cursoAct.IDComision && cur.IDMateria == cursoAct.IDMateria && cur.AnioCalendario == cursoAct.AnioCalendario)
+                    {
+                        return false;
+                    }
+                }
+
+                //Alumnos_InscripcionesData.Insert(ali);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al realizar el curso", ex);
+                throw ExcepcionManejada;
+            }
+        }
+        public bool ValidaComision(Comision comAct)
+        {
+            try
+            {
+                ComisionAdapter comisionAdapter = new ComisionAdapter();
+                List<Comision> comisiones = comisionAdapter.GetAll();
+                foreach (var cur in comisiones)
+                {
+                    if (cur.DescComision == comAct.DescComision && cur.AnioEspecialidad == comAct.AnioEspecialidad && cur.IDPlan == comAct.IDPlan)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al realizar el curso", ex);
                 throw ExcepcionManejada;
             }
         }

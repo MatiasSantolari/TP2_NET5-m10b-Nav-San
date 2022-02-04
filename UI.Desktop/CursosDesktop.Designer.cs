@@ -66,120 +66,108 @@ namespace UI.Desktop
             this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 3, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(496, 97);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(744, 149);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(2, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(21, 13);
+            this.label1.Size = new System.Drawing.Size(30, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "ID:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(2, 24);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(3, 32);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 13);
+            this.label2.Size = new System.Drawing.Size(78, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Comisión:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(248, 24);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(373, 32);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 13);
+            this.label3.Size = new System.Drawing.Size(66, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Materia:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(2, 49);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(3, 66);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 13);
+            this.label4.Size = new System.Drawing.Size(42, 20);
             this.label4.TabIndex = 3;
             this.label4.Text = "Año:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(248, 49);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(373, 66);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.Size = new System.Drawing.Size(51, 20);
             this.label5.TabIndex = 4;
             this.label5.Text = "Cupo:";
             // 
             // txtID
             // 
             this.txtID.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtID.Location = new System.Drawing.Point(58, 2);
-            this.txtID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtID.Location = new System.Drawing.Point(87, 3);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(186, 20);
+            this.txtID.Size = new System.Drawing.Size(280, 26);
             this.txtID.TabIndex = 5;
             // 
             // txtAnio
             // 
             this.txtAnio.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtAnio.Location = new System.Drawing.Point(58, 51);
-            this.txtAnio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtAnio.Location = new System.Drawing.Point(87, 69);
             this.txtAnio.Name = "txtAnio";
-            this.txtAnio.Size = new System.Drawing.Size(186, 20);
+            this.txtAnio.Size = new System.Drawing.Size(280, 26);
             this.txtAnio.TabIndex = 6;
             // 
             // txtCupo
             // 
             this.txtCupo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtCupo.Location = new System.Drawing.Point(307, 51);
-            this.txtCupo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCupo.Location = new System.Drawing.Point(461, 69);
             this.txtCupo.Name = "txtCupo";
-            this.txtCupo.Size = new System.Drawing.Size(187, 20);
+            this.txtCupo.Size = new System.Drawing.Size(280, 26);
             this.txtCupo.TabIndex = 7;
             // 
             // cbxComision
             // 
             this.cbxComision.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbxComision.FormattingEnabled = true;
-            this.cbxComision.Location = new System.Drawing.Point(58, 26);
-            this.cbxComision.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxComision.Location = new System.Drawing.Point(87, 35);
             this.cbxComision.Name = "cbxComision";
-            this.cbxComision.Size = new System.Drawing.Size(186, 21);
+            this.cbxComision.Size = new System.Drawing.Size(280, 28);
             this.cbxComision.TabIndex = 8;
             // 
             // cbxMateria
             // 
             this.cbxMateria.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbxMateria.FormattingEnabled = true;
-            this.cbxMateria.Location = new System.Drawing.Point(307, 26);
-            this.cbxMateria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxMateria.Location = new System.Drawing.Point(461, 35);
             this.cbxMateria.Name = "cbxMateria";
-            this.cbxMateria.Size = new System.Drawing.Size(187, 21);
+            this.cbxMateria.Size = new System.Drawing.Size(280, 28);
             this.cbxMateria.TabIndex = 9;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(248, 75);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAceptar.Location = new System.Drawing.Point(373, 101);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(55, 22);
+            this.btnAceptar.Size = new System.Drawing.Size(82, 34);
             this.btnAceptar.TabIndex = 10;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
@@ -187,10 +175,9 @@ namespace UI.Desktop
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(307, 75);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancelar.Location = new System.Drawing.Point(461, 101);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(60, 22);
+            this.btnCancelar.Size = new System.Drawing.Size(90, 34);
             this.btnCancelar.TabIndex = 11;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -198,13 +185,12 @@ namespace UI.Desktop
             // 
             // CursosDesktop
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(496, 97);
+            this.ClientSize = new System.Drawing.Size(744, 149);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "CursosDesktop";
-            this.Text = "CursosDesktop";
+            this.Text = "Formulario de Curso";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
