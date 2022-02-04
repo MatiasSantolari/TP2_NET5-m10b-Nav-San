@@ -177,6 +177,20 @@ namespace UI.Web
                 this.FormMode = FormModes.baja;
                 this.EnableForm(false);
                 this.LoadForm(this.SelectedID);
+
+                //
+                Validaciones val = new Validaciones();
+                EspecialidadLogic el = new EspecialidadLogic();
+                Especialidad es = new Especialidad();
+                es = el.GetOne(SelectedID);
+                if (val.ValidaBorradoEspecialidad(es) == true) { ValidacionBorrado.Visible = true; }
+                else
+                {
+                    ValidacionBorrado.Visible = false;
+                    this.LoadForm(this.SelectedID);
+                }
+                //ValidacionBorrado.Visible = false;
+                //
             }
         }
 

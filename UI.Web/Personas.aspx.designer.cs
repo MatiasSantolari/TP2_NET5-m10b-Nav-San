@@ -132,6 +132,15 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.TextBox emailTextBox;
 
         /// <summary>
+        /// Control lblValidacionEmail.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblValidacionEmail;
+
+        /// <summary>
         /// Control direccionLabel.
         /// </summary>
         /// <remarks>
@@ -213,6 +222,15 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.TextBox fechaNacimientoTextBox;
 
         /// <summary>
+        /// Control lblValidacionFecha.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblValidacionFecha;
+
+        /// <summary>
         /// Control legajoLabel.
         /// </summary>
         /// <remarks>
@@ -238,6 +256,15 @@ namespace UI.Web
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox legajoTextBox;
+
+        /// <summary>
+        /// Control lblValidacionLegajo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblValidacionLegajo;
 
         /// <summary>
         /// Control planLabel.

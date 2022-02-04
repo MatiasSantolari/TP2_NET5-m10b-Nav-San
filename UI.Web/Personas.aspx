@@ -49,7 +49,8 @@
                 <br />
                 <asp:Label ID="emailLabel" runat="server" Text="Email: "></asp:Label>
                 <asp:Label ID="Label3" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
-                <asp:TextBox ID="emailTextBox" class="form-control" runat="server"></asp:TextBox>
+                <asp:TextBox ID="emailTextBox" class="form-control" runat="server" OnTextChanged="emailTextBox_TextChanged"></asp:TextBox>
+                <asp:Label ID="lblValidacionEmail" runat="server" ForeColor="Red" Text="Mail Incorrecto" Visible="False"></asp:Label>
                 <br />
                 <asp:Label ID="direccionLabel" runat="server" Text="Direccion: "></asp:Label>
                 <asp:Label ID="Label4" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
@@ -63,10 +64,13 @@
                 <asp:Label ID="fechaNacimientoLabel" runat="server" Text="Fecha Nacimiento: "></asp:Label>
                 <asp:Label ID="Label6" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                 <asp:TextBox ID="fechaNacimientoTextBox" class="form-control" runat="server"></asp:TextBox>
+                <asp:Label ID="lblValidacionFecha" runat="server" ForeColor="Red" Text="Fecha mal ingresada" Visible="False"></asp:Label>
                 <br />
                 <asp:Label ID="legajoLabel" runat="server" Text="Legajo: "></asp:Label>
                 <asp:Label ID="Label7" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                 <asp:TextBox ID="legajoTextBox" class="form-control" runat="server"></asp:TextBox>
+               
+                <asp:Label ID="lblValidacionLegajo" runat="server" ForeColor="Red" Text="Legajo Incorrecto" Visible="False"></asp:Label>
                
                 <br />
                  <asp:Label ID="planLabel" runat="server" Text="Plan: "></asp:Label>
@@ -84,9 +88,9 @@
             </asp:Panel>
     
             <asp:Panel ID="formActionPanel" Visible="true" runat="server">
-                <asp:LinkButton ID="aceptarLinkButton" class="btn btn-success" runat="server" OnClick="aceptarLinkButton_Click" ValidationGroup="vg">Aceptar</asp:LinkButton>
+                <asp:LinkButton ID="aceptarLinkButton" class="btn btn-success" runat="server" OnClick="aceptarLinkButton_Click" ValidationGroup="vg" Visible="False">Aceptar</asp:LinkButton>
                 <div class="divider"></div>
-                <asp:LinkButton ID="cancelarLinkButtom" class="btn btn-danger" runat="server" OnClick="cancelarLinkButtom_Click">Cancelar</asp:LinkButton>
+                <asp:LinkButton ID="cancelarLinkButtom" class="btn btn-danger" runat="server" OnClick="cancelarLinkButtom_Click" Visible="False">Cancelar</asp:LinkButton>
             </asp:Panel>
             <asp:Panel ID="ValidationActionPanel" runat="server">
                

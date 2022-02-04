@@ -143,6 +143,8 @@ namespace UI.Web
         {
             if (this.IsEntitySelected)
             {
+                lblValidacionHsSem.Visible = false;
+                lblValidacionHsTot.Visible = false;
                 this.EnableForm(true);
                 this.formPanel.Visible = true;
                 this.formActionPanel.Visible = true;
@@ -172,38 +174,61 @@ namespace UI.Web
             }
             else
             {
-                switch (this.FormMode)
+                Validaciones val = new Validaciones();
+                if (val.ValidaInteger(this.hssemTextBox.Text) &&
+                    val.ValidaInteger(this.hstotTextBox.Text))
                 {
-                    case FormModes.baja:
-                        this.DeleteEntity(this.SelectedID);
-                        this.LoadGrid();
-                        break;
-                    case FormModes.modificacion:
-                        this.Entity = new Materia();
-                        this.Entity.ID = this.SelectedID;
-                        this.Entity.State = BusinessEntity.States.Modified;
-                        Entity.DescMateria = this.descripcionTextBox.Text;
-                        Entity.HsSemanales = int.Parse(this.hssemTextBox.Text);
-                        Entity.HsTotales = int.Parse(this.hstotTextBox.Text);
-                        Entity.IdPlan = int.Parse(this.planDropDown.SelectedItem.Value);
-                        this.SaveEntity(this.Entity);
-                        this.LoadGrid();
-                        break;
-                    case FormModes.alta:
-                        this.Entity = new Materia();
-                        this.LoadEntity(this.Entity);
-                        this.SaveEntity(this.Entity);
-                        this.LoadGrid();
-                        break;
-                    default:
-                        break;
+                    this.lblValidacionHsSem.Visible = false;
+                    this.lblValidacionHsTot.Visible = false;
+                    Label1.Visible = false; Label2.Visible = false; Label3.Visible = false;
+                    Label4.Visible = false;
+                    this.aceptarLinkButton.Visible = false;
+                    this.cancelarLinkButtom.Visible = false;
+
+                    switch (this.FormMode)
+                    {
+                        case FormModes.baja:
+                            this.DeleteEntity(this.SelectedID);
+                            this.LoadGrid();
+                            break;
+                        case FormModes.modificacion:
+                            this.Entity = new Materia();
+                            this.Entity.ID = this.SelectedID;
+                            this.Entity.State = BusinessEntity.States.Modified;
+                            Entity.DescMateria = this.descripcionTextBox.Text;
+                            Entity.HsSemanales = int.Parse(this.hssemTextBox.Text);
+                            Entity.HsTotales = int.Parse(this.hstotTextBox.Text);
+                            Entity.IdPlan = int.Parse(this.planDropDown.SelectedItem.Value);
+                            this.SaveEntity(this.Entity);
+                            this.LoadGrid();
+                            break;
+                        case FormModes.alta:
+                            this.Entity = new Materia();
+                            this.LoadEntity(this.Entity);
+                            this.SaveEntity(this.Entity);
+                            this.LoadGrid();
+                            break;
+                        default:
+                            break;
+                    }
+                    this.formPanel.Visible = false;
+                    this.formActionPanel.Visible = false;
+
+                    this.gridView.SelectedIndex = -1;
+                    this.SelectedID = 0;
+                }
+                else
+                {
+                    if (val.ValidaInteger(this.hssemTextBox.Text) == false) { this.lblValidacionHsSem.Visible = true; }
+                    else { this.lblValidacionHsSem.Visible = false; }
+                    if (val.ValidaInteger(this.hstotTextBox.Text) == false) { this.lblValidacionHsTot.Visible = true; }
+                    else { this.lblValidacionHsTot.Visible = false; }
+                    EnableForm(true);
+
                 }
 
-                this.formPanel.Visible = false;
-                this.formActionPanel.Visible = false;
 
-                this.gridView.SelectedIndex = -1;
-                this.SelectedID = 0;
+                
             }
         }
 
@@ -220,6 +245,8 @@ namespace UI.Web
         {
             if (this.IsEntitySelected)
             {
+                lblValidacionHsSem.Visible = false;
+                lblValidacionHsTot.Visible = false;
                 this.formPanel.Visible = true;
                 this.formActionPanel.Visible = true;
                 this.FormMode = FormModes.baja;
@@ -241,6 +268,8 @@ namespace UI.Web
         }
         protected void nuevoLinkButton_Click(object sender, EventArgs e)
         {
+            lblValidacionHsSem.Visible = false;
+            lblValidacionHsTot.Visible = false;
             this.formPanel.Visible = true;
             this.formActionPanel.Visible = true;
             this.FormMode = FormModes.alta;

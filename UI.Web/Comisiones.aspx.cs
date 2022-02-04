@@ -215,33 +215,50 @@ namespace UI.Web
         {
             if (descripcionTextBox.Text == "" || anioEspecialidadTextBox.Text == "" || planDropDown.SelectedValue.Equals("0")) 
             { Label1.Visible = true; Label2.Visible = true; Label3.Visible = true; }
-            else { 
-                switch (this.FormMode)
+            else {
+                Validaciones val = new Validaciones();
+                if (val.ValidaMail(this.anioEspecialidadTextBox.Text))
                 {
-                    case FormModes.baja:
-                        this.DeleteEntity(this.SelectedID);
-                        this.LoadGrid();
-                        break;
-                    case FormModes.modificacion:
-                        this.comision = new Comision();
-                        this.comision.ID = this.SelectedID;
-                        this.comision.State = BusinessEntity.States.Modified;
-                        comision.DescComision = this.descripcionTextBox.Text;
-                        comision.AnioEspecialidad = (Comision.Anios)int.Parse(this.anioEspecialidadTextBox.Text);
-                        comision.IDPlan = int.Parse(this.planDropDown.SelectedItem.Value);
-                        this.SaveEntity(this.comision);
-                        this.LoadGrid();
-                        break;
-                    case FormModes.alta:
-                        this.comision = new Comision();
-                        this.LoadEntity(this.comision);
-                        this.SaveEntity(this.comision);
-                        this.LoadGrid();
-                        break;
-                    default:
-                        break;
+                    this.lblValidacionAño.Visible = false;
+                    Label1.Visible = false; Label2.Visible = false; Label3.Visible = false;
+                    this.aceptarLinkButton.Visible = false;
+                    this.cancelarLinkButtom.Visible = false;
+
+                    switch (this.FormMode)
+                    {
+                        case FormModes.baja:
+                            this.DeleteEntity(this.SelectedID);
+                            this.LoadGrid();
+                            break;
+                        case FormModes.modificacion:
+                            this.comision = new Comision();
+                            this.comision.ID = this.SelectedID;
+                            this.comision.State = BusinessEntity.States.Modified;
+                            comision.DescComision = this.descripcionTextBox.Text;
+                            comision.AnioEspecialidad = (Comision.Anios)int.Parse(this.anioEspecialidadTextBox.Text);
+                            comision.IDPlan = int.Parse(this.planDropDown.SelectedItem.Value);
+                            this.SaveEntity(this.comision);
+                            this.LoadGrid();
+                            break;
+                        case FormModes.alta:
+                            this.comision = new Comision();
+                            this.LoadEntity(this.comision);
+                            this.SaveEntity(this.comision);
+                            this.LoadGrid();
+                            break;
+                        default:
+                            break;
+                    }
                 }
-                    this.formPanel.Visible = false;
+                else
+                {
+                    if (val.ValidaMail(this.anioEspecialidadTextBox.Text) == false) { this.lblValidacionAño.Visible = true; }
+                    else { this.lblValidacionAño.Visible = false; }
+                    EnableForm(true);
+
+                }
+
+                this.formPanel.Visible = false;
                     this.formActionPanel.Visible = false;
                     this.gridView.SelectedIndex = -1;
                     this.SelectedID = 0;
@@ -255,6 +272,13 @@ namespace UI.Web
             this.formPanel.Visible = false;
             this.gridView.SelectedIndex = -1;
             this.SelectedID = 0;
+
+
+            EnableForm(false);
+            this.lblValidacionAño.Visible = false;
+            Label1.Visible = false; Label2.Visible = false; Label3.Visible = false;
+            this.aceptarLinkButton.Visible = false;
+            this.cancelarLinkButtom.Visible = false;
         }
     }
 }

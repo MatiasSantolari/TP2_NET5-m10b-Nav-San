@@ -62,6 +62,7 @@
                 <asp:Label ID="anioEspecialidadLabel" runat="server" Text="Año: "></asp:Label>
                 <asp:Label ID="Label2" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                 <asp:TextBox ID="anioEspecialidadTextBox" class="form-control" runat="server"></asp:TextBox>
+                <asp:Label ID="lblValidacionAño" runat="server" ForeColor="Red" Text="Año Incorrecto" Visible="False"></asp:Label>
                 <br />
                 <asp:Label ID="planLabel" runat="server" Text="Plan: "></asp:Label>
                 <asp:Label ID="Label3" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>

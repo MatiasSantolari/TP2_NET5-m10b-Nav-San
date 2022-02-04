@@ -56,6 +56,7 @@
                 <asp:Label ID="descripcionLabel" runat="server" Text="Descripcion: "></asp:Label>
                 <asp:Label ID="Label1" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                 <asp:TextBox ID="descTextBox" class="form-control" runat="server"></asp:TextBox>
+                <asp:Label ID="ValidacionBorrado" runat="server" ForeColor="Red" Text="No se puede eliminar el registro seleccionado" Visible="False"></asp:Label>
                 <br />
             </asp:Panel>
             </div> 
