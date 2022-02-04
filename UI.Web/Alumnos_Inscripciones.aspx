@@ -77,6 +77,7 @@
                 <asp:Label ID="notaLabel" runat="server" Text="Nota: "></asp:Label>
                 <asp:Label ID="Label3" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                 <asp:TextBox ID="notaTextBox" class="form-control" runat="server"></asp:TextBox>
+                <asp:Label ID="lblValidacionNota" runat="server" ForeColor="Red" Text="Nota mal ingresada" Visible="False"></asp:Label>
                 <br />
             </asp:Panel>
             </div>

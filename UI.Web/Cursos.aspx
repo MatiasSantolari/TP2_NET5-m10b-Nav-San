@@ -60,10 +60,14 @@
                 <asp:Label ID="Label2" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                 <asp:TextBox ID="anioCalendarioTextBox" class="form-control" runat="server"></asp:TextBox>
 
+                <asp:Label ID="lblValidacionAño" runat="server" ForeColor="Red" Text="Año mal ingresado" Visible="False"></asp:Label>
+
                 <br />
                 <asp:Label ID="cupoLabel" runat="server" Text="Cupo: "></asp:Label>
                 <asp:Label ID="Label3" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                 <asp:TextBox ID="cupoTextBox" class="form-control" runat="server"></asp:TextBox>
+
+                <asp:Label ID="lblValidacionCupo" runat="server" ForeColor="Red" Text="Cupo mal ingresado" Visible="False"></asp:Label>
 
                 <br />
                 <asp:Label ID="MateriaLabel" runat="server" Text="Materia: "></asp:Label>

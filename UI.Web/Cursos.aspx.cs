@@ -170,6 +170,8 @@ namespace UI.Web
             if (this.IsEntitySelected)
             {
                 ValidacionBorrado.Visible = false;
+                lblValidacionAño.Visible = false;
+                lblValidacionCupo.Visible = false;
                 this.EnableForm(true);
                 this.formPanel.Visible = true;
                 this.formActionPanel.Visible = true;
@@ -210,6 +212,8 @@ namespace UI.Web
             if (this.IsEntitySelected)
             {
                 ValidacionBorrado.Visible = false;
+                lblValidacionAño.Visible = false;
+                lblValidacionCupo.Visible = false;
                 this.formPanel.Visible = true;
                 this.FormMode = FormModes.baja;
                 this.formActionPanel.Visible = true;
@@ -234,6 +238,8 @@ namespace UI.Web
         protected void nuevoLinkButton_Click(object sender, EventArgs e)
         {
             ValidacionBorrado.Visible = false;
+            lblValidacionAño.Visible = false;
+            lblValidacionCupo.Visible = false;
             this.formPanel.Visible = true;
             this.formActionPanel.Visible = true;
             this.FormMode = FormModes.alta;
@@ -256,37 +262,53 @@ namespace UI.Web
             { Label4.Visible = true; Label2.Visible = true; Label3.Visible = true; Label5.Visible = true; }
             else
             {
-                switch (this.FormMode)
+                Validaciones val = new Validaciones();
+                if (val.ValidaInteger(this.anioCalendarioTextBox.Text) &&
+                    val.ValidaInteger(this.cupoTextBox.Text))
                 {
-                    case FormModes.baja:
-                        this.DeleteEntity(this.SelectedID);
-                        this.LoadGrid();
-                        break;
-                    case FormModes.modificacion:
-                        this.Entity = new Curso();
-                        this.Entity.ID = this.SelectedID;
-                        this.Entity.State = BusinessEntity.States.Modified;
-                        Entity.AnioCalendario = int.Parse(this.anioCalendarioTextBox.Text);
-                        Entity.Cupo = int.Parse(this.cupoTextBox.Text);
-                        Entity.IDComision = int.Parse(this.ComisionDropDown.SelectedItem.Value);
-                        Entity.IDMateria = int.Parse(this.MateriaDropDown.SelectedItem.Value);
-                        this.SaveEntity(this.Entity);
-                        this.LoadGrid();
-                        break;
-                    case FormModes.alta:
-                        this.Entity = new Curso();
-                        this.LoadEntity(this.Entity);
-                        this.SaveEntity(this.Entity);
-                        this.LoadGrid();
-                        break;
-                    default:
-                        break;
-                }
-                this.formPanel.Visible = false;
-                this.formActionPanel.Visible = false;
+                    switch (this.FormMode)
+                    {
+                        case FormModes.baja:
+                            this.DeleteEntity(this.SelectedID);
+                            this.LoadGrid();
+                            break;
+                        case FormModes.modificacion:
+                            this.Entity = new Curso();
+                            this.Entity.ID = this.SelectedID;
+                            this.Entity.State = BusinessEntity.States.Modified;
+                            Entity.AnioCalendario = int.Parse(this.anioCalendarioTextBox.Text);
+                            Entity.Cupo = int.Parse(this.cupoTextBox.Text);
+                            Entity.IDComision = int.Parse(this.ComisionDropDown.SelectedItem.Value);
+                            Entity.IDMateria = int.Parse(this.MateriaDropDown.SelectedItem.Value);
+                            this.SaveEntity(this.Entity);
+                            this.LoadGrid();
+                            break;
+                        case FormModes.alta:
+                            this.Entity = new Curso();
+                            this.LoadEntity(this.Entity);
+                            this.SaveEntity(this.Entity);
+                            this.LoadGrid();
+                            break;
+                        default:
+                            break;
+                    }
+                    this.formPanel.Visible = false;
+                    this.formActionPanel.Visible = false;
 
-                this.gridView.SelectedIndex = -1;
-                this.SelectedID = 0;
+                    this.gridView.SelectedIndex = -1;
+                    this.SelectedID = 0;
+                }
+                else
+                {
+                    if (val.ValidaInteger(this.anioCalendarioTextBox.Text) == false) { this.lblValidacionAño.Visible = true; }
+                    else { this.lblValidacionAño.Visible = false; }
+                    if (val.ValidaInteger(this.cupoTextBox.Text) == false) { this.lblValidacionCupo.Visible = true; }
+                    else { this.lblValidacionCupo.Visible = false; }
+                    EnableForm(true);
+
+                }
+
+
             }
         }
 
