@@ -145,6 +145,7 @@ namespace UI.Web
         {
             if (this.IsEntitySelected)
             {
+                ValidacionBorrado.Visible = false;
                 this.EnableForm(true);
                 this.formPanel.Visible = true;
                 this.formActionPanel.Visible = true;
@@ -186,16 +187,31 @@ namespace UI.Web
         {
             if (this.IsEntitySelected)
             {
+                ValidacionBorrado.Visible = false;
                 this.formPanel.Visible = true;
                 this.FormMode = FormModes.baja;
                 this.formActionPanel.Visible = true;
                 this.EnableForm(false);
                 this.LoadForm(this.SelectedID);
+
+                //
+                Validaciones val = new Validaciones();
+                ComisionLogic cl = new ComisionLogic();
+                Comision c = new Comision();
+                c = cl.GetOne(SelectedID);
+                if (val.ValidaBorradoComision(c) == true) { ValidacionBorrado.Visible = true; }
+                else
+                {
+                    ValidacionBorrado.Visible = false;
+                    this.LoadForm(this.SelectedID);
+                }
+                //
             }
         }
 
         protected void nuevoLinkButton_Click(object sender, EventArgs e)
         {
+            ValidacionBorrado.Visible = false;
             this.formPanel.Visible = true;
             this.formActionPanel.Visible = true;
             this.FormMode = FormModes.alta;

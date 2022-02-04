@@ -74,6 +74,7 @@
             <asp:Label ID="repetirclaveLabel" runat="server" Text="Repetir clave: "></asp:Label>
             <asp:Label ID="Label4" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
             <asp:TextBox ID="repetirclaveTextBox" class="form-control" TextMode="Password" runat="server"></asp:TextBox>
+            <asp:Label ID="ValidacionBorrado" runat="server" ForeColor="Red" Text="No se puede eliminar el registro seleccionado" Visible="False"></asp:Label>
             <br />
         </asp:Panel>
         </div>

@@ -69,6 +69,7 @@
                 <asp:DropDownList ID="planDropDown" class="form-control" runat="server" AppendDataBoundItems="True">
                     <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
                 </asp:DropDownList>
+                <asp:Label ID="ValidacionBorrado" runat="server" ForeColor="Red" Text="No se puede eliminar el registro seleccionado" Visible="False"></asp:Label>
                 <br />
             </asp:Panel>
             </div>

@@ -364,7 +364,7 @@ namespace Business.Logic
 
                 foreach (var dc in listaDocCur)
                 {
-                    if (dc.IDDocente == u.ID)
+                    if (dc.IDDocente == u.IDPersona)
                     {
                         rta = true;
                         break;
@@ -377,7 +377,7 @@ namespace Business.Logic
 
                 foreach (var ai in listaAluIns)
                 {
-                    if (ai.IDAlumno == u.ID)
+                    if (ai.IDAlumno == u.IDPersona)
                     {
                         rta = true;
                         break;
