@@ -1,28 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Materias.aspx.cs" Inherits="UI.Web.Materias" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Materias.aspx.cs" Inherits="UI.Web.Materias" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Materias</title>
-    <style>
-        .divider{
-        width:5px;
-        height:auto;
-        display:inline-block;
-        }
-    </style>
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"/>
-
-</head>
-<body>
-
-    <h1 style="background-color:lightblue">Materias</h1>
-
-    <form id="form1" runat="server">
-
+<asp:Content ID="Content1" ContentPlaceHolderID="PageContent" Runat="Server">
+        <h1 style="background-color:lightblue">Materias</h1>
         <asp:Panel ID="Panel1" runat="server">
             <asp:Button ID="btnReporteMaterias" runat="server" OnClick="btnReporteMaterias_Click" Text="Generar Reporte" Width="148px" />
             
@@ -102,6 +81,4 @@
             </asp:Panel>
             </div>
         </div>
-    </form>
-</body>
-</html>
+</asp:Content>
