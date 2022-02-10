@@ -45,11 +45,8 @@
             <td valign="top" width="150"> 
                 <table border="0" width="100%" cellpadding="4" cellspacing="0"> 
                     <tr> 
-                        <td align="center" id="SiteMenu">Site Navigation</td> 
+                        <td align="center" id="Menu Lateral">Menu Lateral</td> 
                     </tr> 
-                    <tr> 
-                        <td><a href="Login.aspx" id="tdLogin">Login</a></td> 
-                    </tr>
                     <tr> 
                         <td><a href="Home.aspx" id="tdHome">Home</a></td> 
                     </tr>        

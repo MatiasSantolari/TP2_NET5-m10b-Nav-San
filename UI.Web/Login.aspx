@@ -1,7 +1,30 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="UI.Web.Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="UI.Web.Login" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="PageContent" Runat="Server">
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Iniciar Sesion</title>
+    <style>
+        #form1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+        }
+        #cartelErrorLabel{
+            color:red;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"/>
+
+</head>
+<body>
+
     <h1 style="background-color:lightblue;">ACADEMIA</h1>
+        <form id="form1" runat="server">
             <div align="center">
                 <asp:Label ID="usuarioLabel" runat="server" Text="Ingresar Usuario: "></asp:Label>
                 <br />
@@ -25,4 +48,7 @@
             <asp:Panel ID="ValidationActionPanel" runat="server">
             
             </asp:Panel>
-</asp:Content>
+    </form>
+</body>
+</html>
+

@@ -88,16 +88,25 @@ namespace UI.Web
                 this.gridView.HeaderRow.TableSection = TableRowSection.TableHeader;
             }
             Persona p = (Persona)Session["USUARIO"];
-            if (p.TipoPersona.ToString() == "Docente")
+            if (p == null)
+            {
+                this.Panel1.Visible = false;
+                this.gridPanel.Visible = false;
+                this.formPanel.Visible = false;
+                this.formActionPanel.Visible = false;
+                this.Panel2.Visible = false;
+                this.Panel3.Visible = false;
+            }
+            else if (p.TipoPersona.ToString() == "Docente")
             {
                 this.gridPanel.Visible = false;
                 this.Panel2.Visible = false;
             }
-            if (p.TipoPersona.ToString() == "Alumno")
+            else if (p.TipoPersona.ToString() == "Alumno")
             {
                 this.Panel2.Visible = false;
             }
-            if (p.TipoPersona.ToString() == "Admin")
+            else if (p.TipoPersona.ToString() == "Admin")
             {
                 this.Panel2.Visible = true;
                 this.gridPanel.Visible = true;
@@ -112,6 +121,10 @@ namespace UI.Web
             PersonaLogic alumno = new PersonaLogic();
             CursoLogic cl = new CursoLogic();
             Persona per = (Persona)Session["USUARIO"];
+            if (per == null)
+            {
+                return;
+            }
             switch (per.TipoPersona)
             {
 
