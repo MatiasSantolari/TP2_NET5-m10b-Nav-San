@@ -67,6 +67,7 @@ namespace UI.Desktop
 
         public override void MapearADatos()
         {
+            Validaciones v = new Validaciones();
             switch (Modo)
             {
                 case ModoForm.Alta:
@@ -77,7 +78,15 @@ namespace UI.Desktop
                     this.PlanActual.ID = id;
                     this.PlanActual.DescPlan = this.txtDescPlan.Text;
                     this.PlanActual.IdEspecialidad = Int32.Parse(this.cbxEspecialidad.SelectedValue.ToString());
-                    PlanActual.State = BusinessEntity.States.New;
+                    if(v.ValidaPlan(PlanActual) == true)
+                    {
+                        PlanActual.State = BusinessEntity.States.New;
+                    }
+                    else
+                    {
+                        MessageBox.Show("El plan ya existe");
+                        PlanActual.State = BusinessEntity.States.Unmodified;
+                    }
                     break;
 
                 case ModoForm.Modificacion:
@@ -87,7 +96,15 @@ namespace UI.Desktop
                     this.PlanActual.ID = int.Parse(this.txtID.Text);
                     this.PlanActual.DescPlan = this.txtDescPlan.Text;
                     this.PlanActual.IdEspecialidad = Int32.Parse(this.cbxEspecialidad.SelectedValue.ToString());
-                    PlanActual.State = BusinessEntity.States.Modified;
+                    if (v.ValidaPlan(PlanActual) == true)
+                    {
+                        PlanActual.State = BusinessEntity.States.Modified;
+                    }
+                    else
+                    {
+                        MessageBox.Show("El plan ya existe");
+                        PlanActual.State = BusinessEntity.States.Unmodified;
+                    }
                     break;
 
                 case ModoForm.Baja:

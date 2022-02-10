@@ -78,6 +78,7 @@ namespace UI.Desktop
 
         public override void MapearADatos()
         {
+            Validaciones v = new Validaciones();
             switch (Modo)
             {
                 case ModoForm.Alta:
@@ -95,7 +96,17 @@ namespace UI.Desktop
                     this.PersonaActual.Legajo = Int32.Parse(this.txtLegajo.Text);
                     this.PersonaActual.TipoPersona = (Persona.TipoPersonas)(this.cbxTipoPersona.SelectedValue);
                     this.PersonaActual.IdPlan = Int32.Parse(this.cbxPlan.SelectedValue.ToString());
-                    PersonaActual.State = BusinessEntity.States.New;
+
+                    if(v.ValidaPersona(PersonaActual) == true)
+                    {
+                        PersonaActual.State = BusinessEntity.States.New;
+                    }
+                    else
+                    {
+                        MessageBox.Show("La persona ya existe.");
+                        PersonaActual.State = BusinessEntity.States.Unmodified;
+                    }
+                    
                     break;
 
                 case ModoForm.Modificacion:
@@ -112,7 +123,15 @@ namespace UI.Desktop
                     this.PersonaActual.Legajo = Int32.Parse(this.txtLegajo.Text);
                     this.PersonaActual.TipoPersona = (Persona.TipoPersonas)(this.cbxTipoPersona.SelectedValue);
                     this.PersonaActual.IdPlan = Int32.Parse(this.cbxPlan.SelectedValue.ToString());
-                    PersonaActual.State = BusinessEntity.States.Modified;
+                    if (v.ValidaPersona(PersonaActual) == true)
+                    {
+                        PersonaActual.State = BusinessEntity.States.Modified;
+                    }
+                    else
+                    {
+                        MessageBox.Show("La persona ya existe.");
+                        PersonaActual.State = BusinessEntity.States.Unmodified;
+                    }
                     break;
 
                 case ModoForm.Baja:
@@ -157,12 +176,34 @@ namespace UI.Desktop
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            bool b = this.Validar();
-            if (b == true)
+            Validaciones v = new Validaciones();
+            if(v.ValidaMail(this.txtEmail.Text) == true && v.ValidaInteger(this.txtTelefono.Text) == true && 
+                v.ValidaFecha(this.txtFechaNac.Text) && v.ValidaInteger(this.txtLegajo.Text) == true &&
+                this.Validar() == true)
             {
-            this.GuardarCambios();
-            this.Close();
+                this.GuardarCambios();
+                this.Close();
             }
+            else
+            {
+                if (v.ValidaMail(this.txtEmail.Text) == false)
+                {
+                    this.txtEmail.ForeColor = Color.Red;
+                }
+                if (v.ValidaInteger(this.txtLegajo.Text) == false)
+                {
+                    this.txtLegajo.ForeColor = Color.Red;
+                }
+                if (v.ValidaInteger(this.txtTelefono.Text) == false)
+                {
+                    this.txtTelefono.ForeColor = Color.Red;
+                }
+                if (v.ValidaFecha(this.txtFechaNac.Text) == false)
+                {
+                    this.txtFechaNac.ForeColor = Color.Red;
+                }
+            }
+            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

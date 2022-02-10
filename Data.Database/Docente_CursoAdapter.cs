@@ -25,7 +25,7 @@ namespace Data.Database
                     dc.ID = (int)drDocenteCurso["id_dictado"];
                     dc.IDCurso = (int)drDocenteCurso["id_curso"];
                     dc.IDDocente = (int)drDocenteCurso["id_docente"];
-                    dc.Cargo = (Business.Entities.Docente_Curso.cargos)drDocenteCurso["cargo"];
+                    dc.Cargo = (Docente_Curso.cargos)drDocenteCurso["cargo"];
                     DocentesCursos.Add(dc);
                 }
                 drDocenteCurso.Close();

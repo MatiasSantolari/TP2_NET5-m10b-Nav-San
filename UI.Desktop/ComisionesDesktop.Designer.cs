@@ -136,8 +136,8 @@ namespace UI.Desktop
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnCancelar.Location = new System.Drawing.Point(641, 76);
+            this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnCancelar.Location = new System.Drawing.Point(501, 76);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(86, 43);
             this.btnCancelar.TabIndex = 9;

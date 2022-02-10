@@ -33,17 +33,17 @@ namespace UI.Desktop
             this.tcMaterias = new System.Windows.Forms.ToolStripContainer();
             this.tlMaterias = new System.Windows.Forms.TableLayoutPanel();
             this.dgvMaterias = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hs_Semanales = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hs_Totales = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.tsMaterias = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hs_Semanales = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hs_Totales = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcMaterias.ContentPanel.SuspendLayout();
             this.tcMaterias.TopToolStripPanel.SuspendLayout();
             this.tcMaterias.SuspendLayout();
@@ -107,6 +107,52 @@ namespace UI.Desktop
             this.dgvMaterias.RowHeadersWidth = 62;
             this.dgvMaterias.Size = new System.Drawing.Size(1119, 428);
             this.dgvMaterias.TabIndex = 0;
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 8;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            this.ID.Width = 150;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.DataPropertyName = "DescMateria";
+            this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.MinimumWidth = 8;
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            this.Descripcion.Width = 150;
+            // 
+            // Hs_Semanales
+            // 
+            this.Hs_Semanales.DataPropertyName = "HsSemanales";
+            this.Hs_Semanales.HeaderText = "Hs_Semanales";
+            this.Hs_Semanales.MinimumWidth = 8;
+            this.Hs_Semanales.Name = "Hs_Semanales";
+            this.Hs_Semanales.ReadOnly = true;
+            this.Hs_Semanales.Width = 150;
+            // 
+            // Hs_Totales
+            // 
+            this.Hs_Totales.DataPropertyName = "HsTotales";
+            this.Hs_Totales.HeaderText = "Hs_Totales";
+            this.Hs_Totales.MinimumWidth = 8;
+            this.Hs_Totales.Name = "Hs_Totales";
+            this.Hs_Totales.ReadOnly = true;
+            this.Hs_Totales.Width = 150;
+            // 
+            // Plan
+            // 
+            this.Plan.DataPropertyName = "Plan";
+            this.Plan.HeaderText = "Plan";
+            this.Plan.MinimumWidth = 8;
+            this.Plan.Name = "Plan";
+            this.Plan.ReadOnly = true;
+            this.Plan.Width = 150;
             // 
             // btnActualizar
             // 
@@ -176,52 +222,6 @@ namespace UI.Desktop
             this.tsbEliminar.ToolTipText = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 8;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
-            this.ID.Width = 150;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.DataPropertyName = "DescMateria";
-            this.Descripcion.HeaderText = "Descripcion";
-            this.Descripcion.MinimumWidth = 8;
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            this.Descripcion.Width = 150;
-            // 
-            // Hs_Semanales
-            // 
-            this.Hs_Semanales.DataPropertyName = "HsSemanales";
-            this.Hs_Semanales.HeaderText = "Hs_Semanales";
-            this.Hs_Semanales.MinimumWidth = 8;
-            this.Hs_Semanales.Name = "Hs_Semanales";
-            this.Hs_Semanales.ReadOnly = true;
-            this.Hs_Semanales.Width = 150;
-            // 
-            // Hs_Totales
-            // 
-            this.Hs_Totales.DataPropertyName = "HsTotales";
-            this.Hs_Totales.HeaderText = "Hs_Totales";
-            this.Hs_Totales.MinimumWidth = 8;
-            this.Hs_Totales.Name = "Hs_Totales";
-            this.Hs_Totales.ReadOnly = true;
-            this.Hs_Totales.Width = 150;
-            // 
-            // Plan
-            // 
-            this.Plan.DataPropertyName = "Plan";
-            this.Plan.HeaderText = "Plan";
-            this.Plan.MinimumWidth = 8;
-            this.Plan.Name = "Plan";
-            this.Plan.ReadOnly = true;
-            this.Plan.Width = 150;
-            // 
             // MateriaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -230,7 +230,7 @@ namespace UI.Desktop
             this.Controls.Add(this.tcMaterias);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MateriaForm";
-            this.Text = "MateriaForm";
+            this.Text = "Materias";
             this.Load += new System.EventHandler(this.MateriasForm_Load);
             this.tcMaterias.ContentPanel.ResumeLayout(false);
             this.tcMaterias.TopToolStripPanel.ResumeLayout(false);

@@ -203,13 +203,26 @@ namespace UI.Desktop
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            bool b = this.Validar();
-
-            if (b == true)
+            Validaciones v = new Validaciones();
+            if(v.ValidaMail(this.txtEmail.Text) == true)
             {
-                this.GuardarCambios();
-                this.Close();
+                bool b = this.Validar();
+
+                if (b == true)
+                {
+                    this.GuardarCambios();
+                    this.Close();
+                }
             }
+            else
+            {
+                if (v.ValidaMail(this.txtEmail.Text) == false)
+                {
+                    this.txtEmail.ForeColor = Color.Red;
+                }
+            }
+            
+            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

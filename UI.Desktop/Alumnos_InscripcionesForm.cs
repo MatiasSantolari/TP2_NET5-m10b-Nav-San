@@ -179,7 +179,6 @@ namespace UI.Desktop
                 tsbNuevo.Visible = false;
                 tsbEditar.Visible = false;
                 tsbEliminar.Visible = false;
-
             }
         }
     }

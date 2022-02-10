@@ -60,7 +60,6 @@ namespace UI.Desktop
             cbxComision.DataSource = com;
             cbxComision.DisplayMember = "DescComision";
             cbxComision.ValueMember = "ID";
-
             this.cbxComision.SelectedValue = c.IDComision;
             
 
@@ -144,15 +143,7 @@ namespace UI.Desktop
                     this.AlIActual.Nota = int.Parse(this.txtNota.Text);
                     this.AlIActual.Condicion = this.txtCondicion.Text;
 
-                    if (val.ValidaInscripcion(AlIActual) == true)
-                    {
-                        AlIActual.State = BusinessEntity.States.Modified;
-                    }
-                    else
-                    {
-                        MessageBox.Show("El alumno ya se encuentra inscripto a esta materia.");
-                        AlIActual.State = BusinessEntity.States.Unmodified;
-                    } 
+                    AlIActual.State = BusinessEntity.States.Modified;
                     
                     break;
 
@@ -178,7 +169,6 @@ namespace UI.Desktop
         public override bool Validar()
         {
 
-            //bool b2 = string.IsNullOrEmpty(this.txtID.Text);
             bool b1 = cbxComision.Enabled;
             bool b5 = string.IsNullOrEmpty(this.txtCondicion.Text);
             
@@ -201,14 +191,11 @@ namespace UI.Desktop
         {
             Validaciones validaciones = new Validaciones();
 
-            if (validaciones.ValidaInteger(txtNota.Text) && int.Parse(txtNota.Text) >= 0 && int.Parse(txtNota.Text) < 11)
+            if (this.Validar() ==true && validaciones.ValidaInteger(txtNota.Text) && 
+                int.Parse(txtNota.Text) >= 0 && int.Parse(txtNota.Text) < 11)
             {
-                bool b = this.Validar();
-                if (b == true)
-                {
-                    this.GuardarCambios();
-                    this.Close();
-                }
+                this.GuardarCambios();
+                this.Close();
             }
             else
             {

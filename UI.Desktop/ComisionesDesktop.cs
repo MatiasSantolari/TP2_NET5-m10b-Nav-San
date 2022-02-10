@@ -113,8 +113,6 @@ namespace UI.Desktop
 
                     break;
 
-                    break;
-
                 case ModoForm.Baja:
                     this.btnAceptar.Text = "Eliminar";
                     ComisionActual.State = BusinessEntity.States.Deleted;
@@ -167,9 +165,8 @@ namespace UI.Desktop
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
-        {
-            bool b = this.Validar();
-            if (b == true)
+        { 
+            if (this.Validar() == true)
             {
                 this.GuardarCambios();
                 this.Close();

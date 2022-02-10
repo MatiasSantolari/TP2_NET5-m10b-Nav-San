@@ -53,6 +53,8 @@ namespace UI.Desktop
                     break;
 
                 case ModoForm.Modificacion:
+                    this.txtDescMateria.Enabled = false;
+                    this.cbxPlan.Enabled = false;
                     this.btnAceptar.Text = "Guardar";
                     break;
 
@@ -69,6 +71,7 @@ namespace UI.Desktop
 
         public override void MapearADatos()
         {
+            Validaciones val = new Validaciones();
             switch (Modo)
             {
                 case ModoForm.Alta:
@@ -81,7 +84,17 @@ namespace UI.Desktop
                     this.MateriaActual.HsSemanales = int.Parse(this.txtHsSemanales.Text);
                     this.MateriaActual.HsTotales = int.Parse(this.txtHsTotales.Text);
                     this.MateriaActual.IdPlan = Int32.Parse(this.cbxPlan.SelectedValue.ToString());
-                    MateriaActual.State = BusinessEntity.States.New;
+
+                    if(val.ValidaMateria(MateriaActual) == true)
+                    {
+                        MateriaActual.State = BusinessEntity.States.New;
+                    }
+                    else
+                    {
+                        MessageBox.Show("La materia ya existe en este plan.");
+                        MateriaActual.State = BusinessEntity.States.Unmodified;
+                    }
+                    
                     break;
 
                 case ModoForm.Modificacion:
@@ -136,12 +149,22 @@ namespace UI.Desktop
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            bool b = this.Validar();
-            if (b == true)
+            Validaciones v = new Validaciones();
+            if(this.Validar() == true && v.ValidaInteger(this.txtHsSemanales.Text) == true && v.ValidaInteger(this.txtHsTotales.Text) == true){
+                    this.GuardarCambios();
+                    this.Close();
+            }else
             {
-                this.GuardarCambios();
-                this.Close();
+                if(v.ValidaInteger(this.txtHsSemanales.Text) == false)
+                {
+                    this.txtHsSemanales.ForeColor = Color.Red;
+                }
+                if (v.ValidaInteger(this.txtHsTotales.Text) == false)
+                {
+                    this.txtHsTotales.ForeColor = Color.Red;
+                }
             }
+            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

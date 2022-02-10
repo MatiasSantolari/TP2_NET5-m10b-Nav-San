@@ -56,70 +56,78 @@ namespace UI.Desktop
             this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 1, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(355, 105);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(532, 162);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(4, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(24, 13);
+            this.label1.Size = new System.Drawing.Size(34, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "ID: ";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 26);
+            this.label2.Location = new System.Drawing.Point(4, 36);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 13);
+            this.label2.Size = new System.Drawing.Size(100, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Descripcion: ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 52);
+            this.label3.Location = new System.Drawing.Point(4, 72);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 13);
+            this.label3.Size = new System.Drawing.Size(107, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Especialidad: ";
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(84, 3);
+            this.txtID.Location = new System.Drawing.Point(124, 5);
+            this.txtID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(100, 20);
+            this.txtID.Size = new System.Drawing.Size(148, 26);
             this.txtID.TabIndex = 3;
             // 
             // txtDescPlan
             // 
-            this.txtDescPlan.Location = new System.Drawing.Point(84, 29);
+            this.txtDescPlan.Location = new System.Drawing.Point(124, 41);
+            this.txtDescPlan.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDescPlan.Name = "txtDescPlan";
-            this.txtDescPlan.Size = new System.Drawing.Size(261, 20);
+            this.txtDescPlan.Size = new System.Drawing.Size(352, 26);
             this.txtDescPlan.TabIndex = 4;
             // 
             // cbxEspecialidad
             // 
             this.cbxEspecialidad.FormattingEnabled = true;
-            this.cbxEspecialidad.Location = new System.Drawing.Point(84, 55);
+            this.cbxEspecialidad.Location = new System.Drawing.Point(124, 77);
+            this.cbxEspecialidad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbxEspecialidad.Name = "cbxEspecialidad";
-            this.cbxEspecialidad.Size = new System.Drawing.Size(261, 21);
+            this.cbxEspecialidad.Size = new System.Drawing.Size(352, 28);
             this.cbxEspecialidad.TabIndex = 5;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(3, 82);
+            this.btnAceptar.Location = new System.Drawing.Point(4, 115);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.Size = new System.Drawing.Size(112, 35);
             this.btnAceptar.TabIndex = 6;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
@@ -127,9 +135,10 @@ namespace UI.Desktop
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(84, 82);
+            this.btnCancelar.Location = new System.Drawing.Point(124, 115);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(112, 35);
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -137,12 +146,13 @@ namespace UI.Desktop
             // 
             // PlanDesktop
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(355, 105);
+            this.ClientSize = new System.Drawing.Size(532, 162);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "PlanDesktop";
-            this.Text = "PlanDesktop";
+            this.Text = "Formulario de Plan";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

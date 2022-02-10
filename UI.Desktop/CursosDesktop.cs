@@ -59,6 +59,9 @@ namespace UI.Desktop
                     break;
 
                 case ModoForm.Modificacion:
+                    this.cbxComision.Enabled = false;
+                    this.cbxMateria.Enabled = false;
+                    this.txtAnio.Enabled = false;
                     this.btnAceptar.Text = "Guardar";
                     break;
 
@@ -109,16 +112,7 @@ namespace UI.Desktop
                     this.CursoActual.Cupo = int.Parse(this.txtCupo.Text);
                     this.CursoActual.IDComision = int.Parse(cbxComision.SelectedValue.ToString());
                     this.CursoActual.IDMateria = int.Parse(cbxMateria.SelectedValue.ToString());
-                    Validaciones validaciones1 = new Validaciones();
-                    if (validaciones1.ValidaCurso(CursoActual))
-                    {
-                        CursoActual.State = BusinessEntity.States.Modified;
-                    }
-                    else
-                    {
-                        MessageBox.Show("El curso ya existe, por favor vuelva a intentarlo.");
-                        CursoActual.State = BusinessEntity.States.Unmodified;
-                    }
+                    CursoActual.State = BusinessEntity.States.Modified;
                     
                     break;
 
@@ -179,14 +173,13 @@ namespace UI.Desktop
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             Validaciones validaciones = new Validaciones();
-            if(validaciones.ValidaInteger(txtAnio.Text) && validaciones.ValidaInteger(txtCupo.Text) && int.Parse(txtAnio.Text) >1900 && int.Parse(txtAnio.Text) < 2023) 
+            if(this.Validar() == true && validaciones.ValidaInteger(txtAnio.Text) && 
+                validaciones.ValidaInteger(txtCupo.Text) && int.Parse(txtAnio.Text) >1900 && 
+                int.Parse(txtAnio.Text) < 2023) 
             {
-                bool b = this.Validar();
-                if (b == true)
-                {
-                    this.GuardarCambios();
-                    this.Close();
-                }
+                this.GuardarCambios();
+                this.Close();
+                
             }
             else
             {
@@ -198,8 +191,6 @@ namespace UI.Desktop
                     txtCupo.ForeColor = Color.Red;
                 }
             }
-
-            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

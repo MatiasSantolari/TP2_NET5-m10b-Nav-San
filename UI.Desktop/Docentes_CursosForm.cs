@@ -50,10 +50,10 @@ namespace UI.Desktop
                                            join cur in cursos on doc.IDCurso equals cur.ID
                                            join mat in materias on cur.IDMateria equals mat.ID
                                            join comi in comisiones on cur.IDComision equals comi.ID
-                                           select (doc.ID, u.Nombre, u.Apellido, mat.DescMateria, comi.DescComision, doc.Cargo)).ToList();
+                                           select (doc, u.Nombre, u.Apellido, mat.DescMateria, comi.DescComision)).ToList();
 
                             DataTable dataTable1 = new DataTable();
-                            dataTable1.TableName = "Alumno_Inscripcion";
+                            dataTable1.TableName = "Docente_Curso";
                             dataTable1.Columns.Add("ID");
                             dataTable1.Columns.Add("Materia");
                             dataTable1.Columns.Add("Comision");
@@ -63,7 +63,7 @@ namespace UI.Desktop
 
                             foreach (var d in usu_doc)
                             {
-                                dataTable1.Rows.Add(d.ID,d.DescMateria, d.DescComision, d.Nombre, d.Apellido, d.Cargo);
+                                dataTable1.Rows.Add(d.doc.ID,d.DescMateria, d.DescComision, d.Nombre, d.Apellido, d.doc.Cargo);
                             }
 
                             this.dgvDocentes_Cursos.DataSource = dataTable1;
@@ -96,7 +96,6 @@ namespace UI.Desktop
                             DataTable dataTable1 = new DataTable();
                             dataTable1.TableName = "Docente_Curso";
                             dataTable1.Columns.Add("ID");
-
                             dataTable1.Columns.Add("Materia");
                             dataTable1.Columns.Add("Comision");
                             dataTable1.Columns.Add("Nombre Docente");
