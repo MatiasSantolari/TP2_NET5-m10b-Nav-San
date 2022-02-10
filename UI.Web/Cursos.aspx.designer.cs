@@ -15,15 +15,6 @@ namespace UI.Web
     {
 
         /// <summary>
-        /// Control form1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
-        /// <summary>
         /// Control Panel1.
         /// </summary>
         /// <remarks>
@@ -96,6 +87,15 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.TextBox anioCalendarioTextBox;
 
         /// <summary>
+        /// Control lblValidacionAño.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblValidacionAño;
+
+        /// <summary>
         /// Control cupoLabel.
         /// </summary>
         /// <remarks>
@@ -121,6 +121,15 @@ namespace UI.Web
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox cupoTextBox;
+
+        /// <summary>
+        /// Control lblValidacionCupo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblValidacionCupo;
 
         /// <summary>
         /// Control MateriaLabel.
@@ -175,6 +184,15 @@ namespace UI.Web
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ComisionDropDown;
+
+        /// <summary>
+        /// Control ValidacionBorrado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ValidacionBorrado;
 
         /// <summary>
         /// Control gridActionsPanel.

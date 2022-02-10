@@ -1,16 +1,6 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="UI.Web.Default" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="UI.Web.Default" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/2000/svg">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Home</title>
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"/>
-</head>
-<body>
-    <form id="form1" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="PageContent" Runat="Server">
         <h1 style="background-color:lightblue">Home</h1>
 
         <asp:Panel ID="Panel2" runat="server">
@@ -42,6 +32,4 @@
             <asp:Label ID="nombreLabel" runat="server"></asp:Label>
             <asp:Label ID="Label2" runat="server" Text="!"></asp:Label>
         </div>
-    </form>
-</body>
-</html>
+</asp:Content>

@@ -143,6 +143,7 @@ namespace UI.Web
         {
             if (this.IsEntitySelected)
             {
+                ValidacionBorrado.Visible = false;
                 lblValidacionHsSem.Visible = false;
                 lblValidacionHsTot.Visible = false;
                 this.EnableForm(true);
@@ -245,6 +246,7 @@ namespace UI.Web
         {
             if (this.IsEntitySelected)
             {
+                ValidacionBorrado.Visible = false;
                 lblValidacionHsSem.Visible = false;
                 lblValidacionHsTot.Visible = false;
                 this.formPanel.Visible = true;
@@ -252,6 +254,19 @@ namespace UI.Web
                 this.FormMode = FormModes.baja;
                 this.EnableForm(false);
                 this.LoadForm(this.SelectedID);
+
+                //
+                Validaciones val = new Validaciones();
+                MateriaLogic ml = new MateriaLogic();
+                Materia m = new Materia();
+                m = ml.GetOne(SelectedID);
+                if (val.ValidaBorradoMateria(m) == true) { ValidacionBorrado.Visible = true; }
+                else
+                {
+                    ValidacionBorrado.Visible = false;
+                    this.LoadForm(this.SelectedID);
+                }
+                //
             }
         }
 
@@ -268,6 +283,7 @@ namespace UI.Web
         }
         protected void nuevoLinkButton_Click(object sender, EventArgs e)
         {
+            ValidacionBorrado.Visible = false;
             lblValidacionHsSem.Visible = false;
             lblValidacionHsTot.Visible = false;
             this.formPanel.Visible = true;

@@ -145,6 +145,7 @@ namespace UI.Web
         {
             if (this.IsEntitySelected)
             {
+                ValidacionBorrado.Visible = false;
                 this.EnableForm(true);
                 this.formPanel.Visible = true;
                 this.formActionPanel.Visible = true;
@@ -186,16 +187,31 @@ namespace UI.Web
         {
             if (this.IsEntitySelected)
             {
+                ValidacionBorrado.Visible = false;
                 this.formPanel.Visible = true;
                 this.FormMode = FormModes.baja;
                 this.formActionPanel.Visible = true;
                 this.EnableForm(false);
                 this.LoadForm(this.SelectedID);
+
+                //
+                Validaciones val = new Validaciones();
+                ComisionLogic cl = new ComisionLogic();
+                Comision c = new Comision();
+                c = cl.GetOne(SelectedID);
+                if (val.ValidaBorradoComision(c) == true) { ValidacionBorrado.Visible = true; }
+                else
+                {
+                    ValidacionBorrado.Visible = false;
+                    this.LoadForm(this.SelectedID);
+                }
+                //
             }
         }
 
         protected void nuevoLinkButton_Click(object sender, EventArgs e)
         {
+            ValidacionBorrado.Visible = false;
             this.formPanel.Visible = true;
             this.formActionPanel.Visible = true;
             this.FormMode = FormModes.alta;
@@ -217,7 +233,7 @@ namespace UI.Web
             { Label1.Visible = true; Label2.Visible = true; Label3.Visible = true; }
             else {
                 Validaciones val = new Validaciones();
-                if (val.ValidaMail(this.anioEspecialidadTextBox.Text))
+                if (val.ValidaInteger(this.anioEspecialidadTextBox.Text))
                 {
                     this.lblValidacionAño.Visible = false;
                     Label1.Visible = false; Label2.Visible = false; Label3.Visible = false;
@@ -249,19 +265,19 @@ namespace UI.Web
                         default:
                             break;
                     }
+                    this.formPanel.Visible = false;
+                    this.formActionPanel.Visible = false;
+                    this.gridView.SelectedIndex = -1;
+                    this.SelectedID = 0;
                 }
                 else
                 {
-                    if (val.ValidaMail(this.anioEspecialidadTextBox.Text) == false) { this.lblValidacionAño.Visible = true; }
+                    if (val.ValidaInteger(this.anioEspecialidadTextBox.Text) == false) { this.lblValidacionAño.Visible = true; }
                     else { this.lblValidacionAño.Visible = false; }
                     EnableForm(true);
 
                 }
 
-                this.formPanel.Visible = false;
-                    this.formActionPanel.Visible = false;
-                    this.gridView.SelectedIndex = -1;
-                    this.SelectedID = 0;
             }
             
         }

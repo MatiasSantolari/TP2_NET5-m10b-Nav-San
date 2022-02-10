@@ -1,29 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Especialidades.aspx.cs" Inherits="UI.Web.Especialidades" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Especialidades.aspx.cs" Inherits="UI.Web.Especialidades" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-     <title>Especialidades</title>
-    <style>
-        .divider{
-        width:5px;
-        height:auto;
-        display:inline-block;
-        }
-    </style>
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"/>
-
-</head>
-<body>
-    <h1 style="background-color:lightblue">Especialidades</h1>
-
-        <asp:Panel ID="Panel1" runat="server">
-            
-        </asp:Panel>
-    <form id="form1" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="PageContent" Runat="Server">
+        <h1 style="background-color:lightblue">Especialidades</h1>
         <asp:Menu ID="Menu2" runat="server" Orientation="Horizontal">
                 <Items>
                     <asp:MenuItem NavigateUrl="~/Home.aspx" Text="Home" Value="Home"></asp:MenuItem>
@@ -79,6 +57,4 @@
             </asp:Panel>
             </div>
         </div>
-    </form>
-</body>
-</html>
+</asp:Content>
