@@ -89,8 +89,8 @@ namespace UI.Desktop
             if (per.TipoPersona.ToString() == "Admin")
             {
                 //especialidades
-                pbEspecialidad.Visible = false;
-                lblEspecialidad.Visible = false;
+                //pbEspecialidad.Visible = false;
+                //lblEspecialidad.Visible = false;
             }
 
             if (per.TipoPersona.ToString() == "Alumno")
@@ -112,7 +112,7 @@ namespace UI.Desktop
 
                 //especialidades
                 pbEspecialidad.Visible = false;
-                lblEspecialidad.Visible = false;
+                lblReportePlanes.Visible = false;
 
             }
 
@@ -125,7 +125,7 @@ namespace UI.Desktop
 
                 //especialidades
                 pbEspecialidad.Visible = false;
-                lblEspecialidad.Visible = false;
+                lblReportePlanes.Visible = false;
             }
         }
 
@@ -180,6 +180,12 @@ namespace UI.Desktop
         private void pbUsuario_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void pbEspecialidad_Click(object sender, EventArgs e)
+        {
+            ReportePlanes rp = new ReportePlanes();
+            rp.ShowDialog();
         }
     }
 }

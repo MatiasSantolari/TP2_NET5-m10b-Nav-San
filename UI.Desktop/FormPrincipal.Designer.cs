@@ -36,7 +36,7 @@ namespace UI.Desktop
             this.btnLogout = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.lblEspecialidad = new System.Windows.Forms.Label();
+            this.lblReportePlanes = new System.Windows.Forms.Label();
             this.pbEspecialidad = new System.Windows.Forms.PictureBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -174,7 +174,7 @@ namespace UI.Desktop
             // 
             // groupBox9
             // 
-            this.groupBox9.Controls.Add(this.lblEspecialidad);
+            this.groupBox9.Controls.Add(this.lblReportePlanes);
             this.groupBox9.Controls.Add(this.pbEspecialidad);
             this.groupBox9.Location = new System.Drawing.Point(421, 257);
             this.groupBox9.Name = "groupBox9";
@@ -182,14 +182,14 @@ namespace UI.Desktop
             this.groupBox9.TabIndex = 8;
             this.groupBox9.TabStop = false;
             // 
-            // lblEspecialidad
+            // lblReportePlanes
             // 
-            this.lblEspecialidad.AutoSize = true;
-            this.lblEspecialidad.Location = new System.Drawing.Point(62, 103);
-            this.lblEspecialidad.Name = "lblEspecialidad";
-            this.lblEspecialidad.Size = new System.Drawing.Size(78, 13);
-            this.lblEspecialidad.TabIndex = 1;
-            this.lblEspecialidad.Text = "Especialidades";
+            this.lblReportePlanes.AutoSize = true;
+            this.lblReportePlanes.Location = new System.Drawing.Point(62, 103);
+            this.lblReportePlanes.Name = "lblReportePlanes";
+            this.lblReportePlanes.Size = new System.Drawing.Size(80, 13);
+            this.lblReportePlanes.TabIndex = 1;
+            this.lblReportePlanes.Text = "Reporte Planes";
             // 
             // pbEspecialidad
             // 
@@ -202,6 +202,7 @@ namespace UI.Desktop
             this.pbEspecialidad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbEspecialidad.TabIndex = 0;
             this.pbEspecialidad.TabStop = false;
+            this.pbEspecialidad.Click += new System.EventHandler(this.pbEspecialidad_Click);
             // 
             // groupBox8
             // 
@@ -597,7 +598,7 @@ namespace UI.Desktop
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.Label lblEspecialidad;
+        private System.Windows.Forms.Label lblReportePlanes;
         private System.Windows.Forms.PictureBox pbEspecialidad;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.Label label9;
