@@ -315,6 +315,12 @@ namespace UI.Web
         {
             this.formActionPanel.Visible = false;
             this.formPanel.Visible = false;
+            this.lblValidacionHsSem.Visible = false;
+            this.lblValidacionHsTot.Visible = false;
+            this.Label1.Visible = false;
+            this.Label2.Visible = false;
+            this.Label3.Visible = false;
+            this.Label4.Visible = false;
 
 
             this.gridView.SelectedIndex = -1;
@@ -323,7 +329,7 @@ namespace UI.Web
 
         protected void btnReporteMaterias_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/ReporteMaterias.aspx");
+            Response.Redirect("~/Reportes/ReportePlanes.aspx");
 
             //ExportToPDF();
         }

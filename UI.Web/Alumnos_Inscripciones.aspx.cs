@@ -313,6 +313,10 @@ namespace UI.Web
         {
             this.formPanel.Visible = false;
             this.formActionPanel.Visible = false;
+            this.Label1.Visible = false;
+            this.Label2.Visible = false;
+            this.Label3.Visible = false;
+            this.Label4.Visible = false;
 
             this.gridView.SelectedIndex = -1;
             this.SelectedID = 0;

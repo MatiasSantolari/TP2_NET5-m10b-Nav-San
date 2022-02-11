@@ -260,6 +260,10 @@ namespace UI.Web
         {
             this.formActionPanel.Visible = false;
             this.formPanel.Visible = false;
+            this.Label1.Visible = false;
+            this.Label2.Visible = false;
+            this.Label3.Visible = false;
+            this.Label4.Visible = false;
         }
     }
 }

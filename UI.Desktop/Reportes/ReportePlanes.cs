@@ -23,14 +23,6 @@ namespace UI.Desktop
         private void ReportePlanes_Load(object sender, EventArgs e)
         {
             GetReportePlanesTableAdapter gpta = new GetReportePlanesTableAdapter();
-            /*DataTable dataTable1 = new DataTable();
-            dataTable1.TableName = "Materias";
-            dataTable1.Columns.Add("ID");
-            dataTable1.Columns.Add("DescMateria");
-            dataTable1.Columns.Add("HsSemanales");
-            dataTable1.Columns.Add("HsTotales");
-            dataTable1.Columns.Add("DescPlan");
-            */
 
 
             // 2. limpiamos el origen de Datos del informe
