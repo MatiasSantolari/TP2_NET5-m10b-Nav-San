@@ -40,11 +40,20 @@ namespace UI.Web
             }
 
             Persona p = (Persona)Session["USUARIO"];
-            if (p.TipoPersona.ToString() == "Docente")
+            if (p == null)
+            {
+                this.Panel1.Visible = false;
+                this.gridActionsPanel.Visible = false;
+                this.gridPanel.Visible = false;
+                this.formPanel.Visible = false;
+                this.formActionPanel.Visible = false;
+                this.ValidationActionPanel.Visible = false;
+            }
+            else if (p.TipoPersona.ToString() == "Docente")
             {
                 this.gridActionsPanel.Visible = false;
             }
-            if (p.TipoPersona.ToString() == "Alumno")
+            else if (p.TipoPersona.ToString() == "Alumno")
             {
                 this.gridPanel.Visible = false;
                 this.gridActionsPanel.Visible = false;

@@ -31,9 +31,21 @@ namespace UI.Web
 
             if (!Page.IsPostBack)
             {
-
-                LoadPlan();
-                LoadForm(PersonaActual.ID);
+                if (PersonaActual == null)
+                {
+                    this.Panel1.Visible = false;
+                    this.gridActionsPanel.Visible = false;
+                    this.formPanel.Visible = false;
+                    this.formActionPanel.Visible = false;
+                    this.ValidationActionPanel.Visible = false;
+                    return;
+                }
+                else 
+                {
+                    LoadPlan();
+                    LoadForm(PersonaActual.ID);
+                }
+                
             }
 
             EnableForm(false);

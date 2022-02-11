@@ -38,7 +38,17 @@ namespace UI.Web
                 this.gridView.HeaderRow.TableSection = TableRowSection.TableHeader;
             }
             Persona p = (Persona)Session["USUARIO"];
-            if (p.TipoPersona.ToString() == "Alumno" || p.TipoPersona.ToString() == "Docente")
+            if (p == null)
+            {
+                this.Panel1.Visible = false;
+                this.gridPanel.Visible = false;
+                this.formPanel.Visible = false;
+                this.formActionPanel.Visible = false;
+                this.gridActionsPanel.Visible = false;
+                this.ValidationActionPanel.Visible = false;
+                this.Menu1.Visible = false;
+            }
+            else if(p.TipoPersona.ToString() == "Alumno" || p.TipoPersona.ToString() == "Docente")
             {
                 this.gridActionsPanel.Visible = false;
             }

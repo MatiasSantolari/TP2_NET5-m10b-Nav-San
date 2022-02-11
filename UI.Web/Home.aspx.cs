@@ -12,7 +12,16 @@ namespace UI.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Persona p = (Persona)Session["USUARIO"];
+            if (p == null)
+            {
+                this.Panel1.Visible = false;
+                this.Panel2.Visible = false;
+                this.Menu1.Visible = false;
+                this.Label1.Visible = false;
+                this.Label2.Visible = false;
+                this.nombreLabel.Visible = false;
+            }
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)
