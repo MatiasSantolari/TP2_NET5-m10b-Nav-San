@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Logic;
 using Business.Entities;
+using UI.Desktop.Reportes;
 
 namespace UI.Desktop
 {
@@ -185,6 +186,18 @@ namespace UI.Desktop
         private void pbEspecialidad_Click(object sender, EventArgs e)
         {
             ReportePlanes rp = new ReportePlanes();
+            rp.ShowDialog();
+        }
+
+        private void reToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReportePlanes rp = new ReportePlanes();
+            rp.ShowDialog();
+        }
+
+        private void reporteMateriasPorEspecialidadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReporteMateriasPorEspecialidad rp = new ReporteMateriasPorEspecialidad();
             rp.ShowDialog();
         }
     }

@@ -71,6 +71,9 @@ namespace UI.Desktop
             this.comisionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.personasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteMateriasPorEspecialidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tblPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbUsuario)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -112,7 +115,7 @@ namespace UI.Desktop
             this.tblPrincipal.RowCount = 2;
             this.tblPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tblPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblPrincipal.Size = new System.Drawing.Size(634, 455);
+            this.tblPrincipal.Size = new System.Drawing.Size(703, 455);
             this.tblPrincipal.TabIndex = 0;
             // 
             // label1
@@ -128,7 +131,7 @@ namespace UI.Desktop
             // pbUsuario
             // 
             this.pbUsuario.Image = ((System.Drawing.Image)(resources.GetObject("pbUsuario.Image")));
-            this.pbUsuario.Location = new System.Drawing.Point(477, 3);
+            this.pbUsuario.Location = new System.Drawing.Point(546, 3);
             this.pbUsuario.Name = "pbUsuario";
             this.pbUsuario.Size = new System.Drawing.Size(68, 60);
             this.pbUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -138,7 +141,7 @@ namespace UI.Desktop
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(551, 3);
+            this.btnLogout.Location = new System.Drawing.Point(620, 3);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(80, 23);
             this.btnLogout.TabIndex = 2;
@@ -169,14 +172,14 @@ namespace UI.Desktop
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.34F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(628, 383);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(697, 383);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // groupBox9
             // 
             this.groupBox9.Controls.Add(this.lblReportePlanes);
             this.groupBox9.Controls.Add(this.pbEspecialidad);
-            this.groupBox9.Location = new System.Drawing.Point(421, 257);
+            this.groupBox9.Location = new System.Drawing.Point(467, 257);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(199, 119);
             this.groupBox9.TabIndex = 8;
@@ -208,7 +211,7 @@ namespace UI.Desktop
             // 
             this.groupBox8.Controls.Add(this.label9);
             this.groupBox8.Controls.Add(this.pictureBox8);
-            this.groupBox8.Location = new System.Drawing.Point(212, 257);
+            this.groupBox8.Location = new System.Drawing.Point(235, 257);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(197, 119);
             this.groupBox8.TabIndex = 7;
@@ -274,7 +277,7 @@ namespace UI.Desktop
             // 
             this.groupBox6.Controls.Add(this.lblComisiones);
             this.groupBox6.Controls.Add(this.pbComisiones);
-            this.groupBox6.Location = new System.Drawing.Point(421, 130);
+            this.groupBox6.Location = new System.Drawing.Point(467, 130);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(199, 119);
             this.groupBox6.TabIndex = 5;
@@ -307,7 +310,7 @@ namespace UI.Desktop
             // 
             this.groupBox5.Controls.Add(this.lblCursos);
             this.groupBox5.Controls.Add(this.pbCursos);
-            this.groupBox5.Location = new System.Drawing.Point(212, 130);
+            this.groupBox5.Location = new System.Drawing.Point(235, 130);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(197, 119);
             this.groupBox5.TabIndex = 4;
@@ -373,7 +376,7 @@ namespace UI.Desktop
             // 
             this.groupBox3.Controls.Add(this.lblInsc);
             this.groupBox3.Controls.Add(this.pbInsc);
-            this.groupBox3.Location = new System.Drawing.Point(421, 3);
+            this.groupBox3.Location = new System.Drawing.Point(467, 3);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(199, 119);
             this.groupBox3.TabIndex = 2;
@@ -406,7 +409,7 @@ namespace UI.Desktop
             // 
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.pictureBox2);
-            this.groupBox2.Location = new System.Drawing.Point(212, 3);
+            this.groupBox2.Location = new System.Drawing.Point(235, 3);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(197, 119);
             this.groupBox2.TabIndex = 1;
@@ -478,10 +481,11 @@ namespace UI.Desktop
             this.cursosToolStripMenuItem,
             this.comisionesToolStripMenuItem,
             this.usuariosToolStripMenuItem,
-            this.personasToolStripMenuItem});
+            this.personasToolStripMenuItem,
+            this.reportesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(634, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(703, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -541,11 +545,34 @@ namespace UI.Desktop
             this.personasToolStripMenuItem.Text = "Personas";
             this.personasToolStripMenuItem.Click += new System.EventHandler(this.personasToolStripMenuItem_Click);
             // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reToolStripMenuItem,
+            this.reporteMateriasPorEspecialidadToolStripMenuItem});
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            // 
+            // reToolStripMenuItem
+            // 
+            this.reToolStripMenuItem.Name = "reToolStripMenuItem";
+            this.reToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
+            this.reToolStripMenuItem.Text = "Reporte Planes";
+            this.reToolStripMenuItem.Click += new System.EventHandler(this.reToolStripMenuItem_Click);
+            // 
+            // reporteMateriasPorEspecialidadToolStripMenuItem
+            // 
+            this.reporteMateriasPorEspecialidadToolStripMenuItem.Name = "reporteMateriasPorEspecialidadToolStripMenuItem";
+            this.reporteMateriasPorEspecialidadToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
+            this.reporteMateriasPorEspecialidadToolStripMenuItem.Text = "Reporte MateriasPorEspecialidad";
+            this.reporteMateriasPorEspecialidadToolStripMenuItem.Click += new System.EventHandler(this.reporteMateriasPorEspecialidadToolStripMenuItem_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(634, 479);
+            this.ClientSize = new System.Drawing.Size(703, 479);
             this.Controls.Add(this.tblPrincipal);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -633,5 +660,8 @@ namespace UI.Desktop
         private System.Windows.Forms.ToolStripMenuItem comisionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem personasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteMateriasPorEspecialidadToolStripMenuItem;
     }
 }
