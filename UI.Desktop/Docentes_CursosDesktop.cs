@@ -32,14 +32,6 @@ namespace UI.Desktop
             cbxMateria.DataSource = materia.GetAll();
             cbxMateria.DisplayMember = "DescMateria";
             cbxMateria.ValueMember = "ID";
-
-            /*
-            ComisionLogic comision = new ComisionLogic();
-            cbxComision.DataSource = comision.GetAll();
-            cbxComision.DisplayMember = "DescComision";
-            cbxComision.ValueMember = "ID";
-            */
-
             cbxCargo.DataSource = Enum.GetValues(typeof(Docente_Curso.cargos));
         }
 
@@ -64,13 +56,15 @@ namespace UI.Desktop
         {
 
             this.txtID.Text = this.DocenteCursoActual.ID.ToString();
-
-            this.cbxDocente.SelectedItem = this.DocenteCursoActual.IDDocente;
-
+            this.cbxDocente.SelectedValue = this.DocenteCursoActual.IDDocente;
             CursoLogic cursoData = new CursoLogic();
             Curso c = cursoData.GetOne(DocenteCursoActual.IDCurso);
-
             this.cbxMateria.SelectedValue = c.IDMateria;
+            List<Comision> com = cursoData.GetComisionesXMateria(c.IDMateria);
+            cbxComision.Enabled = true;
+            cbxComision.DataSource = com;
+            cbxComision.DisplayMember = "DescComision";
+            cbxComision.ValueMember = "ID";
             this.cbxComision.SelectedValue = c.IDComision;
 
             cbxCargo.SelectedItem = this.DocenteCursoActual.Cargo;
@@ -118,7 +112,17 @@ namespace UI.Desktop
                     this.DocenteCursoActual.IDCurso = dcl.GetCurso(idMateria, idComision).ID;
 
                     this.DocenteCursoActual.Cargo = (Docente_Curso.cargos)(this.cbxCargo.SelectedValue);
-                    DocenteCursoActual.State = BusinessEntity.States.New;
+                    Validaciones validaciones = new Validaciones();
+                    if (validaciones.ValidaDocente(DocenteCursoActual) == true)
+                    {
+                        DocenteCursoActual.State = BusinessEntity.States.New;
+                    }
+                    else
+                    {
+                        MessageBox.Show("El docente ya se encuentra cargado en la materia.");
+                        DocenteCursoActual.State = BusinessEntity.States.Unmodified;
+                    }
+
                     break;
 
                 case ModoForm.Modificacion:
@@ -134,7 +138,6 @@ namespace UI.Desktop
 
                     Docente_CursoLogic dcl1 = new Docente_CursoLogic();
                     this.DocenteCursoActual.IDCurso = dcl1.GetCurso(idM, idC).ID;
-
                     this.DocenteCursoActual.Cargo = (Docente_Curso.cargos)(this.cbxCargo.SelectedValue);
                     DocenteCursoActual.State = BusinessEntity.States.Modified;
                     break;
@@ -173,11 +176,26 @@ namespace UI.Desktop
                 dcl.Save(DocenteCursoActual);
             }
         }
+        public bool Validara()
+        {
+            bool b2 = cbxComision.Enabled;
+
+            if (b2 == false || this.cbxDocente.SelectedValue == null || this.cbxCargo.SelectedValue == null)
+            {
+                this.Notificar("Por favor, rellenar los campos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             GuardarCambios();
-            this.Close();
+            this.Close();            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

@@ -45,7 +45,7 @@ namespace UI.Desktop
             this.txtID.Text = this.ComisionActual.ID.ToString();
             this.txtDescripcion.Text = this.ComisionActual.DescComision.ToString();
             cbxAnioEspecialidad.SelectedItem = this.ComisionActual.AnioEspecialidad;
-            cbxPlan.SelectedItem = this.ComisionActual.IDPlan;
+            cbxPlan.SelectedValue = this.ComisionActual.IDPlan;
 
             switch (Modo)
             {
@@ -69,6 +69,7 @@ namespace UI.Desktop
         }
         public override void MapearADatos()
         {
+            Validaciones validaciones = new Validaciones();
             switch (Modo)
             {
                 case ModoForm.Alta:
@@ -80,19 +81,36 @@ namespace UI.Desktop
                     this.ComisionActual.DescComision = this.txtDescripcion.Text;
                     this.ComisionActual.AnioEspecialidad = (Comision.Anios)(this.cbxAnioEspecialidad.SelectedValue); ;
                     this.ComisionActual.IDPlan = int.Parse(cbxPlan.SelectedValue.ToString());
-                    ComisionActual.State = Comision.States.New;
+                    if (validaciones.ValidaComision(ComisionActual))
+                    {
+                        ComisionActual.State = Comision.States.New;
+                    }
+                    else
+                    {
+                        MessageBox.Show("La comisión que desea agregar ya existe.");
+                        ComisionActual.State = Comision.States.Unmodified;
+                    }
+                    
                     break;
 
                 case ModoForm.Modificacion:
                     this.btnAceptar.Text = "Guardar";
                     Comision comi = new Comision();
                     ComisionActual = comi;
-
                     this.ComisionActual.ID = int.Parse(this.txtID.Text);
                     this.ComisionActual.DescComision = this.txtDescripcion.Text;
                     this.ComisionActual.AnioEspecialidad = (Comision.Anios)(this.cbxAnioEspecialidad.SelectedValue); ;
                     this.ComisionActual.IDPlan = int.Parse(cbxPlan.SelectedValue.ToString());
-                    ComisionActual.State = Comision.States.Modified;
+                    if (validaciones.ValidaComision(ComisionActual))
+                    {
+                        ComisionActual.State = Comision.States.Modified;
+                    }
+                    else
+                    {
+                        MessageBox.Show("La comisión que desea agregar ya existe.");
+                        ComisionActual.State = Comision.States.Unmodified;
+                    }
+
                     break;
 
                 case ModoForm.Baja:
@@ -147,9 +165,8 @@ namespace UI.Desktop
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
-        {
-            bool b = this.Validar();
-            if (b == true)
+        { 
+            if (this.Validar() == true)
             {
                 this.GuardarCambios();
                 this.Close();

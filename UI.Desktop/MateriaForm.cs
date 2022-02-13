@@ -112,11 +112,26 @@ namespace UI.Desktop
             int ind = dgvMaterias.SelectedCells[0].RowIndex;
             DataGridViewRow dataGridViewRow = dgvMaterias.Rows[ind];
             int ID = Convert.ToInt32(dataGridViewRow.Cells["ID"].Value);
-            MateriaDesktop editar = new MateriaDesktop(ID, ModoForm.Baja);
-            editar.ShowDialog();
+
+            CursoLogic ul = new CursoLogic();
+
+            var cursos = ul.GetAll();
+
+            var cur = (from c in cursos
+                       where c.IDMateria == ID
+                       select c.ID).ToList();
+
+            if (cur.Count == 0)
+            {
+                MateriaDesktop eliminar = new MateriaDesktop(ID, ModoForm.Baja);
+                eliminar.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("La materia está siendo utilizada en otros datos. Primero elimine sus dependencias.");
+            }
+            
             this.Lista();
-
-
 
             /*int id = ((Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID;
             MateriaDesktop mat = new MateriaDesktop(id, ModoForm.Baja);

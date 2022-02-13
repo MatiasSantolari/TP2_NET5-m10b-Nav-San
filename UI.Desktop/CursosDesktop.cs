@@ -49,6 +49,8 @@ namespace UI.Desktop
             this.txtID.Text = this.CursoActual.ID.ToString();
             this.txtAnio.Text = this.CursoActual.AnioCalendario.ToString();
             this.txtCupo.Text = this.CursoActual.Cupo.ToString();
+            this.cbxComision.SelectedValue = this.CursoActual.IDComision;
+            this.cbxMateria.SelectedValue = this.CursoActual.IDMateria;
 
             switch (Modo)
             {
@@ -57,6 +59,9 @@ namespace UI.Desktop
                     break;
 
                 case ModoForm.Modificacion:
+                    this.cbxComision.Enabled = false;
+                    this.cbxMateria.Enabled = false;
+                    this.txtAnio.Enabled = false;
                     this.btnAceptar.Text = "Guardar";
                     break;
 
@@ -85,7 +90,17 @@ namespace UI.Desktop
                     this.CursoActual.Cupo = int.Parse(this.txtCupo.Text);
                     this.CursoActual.IDComision = int.Parse(cbxComision.SelectedValue.ToString());
                     this.CursoActual.IDMateria = int.Parse(cbxMateria.SelectedValue.ToString());
-                    CursoActual.State = BusinessEntity.States.New;
+                    Validaciones validaciones = new Validaciones();
+                    if (validaciones.ValidaCurso(CursoActual))
+                    {
+                        CursoActual.State = BusinessEntity.States.New;
+                    }
+                    else
+                    {
+                        MessageBox.Show("El curso ya existe, por favor vuelva a intentarlo.");
+                        CursoActual.State = BusinessEntity.States.Unmodified;
+                    }
+                    
                     break;
 
                 case ModoForm.Modificacion:
@@ -98,6 +113,7 @@ namespace UI.Desktop
                     this.CursoActual.IDComision = int.Parse(cbxComision.SelectedValue.ToString());
                     this.CursoActual.IDMateria = int.Parse(cbxMateria.SelectedValue.ToString());
                     CursoActual.State = BusinessEntity.States.Modified;
+                    
                     break;
 
                 case ModoForm.Baja:
@@ -156,11 +172,24 @@ namespace UI.Desktop
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            bool b = this.Validar();
-            if (b == true)
+            Validaciones validaciones = new Validaciones();
+            if(this.Validar() == true && validaciones.ValidaInteger(txtAnio.Text) && 
+                validaciones.ValidaInteger(txtCupo.Text) && int.Parse(txtAnio.Text) >1900 && 
+                int.Parse(txtAnio.Text) < 2023) 
             {
                 this.GuardarCambios();
                 this.Close();
+                
+            }
+            else
+            {
+                if (!validaciones.ValidaInteger(txtAnio.Text)){
+                    txtAnio.ForeColor = Color.Red;
+                }
+                if (!validaciones.ValidaInteger(txtCupo.Text))
+                {
+                    txtCupo.ForeColor = Color.Red;
+                }
             }
         }
 

@@ -33,18 +33,18 @@ namespace UI.Desktop
             this.tscDocentes_Cursos = new System.Windows.Forms.ToolStripContainer();
             this.tlDocentes_Cursos = new System.Windows.Forms.TableLayoutPanel();
             this.dgvDocentes_Cursos = new System.Windows.Forms.DataGridView();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.tsDocentes_Cursos = new System.Windows.Forms.ToolStrip();
-            this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
-            this.tsbEditar = new System.Windows.Forms.ToolStripButton();
-            this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Comision = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Docente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.tsDocentes_Cursos = new System.Windows.Forms.ToolStrip();
+            this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
+            this.tsbEditar = new System.Windows.Forms.ToolStripButton();
+            this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.tscDocentes_Cursos.ContentPanel.SuspendLayout();
             this.tscDocentes_Cursos.TopToolStripPanel.SuspendLayout();
             this.tscDocentes_Cursos.SuspendLayout();
@@ -106,6 +106,55 @@ namespace UI.Desktop
             this.dgvDocentes_Cursos.RowTemplate.Height = 28;
             this.dgvDocentes_Cursos.Size = new System.Drawing.Size(964, 372);
             this.dgvDocentes_Cursos.TabIndex = 0;
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 8;
+            this.ID.Name = "ID";
+            this.ID.Visible = false;
+            this.ID.Width = 150;
+            // 
+            // Materia
+            // 
+            this.Materia.DataPropertyName = "Materia";
+            this.Materia.HeaderText = "Materia";
+            this.Materia.MinimumWidth = 8;
+            this.Materia.Name = "Materia";
+            this.Materia.Width = 150;
+            // 
+            // Comision
+            // 
+            this.Comision.DataPropertyName = "Comision";
+            this.Comision.HeaderText = "Comision";
+            this.Comision.MinimumWidth = 8;
+            this.Comision.Name = "Comision";
+            this.Comision.Width = 150;
+            // 
+            // Docente
+            // 
+            this.Docente.DataPropertyName = "Nombre Docente";
+            this.Docente.HeaderText = "Nombre Docente";
+            this.Docente.MinimumWidth = 8;
+            this.Docente.Name = "Docente";
+            this.Docente.Width = 150;
+            // 
+            // Apellido
+            // 
+            this.Apellido.DataPropertyName = "Apellido Docente";
+            this.Apellido.HeaderText = "Apellido Docente";
+            this.Apellido.MinimumWidth = 8;
+            this.Apellido.Name = "Apellido";
+            this.Apellido.Width = 150;
+            // 
+            // Cargo
+            // 
+            this.Cargo.DataPropertyName = "Cargo";
+            this.Cargo.HeaderText = "Cargo";
+            this.Cargo.MinimumWidth = 8;
+            this.Cargo.Name = "Cargo";
+            this.Cargo.Width = 150;
             // 
             // btnActualizar
             // 
@@ -174,55 +223,6 @@ namespace UI.Desktop
             this.tsbEliminar.ToolTipText = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 8;
-            this.ID.Name = "ID";
-            this.ID.Visible = false;
-            this.ID.Width = 150;
-            // 
-            // Materia
-            // 
-            this.Materia.DataPropertyName = "Materia";
-            this.Materia.HeaderText = "Materia";
-            this.Materia.MinimumWidth = 8;
-            this.Materia.Name = "Materia";
-            this.Materia.Width = 150;
-            // 
-            // Comision
-            // 
-            this.Comision.DataPropertyName = "Comision";
-            this.Comision.HeaderText = "Comision";
-            this.Comision.MinimumWidth = 8;
-            this.Comision.Name = "Comision";
-            this.Comision.Width = 150;
-            // 
-            // Docente
-            // 
-            this.Docente.DataPropertyName = "Nombre Docente";
-            this.Docente.HeaderText = "Nombre Docente";
-            this.Docente.MinimumWidth = 8;
-            this.Docente.Name = "Docente";
-            this.Docente.Width = 150;
-            // 
-            // Apellido
-            // 
-            this.Apellido.DataPropertyName = "Apellido Docente";
-            this.Apellido.HeaderText = "Apellido Docente";
-            this.Apellido.MinimumWidth = 8;
-            this.Apellido.Name = "Apellido";
-            this.Apellido.Width = 150;
-            // 
-            // Cargo
-            // 
-            this.Cargo.DataPropertyName = "Cargo";
-            this.Cargo.HeaderText = "Cargo";
-            this.Cargo.MinimumWidth = 8;
-            this.Cargo.Name = "Cargo";
-            this.Cargo.Width = 150;
-            // 
             // Docentes_CursosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -230,7 +230,7 @@ namespace UI.Desktop
             this.ClientSize = new System.Drawing.Size(970, 449);
             this.Controls.Add(this.tscDocentes_Cursos);
             this.Name = "Docentes_CursosForm";
-            this.Text = "Docentes_CursosForm";
+            this.Text = "Docentes";
             this.Load += new System.EventHandler(this.Docentes_CursosForm_Load);
             this.tscDocentes_Cursos.ContentPanel.ResumeLayout(false);
             this.tscDocentes_Cursos.TopToolStripPanel.ResumeLayout(false);

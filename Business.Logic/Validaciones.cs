@@ -54,7 +54,8 @@ namespace Business.Logic
         {
             try
             {
-                List<Alumnos_Inscripciones> inscripciones = Alumnos_InscripcionesData.GetAll();
+                Alumno_InscripcionAdapter alumnos_InscripcionesData = new Alumno_InscripcionAdapter();
+                List<Alumnos_Inscripciones> inscripciones = alumnos_InscripcionesData.GetAll();
                 foreach (var ins in inscripciones)
                 {
                     if (ins.IDAlumno == ali.IDAlumno && ins.IDCurso == ali.IDCurso)
@@ -73,7 +74,138 @@ namespace Business.Logic
             }
         }
 
+        public bool ValidaDocente(Docente_Curso doc)
+        {
+            try
+            {
+                Docente_CursoAdapter dca = new Docente_CursoAdapter();
+                List<Docente_Curso> docentes = dca.GetAll();
+                foreach (var dc in docentes)
+                {
+                    if (dc.IDDocente == doc.IDDocente && dc.IDCurso == doc.IDCurso && dc.Cargo == doc.Cargo)
+                    {
+                        return false;
+                    }
+                }
 
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al realizar la inscripción del alumno", ex);
+                throw ExcepcionManejada;
+            }
+        }
+
+        public bool ValidaCurso(Curso cursoAct)
+        {
+            try
+            {
+                CursoAdapter cursoAdapter = new CursoAdapter();
+                List<Curso> cursos = cursoAdapter.GetAll();
+                foreach (var cur in cursos)
+                {
+                    if (cur.IDComision == cursoAct.IDComision && cur.IDMateria == cursoAct.IDMateria && cur.AnioCalendario == cursoAct.AnioCalendario)
+                    {
+                        return false;
+                    }
+                }
+
+                //Alumnos_InscripcionesData.Insert(ali);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al realizar el curso", ex);
+                throw ExcepcionManejada;
+            }
+        }
+        public bool ValidaComision(Comision comAct)
+        {
+            try
+            {
+                ComisionAdapter comisionAdapter = new ComisionAdapter();
+                List<Comision> comisiones = comisionAdapter.GetAll();
+                foreach (var cur in comisiones)
+                {
+                    if (cur.DescComision == comAct.DescComision && cur.AnioEspecialidad == comAct.AnioEspecialidad && cur.IDPlan == comAct.IDPlan)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al realizar el curso", ex);
+                throw ExcepcionManejada;
+            }
+        }
+
+        public bool ValidaPersona(Persona persona)
+        {
+            try
+            {
+                PersonaAdapter adapter = new PersonaAdapter();
+                List<Persona> personas = adapter.GetAll();
+                foreach (var per in personas)
+                {
+                    if (per.Email == persona.Email)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al realizar el curso", ex);
+                throw ExcepcionManejada;
+            }
+        }
+        public bool ValidaPlan(Plan plan)
+        {
+            try
+            {
+                PlanesAdapter pa = new PlanesAdapter();
+                List<Plan> planes = pa.GetAll();
+                foreach (var p in planes)
+                {
+                    if (p.DescPlan == plan.DescPlan && p.IdEspecialidad == plan.IdEspecialidad)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al realizar el curso", ex);
+                throw ExcepcionManejada;
+            }
+        }
+
+        public bool ValidaMateria(Materia matAct)
+        {
+            try
+            {
+                MateriaAdapter materiaAdapter = new MateriaAdapter();
+                List<Materia> materias = materiaAdapter.GetAll();
+                foreach (var mat in materias)
+                {
+                    if (mat.DescMateria == matAct.DescMateria && mat.IdPlan == matAct.IdPlan)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al realizar la materia", ex);
+                throw ExcepcionManejada;
+            }
+        }
         //Sin probar
 
         public bool ValidaMail(String mail)

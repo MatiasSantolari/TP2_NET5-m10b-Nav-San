@@ -33,17 +33,17 @@ namespace UI.Desktop
             this.tsCursos = new System.Windows.Forms.ToolStripContainer();
             this.tlCursos = new System.Windows.Forms.TableLayoutPanel();
             this.dgvCursos = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Comision = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Anio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.tsCursosS = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Comision = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Anio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tsCursos.ContentPanel.SuspendLayout();
             this.tsCursos.TopToolStripPanel.SuspendLayout();
             this.tsCursos.SuspendLayout();
@@ -104,6 +104,47 @@ namespace UI.Desktop
             this.dgvCursos.RowTemplate.Height = 28;
             this.dgvCursos.Size = new System.Drawing.Size(794, 373);
             this.dgvCursos.TabIndex = 0;
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 8;
+            this.ID.Name = "ID";
+            this.ID.Visible = false;
+            this.ID.Width = 150;
+            // 
+            // Materia
+            // 
+            this.Materia.DataPropertyName = "Materia";
+            this.Materia.HeaderText = "Materia";
+            this.Materia.MinimumWidth = 8;
+            this.Materia.Name = "Materia";
+            this.Materia.Width = 150;
+            // 
+            // Comision
+            // 
+            this.Comision.DataPropertyName = "Comision";
+            this.Comision.HeaderText = "Comisión";
+            this.Comision.MinimumWidth = 8;
+            this.Comision.Name = "Comision";
+            this.Comision.Width = 150;
+            // 
+            // Anio
+            // 
+            this.Anio.DataPropertyName = "Anio";
+            this.Anio.HeaderText = "Año";
+            this.Anio.MinimumWidth = 8;
+            this.Anio.Name = "Anio";
+            this.Anio.Width = 150;
+            // 
+            // Cupo
+            // 
+            this.Cupo.DataPropertyName = "Cupo";
+            this.Cupo.HeaderText = "Cupo";
+            this.Cupo.MinimumWidth = 8;
+            this.Cupo.Name = "Cupo";
+            this.Cupo.Width = 150;
             // 
             // btnActualizar
             // 
@@ -172,47 +213,6 @@ namespace UI.Desktop
             this.tsbEliminar.ToolTipText = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 8;
-            this.ID.Name = "ID";
-            this.ID.Visible = false;
-            this.ID.Width = 150;
-            // 
-            // Materia
-            // 
-            this.Materia.DataPropertyName = "Materia";
-            this.Materia.HeaderText = "Materia";
-            this.Materia.MinimumWidth = 8;
-            this.Materia.Name = "Materia";
-            this.Materia.Width = 150;
-            // 
-            // Comision
-            // 
-            this.Comision.DataPropertyName = "Comision";
-            this.Comision.HeaderText = "Comisión";
-            this.Comision.MinimumWidth = 8;
-            this.Comision.Name = "Comision";
-            this.Comision.Width = 150;
-            // 
-            // Anio
-            // 
-            this.Anio.DataPropertyName = "Anio";
-            this.Anio.HeaderText = "Año";
-            this.Anio.MinimumWidth = 8;
-            this.Anio.Name = "Anio";
-            this.Anio.Width = 150;
-            // 
-            // Cupo
-            // 
-            this.Cupo.DataPropertyName = "Cupo";
-            this.Cupo.HeaderText = "Cupo";
-            this.Cupo.MinimumWidth = 8;
-            this.Cupo.Name = "Cupo";
-            this.Cupo.Width = 150;
-            // 
             // CursosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -220,7 +220,7 @@ namespace UI.Desktop
             this.ClientSize = new System.Drawing.Size(800, 449);
             this.Controls.Add(this.tsCursos);
             this.Name = "CursosForm";
-            this.Text = "CursosForm";
+            this.Text = "Cursos";
             this.Load += new System.EventHandler(this.CursosForm_Load);
             this.tsCursos.ContentPanel.ResumeLayout(false);
             this.tsCursos.TopToolStripPanel.ResumeLayout(false);

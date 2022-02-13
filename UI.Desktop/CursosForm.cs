@@ -117,8 +117,33 @@ namespace UI.Desktop
             int ind = dgvCursos.SelectedCells[0].RowIndex;
             DataGridViewRow dataGridViewRow = dgvCursos.Rows[ind];
             int ID = Convert.ToInt32(dataGridViewRow.Cells["ID"].Value);
-            CursosDesktop eliminar = new CursosDesktop(ID, ModoForm.Baja);
-            eliminar.ShowDialog();
+
+            Alumnos_InscripcionesLogic alu = new Alumnos_InscripcionesLogic();
+            Docente_CursoLogic dc = new Docente_CursoLogic();
+
+            var  alumnos_Inscripciones= alu.GetAll();
+            var docentes = dc.GetAll();
+         
+
+            var alis = (from c in alumnos_Inscripciones
+                       where c.IDCurso == ID
+                       select c.ID).ToList();
+
+            var doc = (from c in docentes
+                       where c.IDCurso == ID
+                       select c.ID).ToList();
+
+
+            if (alis.Count == 0 || doc.Count == 0){
+                CursosDesktop eliminar = new CursosDesktop(ID, ModoForm.Baja);
+                eliminar.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("El curso está siendo utilizada en otros datos. Primero elimine sus dependencias.");
+            }
+
+            
             this.Lista();
         }
 
