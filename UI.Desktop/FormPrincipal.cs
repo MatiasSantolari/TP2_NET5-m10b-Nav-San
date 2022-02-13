@@ -200,5 +200,11 @@ namespace UI.Desktop
             ReporteMateriasPorEspecialidad rp = new ReporteMateriasPorEspecialidad();
             rp.ShowDialog();
         }
+
+        private void reporteInscriptosPorMateriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReporteInscriptosPorMateria rp = new ReporteInscriptosPorMateria();
+            rp.ShowDialog();
+        }
     }
 }

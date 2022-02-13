@@ -74,6 +74,7 @@ namespace UI.Desktop
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteMateriasPorEspecialidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteInscriptosPorMateriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tblPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbUsuario)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -549,7 +550,8 @@ namespace UI.Desktop
             // 
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.reToolStripMenuItem,
-            this.reporteMateriasPorEspecialidadToolStripMenuItem});
+            this.reporteMateriasPorEspecialidadToolStripMenuItem,
+            this.reporteInscriptosPorMateriaToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.reportesToolStripMenuItem.Text = "Reportes";
@@ -567,6 +569,13 @@ namespace UI.Desktop
             this.reporteMateriasPorEspecialidadToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
             this.reporteMateriasPorEspecialidadToolStripMenuItem.Text = "Reporte MateriasPorEspecialidad";
             this.reporteMateriasPorEspecialidadToolStripMenuItem.Click += new System.EventHandler(this.reporteMateriasPorEspecialidadToolStripMenuItem_Click);
+            // 
+            // reporteInscriptosPorMateriaToolStripMenuItem
+            // 
+            this.reporteInscriptosPorMateriaToolStripMenuItem.Name = "reporteInscriptosPorMateriaToolStripMenuItem";
+            this.reporteInscriptosPorMateriaToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
+            this.reporteInscriptosPorMateriaToolStripMenuItem.Text = "Reporte InscriptosPorMateria";
+            this.reporteInscriptosPorMateriaToolStripMenuItem.Click += new System.EventHandler(this.reporteInscriptosPorMateriaToolStripMenuItem_Click);
             // 
             // FormPrincipal
             // 
@@ -663,5 +672,6 @@ namespace UI.Desktop
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteMateriasPorEspecialidadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteInscriptosPorMateriaToolStripMenuItem;
     }
 }
