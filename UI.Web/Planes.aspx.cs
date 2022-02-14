@@ -38,7 +38,6 @@ namespace UI.Web
             Persona p = (Persona)Session["USUARIO"];
             if (p == null)
             {
-                this.Panel1.Visible = false;
                 this.gridPanel.Visible = false;
                 this.formPanel.Visible = false;
                 this.formActionPanel.Visible = false;
@@ -151,6 +150,7 @@ namespace UI.Web
             { Label1.Visible = true; Label2.Visible = true; }
             else
             {
+                Validaciones val = new Validaciones();
                 switch (this.FormMode)
                 {
                     case FormModes.baja:
@@ -164,13 +164,21 @@ namespace UI.Web
                         Entity.DescPlan = this.descripcionTextBox.Text;
                         Entity.IdEspecialidad = int.Parse(this.especDropDown.SelectedItem.Value);
                         //this.LoadEntity(this.Entity);
-                        this.SaveEntity(this.Entity);
+                        if (val.ValidaPlan(this.Entity) == true)
+                        {
+                            this.SaveEntity(this.Entity);
+                        }
                         this.LoadGrid();
                         break;
                     case FormModes.alta:
                         this.Entity = new Plan();
                         this.LoadEntity(this.Entity);
-                        this.SaveEntity(this.Entity);
+                        
+                        if (val.ValidaPlan(this.Entity) == true)
+                        {
+                            this.SaveEntity(this.Entity);
+                        }
+                        
                         this.LoadGrid();
                         break;
                     default:

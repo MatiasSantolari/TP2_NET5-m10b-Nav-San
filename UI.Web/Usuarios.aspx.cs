@@ -41,7 +41,6 @@ namespace UI.Web
 
             if (p == null)
             {
-                this.Panel1.Visible = false;
                 this.gridActionsPanel.Visible = false;
                 this.gridPanel.Visible = false;
                 this.formPanel.Visible = false;

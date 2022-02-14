@@ -90,7 +90,6 @@ namespace UI.Web
             Persona p = (Persona)Session["USUARIO"];
             if (p == null)
             {
-                this.Panel1.Visible = false;
                 this.gridPanel.Visible = false;
                 this.formPanel.Visible = false;
                 this.formActionPanel.Visible = false;
@@ -273,7 +272,10 @@ namespace UI.Web
                             else
                             { Entity.Nota = int.Parse(this.notaTextBox.Text); }
 
-                            this.SaveEntity(this.Entity);
+                            if (val.ValidaInscripcion(this.Entity) == true)
+                            {
+                                this.SaveEntity(this.Entity);
+                            }
                             this.LoadGrid();
 
                             break;
@@ -285,7 +287,10 @@ namespace UI.Web
                             Entity.ID = this.SelectedID;
                             this.Entity.State = BusinessEntity.States.Modified;
                             this.LoadEntity(this.Entity);
-                            this.SaveEntity(this.Entity);
+                            if (val.ValidaInscripcion(this.Entity) == true)
+                            {
+                                this.SaveEntity(this.Entity);
+                            }
                             this.LoadGrid();
                             break;
                         default:
@@ -332,16 +337,22 @@ namespace UI.Web
             this.Entity = this.Logic.GetOne(ID);
 
             /*Curso c = new Curso();
+            CursoLogic cl = new CursoLogic();
             c = cl.GetOne(this.Entity.IDCurso);
             Materia m = new Materia();
+            MateriaLogic ml = new MateriaLogic();
             m = ml.GetOne(c.IDMateria);
             Comision com = new Comision();
+            ComisionLogic col = new ComisionLogic();
             com = col.GetOne(c.IDComision);*/
 
             this.AlumnoDropDown.SelectedValue = this.Entity.IDAlumno.ToString();
             this.CursoDropDown.SelectedValue = this.Entity.IDCurso.ToString();
             this.condicionTextBox.Text = this.Entity.Condicion.ToString();
             this.notaTextBox.Text = this.Entity.Nota.ToString();
+
+
+
         }
 
         private void EnableForm(bool enable)
@@ -434,5 +445,9 @@ namespace UI.Web
             this.notaTextBox.Text = null;
         }
 
+        protected void CursoDropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

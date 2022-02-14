@@ -3,22 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="PageContent" Runat="Server">
         <h1 style="background-color:lightblue">Datos Personales</h1>
 
-        <asp:Panel ID="Panel1" runat="server">
-            <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal">
-                <Items>
-                    <asp:MenuItem NavigateUrl="~/Home.aspx" Text="Home" Value="Home"></asp:MenuItem>
-                    <asp:MenuItem NavigateUrl="~/Alumnos_Inscripciones.aspx" Text="Inscripciones" Value="Inscripciones"></asp:MenuItem>
-                    <asp:MenuItem NavigateUrl="~/Comisiones.aspx" Text="Comisiones" Value="Nuevo elemento"></asp:MenuItem>
-                    <asp:MenuItem NavigateUrl="~/Cursos.aspx" Text="Cursos" Value="Cursos"></asp:MenuItem>
-                    <asp:MenuItem NavigateUrl="~/Docentes_Cursos.aspx" Text="Docentes" Value="Docentes"></asp:MenuItem>
-                    <asp:MenuItem NavigateUrl="~/Especialidades.aspx" Text="Especialidades" Value="Especialidades"></asp:MenuItem>
-                    <asp:MenuItem NavigateUrl="~/Personas.aspx" Text="Datos Personales" Value="Datos Personales"></asp:MenuItem>
-                    <asp:MenuItem NavigateUrl="~/Planes.aspx" Text="Planes" Value="Planes"></asp:MenuItem>
-                    <asp:MenuItem NavigateUrl="~/Usuarios.aspx" Text="Usuario" Value="Usuario"></asp:MenuItem>
-                    <asp:MenuItem NavigateUrl="~/Materias.aspx" Text="Materias" Value="Materias"></asp:MenuItem>
-                </Items>
-            </asp:Menu>
-        </asp:Panel>
         <div>
             <asp:Panel ID="formPanel" Visible="true" runat="server" >
                 <asp:Label ID="nombreLabel" runat="server" Text="Nombre: "></asp:Label>
@@ -70,9 +54,9 @@
             </asp:Panel>
     
             <asp:Panel ID="formActionPanel" Visible="true" runat="server">
-                <asp:LinkButton ID="aceptarLinkButton" class="btn btn-success" runat="server" OnClick="aceptarLinkButton_Click" ValidationGroup="vg" Visible="False">Aceptar</asp:LinkButton>
+                <asp:LinkButton ID="aceptarLinkButton" class="btn btn-success" runat="server" OnClick="aceptarLinkButton_Click" ValidationGroup="vg">Aceptar</asp:LinkButton>
                 <div class="divider"></div>
-                <asp:LinkButton ID="cancelarLinkButtom" class="btn btn-danger" runat="server" OnClick="cancelarLinkButtom_Click" Visible="False">Cancelar</asp:LinkButton>
+                <asp:LinkButton ID="cancelarLinkButtom" class="btn btn-danger" runat="server" OnClick="cancelarLinkButtom_Click">Cancelar</asp:LinkButton>
             </asp:Panel>
             <asp:Panel ID="ValidationActionPanel" runat="server">
                

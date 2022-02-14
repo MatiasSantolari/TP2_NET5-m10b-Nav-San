@@ -23,9 +23,10 @@ namespace UI.Desktop
             cbxPlan.ValueMember = "ID";
 
             PersonaLogic pel = new PersonaLogic();
-            cbxTipoPersona.DisplayMember = "TipoPersona";
-            cbxTipoPersona.ValueMember = "ID";
             cbxTipoPersona.DataSource = Enum.GetValues(typeof(Persona.TipoPersonas));
+            //cbxTipoPersona.DisplayMember = "TipoPersona";
+            //cbxTipoPersona.ValueMember = "ID";
+            
         }
 
         public PersonaDesktop(ModoForm modo) : this()
@@ -54,6 +55,17 @@ namespace UI.Desktop
             this.txtTelefono.Text = this.PersonaActual.Telefono.ToString();
             this.txtFechaNac.Text = this.PersonaActual.FechaNac.ToString();
             this.txtLegajo.Text = this.PersonaActual.Legajo.ToString();
+
+            PlanLogic pl = new PlanLogic();
+            List<Plan> pla = new List<Plan>();
+            pla = pl.GetAll();
+            cbxPlan.DataSource = pla;
+            cbxPlan.DisplayMember = "DescPlan";
+            cbxPlan.ValueMember = "ID";
+            this.cbxPlan.SelectedValue = PersonaActual.IdPlan;
+
+            //cbxPlan.SelectedItem = this.PersonaActual.IdPlan;
+            cbxTipoPersona.SelectedItem = this.PersonaActual.TipoPersona;
 
             switch (Modo)
             {
@@ -123,15 +135,8 @@ namespace UI.Desktop
                     this.PersonaActual.Legajo = Int32.Parse(this.txtLegajo.Text);
                     this.PersonaActual.TipoPersona = (Persona.TipoPersonas)(this.cbxTipoPersona.SelectedValue);
                     this.PersonaActual.IdPlan = Int32.Parse(this.cbxPlan.SelectedValue.ToString());
-                    if (v.ValidaPersona(PersonaActual) == true)
-                    {
                         PersonaActual.State = BusinessEntity.States.Modified;
-                    }
-                    else
-                    {
-                        MessageBox.Show("La persona ya existe.");
-                        PersonaActual.State = BusinessEntity.States.Unmodified;
-                    }
+                    
                     break;
 
                 case ModoForm.Baja:

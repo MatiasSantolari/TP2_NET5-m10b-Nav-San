@@ -33,6 +33,7 @@ namespace UI.Desktop
             cbxMateria.DisplayMember = "DescMateria";
             cbxMateria.ValueMember = "ID";
             cbxCargo.DataSource = Enum.GetValues(typeof(Docente_Curso.cargos));
+            cbxComision.Enabled = false;
         }
 
         public Docentes_CursosDesktop(ModoForm modo) : this()
@@ -77,6 +78,9 @@ namespace UI.Desktop
                     break;
 
                 case ModoForm.Modificacion:
+                    //this.cbxDocente.Enabled = false;
+                    this.cbxComision.Enabled = false;
+                    this.cbxMateria.Enabled = false;
                     this.btnAceptar.Text = "Guardar";
                     break;
 
@@ -180,7 +184,7 @@ namespace UI.Desktop
         {
             bool b2 = cbxComision.Enabled;
 
-            if (b2 == false || this.cbxDocente.SelectedValue == null || this.cbxCargo.SelectedValue == null)
+            if (this.cbxDocente.SelectedValue == null || this.cbxCargo.SelectedValue == null || this.cbxComision.SelectedValue == null)
             {
                 this.Notificar("Por favor, rellenar los campos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
@@ -194,8 +198,12 @@ namespace UI.Desktop
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            GuardarCambios();
-            this.Close();            
+            if (this.Validara()) 
+            { 
+                GuardarCambios();
+                this.Close();
+            }
+                      
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

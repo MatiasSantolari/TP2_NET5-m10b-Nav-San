@@ -41,7 +41,6 @@ namespace UI.Web
             Persona p = (Persona)Session["USUARIO"];
             if (p == null)
             {
-                this.Panel1.Visible = false;
                 this.gridActionsPanel.Visible = false;
                 this.gridPanel.Visible = false;
                 this.formPanel.Visible = false;
@@ -309,6 +308,7 @@ namespace UI.Web
             { Label4.Visible = true; Label2.Visible = true; Label3.Visible = true; }
             else
             {
+                Validaciones val = new Validaciones();
                 switch (this.FormMode)
                 {
                     case FormModes.baja:
@@ -323,13 +323,19 @@ namespace UI.Web
                         Entity.IDDocente = int.Parse(this.DocenteDropDown.SelectedItem.Value);
                         Entity.Cargo = (Docente_Curso.cargos)Enum.Parse(typeof(Docente_Curso.cargos), this.TipoDropDown.SelectedItem.Value);
 
-                        this.SaveEntity(this.Entity);
+                        if (val.ValidaDocente(this.Entity) == true)
+                        {
+                            this.SaveEntity(this.Entity);
+                        }
                         this.LoadGrid();
                         break;
                     case FormModes.alta:
                         this.Entity = new Docente_Curso();
                         this.LoadEntity(this.Entity);
-                        this.SaveEntity(this.Entity);
+                        if (val.ValidaDocente(this.Entity) == true)
+                        {
+                            this.SaveEntity(this.Entity);
+                        }
                         this.LoadGrid();
                         break;
                     default:

@@ -42,7 +42,6 @@ namespace UI.Web
             Persona p = (Persona)Session["USUARIO"];
             if (p == null)
             {
-                this.Panel1.Visible = false;
                 this.gridActionsPanel.Visible = false;
                 this.gridPanel.Visible = false;
                 this.formPanel.Visible = false;
@@ -289,13 +288,19 @@ namespace UI.Web
                             Entity.Cupo = int.Parse(this.cupoTextBox.Text);
                             Entity.IDComision = int.Parse(this.ComisionDropDown.SelectedItem.Value);
                             Entity.IDMateria = int.Parse(this.MateriaDropDown.SelectedItem.Value);
-                            this.SaveEntity(this.Entity);
+                            if (val.ValidaCurso(this.Entity) == true)
+                            {
+                                this.SaveEntity(this.Entity);
+                            }
                             this.LoadGrid();
                             break;
                         case FormModes.alta:
                             this.Entity = new Curso();
                             this.LoadEntity(this.Entity);
-                            this.SaveEntity(this.Entity);
+                            if (val.ValidaCurso(this.Entity) == true)
+                            {
+                                this.SaveEntity(this.Entity);
+                            }
                             this.LoadGrid();
                             break;
                         default:

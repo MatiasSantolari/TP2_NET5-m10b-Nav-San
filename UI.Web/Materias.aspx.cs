@@ -46,7 +46,6 @@ namespace UI.Web
                 this.formActionPanel.Visible = false;
                 this.gridActionsPanel.Visible = false;
                 this.ValidationActionPanel.Visible = false;
-                this.Menu1.Visible = false;
             }
             else if(p.TipoPersona.ToString() == "Alumno" || p.TipoPersona.ToString() == "Docente")
             {
@@ -193,8 +192,7 @@ namespace UI.Web
                     this.lblValidacionHsTot.Visible = false;
                     Label1.Visible = false; Label2.Visible = false; Label3.Visible = false;
                     Label4.Visible = false;
-                    this.aceptarLinkButton.Visible = false;
-                    this.cancelarLinkButtom.Visible = false;
+                    this.formActionPanel.Visible = false;
 
                     switch (this.FormMode)
                     {
@@ -210,13 +208,19 @@ namespace UI.Web
                             Entity.HsSemanales = int.Parse(this.hssemTextBox.Text);
                             Entity.HsTotales = int.Parse(this.hstotTextBox.Text);
                             Entity.IdPlan = int.Parse(this.planDropDown.SelectedItem.Value);
-                            this.SaveEntity(this.Entity);
+                            if (val.ValidaMateria(this.Entity) == true)
+                            {
+                                this.SaveEntity(this.Entity);
+                            }
                             this.LoadGrid();
                             break;
                         case FormModes.alta:
                             this.Entity = new Materia();
                             this.LoadEntity(this.Entity);
-                            this.SaveEntity(this.Entity);
+                            if (val.ValidaMateria(this.Entity) == true)
+                            {
+                                this.SaveEntity(this.Entity);
+                            }
                             this.LoadGrid();
                             break;
                         default:

@@ -159,7 +159,7 @@ namespace Business.Logic
             }
             catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al realizar el curso", ex);
+                Exception ExcepcionManejada = new Exception("Error al validar la persona", ex);
                 throw ExcepcionManejada;
             }
         }

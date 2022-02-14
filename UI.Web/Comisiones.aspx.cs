@@ -30,7 +30,6 @@ namespace UI.Web
 
             if (p == null)
             {
-                this.Panel1.Visible = false;
                 this.gridActionsPanel.Visible = false;
                 this.gridPanel.Visible = false;
                 this.formPanel.Visible = false;
@@ -199,6 +198,7 @@ namespace UI.Web
             {
                 ValidacionBorrado.Visible = false;
                 this.formPanel.Visible = true;
+                this.formActionPanel.Visible = true;
                 this.FormMode = FormModes.baja;
                 this.formActionPanel.Visible = true;
                 this.EnableForm(false);
@@ -247,8 +247,7 @@ namespace UI.Web
                 {
                     this.lblValidacionAño.Visible = false;
                     Label1.Visible = false; Label2.Visible = false; Label3.Visible = false;
-                    this.aceptarLinkButton.Visible = false;
-                    this.cancelarLinkButtom.Visible = false;
+                    this.formActionPanel.Visible = false;
 
                     switch (this.FormMode)
                     {
@@ -263,13 +262,19 @@ namespace UI.Web
                             comision.DescComision = this.descripcionTextBox.Text;
                             comision.AnioEspecialidad = (Comision.Anios)int.Parse(this.anioEspecialidadTextBox.Text);
                             comision.IDPlan = int.Parse(this.planDropDown.SelectedItem.Value);
-                            this.SaveEntity(this.comision);
+                            if (val.ValidaComision(this.comision) == true)
+                            {
+                                this.SaveEntity(this.comision);
+                            }
                             this.LoadGrid();
                             break;
                         case FormModes.alta:
                             this.comision = new Comision();
                             this.LoadEntity(this.comision);
-                            this.SaveEntity(this.comision);
+                            if (val.ValidaComision(this.comision) == true)
+                            {
+                                this.SaveEntity(this.comision);
+                            }
                             this.LoadGrid();
                             break;
                         default:
@@ -303,8 +308,7 @@ namespace UI.Web
             EnableForm(false);
             this.lblValidacionAño.Visible = false;
             Label1.Visible = false; Label2.Visible = false; Label3.Visible = false;
-            this.aceptarLinkButton.Visible = false;
-            this.cancelarLinkButtom.Visible = false;
+            this.formActionPanel.Visible = false;
         }
     }
 }

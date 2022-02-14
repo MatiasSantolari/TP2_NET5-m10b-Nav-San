@@ -111,9 +111,6 @@ namespace UI.Desktop
                 lblComisiones.Visible = false;
                 comisionesToolStripMenuItem.Visible = false;
 
-                //especialidades
-                pbEspecialidad.Visible = false;
-                lblReportePlanes.Visible = false;
 
             }
 
@@ -124,9 +121,6 @@ namespace UI.Desktop
                 lblInsc.Visible = false;
                 inscripcionesAlumnosToolStripMenuItem.Visible = false;
 
-                //especialidades
-                pbEspecialidad.Visible = false;
-                lblReportePlanes.Visible = false;
             }
         }
 
@@ -181,12 +175,6 @@ namespace UI.Desktop
         private void pbUsuario_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void pbEspecialidad_Click(object sender, EventArgs e)
-        {
-            ReportePlanes rp = new ReportePlanes();
-            rp.ShowDialog();
         }
 
         private void reToolStripMenuItem_Click(object sender, EventArgs e)

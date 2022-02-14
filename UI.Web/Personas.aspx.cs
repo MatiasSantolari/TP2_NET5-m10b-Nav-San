@@ -33,7 +33,6 @@ namespace UI.Web
             {
                 if (PersonaActual == null)
                 {
-                    this.Panel1.Visible = false;
                     this.gridActionsPanel.Visible = false;
                     this.formPanel.Visible = false;
                     this.formActionPanel.Visible = false;
@@ -44,6 +43,7 @@ namespace UI.Web
                 {
                     LoadPlan();
                     LoadForm(PersonaActual.ID);
+                    this.formActionPanel.Visible = false;
                 }
                 
             }
@@ -135,7 +135,7 @@ namespace UI.Web
             persona.Apellido = this.apellidoTextBox.Text;
             persona.Email = this.emailTextBox.Text;
             persona.Direccion = this.direccionTextBox.Text;
-            persona.TipoPersona = Persona.TipoPersonas.Alumno;
+            persona.TipoPersona = this.PersonaActual.TipoPersona;
             persona.Legajo = int.Parse(this.legajoTextBox.Text);
             persona.FechaNac = DateTime.Parse(this.fechaNacimientoTextBox.Text);
             persona.Telefono = this.telefonoTextBox.Text;
@@ -158,9 +158,9 @@ namespace UI.Web
 
 
             this.EnableForm(true);
-            this.aceptarLinkButton.Visible = true;
-            this.cancelarLinkButtom.Visible = true;
+            
             this.FormMode = FormModes.modificacion;
+            this.formActionPanel.Visible = true;
             //this.LoadForm(AlumnoActual.ID);
 
         }
@@ -184,8 +184,7 @@ namespace UI.Web
                     Label1.Visible = false; Label2.Visible = false; Label3.Visible = false;
                     Label4.Visible = false; Label5.Visible = false; Label6.Visible = false;
                     Label7.Visible = false; Label8.Visible = false;
-                    this.aceptarLinkButton.Visible = false;
-                    this.cancelarLinkButtom.Visible = false;
+                    this.formActionPanel.Visible = false;
                     switch (this.FormMode)
                     {
                         case FormModes.consulta:
@@ -195,10 +194,12 @@ namespace UI.Web
                             //this.AlumnoActual.State = BusinessEntity.States.Modified;
                             var persona = LoadEntity();
                             persona.State = BusinessEntity.States.Modified;
-                            this.SaveEntity(persona);
+                            if (val.ValidaPersona(persona) == true)
+                            {
+                                this.SaveEntity(persona);
+                            }
                             this.PersonaActual = persona;
-                            this.aceptarLinkButton.Visible = false;
-                            this.cancelarLinkButtom.Visible = false;
+                            this.formActionPanel.Visible = false;
                             break;
 
 
@@ -232,8 +233,7 @@ namespace UI.Web
             Label1.Visible = false; Label2.Visible = false; Label3.Visible = false; 
             Label4.Visible = false; Label5.Visible = false; Label6.Visible = false; 
             Label7.Visible = false; Label8.Visible = false;
-            this.aceptarLinkButton.Visible = false;
-            this.cancelarLinkButtom.Visible = false;
+            this.formActionPanel.Visible = false;
         }
 
         protected void emailTextBox_TextChanged(object sender, EventArgs e)

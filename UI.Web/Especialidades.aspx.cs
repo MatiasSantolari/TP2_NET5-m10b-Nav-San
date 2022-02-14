@@ -44,7 +44,6 @@ namespace UI.Web
                 this.formActionPanel.Visible = false;
                 this.gridActionsPanel.Visible = false;
                 this.ValidationActionPanel.Visible = false;
-                this.Menu2.Visible = false;
             }
             else if(p.TipoPersona.ToString() == "Alumno" || p.TipoPersona.ToString() == "Docente")
             {
