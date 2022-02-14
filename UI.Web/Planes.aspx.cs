@@ -43,6 +43,8 @@ namespace UI.Web
                 this.formActionPanel.Visible = false;
                 this.gridActionsPanel.Visible = false;
                 this.ValidationActionPanel.Visible = false;
+
+                Response.Redirect("~/AccesoRestringido.aspx");
             }
             else if (p.TipoPersona.ToString() == "Alumno" || p.TipoPersona.ToString() == "Docente")
             {

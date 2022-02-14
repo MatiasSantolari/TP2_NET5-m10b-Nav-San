@@ -37,7 +37,7 @@ namespace UI.Web
                     this.formPanel.Visible = false;
                     this.formActionPanel.Visible = false;
                     this.ValidationActionPanel.Visible = false;
-                    return;
+                    Response.Redirect("~/AccesoRestringido.aspx");
                 }
                 else 
                 {

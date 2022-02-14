@@ -46,6 +46,8 @@ namespace UI.Web
                 this.formActionPanel.Visible = false;
                 this.gridActionsPanel.Visible = false;
                 this.ValidationActionPanel.Visible = false;
+
+                Response.Redirect("~/AccesoRestringido.aspx");
             }
             else if(p.TipoPersona.ToString() == "Alumno" || p.TipoPersona.ToString() == "Docente")
             {
@@ -331,12 +333,6 @@ namespace UI.Web
             this.SelectedID = 0;
         }
 
-        protected void btnReporteMaterias_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Reportes/ReportePlanes.aspx");
-
-            //ExportToPDF();
-        }
         /*private void ExportToPDF()
         {
             string deviceInfo = "";

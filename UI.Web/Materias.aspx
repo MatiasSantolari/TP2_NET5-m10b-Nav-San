@@ -3,7 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="PageContent" Runat="Server">
         <h1 style="background-color:lightblue">Materias</h1>
         <asp:Panel ID="Panel1" runat="server">
-            <asp:Button ID="btnReporteMaterias" runat="server" OnClick="btnReporteMaterias_Click" Text="Generar Reporte" Width="148px" />
             
         </asp:Panel>
         <div>

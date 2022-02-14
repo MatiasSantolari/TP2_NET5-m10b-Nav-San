@@ -19,6 +19,8 @@ namespace UI.Web
                 this.Label1.Visible = false;
                 this.Label2.Visible = false;
                 this.nombreLabel.Visible = false;
+
+                Response.Redirect("~/AccesoRestringido.aspx");
             }
         }
 

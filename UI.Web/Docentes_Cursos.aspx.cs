@@ -46,6 +46,8 @@ namespace UI.Web
                 this.formPanel.Visible = false;
                 this.formActionPanel.Visible = false;
                 this.ValidationActionPanel.Visible = false;
+
+                Response.Redirect("~/AccesoRestringido.aspx");
             }
             else if(p.TipoPersona.ToString() == "Docente")
             {
@@ -154,7 +156,7 @@ namespace UI.Web
             if (this.DocenteDropDown.Items.Count == 1)
             {
                 this.DocenteDropDown.DataSource = docentess.GetPersonasXTipo(Persona.TipoPersonas.Docente);
-                this.DocenteDropDown.DataTextField = "Legajo";
+                this.DocenteDropDown.DataTextField = "Apellido";
                 this.DocenteDropDown.DataValueField = "ID";
                 this.DocenteDropDown.DataBind();
             }

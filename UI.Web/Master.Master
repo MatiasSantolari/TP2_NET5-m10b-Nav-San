@@ -76,7 +76,10 @@
                     </tr>   
                     <tr> 
                         <td><a href="Materias.aspx">Materias</a></td> 
-                    </tr>   
+                    </tr> 
+                    <tr>
+                        <td><a href="Reportes/ReportePlanes.aspx">Reporte Planes</a></td> 
+                    </tr>
                 </table> 
             </td> 
              

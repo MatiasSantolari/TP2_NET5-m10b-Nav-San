@@ -122,7 +122,7 @@ namespace UI.Web
             Persona per = (Persona)Session["USUARIO"];
             if (per == null)
             {
-                return;
+                Response.Redirect("~/AccesoRestringido.aspx");
             }
             switch (per.TipoPersona)
             {
@@ -211,7 +211,7 @@ namespace UI.Web
             if (this.AlumnoDropDown.Items.Count == 1)
             {
                 this.AlumnoDropDown.DataSource = alumno.GetPersonasXTipo(Persona.TipoPersonas.Alumno);
-                this.AlumnoDropDown.DataTextField = "Legajo";
+                this.AlumnoDropDown.DataTextField = "Apellido";
                 this.AlumnoDropDown.DataValueField = "ID";
                 this.AlumnoDropDown.DataBind();
             }
@@ -246,7 +246,7 @@ namespace UI.Web
 
         protected void inscribirLinkButton_Click(object sender, EventArgs e)
         {
-            if (condicionTextBox.Text == "" || notaTextBox.Text == "" || AlumnoDropDown.SelectedValue.Equals("0") || AlumnoDropDown.SelectedValue.Equals("0"))
+            if (condicionTextBox.Text == "" || notaTextBox.Text == "" || AlumnoDropDown.SelectedValue.Equals("0") || CursoDropDown.SelectedValue.Equals("0"))
             { Label1.Visible = true; Label2.Visible = true; Label3.Visible = true; Label4.Visible = true; }
             else
             {

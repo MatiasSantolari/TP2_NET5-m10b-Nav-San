@@ -46,6 +46,8 @@ namespace UI.Web
                 this.formPanel.Visible = false;
                 this.formActionPanel.Visible = false;
                 this.ValidationActionPanel.Visible = false;
+
+                Response.Redirect("~/AccesoRestringido.aspx");
             }
             else if (p.TipoPersona.ToString() == "Alumno" || p.TipoPersona.ToString() == "Docente")
             {
@@ -63,7 +65,7 @@ namespace UI.Web
             if (this.LegajoDropDown.Items.Count == 1)
             {
                 this.LegajoDropDown.DataSource = personaLogic.GetAll();
-                this.LegajoDropDown.DataTextField = "legajo";
+                this.LegajoDropDown.DataTextField = "Apellido";
                 this.LegajoDropDown.DataValueField = "ID";
                 this.LegajoDropDown.DataBind();
             }
